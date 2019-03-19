@@ -1,5 +1,3 @@
-using System;
-
 namespace CABESO.Models
 {
     public class ErrorViewModel

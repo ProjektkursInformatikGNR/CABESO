@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CABESO.Areas.Identity.Pages.Account
 {
@@ -36,15 +35,17 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(AllowEmptyStrings = false, ErrorMessage = Program.ErrorMessage)]
+            [EmailAddress(ErrorMessage = "Gib bitte eine gültige E-Mail-Adresse an.")]
+            [Display(Name = "die E-Mail-Adresse")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(AllowEmptyStrings = false, ErrorMessage = Program.ErrorMessage)]
             [DataType(DataType.Password)]
+            [Display(Name = "das Passwort")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Angemeldet bleiben?")]
             public bool RememberMe { get; set; }
         }
 
@@ -90,7 +91,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Ungültige Anmeldedaten.");
                     return Page();
                 }
             }

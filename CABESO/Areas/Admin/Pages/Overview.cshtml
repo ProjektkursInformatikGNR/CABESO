@@ -1,0 +1,85 @@
+﻿@page
+@inject UserManager<IdentityUser> UserManager
+@model OverviewModel
+@{
+    ViewData["Title"] = "Admin-Bereich";
+    ViewData["ActivePage"] = "Overview";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Overview" asp-route-sortOrder="@Model.FirstNameSort">
+                    Vorname
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Overview" asp-route-sortOrder="@Model.LastNameSort">
+                    Nachname
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Overview" asp-route-sortOrder="@Model.RoleSort">
+                    Rolle
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Overview" asp-route-sortOrder="@Model.FormSort">
+                    Klasse
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Overview" asp-route-sortOrder="@Model.AdminSort">
+                    Administrator
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>
+                    @user.Name.FirstName
+                </td>
+                <td>
+                    @user.Name.LastName
+                </td>
+                <td>
+                    @string.Join(", ", user.Roles)
+                </td>
+                <td>
+                    @user.Form
+                </td>
+                <td>
+                    @if (user.Admin)
+                    {
+                        <input type="checkbox" checked onclick="return false;" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" onclick="return false;" />
+                    }
+                </td>
+                <td>
+                    @if (!user.Id.Equals(UserEntity.GetUser(UserManager, User).Id))
+                    {
+                        <a asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id">Entfernen</a>
+                        @if (!user.Admin)
+                        {
+                            <text>|</text>
+                            <a asp-controller="Admin" asp-action="Promote" asp-route-id="@user.Id">Befördern</a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

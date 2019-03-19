@@ -1,0 +1,50 @@
+﻿@page
+@model CABESO.Areas.Admin.Pages.AddUserModel
+@{
+    ViewData["Title"] = "AddUser";
+    ViewData["ActivePage"] = "AddUser";
+}
+
+<form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <h4>Füge jemanden der Gruppe hinzu:</h4>
+    <hr />
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Input.Email">E-Mail-Adresse</label>
+        <input asp-for="Input.Email" class="form-control" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group" id="formform">
+        <label asp-for="Input.Form">Klasse</label>
+        <select asp-for="Input.Form" class="form-control">
+            @foreach (object[] form in Model.Forms)
+            {
+                <option value="@form[1]">
+                    @form[0]
+                </option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <input asp-for="Input.Role" type="radio" value="Student" id="sradbtn" checked /> Schüler
+        &nbsp;
+        <input asp-for="Input.Role" type="radio" value="Teacher" id="tradbtn" /> Lehrer
+    </div>
+    <button type="submit" class="btn btn-primary">Hinzufügen</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        var sRadBtn = document.getElementById('sradbtn');
+        var tRadBtn = document.getElementById('tradbtn');
+        var formForm = document.getElementById('formform');
+        sRadBtn.onclick = function (evt) {
+            formForm.removeAttribute('hidden');
+        };
+        tRadBtn.onclick = function (evt) {
+            formForm.setAttribute('hidden', 'true');
+        };
+    </script>
+}

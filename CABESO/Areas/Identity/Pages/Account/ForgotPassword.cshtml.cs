@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
+using System.Net;
+using System.Net.Mail;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 
 namespace CABESO.Areas.Identity.Pages.Account
 {
@@ -53,10 +53,23 @@ namespace CABESO.Areas.Identity.Pages.Account
                     values: new { code },
                     protocol: Request.Scheme);
 
-                await _emailSender.SendEmailAsync(
-                    Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                SmtpClient client = new SmtpClient(Startup.MailSmtp);
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(Startup.MailAddress, Startup.MailPassword);
+                client.EnableSsl = true;
+
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress(Startup.MailAddress);
+                mailMessage.To.Add(Input.Email);
+                mailMessage.IsBodyHtml = true;
+                mailMessage.Body = $"Bitte setze dein Passwort zurück, indem du <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> klickst.";
+                mailMessage.Subject = "Passwort zurücksetzen";
+                client.Send(mailMessage);
+
+                //await _emailSender.SendEmailAsync(
+                //    Input.Email,
+                //    "Reset Password",
+                //    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }
