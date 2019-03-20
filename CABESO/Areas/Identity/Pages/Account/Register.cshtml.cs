@@ -16,18 +16,18 @@ namespace CABESO.Areas.Identity.Pages.Account
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        private readonly IEmailSender _emailSender;
+        //private readonly IEmailSender _emailSender;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            ILogger<RegisterModel> logger)
+            //IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-            _emailSender = emailSender;
+            //_emailSender = emailSender;
         }
 
         [BindProperty]
@@ -37,6 +37,12 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Required]
+            [StringLength(10,ErrorMessage = "The code is wrong.", MinimumLength = 10)]
+            [DataType(DataType.Text)]
+            [Display(Name = "Code")]
+            public string Code { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -77,8 +83,8 @@ namespace CABESO.Areas.Identity.Pages.Account
                         values: new { userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
