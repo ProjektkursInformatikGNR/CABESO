@@ -228,6 +228,7 @@ namespace CABESO.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
+
 #pragma warning restore 612, 618
         }
     }

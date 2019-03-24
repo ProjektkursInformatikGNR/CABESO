@@ -5,7 +5,7 @@
 <ul class="nav navbar-nav navbar-right">
     @if (SignInManager.IsSignedIn(User))
     {
-        @if (UserManager.IsInRoleAsync(UserManager.FindByNameAsync(User.Identity.Name).Result, "Admin").Result)
+        @if (User != null && UserManager.IsInRoleAsync(UserManager.FindByNameAsync(User.Identity.Name).Result, "Admin").Result)
         {
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="Admin" asp-page="/Overview">Admin-Bereich</a>

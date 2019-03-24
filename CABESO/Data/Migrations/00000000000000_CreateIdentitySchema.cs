@@ -40,7 +40,8 @@ namespace CABESO.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Form = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -153,6 +154,33 @@ namespace CABESO.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Forms",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    Year = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Forms", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Codes",
+                columns: table => new
+                {
+                    Code = table.Column<string>(maxLength: 10, fixedLength: true, nullable: false),
+                    CreationTime = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Codes", x => x.Code);
+                });
+
+            migrationBuilder.AddForeignKey("FK_Form", "AspNetUsers", "Form", "Forms", principalColumn: "Id");
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,6 +219,9 @@ namespace CABESO.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.InsertData("Forms", new[] { "Id", "Name", "Year" }, new object[] { 1, "EF", 10 });
+            migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime" }, new object[] { "1234567890", DateTime.Now });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -215,6 +246,12 @@ namespace CABESO.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Forms");
+
+            migrationBuilder.DropTable(
+                name: "Codes");
         }
     }
 }

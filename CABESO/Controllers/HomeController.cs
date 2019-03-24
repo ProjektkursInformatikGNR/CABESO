@@ -1,6 +1,8 @@
-﻿using CABESO.Models;
+﻿using CABESO.Data;
+using CABESO.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
 
 namespace CABESO.Controllers
@@ -14,11 +16,14 @@ namespace CABESO.Controllers
         {
             _signInManager = signInManager;
             _userManager = userManager;
+
+            foreach (string role in new[] { "Admin", "Teacher", "Student" })
+                if (!roleManager.RoleExistsAsync(role).Result)
+                    roleManager.CreateAsync(new IdentityRole(role));
         }
 
         public IActionResult Index()
         {
-            //_userManager.AddToRolesAsync(_userManager.GetUserAsync(User).Result, new[] { "Admin", "Student" });
             return View();
         }
 

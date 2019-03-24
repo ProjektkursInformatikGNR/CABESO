@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace CABESO
 {
@@ -67,7 +68,7 @@ namespace CABESO
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             MailAddress = Configuration["Mail:Address"];
@@ -103,16 +104,6 @@ namespace CABESO
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            
-            InitRoles(roleManager);
-        }
-
-        public static void InitRoles(RoleManager<IdentityRole> roleManager)
-        {
-            foreach (string role in new[] { "Admin", "Teacher", "Student" })
-            {
-                roleManager.CreateAsync(new IdentityRole(role));
-            }
         }
     }
 }

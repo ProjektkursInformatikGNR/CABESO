@@ -79,9 +79,9 @@ namespace CABESO.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
+                    
                     await _userManager.AddToRoleAsync(user, "Student");
-                    Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET [Form]={Input.Form} WHERE [Id]='{user.Id}';");
+                    Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET [Form]={Input.Form}, [EmailConfirmed]='True' WHERE [Id]='{user.Id}';");
                     Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{Input.Code}';");
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
