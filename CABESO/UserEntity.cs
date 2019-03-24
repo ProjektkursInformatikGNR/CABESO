@@ -20,7 +20,7 @@ namespace CABESO
             return new object[] { Name, Form };
         }
 
-        private static string _adminId;
+        private static readonly string _adminId;
         private static Dictionary<string, string> _roleNames;
 
         static UserEntity()
@@ -47,7 +47,7 @@ namespace CABESO
                 else
                     roles.Add(_roleNames[enrolledRole[0].ToString()]);
             }
-
+            
             return new UserEntity() { Name = new Name(data[1].ToString(), !string.IsNullOrEmpty(form[0][0].ToString())), Form = form[0][0].ToString(), Admin = admin, Id = data[0].ToString(), Roles = roles.ToArray() };
         }
 
@@ -64,6 +64,11 @@ namespace CABESO
         public static UserEntity[] EnumerateUsers()
         {
             return Array.ConvertAll(Database.SqlQuery("AspNetUsers", null, "Id", "UserName", "Form"), user => ConvertData(user));
+        }
+
+        public IdentityUser ToIdentityUser(UserManager<IdentityUser> userManager)
+        {
+            return userManager.FindByIdAsync(Id).Result;
         }
     }
 

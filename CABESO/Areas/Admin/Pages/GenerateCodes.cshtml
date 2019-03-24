@@ -1,0 +1,39 @@
+﻿@page
+@model CABESO.Areas.Admin.Pages.GenerateCodesModel
+@{
+    ViewData["Title"] = "Registrierungscodes generieren";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Neue Codes generieren:</h4>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.Number"></label>
+        <input type="number" value="1" min="1" asp-for="Input.Number" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Generieren</button>
+</form>
+<br />
+
+<h4>Derzeit aktive Codes:</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Erstellungsdatum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Tuple<string, string> code in Model.Codes)
+        {
+            <tr>
+                <td>@code.Item1</td>
+                <td>@code.Item2</td>
+                <td>
+                    <a asp-controller="Admin" asp-action="DeactivateCode" asp-route-id="@code.Item1">Deaktivieren</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

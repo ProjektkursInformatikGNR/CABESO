@@ -35,5 +35,12 @@ namespace CABESO.Views.Admin
 
             return LocalRedirect("~/Admin/Overview");
         }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult DeactivateCode(string id)
+        {
+            Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{id}';");
+            return LocalRedirect("~/Admin/GenerateCodes");
+        }
     }
 }

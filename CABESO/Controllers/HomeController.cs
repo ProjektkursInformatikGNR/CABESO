@@ -10,19 +10,15 @@ namespace CABESO.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public HomeController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public HomeController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
-
-            userManager.CreateAsync(new IdentityUser() {
-                UserName = "kollenberg.joel@gnr.wwschool.de",
-                Email = "kollenberg.joel@gnr.wwschool.de" },
-                "cE12345!");
         }
 
         public IActionResult Index()
         {
+            //_userManager.AddToRolesAsync(_userManager.GetUserAsync(User).Result, new[] { "Admin", "Student" });
             return View();
         }
 
