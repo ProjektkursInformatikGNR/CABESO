@@ -17,7 +17,7 @@ namespace CABESO.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
 
-            foreach (string role in new[] { "Admin", "Teacher", "Student" })
+            foreach (string role in new[] { "Admin", "Teacher", "Student", "Employee" })
                 if (!roleManager.RoleExistsAsync(role).Result)
                     roleManager.CreateAsync(new IdentityRole(role));
         }

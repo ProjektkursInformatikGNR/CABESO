@@ -5,11 +5,23 @@
 <ul class="nav navbar-nav navbar-right">
     @if (SignInManager.IsSignedIn(User))
     {
-        @if (User != null && UserManager.IsInRoleAsync(UserManager.FindByNameAsync(User.Identity.Name).Result, "Admin").Result)
+        @if (User != null)
         {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Admin" asp-page="/Overview">Admin-Bereich</a>
-            </li>
+            if (User.IsInRole("Admin"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Admin" asp-page="/Index">Admin-Bereich</a>
+                </li>
+            }
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Kitchen" asp-page="/Index">K&uumlchen-Bereich</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Counter" asp-page="/Index">Theken-Bereich</a>
+                </li>
+            }
         }
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Konto verwalten">Hallo @UserEntity.GetUser(UserManager, User).Name.ToString()!</a>

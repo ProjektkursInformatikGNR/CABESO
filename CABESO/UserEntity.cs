@@ -14,13 +14,14 @@ namespace CABESO
         public string Form { get; set; }
         public string[] Roles { get; set; }
         public bool Admin { get; set; }
+        public bool Employee { get; set; }
 
         public object[] ExportArray()
         {
             return new object[] { Name, Form };
         }
 
-        private static readonly string _adminId;
+        private static readonly string _adminId, _employeeId;
         private static Dictionary<string, string> _roleNames;
 
         static UserEntity()
@@ -29,6 +30,7 @@ namespace CABESO
             Array.ForEach(Database.SqlQuery("AspNetRoles", null, "Id", "Name"), role => _roleNames.Add(role[0].ToString(), role[1].ToString()));
 
             _adminId = _roleNames.FirstOrDefault(role => role.Value.Equals("Admin")).Key;
+            _employeeId = _roleNames.FirstOrDefault(role => role.Value.Equals("Employee")).Key;
         }
 
         private static UserEntity ConvertData(object[] data)
@@ -39,16 +41,18 @@ namespace CABESO
 
             object[][] enrolledRoles = Database.SqlQuery("AspNetUserRoles", $"[UserId] = '{data[0]}'", "RoleId");
             List<string> roles = new List<string>();
-            bool admin = false;
+            bool admin = false, employee = false;
             foreach (object[] enrolledRole in enrolledRoles)
             {
                 if (enrolledRole[0].Equals(_adminId))
                     admin = true;
+                else if (enrolledRole[0].Equals(_employeeId))
+                    employee = true;
                 else
                     roles.Add(_roleNames[enrolledRole[0].ToString()]);
             }
             
-            return new UserEntity() { Name = new Name(data[1].ToString(), !string.IsNullOrEmpty(form[0][0].ToString())), Form = form[0][0].ToString(), Admin = admin, Id = data[0].ToString(), Roles = roles.ToArray() };
+            return new UserEntity() { Name = new Name(data[1].ToString(), !string.IsNullOrEmpty(form[0][0].ToString())), Form = form[0][0].ToString(), Admin = admin, Employee = employee, Id = data[0].ToString(), Roles = roles.ToArray() };
         }
 
         public static UserEntity GetUser(UserManager<IdentityUser> userManager, ClaimsPrincipal principal)

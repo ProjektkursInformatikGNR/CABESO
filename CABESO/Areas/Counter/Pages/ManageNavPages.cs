@@ -2,17 +2,13 @@
 using System;
 using System.IO;
 
-namespace CABESO.Areas.Admin.Pages
+namespace CABESO.Areas.Counter.Pages
 {
     public static class ManageNavPages
     {
-        public static string Index => "Index";
-        public static string GenerateCodes => "GenerateCodes";
-        public static string AddUser => "AddUser";
+        public static string Index => "Overview";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
-        public static string GenerateCodesNavClass(ViewContext viewContext) => PageNavClass(viewContext, GenerateCodes);
-        public static string AddUserNavClass(ViewContext viewContext) => PageNavClass(viewContext, AddUser);
 
         private static string PageNavClass(ViewContext viewContext, string page)
         {

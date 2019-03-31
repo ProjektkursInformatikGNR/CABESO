@@ -18,10 +18,10 @@ namespace CABESO.Areas.Admin.Pages
     {
         public readonly object[][] Forms;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly ILogger<OverviewModel> _logger;
+        private readonly ILogger<IndexModel> _logger;
         public string ReturnUrl { get; set; }
 
-        public AddUserModel(UserManager<IdentityUser> userManager, ILogger<OverviewModel> logger, string returnUrl = null)
+        public AddUserModel(UserManager<IdentityUser> userManager, ILogger<IndexModel> logger, string returnUrl = null)
         {
             _userManager = userManager;
             _logger = logger;

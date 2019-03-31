@@ -7,7 +7,7 @@ using System.Linq;
 namespace CABESO.Areas.Admin.Pages
 {
     [Authorize(Roles = "Admin")]
-    public class OverviewModel : PageModel
+    public class IndexModel : PageModel
     {
         public UserEntity[] Users;
 
@@ -16,8 +16,9 @@ namespace CABESO.Areas.Admin.Pages
         public string RoleSort { get; set; }
         public string FormSort { get; set; }
         public string AdminSort { get; set; }
+        public string EmployeeSort { get; set; }
 
-        public OverviewModel()
+        public IndexModel()
         {
             Users = UserEntity.EnumerateUsers();
         }
@@ -29,6 +30,7 @@ namespace CABESO.Areas.Admin.Pages
             RoleSort = sortOrder == "r" ? "!r" : "r";
             FormSort = sortOrder == "f" ? "!f" : "f";
             AdminSort = sortOrder == "a" ? "!a" : "a";
+            EmployeeSort = sortOrder == "e" ? "!e" : "e";
 
             IEnumerable<UserEntity> users = UserEntity.EnumerateUsers();
             foreach (UserEntity user in users)
@@ -62,6 +64,12 @@ namespace CABESO.Areas.Admin.Pages
                     break;
                 case "!a":
                     users = users.OrderByDescending(user => user.Admin);
+                    break;
+                case "e":
+                    users = users.OrderBy(user => user.Employee);
+                    break;
+                case "!e":
+                    users = users.OrderByDescending(user => user.Employee);
                     break;
                 default:
                     users = users.OrderBy(user => user.Name.FirstName);

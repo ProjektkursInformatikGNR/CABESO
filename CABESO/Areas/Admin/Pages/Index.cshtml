@@ -1,0 +1,113 @@
+﻿@page
+@inject UserManager<IdentityUser> UserManager
+@model IndexModel
+@{
+    ViewData["Title"] = "Admin-Bereich";
+    ViewData["ActivePage"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.FirstNameSort">
+                    Vorname
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.LastNameSort">
+                    Nachname
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.RoleSort">
+                    Rolle
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.FormSort">
+                    Klasse
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.AdminSort">
+                    Administrator*in
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.EmployeeSort">
+                    Mitarbeiter*in
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+        <tr>
+            <td>
+                @user.Name.FirstName
+            </td>
+            <td>
+                @user.Name.LastName
+            </td>
+            <td>
+                @string.Join(", ", user.Roles)
+            </td>
+            <td>
+                @user.Form
+            </td>
+            <td>
+                @if (user.Admin)
+                {
+                    <input type="checkbox" checked onclick="return false;" />
+                }
+                else
+                {
+                    <input type="checkbox" onclick="return false;" />
+                }
+            </td>
+            <td>
+                @if (user.Employee)
+                {
+                    <input type="checkbox" checked onclick="return false;" />
+                }
+                else
+                {
+                    <input type="checkbox" onclick="return false;" />
+                }
+            </td>
+            <td>
+                @if (!user.Id.Equals(UserEntity.GetUser(UserManager, User).Id))
+                {
+                    <a asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id">Entfernen</a>
+                    <text>|</text>
+                    @if (user.Admin)
+                    {
+                        <a asp-controller="Admin" asp-action="DegradeAdmin" asp-route-id="@user.Id">Adminrechte entfernen</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Admin" asp-action="PromoteAdmin" asp-route-id="@user.Id">Adminrechte geben</a>
+                    }
+                    <text>|</text>
+                    @if (user.Employee)
+                    {
+                        <a asp-controller="Admin" asp-action="DegradeEmployee" asp-route-id="@user.Id">Mitarbeiterrechte entfernen</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Admin" asp-action="PromoteEmployee" asp-route-id="@user.Id">Mitarbeiterrechte geben</a>
+                    }
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
