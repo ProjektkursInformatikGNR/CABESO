@@ -57,12 +57,12 @@ namespace CABESO
 
         public static UserEntity GetUser(UserManager<IdentityUser> userManager, ClaimsPrincipal principal)
         {
-            return GetUser(userManager.GetUserAsync(principal).Result.Id);
+            return principal == null ? new UserEntity() : GetUser(userManager.GetUserAsync(principal).Result?.Id);
         }
 
         public static UserEntity GetUser(string userId)
         {
-            return ConvertData(Database.SqlQuery("AspNetUsers", $"[Id] = '{userId}'", "Id", "UserName", "Form").First());
+            return string.IsNullOrEmpty(userId) ? new UserEntity() : ConvertData(Database.SqlQuery("AspNetUsers", $"[Id] = '{userId}'", "Id", "UserName", "Form").First());
         }
 
         public static UserEntity[] EnumerateUsers()

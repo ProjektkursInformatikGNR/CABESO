@@ -19,32 +19,38 @@ namespace CABESO.Areas.Admin.Pages
             [Required]
             [Display(Name = "Anzahl")]
             public int Number { get; set; }
+
+            [Required]
+            [Display(Name = "Rolle")]
+            public string Role { get; set; }
         }
 
-        public Tuple<string, string>[] Codes;
+        public Tuple<string, string, string>[] Codes;
+        public string[] Roles;
 
         public void OnGet()
         {
-            object[][] data = Database.SqlQuery("Codes", null, "Code", "CreationTime").OrderByDescending(d => d[1]).ToArray();
-            Codes = Array.ConvertAll(data, d => new Tuple<string, string>(d[0].ToString(), DateTime.Parse(d[1].ToString()).ToLocalTime().ToString(CultureInfo.CurrentCulture)));
+            object[][] data = Database.SqlQuery("Codes", null, "Code", "CreationTime", "RoleId").OrderByDescending(d => d[1]).ToArray();
+            Codes = Array.ConvertAll(data, d => new Tuple<string, string, string>(d[0].ToString(), DateTime.Parse(d[1].ToString()).ToLocalTime().ToString(CultureInfo.CurrentCulture), string.IsNullOrEmpty(d[2].ToString()) ? string.Empty : Program.Translations[d[2].ToString()]));
+            Roles = Array.ConvertAll(Database.SqlQuery("AspNetRoles", "[Name]<>'Admin'", "Name"), r => r[0].ToString());
         }
 
         public IActionResult OnPost()
         {
             for (int i = 0; i < Input.Number; i++)
-                GenerateCode();
+                GenerateCode(Input.Role);
             OnGet();
             return Page();
         }
 
-        public void GenerateCode()
+        public void GenerateCode(string role)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             const int length = 10;
 
             Random random = new Random();
             string code = new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
-            Database.SqlExecute($"INSERT INTO [dbo].[Codes] VALUES ('{code}', '{DateTime.UtcNow.ToString("yyyyMMdd hh:mm:ss tt", CultureInfo.InvariantCulture)}');");
+            Database.SqlExecute($"INSERT INTO [dbo].[Codes] VALUES ('{code}', '{DateTime.UtcNow.ToString("yyyyMMdd hh:mm:ss tt", CultureInfo.InvariantCulture)}', '{role}');");
         }
     }
 }

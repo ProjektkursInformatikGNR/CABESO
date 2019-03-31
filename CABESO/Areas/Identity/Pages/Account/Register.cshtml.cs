@@ -72,7 +72,7 @@ namespace CABESO.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
-            if (ModelState.IsValid && CodeValid())
+            if (ModelState.IsValid && CodeValid(out string role))
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
@@ -80,8 +80,8 @@ namespace CABESO.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
                     
-                    await _userManager.AddToRoleAsync(user, "Student");
-                    Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET [Form]={Input.Form}, [EmailConfirmed]='True' WHERE [Id]='{user.Id}';");
+                    await _userManager.AddToRoleAsync(user, role);
+                    Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET {(role.Equals("Student") ? $"[Form]={Input.Form}, " : "")}[EmailConfirmed]='True' WHERE [Id]='{user.Id}';");
                     Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{Input.Code}';");
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -106,11 +106,17 @@ namespace CABESO.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private bool CodeValid()
+        private bool CodeValid(out string role)
         {
-            object[][] codes = Database.SqlQuery("Codes", $"[Code]='{Input.Code}'", "Code");
+            object[][] codes = Database.SqlQuery("Codes", $"[Code]='{Input.Code}'", "RoleId");
 
-            return codes.Length > 0;
+            if (codes.Length > 0)
+            {
+                role = codes[0][0].ToString();
+                return true;
+            }
+            role = null;
+            return false;
         }
     }
 }

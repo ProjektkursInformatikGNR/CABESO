@@ -19,6 +19,7 @@ namespace CABESO
             Translations = new Dictionary<string, string>();
             Translations.Add("Student", "Schüler*in");
             Translations.Add("Teacher", "Lehrer*in");
+            Translations.Add("Employee", "Mitarbeiter*in");
             Translations.Add("True", "ja");
             Translations.Add("False", "nein");
 

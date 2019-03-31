@@ -167,19 +167,20 @@ namespace CABESO.Data.Migrations
                     table.PrimaryKey("PK_Forms", x => x.Id);
                 });
 
+            migrationBuilder.AddForeignKey("FK_Form", "AspNetUsers", "Form", "Forms", principalColumn: "Id");
+
             migrationBuilder.CreateTable(
                 name: "Codes",
                 columns: table => new
                 {
                     Code = table.Column<string>(maxLength: 10, fixedLength: true, nullable: false),
-                    CreationTime = table.Column<DateTime>(nullable: false)
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    RoleId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Codes", x => x.Code);
                 });
-
-            migrationBuilder.AddForeignKey("FK_Form", "AspNetUsers", "Form", "Forms", principalColumn: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
