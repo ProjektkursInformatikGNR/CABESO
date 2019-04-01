@@ -37,6 +37,10 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         public string ReturnUrl { get; set; }
 
+        public bool Confirmed { get; set; }
+
+        public string Role;
+
         public class InputModel
         {
             [Required]
@@ -64,24 +68,28 @@ namespace CABESO.Areas.Identity.Pages.Account
             public string Form { get; set; }
         }
 
-        public void OnGet(string returnUrl = null)
+        public void OnGet(string code = null, string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            Confirmed = CodeValid(code, out Role);
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
-            if (ModelState.IsValid && CodeValid(out string role))
+            if (ModelState.IsValid)
             {
+                if (!Confirmed)
+                    RedirectToPage(new { code = Input.Code });
+
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
                     
-                    await _userManager.AddToRoleAsync(user, role);
-                    Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET {(role.Equals("Student") ? $"[Form]={Input.Form}, " : "")}[EmailConfirmed]='True' WHERE [Id]='{user.Id}';");
+                    await _userManager.AddToRoleAsync(user, Role);
+                    Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET {(Role.Equals("Student") ? $"[Form]={Input.Form}, " : "")}[EmailConfirmed]='True' WHERE [Id]='{user.Id}';");
                     Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{Input.Code}';");
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -106,8 +114,12 @@ namespace CABESO.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private bool CodeValid(out string role)
+        private bool CodeValid(string code, out string role)
         {
+            role = null;
+            if (string.IsNullOrEmpty(code))
+                return false;
+
             object[][] codes = Database.SqlQuery("Codes", $"[Code]='{Input.Code}'", "RoleId");
 
             if (codes.Length > 0)
@@ -115,7 +127,6 @@ namespace CABESO.Areas.Identity.Pages.Account
                 role = codes[0][0].ToString();
                 return true;
             }
-            role = null;
             return false;
         }
     }
