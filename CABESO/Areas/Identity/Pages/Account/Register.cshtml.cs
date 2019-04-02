@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
@@ -12,6 +13,7 @@ namespace CABESO.Areas.Identity.Pages.Account
     public class RegisterModel : PageModel
     {
         public readonly object[][] Forms;
+        private static string _code;
 
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
@@ -22,7 +24,7 @@ namespace CABESO.Areas.Identity.Pages.Account
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger)
-            //IEmailSender emailSender)
+        //IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -37,9 +39,9 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         public string ReturnUrl { get; set; }
 
-        public bool Confirmed { get; set; }
+        public static string Role;
 
-        public string Role;
+        public static bool Confirmed { get; set; }
 
         public class InputModel
         {
@@ -71,17 +73,18 @@ namespace CABESO.Areas.Identity.Pages.Account
         public void OnGet(string code = null, string returnUrl = null)
         {
             ReturnUrl = returnUrl;
-            Confirmed = CodeValid(code, out Role);
+            Confirmed = CodeValid(_code = code, out Role);
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            ReturnUrl = returnUrl ?? Url.Content("~/");
+            if (!Confirmed)
+                return RedirectToPage(new { code = Input.Code });
+
+            ModelState["Input.Code"].ValidationState = ModelValidationState.Valid;
             if (ModelState.IsValid)
             {
-                if (!Confirmed)
-                    RedirectToPage(new { code = Input.Code });
-
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
@@ -90,7 +93,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                     
                     await _userManager.AddToRoleAsync(user, Role);
                     Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET {(Role.Equals("Student") ? $"[Form]={Input.Form}, " : "")}[EmailConfirmed]='True' WHERE [Id]='{user.Id}';");
-                    Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{Input.Code}';");
+                    Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{_code}';");
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //var callbackUrl = Url.Page(
@@ -103,7 +106,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                     //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+                    return LocalRedirect(ReturnUrl);
                 }
                 foreach (var error in result.Errors)
                 {
@@ -120,7 +123,7 @@ namespace CABESO.Areas.Identity.Pages.Account
             if (string.IsNullOrEmpty(code))
                 return false;
 
-            object[][] codes = Database.SqlQuery("Codes", $"[Code]='{Input.Code}'", "RoleId");
+            object[][] codes = Database.SqlQuery("Codes", $"[Code]='{code}'", "RoleId");
 
             if (codes.Length > 0)
             {

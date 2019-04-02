@@ -1,8 +1,6 @@
-﻿using CABESO.Data;
-using CABESO.Models;
+﻿using CABESO.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Diagnostics;
 
 namespace CABESO.Controllers
@@ -23,11 +21,6 @@ namespace CABESO.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Contact()
         {
             return View();
         }

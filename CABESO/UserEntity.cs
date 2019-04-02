@@ -116,5 +116,10 @@ namespace CABESO
         {
             return (FirstName + " " + LastName).Trim();
         }
+
+        public static implicit operator string(Name name)
+        {
+            return name?.ToString();
+        }
     }
 }
