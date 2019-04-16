@@ -55,6 +55,7 @@ namespace CABESO
             services.ConfigureApplicationCookie(options =>
             {
                 options.AccessDeniedPath = new PathString("/Identity/Account/AccessDenied");
+                options.LoginPath = new PathString("/Identity/Account/Login");
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>

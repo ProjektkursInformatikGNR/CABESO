@@ -1,0 +1,54 @@
+﻿@page
+@model CABESO.Areas.Counter.Pages.ProductsModel
+@{
+    ViewData["Title"] = "Produktliste";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<form method="post" class="form-inline" >
+    <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
+    <button type="submit" class="btn btn-primary">Suchen</button>
+</form>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.NameSort" asp-route-search="@Model.SearchKeyWord">
+                    Bezeichnung
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.PriceSort" asp-route-search="@Model.SearchKeyWord">
+                    Preis
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>
+                    @product.Name
+                </td>
+                <td>
+                    @string.Format("{0:C2}", product.Price)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    form
+    {
+        float: right;
+    }
+</style>

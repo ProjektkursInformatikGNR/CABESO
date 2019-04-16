@@ -13,5 +13,10 @@ namespace CABESO.Views.Counter
             _signInManager = signInManager;
             _userManager = userManager;
         }
+
+        public IActionResult Products()
+        {
+            return View();
+        }
     }
 }
