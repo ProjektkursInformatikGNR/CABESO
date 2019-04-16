@@ -222,7 +222,7 @@ namespace CABESO.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.InsertData("Forms", new[] { "Id", "Name", "Year" }, new object[] { 1, "Q1", 11 });
-            migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "RoleId" }, new object[] { "1234567890", DateTime.Now, "Admin" });
+            migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime" }, new object[] { "1234567890", DateTime.Now });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
