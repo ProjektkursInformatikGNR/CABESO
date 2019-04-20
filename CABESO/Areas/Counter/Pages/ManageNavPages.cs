@@ -8,9 +8,11 @@ namespace CABESO.Areas.Counter.Pages
     {
         public static string Index => "Overview";
         public static string Products => "Products";
+        public static string Orders => "Orders";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
         public static string ProductsNavClass(ViewContext viewContext) => PageNavClass(viewContext, Products);
+        public static string OrdersNavClass(ViewContext viewContext) => PageNavClass(viewContext, Orders);
 
         private static string PageNavClass(ViewContext viewContext, string page)
         {

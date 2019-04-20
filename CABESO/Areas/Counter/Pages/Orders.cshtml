@@ -1,0 +1,79 @@
+﻿@page
+@model CABESO.Areas.Counter.Pages.OrdersModel
+@{
+    ViewData["Title"] = "Bestellungen";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<form method="post" class="form-inline">
+    <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
+    <button type="submit" class="btn btn-primary">Suchen</button>
+</form>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.OrdererNameSort" asp-route-search="@Model.SearchKeyWord">
+                    Besteller*in
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.ProductNameSort" asp-route-search="@Model.SearchKeyWord">
+                    Produkt
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.PricePerProductSort" asp-route-search="@Model.SearchKeyWord">
+                    Einzelpreis
+                </a>
+            </th>
+
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.TotalPriceSort" asp-route-search="@Model.SearchKeyWord">
+                    Gesamtpreis
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.CountSort" asp-route-search="@Model.SearchKeyWord">
+                    Anzahl
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.TimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Uhrzeit
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+        <tr>
+            <td></td>
+            <td>
+                @order.ProductName
+            </td>
+            <td>
+                @string.Format("{0:C2}", order.PricePerProduct)
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    form {
+        float: right;
+    }
+</style>
