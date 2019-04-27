@@ -26,7 +26,7 @@ namespace CABESO.Areas.Admin.Pages
             _userManager = userManager;
             _logger = logger;
             ReturnUrl = returnUrl ?? ReturnUrl;
-            Forms = Database.SqlQuery("Forms", null, "Name", "Id");
+            Forms = Database.Select("Forms", null, "Name", "Id");
         }
 
         [BindProperty]

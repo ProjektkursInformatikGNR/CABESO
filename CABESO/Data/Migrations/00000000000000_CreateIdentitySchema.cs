@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
-using System.Collections.Generic;
 
 namespace CABESO.Data.Migrations
 {
@@ -176,7 +175,7 @@ namespace CABESO.Data.Migrations
                 {
                     Code = table.Column<string>(maxLength: 10, fixedLength: true, nullable: false),
                     CreationTime = table.Column<DateTime>(nullable: false),
-                    RoleId = table.Column<string>(nullable: true)
+                    Role = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -203,6 +202,46 @@ namespace CABESO.Data.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    ClientId = table.Column<string>(nullable: false, maxLength: 450),
+                    ProductId = table.Column<int>(nullable: false),
+                    OrderTime = table.Column<DateTime>(nullable: false),
+                    Notes = table.Column<string>(nullable: true),
+                    Number = table.Column<int>(nullable: false, defaultValue: 1),
+                    CollectionTime = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                });
+
+            migrationBuilder.AddForeignKey("FK_OrderClientId", "Orders", "ClientId", "AspNetUsers", principalColumn: "Id");
+            migrationBuilder.AddForeignKey("FK_OrderProductId", "Orders", "ProductId", "Products", principalColumn: "Id");
+
+            migrationBuilder.CreateTable(
+                name: "OrderHistory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    ClientId = table.Column<string>(nullable: false, maxLength: 450),
+                    ProductId = table.Column<int>(nullable: false),
+                    OrderTime = table.Column<DateTime>(nullable: false),
+                    Notes = table.Column<string>(nullable: true),
+                    Number = table.Column<int>(nullable: false, defaultValue: 1),
+                    CollectionTime = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderHistory", x => x.Id);
+                });
+
+            migrationBuilder.AddForeignKey("FK_OrderHistoryClientId", "OrderHistory", "ClientId", "AspNetUsers", principalColumn: "Id");
+            migrationBuilder.AddForeignKey("FK_OrderHistoryProductId", "OrderHistory", "ProductId", "Products", principalColumn: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -244,7 +283,7 @@ namespace CABESO.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.InsertData("Forms", new[] { "Id", "Name", "Year" }, new object[] { 1, "Q1", 11 });
-            migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "RoleId" }, new object[] { "1234567890", DateTime.Now, "Student" });
+            migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "Role" }, new object[] { "1234567890", Database.SqlNow, "Student" });
 
             migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 1, "belegtes Brötchen", 1.1, false, false });
             migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 2, "belegtes Körnerbrötchen", 1.1, false, false });

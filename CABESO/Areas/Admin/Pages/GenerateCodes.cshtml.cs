@@ -30,9 +30,9 @@ namespace CABESO.Areas.Admin.Pages
 
         public void OnGet()
         {
-            object[][] data = Database.SqlQuery("Codes", null, "Code", "CreationTime", "RoleId").OrderByDescending(d => d[1]).ToArray();
+            object[][] data = Database.Select("Codes", null, "Code", "CreationTime", "Role").OrderByDescending(d => d[1]).ToArray();
             Codes = Array.ConvertAll(data, d => new Tuple<string, string, string>(d[0].ToString(), DateTime.Parse(d[1].ToString()).ToLocalTime().ToString(CultureInfo.CurrentCulture), string.IsNullOrEmpty(d[2].ToString()) ? string.Empty : Program.Translations[d[2].ToString()]));
-            Roles = Array.ConvertAll(Database.SqlQuery("AspNetRoles", "[Name]<>'Admin'", "Name"), r => r[0].ToString());
+            Roles = Array.ConvertAll(Database.Select("AspNetRoles", "[Name]<>'Admin'", "Name"), r => r[0].ToString());
         }
 
         public IActionResult OnPost()
@@ -50,7 +50,7 @@ namespace CABESO.Areas.Admin.Pages
 
             Random random = new Random();
             string code = new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
-            Database.SqlExecute($"INSERT INTO [dbo].[Codes] VALUES ('{code}', '{DateTime.UtcNow.ToString("yyyyMMdd hh:mm:ss tt", CultureInfo.InvariantCulture)}', '{role}');");
+            Database.Add("Codes", new { Code = code, CreationTime = Database.SqlNow, Role = role });
         }
     }
 }

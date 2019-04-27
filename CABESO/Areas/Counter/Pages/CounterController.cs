@@ -1,19 +1,23 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CABESO.Views.Counter
 {
     public class CounterController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public CounterController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        [Authorize(Roles = "Employee,Admin")]
+        public IActionResult Index()
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
+            return View();
         }
 
+        [Authorize(Roles = "Employee,Admin")]
+        public IActionResult Orders()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Employee,Admin")]
         public IActionResult Products()
         {
             return View();

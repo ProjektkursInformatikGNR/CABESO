@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CABESO.Areas.Counter.Pages
@@ -11,92 +8,85 @@ namespace CABESO.Areas.Counter.Pages
     [Authorize(Roles = "Admin,Employee")]
     public class OrdersModel : PageModel
     {
-        public string OrdererNameSort { get; set; }
+        public string ClientNameSort { get; set; }
         public string ProductNameSort { get; set; }
         public string PricePerProductSort { get; set; }
         public string TotalPriceSort { get; set; }
-        public string CountSort { get; set; }
-        public string TimeSort { get; set; }
+        public string NumberSort { get; set; }
+        public string OrderTimeSort { get; set; }
+        public string CollectionTimeSort { get; set; }
         public Order[] Orders { get; set; }
 
         public string SearchKeyWord { get; set; }
 
-        public OrdersModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public OrdersModel()
         {
-            Orders = EnumerateOrders();
-        }
-
-        private Order[] EnumerateOrders()
-        {
-            return Array.ConvertAll(Database.SqlQuery("Products", null, "Name", "Price"), p => new Order() { ProductName = p[0].ToString(), PricePerProduct = (decimal)p[1] });
+            Orders = Order.Enumerate();
         }
 
         public void OnGet(string sortOrder, string search)
         {
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Orders = Orders.Where(order => order.ProductName.Contains(SearchKeyWord, StringComparison.OrdinalIgnoreCase)).ToArray();
+                Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord)).ToArray();
 
-            OrdererNameSort = string.IsNullOrEmpty(sortOrder) ? "!on" : "";
-            ProductNameSort = sortOrder == "pn" ? "!pn" : "pn";
-            PricePerProductSort = sortOrder == "pp" ? "!pp" : "pp";
+            OrderTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ot" : "";
+            ClientNameSort = sortOrder == "c" ? "!c" : "c";
+            ProductNameSort = sortOrder == "p" ? "!p" : "p";
+            PricePerProductSort = sortOrder == "ppp" ? "!ppp" : "ppp";
             TotalPriceSort = sortOrder == "tp" ? "!tp" : "tp";
-            CountSort = sortOrder == "c" ? "!c" : "c";
-            TimeSort = sortOrder == "t" ? "!t" : "t";
+            NumberSort = sortOrder == "n" ? "!n" : "n";
+            CollectionTimeSort = sortOrder == "ct" ? "!ct" : "ct";
 
-            IEnumerable<Order> orders = Orders;
+            IOrderedEnumerable<Order> orders = Orders.OrderBy(order => 0);
 
             switch (sortOrder)
             {
-                case "!on":
-                    orders = orders.OrderByDescending(order => order.OrdererName);
-                    break;
-                case "pn":
-                    orders = orders.OrderBy(order => order.ProductName);
-                    break;
-                case "!pn":
-                    orders = orders.OrderByDescending(order => order.ProductName);
-                    break;
-                case "pp":
-                    orders = orders.OrderBy(order => order.PricePerProduct);
-                    break;
-                case "!pp":
-                    orders = orders.OrderByDescending(order => order.PricePerProduct);
-                    break;
-                case "tp":
-                    orders = orders.OrderBy(order => order.TotalPrice);
-                    break;
-                case "!tp":
-                    orders = orders.OrderByDescending(order => order.TotalPrice);
-                    break;
                 case "c":
-                    orders = orders.OrderBy(order => order.Count);
+                    orders = orders.OrderBy(order => order.Client.Name);
                     break;
                 case "!c":
-                    orders = orders.OrderByDescending(order => order.Count);
+                    orders = orders.OrderByDescending(order => order.Client.Name);
                     break;
-                case "t":
-                    orders = orders.OrderBy(order => order.Time);
+                case "p":
+                    orders = orders.OrderBy(order => order.Product.Name);
                     break;
-                case "!t":
-                    orders = orders.OrderByDescending(order => order.Time);
+                case "!p":
+                    orders = orders.OrderByDescending(order => order.Product.Name);
+                    break;
+                case "ppp":
+                    orders = orders.OrderBy(order => order.Product.Price);
+                    break;
+                case "!ppp":
+                    orders = orders.OrderByDescending(order => order.Product.Price);
+                    break;
+                case "tp":
+                    orders = orders.OrderBy(order => order.Product.Price * order.Number);
+                    break;
+                case "!tp":
+                    orders = orders.OrderByDescending(order => order.Product.Price * order.Number);
+                    break;
+                case "n":
+                    orders = orders.OrderBy(order => order.Number);
+                    break;
+                case "!n":
+                    orders = orders.OrderByDescending(order => order.Number);
+                    break;
+                case "ct":
+                    orders = orders.OrderBy(order => order.CollectionTime);
+                    break;
+                case "!ct":
+                    orders = orders.OrderByDescending(order => order.CollectionTime);
+                    break;
+                case "!ot":
+                    orders = orders.OrderBy(order => order.OrderTime);
                     break;
                 default:
-                    orders = orders.OrderBy(order => order.OrdererName);
+                    orders = orders.OrderByDescending(order => order.OrderTime);
                     break;
             }
 
-            Orders = Orders.ToArray();
-        }
-
-        public class Order
-        {
-            public string OrdererName { get; set; }
-            public string ProductName { get; set; }
-            public decimal PricePerProduct { get; set; }
-            public decimal TotalPrice { get; set; }
-            public int Count { get; set; }
-            public string Time { get; set; }
+            Orders = orders.ThenByDescending(order => order.CollectionTime).ToArray();
         }
 
         [BindProperty]
@@ -109,7 +99,7 @@ namespace CABESO.Areas.Counter.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToAction("Products", "Counter", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });
+            return RedirectToAction("Orders", "Counter", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });
         }
     }
 }

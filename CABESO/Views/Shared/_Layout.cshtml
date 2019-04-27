@@ -1,4 +1,6 @@
 ﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,7 +32,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Orders" asp-action="Index">Bestellungen</a></li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a asp-area="" asp-controller="Orders" asp-action="Index">Bestellungen</a></li>
+                    }
                 </ul>
                 <partial name="_LoginPartial" />
             </div>

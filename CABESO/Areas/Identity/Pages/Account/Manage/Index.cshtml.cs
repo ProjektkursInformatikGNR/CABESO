@@ -9,12 +9,10 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
     public partial class IndexModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public IndexModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public IndexModel(UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
         }
 
         [TempData]
@@ -28,7 +26,7 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
             [EmailAddress]
             public string Email { get; set; }
 
-            public UserEntity UserEntity { get; set; }
+            public Client Client { get; set; }
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -42,7 +40,7 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
             Input = new InputModel
             {
                 Email = user.Email,
-                UserEntity = UserEntity.GetUser(_userManager, User)
+                Client = Client.Create(_userManager, User)
             };
 
             return Page();

@@ -6,7 +6,7 @@ namespace CABESO.Areas.Counter.Pages
 {
     public static class ManageNavPages
     {
-        public static string Index => "Overview";
+        public static string Index => "Index";
         public static string Products => "Products";
         public static string Orders => "Orders";
 

@@ -1,0 +1,35 @@
+﻿@page
+@model PlaceOrderModel
+@{
+    ViewData["Title"] = "Bestellung aufgeben";
+}
+
+<h2>Neue Bestellung aufgeben</h2>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.ProductId"></label>
+        <select class="form-control" asp-for="Input.ProductId">
+            @foreach (Product product in Product.Enumerate())
+            {
+                <option value="@product.Id">
+                    @product
+                </option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Number"></label>
+        <input class="form-control" type="number" min="1" max="10" value="1" asp-for="Input.Number" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.CollectionTime"></label>
+        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Notes"></label>
+        <input class="form-control" asp-for="Input.Notes" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Bestellen</button>
+    </div>
+</form>

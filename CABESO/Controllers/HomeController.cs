@@ -7,17 +7,12 @@ namespace CABESO.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public HomeController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public HomeController(RoleManager<IdentityRole> roleManager)
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
-
             foreach (string role in new[] { "Admin", "Teacher", "Student", "Employee" })
                 if (!roleManager.RoleExistsAsync(role).Result)
-                    roleManager.CreateAsync(new IdentityRole(role));
+                    while (!roleManager.CreateAsync(new IdentityRole(role)).Result.Succeeded) ;
+            new Client();
         }
 
         public IActionResult Index()

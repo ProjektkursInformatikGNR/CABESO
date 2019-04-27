@@ -25,19 +25,89 @@
                     Preis
                 </a>
             </th>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.SaleSort" asp-route-search="@Model.SearchKeyWord">
+                    Rabatt
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.AllergensSort" asp-route-search="@Model.SearchKeyWord">
+                    Allergene
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.VegetarianSort" asp-route-search="@Model.SearchKeyWord">
+                    vegetarisch
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.VeganSort" asp-route-search="@Model.SearchKeyWord">
+                    vegan
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.SizeSort" asp-route-search="@Model.SearchKeyWord">
+                    Größe
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.DepositSort" asp-route-search="@Model.SearchKeyWord">
+                    Pfand
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Products" asp-route-sortOrder="@Model.InformationSort" asp-route-search="@Model.SearchKeyWord">
+                    Hinweis
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var product in Model.Products)
         {
-            <tr>
-                <td>
-                    @product.Name
-                </td>
-                <td>
-                    @string.Format("{0:C2}", product.Price)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @product.Name
+            </td>
+            <td>
+                @string.Format("{0:C2}", product.Price)
+            </td>
+            <td>
+                @string.Format("{0:C2}", product.Sale)
+            </td>
+            <td>
+                @string.Join(", ", product.Allergens)
+            </td>
+            <td>
+                @if (product.Vegetarian)
+                {
+                    <input type="checkbox" checked onclick="return false;" />
+                }
+                else
+                {
+                    <input type="checkbox" onclick="return false;" />
+                }
+            </td>
+            <td>
+                @if (product.Vegan)
+                {
+                    <input type="checkbox" checked onclick="return false;" />
+                }
+                else
+                {
+                    <input type="checkbox" onclick="return false;" />
+                }
+            </td>
+            <td>
+                @product.Size
+            </td>
+            <td>
+                @string.Format("{0:C2}", product.Deposit)
+            </td>
+            <td>
+                @product.Information
+            </td>
+        </tr>
         }
     </tbody>
 </table>

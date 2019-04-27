@@ -1,11 +1,8 @@
-﻿using CABESO.Data;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
+using System.Globalization;
 
 namespace CABESO
 {
@@ -38,14 +35,62 @@ namespace CABESO
             return string.Format("{0}, {1}!", greeting, name ?? "ihr Luschen");
         }
 
+        public static bool Matches(string entry, string search)
+        {
+            return entry.Contains(search, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static string TimeDisplay(DateTime dt)
+        {
+            return dt.ToLocalTime().ToString(CultureInfo.CurrentCulture);
+        }
+
+        public static object Convert(string s, Type type)
+        {
+            switch (type)
+            {
+                case Type t when t.Equals(typeof(int)):
+                    return int.Parse(s);
+                case Type t when t.Equals(typeof(int?)):
+                    return string.IsNullOrEmpty(s) ? null : (int?) int.Parse(s);
+                case Type t when t.Equals(typeof(decimal)):
+                    return decimal.Parse(s);
+                case Type t when t.Equals(typeof(decimal?)):
+                    return string.IsNullOrEmpty(s) ? null : (decimal?) decimal.Parse(s);
+                case Type t when t.Equals(typeof(bool)):
+                    return bool.Parse(s);
+                case Type t when t.Equals(typeof(bool?)):
+                    return string.IsNullOrEmpty(s) ? null : (bool?) bool.Parse(s);
+                case Type t when t.Equals(typeof(DateTime)):
+                    return DateTime.Parse(s);
+                case Type t when t.Equals(typeof(Client)):
+                    return Client.Create(s);
+                case Type t when t.Equals(typeof(Product)):
+                    return Product.Create(int.Parse(s));
+                case Type t when t.Equals(typeof(Order)):
+                    return Order.Create(int.Parse(s));
+                case Type t when t.Equals(typeof(DBNull)):
+                    return null;
+                case Type t when t.IsArray:
+                    object[] elements = Array.ConvertAll(s.Split('|'), split => Convert(split, t.GetElementType()));
+                    Array a = Array.CreateInstance(t.GetElementType(), elements.Length);
+                    elements.CopyTo(a, 0);
+                    return a;
+                default:
+                    return s;
+            }
+        }
+
         public static void Main(string[] args)
         {
-            Translations = new Dictionary<string, string>();
-            Translations.Add("Student", "Schüler*in");
-            Translations.Add("Teacher", "Lehrer*in");
-            Translations.Add("Employee", "Mitarbeiter*in");
-            Translations.Add("True", "ja");
-            Translations.Add("False", "nein");
+            Translations = new Dictionary<string, string>
+            {
+                { "Student", "Schüler*in" },
+                { "Teacher", "Lehrer*in" },
+                { "Employee", "Mitarbeiter*in" },
+                { "True", "ja" },
+                { "False", "nein" }
+            };
 
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
@@ -53,58 +98,5 @@ namespace CABESO
                 .MigrateDatabase()
                 .Run();
         }
-    }
-
-    public static class Database
-    {
-        public static IWebHost MigrateDatabase(this IWebHost webHost)
-        {
-            var serviceScopeFactory = webHost.Services.GetService(typeof(IServiceScopeFactory)) as IServiceScopeFactory;
-            Context = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            Context.Database.Migrate();
-
-            return webHost;
-        }
-
-        public static void SqlExecute(string query)
-        {
-            Context.Database.OpenConnection();
-
-            using (DbCommand command = Context.Database.GetDbConnection().CreateCommand())
-            {
-                command.CommandText = query;
-                command.ExecuteNonQuery();
-            }
-
-            Context.Database.CloseConnection();
-        }
-
-        public static object[][] SqlQuery(string table, string condition, params string[] columns)
-        {
-            return SqlQuery($"SELECT {string.Join(", ", Array.ConvertAll(columns, s => $"[{s}]"))} FROM [dbo].[{table}]{(string.IsNullOrEmpty(condition) ? "" : $" WHERE {condition}")};");
-        }
-
-        public static object[][] SqlQuery(string query)
-        {
-            List<object[]> data = new List<object[]>();
-            Context.Database.OpenConnection();
-
-            using (DbCommand command = Context.Database.GetDbConnection().CreateCommand())
-            {
-                command.CommandText = query;
-                DbDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    object[] row = new object[reader.FieldCount];
-                    reader.GetValues(row);
-                    data.Add(row);
-                }
-            }
-
-            Context.Database.CloseConnection();
-            return data.ToArray();
-        }
-
-        public static ApplicationDbContext Context { get; private set; }
     }
 }

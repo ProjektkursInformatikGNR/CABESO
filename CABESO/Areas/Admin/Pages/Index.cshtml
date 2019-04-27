@@ -6,6 +6,11 @@
     ViewData["ActivePage"] = "Index";
 }
 
+<form method="post" class="form-inline">
+    <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
+    <button type="submit" class="btn btn-primary">Suchen</button>
+</form>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -43,66 +48,66 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var user in Model.Users)
+        @foreach (var client in Model.Clients)
         {
-        <tr>
-            <td>
-                @user.Name.FirstName
-            </td>
-            <td>
-                @user.Name.LastName
-            </td>
-            <td>
-                @string.Join(", ", user.Roles)
-            </td>
-            <td>
-                @user.Form
-            </td>
-            <td>
-                @if (user.Admin)
-                {
-                    <input type="checkbox" checked onclick="return false;" />
-                }
-                else
-                {
-                    <input type="checkbox" onclick="return false;" />
-                }
-            </td>
-            <td>
-                @if (user.Employee)
-                {
-                    <input type="checkbox" checked onclick="return false;" />
-                }
-                else
-                {
-                    <input type="checkbox" onclick="return false;" />
-                }
-            </td>
-            <td>
-                @if (!user.Id.Equals(UserEntity.GetUser(UserManager, User).Id))
-                {
-                    <a asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id">Entfernen</a>
-                    <text>|</text>
-                    @if (user.Admin)
+            <tr>
+                <td>
+                    @client.Name.FirstName
+                </td>
+                <td>
+                    @client.Name.LastName
+                </td>
+                <td>
+                    @string.Join(", ", client.Roles)
+                </td>
+                <td>
+                    @client.Form
+                </td>
+                <td>
+                    @if (client.Admin)
                     {
-                        <a asp-controller="Admin" asp-action="DegradeAdmin" asp-route-id="@user.Id">Adminrechte entfernen</a>
+                        <input type="checkbox" checked onclick="return false;" />
                     }
                     else
                     {
-                        <a asp-controller="Admin" asp-action="PromoteAdmin" asp-route-id="@user.Id">Adminrechte geben</a>
+                        <input type="checkbox" onclick="return false;" />
                     }
-                    <text>|</text>
-                    @if (user.Employee)
+                </td>
+                <td>
+                    @if (client.Employee)
                     {
-                        <a asp-controller="Admin" asp-action="DegradeEmployee" asp-route-id="@user.Id">Mitarbeiterrechte entfernen</a>
+                        <input type="checkbox" checked onclick="return false;" />
                     }
                     else
                     {
-                        <a asp-controller="Admin" asp-action="PromoteEmployee" asp-route-id="@user.Id">Mitarbeiterrechte geben</a>
+                        <input type="checkbox" onclick="return false;" />
                     }
-                }
-            </td>
-        </tr>
+                </td>
+                <td>
+                    @if (!client.Id.Equals(Client.Create(UserManager, User).Id))
+                    {
+                        <a asp-controller="Admin" asp-action="Delete" asp-route-id="@client.Id">Entfernen</a>
+                        <text>|</text>
+                        @if (client.Admin)
+                        {
+                            <a asp-controller="Admin" asp-action="DegradeAdmin" asp-route-id="@client.Id">Adminrechte entfernen</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Admin" asp-action="PromoteAdmin" asp-route-id="@client.Id">Adminrechte geben</a>
+                        }
+                        <text>|</text>
+                        @if (client.Employee)
+                        {
+                            <a asp-controller="Admin" asp-action="DegradeEmployee" asp-route-id="@client.Id">Mitarbeiterrechte entfernen</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Admin" asp-action="PromoteEmployee" asp-route-id="@client.Id">Mitarbeiterrechte geben</a>
+                        }
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 </table>
@@ -111,3 +116,9 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<style>
+    form {
+        float: right;
+    }
+</style>

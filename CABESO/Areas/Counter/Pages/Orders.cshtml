@@ -16,7 +16,7 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.OrdererNameSort" asp-route-search="@Model.SearchKeyWord">
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.ClientNameSort" asp-route-search="@Model.SearchKeyWord">
                     Besteller*in
                 </a>
             </th>
@@ -37,32 +37,47 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.CountSort" asp-route-search="@Model.SearchKeyWord">
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
                     Anzahl
                 </a>
             </th>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.TimeSort" asp-route-search="@Model.SearchKeyWord">
-                    Uhrzeit
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.OrderTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Bestelldatum
                 </a>
             </th>
-            <th></th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.CollectionTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Abholdatum
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var order in Model.Orders)
         {
         <tr>
-            <td></td>
             <td>
-                @order.ProductName
+                @order.Client.Name
             </td>
             <td>
-                @string.Format("{0:C2}", order.PricePerProduct)
+                @order.Product.Name
             </td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+                @string.Format("{0:C2}", order.Product.Price)
+            </td>
+            <td>
+                @string.Format("{0:C2}", order.Product.Price * order.Number)
+            </td>
+            <td>
+                @order.Number
+            </td>
+            <td>
+                @Program.TimeDisplay(order.OrderTime)
+            </td>
+            <td>
+                @Program.TimeDisplay(order.CollectionTime)
+            </td>
         </tr>
         }
     </tbody>

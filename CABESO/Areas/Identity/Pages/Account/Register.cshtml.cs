@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CABESO.Areas.Identity.Pages.Account
@@ -31,7 +32,7 @@ namespace CABESO.Areas.Identity.Pages.Account
             _logger = logger;
             //_emailSender = emailSender;
 
-            Forms = Database.SqlQuery("Forms", null, "Name", "Id");
+            Forms = Database.Select("Forms", null, "Name", "Id");
         }
 
         [BindProperty]
@@ -92,6 +93,10 @@ namespace CABESO.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
                     
                     await _userManager.AddToRoleAsync(user, Role);
+
+                    if (_userManager.Users.Count() == 1)
+                        await _userManager.AddToRoleAsync(user, "Admin");
+
                     Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET {(Role.Equals("Student") ? $"[Form]={Input.Form}, " : "")}[EmailConfirmed]='True' WHERE [Id]='{user.Id}';");
                     Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{_code}';");
 
@@ -123,13 +128,14 @@ namespace CABESO.Areas.Identity.Pages.Account
             if (string.IsNullOrEmpty(code))
                 return false;
 
-            object[][] codes = Database.SqlQuery("Codes", $"[Code]='{code}'", "RoleId");
+            object[][] codes = Database.Select("Codes", $"[Code]='{code}'", "Role");
 
             if (codes.Length > 0)
             {
                 role = codes[0][0].ToString();
                 return true;
             }
+            ModelState.AddModelError(string.Empty, "Dieser Code ist ungültig.");
             return false;
         }
     }

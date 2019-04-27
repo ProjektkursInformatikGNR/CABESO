@@ -11,20 +11,20 @@
     <div class="col-md-6">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="Input.UserEntity.Name.FirstName">Vorname</label>
-            <input asp-for="Input.UserEntity.Name.FirstName" class="form-control" disabled />
+            <label asp-for="Input.Client.Name.FirstName">Vorname</label>
+            <input asp-for="Input.Client.Name.FirstName" class="form-control" disabled />
         </div>
         <div class="form-group">
-            <label asp-for="Input.UserEntity.Name.LastName">Nachname</label>
-            <input asp-for="Input.UserEntity.Name.LastName" class="form-control" disabled />
+            <label asp-for="Input.Client.Name.LastName">Nachname</label>
+            <input asp-for="Input.Client.Name.LastName" class="form-control" disabled />
         </div>
         <div class="form-group">
             <label asp-for="Input.Email">E-Mail</label>
             <input asp-for="Input.Email" class="form-control" disabled />
         </div>
         <div class="form-group">
-            <label asp-for="Input.UserEntity.Roles">
-                @if (Model.Input.UserEntity.Roles.Length > 1)
+            <label asp-for="Input.Client.Roles">
+                @if (Model.Input.Client.Roles.Length > 1)
                 {
                     <text>Rollen</text>
                 }
@@ -33,13 +33,13 @@
                     <text>Rolle</text>
                 }
             </label>
-            <input value="@string.Join(", ", Array.ConvertAll(Model.Input.UserEntity.Roles, s => Program.Translations[s]))" class="form-control" disabled />
+            <input value="@string.Join(", ", Array.ConvertAll(Model.Input.Client.Roles, s => Program.Translations[s]))" class="form-control" disabled />
         </div>
-        @if (!string.IsNullOrEmpty(Model.Input.UserEntity.Form))
+        @if (!string.IsNullOrEmpty(Model.Input.Client.Form))
         {
             <div class="form-group">
-                <label asp-for="Input.UserEntity.Form">Klasse</label>
-                <input asp-for="Input.UserEntity.Form" class="form-control" disabled />
+                <label asp-for="Input.Client.Form">Klasse</label>
+                <input asp-for="Input.Client.Form" class="form-control" disabled />
             </div>
         }
     </div>

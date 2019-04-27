@@ -2,11 +2,11 @@
 @inject UserManager<IdentityUser> UserManager
 @model IndexModel
 @{
-    ViewData["Title"] = "Deine Bestellungen";
-    ViewData["ActivePage"] = "Index";
+    ViewData["Title"] = "Bestellhistorie";
+    ViewData["ActivePage"] = "OrderHistory";
 }
 
-<h2>Laufende Bestellungen</h2>
+<h2>@ViewData["Title"]</h2>
 <form method="post" class="form-inline">
     <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
     <button type="submit" class="btn btn-primary">Suchen</button>

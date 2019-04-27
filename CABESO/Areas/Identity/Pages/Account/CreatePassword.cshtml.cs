@@ -77,15 +77,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                 return LocalRedirect("~/");
             }
             else
-            {
                 return RedirectToPage("./AccessDenied");
-            }
-
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
-            return Page();
         }
     }
 }

@@ -1,20 +1,19 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace CABESO.Views.Orders
 {
     public class OrdersController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public OrdersController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public IActionResult Index()
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
+            return View();
         }
 
-        public IActionResult Index()
+        public IActionResult PlaceOrder()
+        {
+            return View();
+        }
+        public IActionResult OrderHistory()
         {
             return View();
         }
