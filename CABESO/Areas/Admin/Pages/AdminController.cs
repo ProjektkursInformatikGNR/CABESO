@@ -51,7 +51,7 @@ namespace CABESO.Views.Admin
         [Authorize(Roles = "Admin")]
         public IActionResult DeactivateCode(string id)
         {
-            Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{id}';");
+            Database.Delete("Codes", $"[Code] = '{id}'");
             return LocalRedirect("~/Admin/GenerateCodes");
         }
     }

@@ -40,7 +40,7 @@ namespace CABESO.Areas.Admin.Pages
             [Required]
             public string Role { get; set; }
 
-            public string Form { get; set; }
+            public int FormId { get; set; }
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -58,7 +58,7 @@ namespace CABESO.Areas.Admin.Pages
                     _logger.LogInformation("User created with random password.");
                     await _userManager.AddToRoleAsync(user, Input.Role);
                     if (Input.Role.Equals("Student"))
-                        Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET [Form]='{Input.Form}' WHERE [Id]='{user.Id}';");
+                        Database.Update("AspNetUsers", $"[Id] = '{user.Id}'", new { Form = (int?) Input.FormId });
 
                     await _userManager.ConfirmEmailAsync(user, await _userManager.GenerateEmailConfirmationTokenAsync(user));
 
@@ -81,7 +81,7 @@ namespace CABESO.Areas.Admin.Pages
                     {
                         From = new MailAddress(Startup.MailAddress),
                         IsBodyHtml = true,
-                        Body = $"Hallo {new Name(user.Email, Input.Role.Equals("Student")).ToString()}!<br /><br />Du wurdest zur Online-Wahl am GNR berechtigt. Klicke <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> zur Erstanmeldung.<br /><br /><br />Viele Grüße<br /><br />Das Online-Wahl-Team des GNR",
+                        Body = $"Hallo {new Name(user.Email, Input.Role.Equals("Student")).ToString()}!<br /><br />Du wurdest zur Online-Wahl am GNR berechtigt. Klicke <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> zur Erstanmeldung.<br /><br /><br />Viele Grüße<br /><br />Das Online-Wahl-Team des GNR",
                         Subject = "Anmeldung zur GNR-Online-Wahl"
                     };
                     mailMessage.To.Add(Input.Email);

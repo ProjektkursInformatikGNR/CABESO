@@ -1245,15 +1245,15 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// https://bugs.jquery.com/ticket/12359
-			docElem.appendChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
-				"<select id='" + expando + "-\r\\' msallowcapture=''>" +
-				"<option selected=''></option></select>";
+			docElem.appendChild( el ).innerHTML = "<a id = '" + expando + "'></a>" +
+				"<select id = '" + expando + "-\r\\' msallowcapture = ''>" +
+				"<option selected = ''></option></select>";
 
 			// Support: IE8, Opera 11-12.16
 			// Nothing should be selected when empty strings follow ^= or $= or *=
 			// The test attribute must be unknown in Opera but "safe" for WinRT
 			// https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
-			if ( el.querySelectorAll("[msallowcapture^='']").length ) {
+			if ( el.querySelectorAll("[msallowcapture^ = '']").length ) {
 				rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:''|\"\")" );
 			}
 
@@ -1284,8 +1284,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 		});
 
 		assert(function( el ) {
-			el.innerHTML = "<a href='' disabled='disabled'></a>" +
-				"<select disabled='disabled'><option/></select>";
+			el.innerHTML = "<a href = '' disabled = 'disabled'></a>" +
+				"<select disabled = 'disabled'><option/></select>";
 
 			// Support: Windows 8 Native Apps
 			// The type and name attributes are restricted during .innerHTML assignment
@@ -1331,7 +1331,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// This should fail with an exception
 			// Gecko does not error, returns false instead
-			matches.call( el, "[s!='']:x" );
+			matches.call( el, "[s! = '']:x" );
 			rbuggyMatches.push( "!=", pseudos );
 		});
 	}
@@ -1481,7 +1481,7 @@ Sizzle.matchesSelector = function( elem, expr ) {
 	}
 
 	// Make sure that attribute selectors are quoted
-	expr = expr.replace( rattributeQuotes, "='$1']" );
+	expr = expr.replace( rattributeQuotes, " = '$1']" );
 
 	if ( support.matchesSelector && documentIsHTML &&
 		!compilerCache[ expr + " " ] &&
@@ -2707,7 +2707,7 @@ support.sortDetached = assert(function( el ) {
 // Prevent attribute/property "interpolation"
 // https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx
 if ( !assert(function( el ) {
-	el.innerHTML = "<a href='#'></a>";
+	el.innerHTML = "<a href = '#'></a>";
 	return el.firstChild.getAttribute("href") === "#" ;
 }) ) {
 	addHandle( "type|href|height|width", function( elem, name, isXML ) {
@@ -4679,7 +4679,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 var wrapMap = {
 
 	// Support: IE <=9 only
-	option: [ 1, "<select multiple='multiple'>", "</select>" ],
+	option: [ 1, "<select multiple = 'multiple'>", "</select>" ],
 
 	// XHTML parsers do not magically insert elements in the
 	// same way that tag soup parsers do. So we cannot shorten

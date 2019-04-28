@@ -20,9 +20,7 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
-            {
-                return RedirectToPage("./AccessDenied");
-            }
+                return Redirect("/Identity/Account/AccessDenied");
 
             Client = Client.Create(_userManager, User);
             return Page();

@@ -31,8 +31,7 @@ namespace CABESO.Areas.Admin.Pages
             await _userManager.AddToRoleAsync(user, Input.Role);
             if (Input.Admin)
                 await _userManager.AddToRoleAsync(user, "Admin");
-            if (Input.Role.Equals("Student") && Input.FormId.HasValue)
-                Database.Update("AspNetUsers", $"[Id] = '{user.Id}'", new { Form = Input.FormId.Value });
+            Database.Update("AspNetUsers", $"[Id] = '{user.Id}'", new { Form = Input.Role.Equals("Student") && Input.FormId.HasValue ? (int?) (Input.FormId.Value) : null });
 
             return LocalRedirect("~/Admin/Index");
         }

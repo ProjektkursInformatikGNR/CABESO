@@ -49,7 +49,7 @@
     }
 
     function onError(error, inputElement) {  // 'this' is the form element
-        var container = $(this).find("[data-valmsg-for='" + escapeAttributeValue(inputElement[0].name) + "']"),
+        var container = $(this).find("[data-valmsg-for = '" + escapeAttributeValue(inputElement[0].name) + "']"),
             replaceAttrValue = container.attr("data-valmsg-replace"),
             replace = replaceAttrValue ? $.parseJSON(replaceAttrValue) !== false : null;
 
@@ -373,7 +373,7 @@
         var prefix = getModelPrefix(options.element.name),
             other = options.params.other,
             fullOtherName = appendModelPrefix(other, prefix),
-            element = $(options.form).find(":input").filter("[name='" + escapeAttributeValue(fullOtherName) + "']")[0];
+            element = $(options.form).find(":input").filter("[name = '" + escapeAttributeValue(fullOtherName) + "']")[0];
 
         setValidationValues(options, "equalTo", element);
     });
@@ -394,7 +394,7 @@
         $.each(splitAndTrim(options.params.additionalfields || options.element.name), function (i, fieldName) {
             var paramName = appendModelPrefix(fieldName, prefix);
             value.data[paramName] = function () {
-                var field = $(options.form).find(":input").filter("[name='" + escapeAttributeValue(paramName) + "']");
+                var field = $(options.form).find(":input").filter("[name = '" + escapeAttributeValue(paramName) + "']");
                 // For checkboxes and radio buttons, only pick up values from checked fields.
                 if (field.is(":checkbox")) {
                     return field.filter(":checked").val() || field.filter(":hidden").val() || '';

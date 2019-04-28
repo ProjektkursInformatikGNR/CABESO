@@ -76,7 +76,7 @@ $.extend( $.fn, {
 					//   - There was a pending request due to `remote` method and `stopRequest()`
 					//     was called to submit the form in case it's valid
 					if ( validator.submitButton && ( validator.settings.submitHandler || validator.formSubmitted ) ) {
-						hidden = $( "<input type='hidden'/>" )
+						hidden = $( "<input type = 'hidden'/>" )
 							.attr( "name", validator.submitButton.name )
 							.val( $( validator.submitButton ).val() )
 							.appendTo( validator.currentForm );
@@ -426,14 +426,14 @@ $.extend( $.validator, {
 
 			$( this.currentForm )
 				.on( "focusin.validate focusout.validate keyup.validate",
-					":text, [type='password'], [type='file'], select, textarea, [type='number'], [type='search'], " +
-					"[type='tel'], [type='url'], [type='email'], [type='datetime'], [type='date'], [type='month'], " +
-					"[type='week'], [type='time'], [type='datetime-local'], [type='range'], [type='color'], " +
-					"[type='radio'], [type='checkbox'], [contenteditable], [type='button']", delegate )
+					":text, [type = 'password'], [type = 'file'], select, textarea, [type = 'number'], [type = 'search'], " +
+					"[type = 'tel'], [type = 'url'], [type = 'email'], [type = 'datetime'], [type = 'date'], [type = 'month'], " +
+					"[type = 'week'], [type = 'time'], [type = 'datetime-local'], [type = 'range'], [type = 'color'], " +
+					"[type = 'radio'], [type = 'checkbox'], [contenteditable], [type = 'button']", delegate )
 
 				// Support: Chrome, oldIE
 				// "select" is provided as event.target when clicking a option
-				.on( "click.validate", "select, option, [type='radio'], [type='checkbox']", delegate );
+				.on( "click.validate", "select, option, [type = 'radio'], [type = 'checkbox']", delegate );
 
 			if ( this.settings.invalidHandler ) {
 				$( this.currentForm ).on( "invalid-form.validate", this.settings.invalidHandler );
@@ -972,7 +972,7 @@ $.extend( $.validator, {
 
 					// If the element is not a child of an associated label, then it's necessary
 					// to explicitly apply aria-describedby
-				} else if ( error.parents( "label[for='" + this.escapeCssMeta( elementID ) + "']" ).length === 0 ) {
+				} else if ( error.parents( "label[for = '" + this.escapeCssMeta( elementID ) + "']" ).length === 0 ) {
 					errorID = error.attr( "id" );
 
 					// Respect existing non-error aria-describedby
@@ -991,7 +991,7 @@ $.extend( $.validator, {
 						v = this;
 						$.each( v.groups, function( name, testgroup ) {
 							if ( testgroup === group ) {
-								$( "[name='" + v.escapeCssMeta( name ) + "']", v.currentForm )
+								$( "[name = '" + v.escapeCssMeta( name ) + "']", v.currentForm )
 									.attr( "aria-describedby", error.attr( "id" ) );
 							}
 						} );
@@ -1012,7 +1012,7 @@ $.extend( $.validator, {
 		errorsFor: function( element ) {
 			var name = this.escapeCssMeta( this.idOrName( element ) ),
 				describer = $( element ).attr( "aria-describedby" ),
-				selector = "label[for='" + name + "'], label[for='" + name + "'] *";
+				selector = "label[for = '" + name + "'], label[for = '" + name + "'] *";
 
 			// 'aria-describedby' should directly reference the error element
 			if ( describer ) {
@@ -1052,7 +1052,7 @@ $.extend( $.validator, {
 		},
 
 		findByName: function( name ) {
-			return $( this.currentForm ).find( "[name='" + this.escapeCssMeta( name ) + "']" );
+			return $( this.currentForm ).find( "[name = '" + this.escapeCssMeta( name ) + "']" );
 		},
 
 		getLength: function( value, element ) {
@@ -1113,7 +1113,7 @@ $.extend( $.validator, {
 				// to ensure that the value of the used submit button is passed on
 				// for scripted submits triggered by this method
 				if ( this.submitButton ) {
-					$( "input:hidden[name='" + this.submitButton.name + "']", this.currentForm ).remove();
+					$( "input:hidden[name = '" + this.submitButton.name + "']", this.currentForm ).remove();
 				}
 
 				this.formSubmitted = false;

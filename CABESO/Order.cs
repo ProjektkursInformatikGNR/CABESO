@@ -16,7 +16,7 @@ namespace CABESO
 
         public static Order Create(int id)
         {
-            return Database.Create<Order>($"[Id]={id}", ("Client", "ClientId"), ("Product", "ProductId"));
+            return Database.Create<Order>($"[Id] = '{id}'", ("Client", "ClientId"), ("Product", "ProductId"));
         }
 
         public static Order Create(object[] data)
@@ -32,7 +32,7 @@ namespace CABESO
         public void Archive()
         {
             Database.Add("OrderHistory", new { Id, ClientId = Client.Id, ProductId = Product.Id, OrderTime, Notes, Number, CollectionTime });
-            Database.Delete("Orders", $"[Id]={Id}");
+            Database.Delete("Orders", $"[Id] = '{Id}'");
         }
 
         public override bool Equals(object obj)

@@ -59,7 +59,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                 mailMessage.From = new MailAddress(Startup.MailAddress);
                 mailMessage.To.Add(Input.Email);
                 mailMessage.IsBodyHtml = true;
-                mailMessage.Body = $"Bitte setze dein Passwort zurück, indem du <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> klickst.";
+                mailMessage.Body = $"Bitte setze dein Passwort zurück, indem du <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> klickst.";
                 mailMessage.Subject = "CABESO | Passwort zurücksetzen";
                 client.Send(mailMessage);
 

@@ -94,8 +94,8 @@ namespace CABESO.Areas.Identity.Pages.Account
                     if (_userManager.Users.Count() == 1)
                         await _userManager.AddToRoleAsync(user, "Admin");
 
-                    Database.Update("AspNetUsers", "[Id]='{user.Id}'", new { Form = Role.Equals("Student") ? Input.FormId : null, EmailConfirmed = true });
-                    Database.Delete("Codes", $"[Code]='{_code}'");
+                    Database.Update("AspNetUsers", $"[Id] = '{user.Id}'", new { Form = Role.Equals("Student") ? Input.FormId : null, EmailConfirmed = true });
+                    Database.Delete("Codes", $"[Code] = '{_code}'");
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //var callbackUrl = Url.Page(
@@ -105,7 +105,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                     //    protocol: Request.Scheme);
 
                     //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    //    $"Please confirm your account by <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(ReturnUrl);
@@ -125,7 +125,7 @@ namespace CABESO.Areas.Identity.Pages.Account
             if (string.IsNullOrEmpty(code))
                 return false;
 
-            object[][] codes = Database.Select("Codes", $"[Code]='{code}'", "Role");
+            object[][] codes = Database.Select("Codes", $"[Code] = '{code}'", "Role");
 
             if (codes.Length > 0)
             {

@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Input.Role"></label>
-        <select asp-for="Input.Role" class="form-control" id="roleSelect">
+        <select asp-for="Input.Role" class="form-control" id="role_select" onchange="selectChange()" >
             @foreach (KeyValuePair<string, string> role in Database.RoleNames)
             {
                 @if (role.Value.Equals(EditUserModel.ClientToEdit.Role))
@@ -31,10 +31,10 @@
             }
         </select>
     </div>
-    <div class="form-group" id="formForm">
+    <div class="form-group" id="form_form">
         <label asp-for="Input.FormId"></label>
         <select asp-for="Input.FormId" value="@EditUserModel.ClientToEdit.FormId" class="form-control">
-            @foreach (KeyValuePair<int, string> form in Database.FormNames)
+            @foreach (KeyValuePair<int, string> form in Database.FormNames.OrderBy(form => form.Value))
             {
                 @if (form.Key == (EditUserModel.ClientToEdit.FormId ?? -1))
                 {
@@ -68,16 +68,15 @@
 </form>
 
 <script>
-    var roleSelect = document.getElementById('roleSelect');
-    var formForm = document.getElementById('formform');
-    roleSelect.onchange = f;
-    document.onload = f;
-    var f = function (evt) {
+    var roleSelect = document.getElementById('role_select');
+    var formForm = document.getElementById('form_form');
+    function selectChange() {
         if (roleSelect.value == 'Student') {
             formForm.removeAttribute('hidden');
         }
         else {
             formForm.setAttribute('hidden', true);
         }
-    };
+    }
+    selectChange();
 </script>

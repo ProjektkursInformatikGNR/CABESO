@@ -15,7 +15,7 @@ namespace CABESO
         public DateTime CollectionTime { get; set; }
         public static HistoricOrder Create(int id)
         {
-            return Create(Database.Select("OrderHistory", $"[Id]={id}").FirstOrDefault());
+            return Create(Database.Select("OrderHistory", $"[Id] = '{id}'").FirstOrDefault());
         }
 
         public static HistoricOrder Create(object[] data)
@@ -31,7 +31,7 @@ namespace CABESO
         public void Reactivate()
         {
             Database.Add("Orders", new { Id, ClientId = Client.Id, ProductId = Product.Id, OrderTime, Notes, Number, CollectionTime });
-            Database.Delete("OrderHistory", $"[Id]={Id}");
+            Database.Delete("OrderHistory", $"[Id] = '{Id}'");
         }
 
         public override bool Equals(object obj)

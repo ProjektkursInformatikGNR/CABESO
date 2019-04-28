@@ -18,7 +18,7 @@ namespace CABESO
 
         public static Product Create(int id)
         {
-            return Database.Create<Product>($"[Id]={id}");
+            return Database.Create<Product>($"[Id] = '{id}'");
         }
 
         public static Product Create(object[] data)
@@ -28,7 +28,7 @@ namespace CABESO
 
         public static Product[] Enumerate()
         {
-            return Database.Enumerate<Product>().ToArray();
+            return Database.Enumerate<Product>().OrderBy(product => product.Name).ToArray();
         }
 
         public override bool Equals(object obj)

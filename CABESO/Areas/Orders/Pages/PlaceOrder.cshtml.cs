@@ -15,6 +15,7 @@ namespace CABESO.Areas.Orders.Pages
         {
             _userManager = userManager;
         }
+
         public IActionResult OnPost()
         {
             Database.Add("Orders", new { ClientId = Client.Create(_userManager, User).Id, Input.ProductId, OrderTime = Database.SqlNow, Input.Number, Input.Notes, CollectionTime = Database.SqlTimeFormat(Input.CollectionTime) });

@@ -63,7 +63,7 @@ namespace CABESO
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {
-                config.SignIn.RequireConfirmedEmail = true;
+                config.SignIn.RequireConfirmedEmail = false;
                 config.User.RequireUniqueEmail = true;
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()

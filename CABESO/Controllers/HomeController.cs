@@ -12,7 +12,6 @@ namespace CABESO.Controllers
             foreach (string role in new[] { "Admin", "Teacher", "Student", "Employee" })
                 if (!roleManager.RoleExistsAsync(role).Result)
                     while (!roleManager.CreateAsync(new IdentityRole(role)).Result.Succeeded) ;
-            new Client();
         }
 
         public IActionResult Index()

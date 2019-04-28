@@ -19,7 +19,7 @@
                     <div class="form-group" id="formform">
                         <label asp-for="Input.FormId">Klasse</label>
                         <select asp-for="Input.FormId" class="form-control">
-                            @foreach (KeyValuePair<int, string> form in Database.FormNames)
+                            @foreach (KeyValuePair<int, string> form in Database.FormNames.OrderBy(form => form.Value))
                             {
                                 <option value="@form.Key">
                                     @form.Value

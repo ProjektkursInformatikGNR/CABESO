@@ -205,7 +205,7 @@ namespace CABESO
 
         public static string GetFormName(int? id)
         {
-            return id.HasValue ? FormNames[id.Value] : string.Empty;
+            return id.HasValue && id.Value > 0 ? FormNames[id.Value] : string.Empty;
         }
 
         public static ApplicationDbContext Context { get; private set; }

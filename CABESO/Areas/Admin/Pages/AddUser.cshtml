@@ -15,9 +15,9 @@
         <span asp-validation-for="Input.Email" class="text-danger"></span>
     </div>
     <div class="form-group" id="formform">
-        <label asp-for="Input.Form">Klasse</label>
-        <select asp-for="Input.Form" class="form-control">
-            @foreach (KeyValuePair<int, string> form in Database.FormNames)
+        <label asp-for="Input.FormId">Klasse</label>
+        <select asp-for="Input.FormId" class="form-control">
+            @foreach (KeyValuePair<int, string> form in Database.FormNames.OrderBy(form => form.Value))
             {
                 <option value="@form.Key">
                     @form.Value

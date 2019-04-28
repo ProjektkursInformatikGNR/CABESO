@@ -167,8 +167,6 @@ namespace CABESO.Data.Migrations
                     table.PrimaryKey("PK_Forms", x => x.Id);
                 });
 
-            migrationBuilder.AddForeignKey("FK_Form", "AspNetUsers", "Form", "Forms", principalColumn: "Id");
-
             migrationBuilder.CreateTable(
                 name: "Codes",
                 columns: table => new
