@@ -9,6 +9,7 @@ namespace CABESO.Areas.Admin.Pages
     public class EditUserModel : PageModel
     {
         public static Client ClientToEdit { get; private set; }
+        public bool StuckAsAdmin { get; private set; }
 
         private readonly UserManager<IdentityUser> _userManager;
 
@@ -17,9 +18,10 @@ namespace CABESO.Areas.Admin.Pages
             _userManager = userManager;
         }
 
-        public void OnGet(string id)
+        public async Task OnGet(string id)
         {
             ClientToEdit = Client.Create(id);
+            StuckAsAdmin = (await _userManager.GetUsersInRoleAsync("Admin")).Count <= 1;
         }
 
         public async Task<IActionResult> OnPost()

@@ -55,7 +55,14 @@
         <label asp-for="Input.Admin"></label>
         @if (EditUserModel.ClientToEdit.Admin)
         {
-            <input asp-for="Input.Admin" checked type="checkbox" />
+            if (Model.StuckAsAdmin)
+            {
+                <input asp-for="Input.Admin" checked type="checkbox" onclick="return false;" />
+            }
+            else
+            {
+                <input asp-for="Input.Admin" checked type="checkbox" />
+            }
         }
         else
         {

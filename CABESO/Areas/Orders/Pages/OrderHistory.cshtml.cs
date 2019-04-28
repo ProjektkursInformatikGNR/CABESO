@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq;
 
-namespace CABESO.Areas.HistoricOrders.Pages
+namespace CABESO.Areas.Orders.Pages
 {
-    public class OrdersHistoryModel : PageModel
+    public class OrderHistoryModel : PageModel
     {
         public string ProductNameSort { get; set; }
         public string PricePerProductSort { get; set; }
@@ -19,7 +19,7 @@ namespace CABESO.Areas.HistoricOrders.Pages
 
         private readonly UserManager<IdentityUser> _userManager;
 
-        public OrdersHistoryModel(UserManager<IdentityUser> userManager)
+        public OrderHistoryModel(UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
         }

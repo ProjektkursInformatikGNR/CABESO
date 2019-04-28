@@ -57,7 +57,7 @@
         @foreach (var order in Model.Orders)
         {
         <tr>
-            <td>
+            <td title="@Database.GetFormName(order.Client.FormId)">
                 @order.Client.Name
             </td>
             <td>

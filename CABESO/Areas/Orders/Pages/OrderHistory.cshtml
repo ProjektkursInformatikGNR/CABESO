@@ -1,6 +1,6 @@
 ﻿@page
 @inject UserManager<IdentityUser> UserManager
-@model IndexModel
+@model OrderHistoryModel
 @{
     ViewData["Title"] = "Bestellhistorie";
     ViewData["ActivePage"] = "OrderHistory";
@@ -49,26 +49,26 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var order in Model.Orders)
+        @foreach (var historicOrder in Model.HistoricOrders)
         {
             <tr>
                 <td>
-                    @order.Product.Name
+                    @historicOrder.Product.Name
                 </td>
                 <td>
-                    @string.Format("{0:C2}", order.Product.Price)
+                    @string.Format("{0:C2}", historicOrder.Product.Price)
                 </td>
                 <td>
-                    @string.Format("{0:C2}", order.Product.Price * order.Number)
+                    @string.Format("{0:C2}", historicOrder.Product.Price * historicOrder.Number)
                 </td>
                 <td>
-                    @order.Number
+                    @historicOrder.Number
                 </td>
                 <td>
-                    @Program.TimeDisplay(order.OrderTime)
+                    @Program.TimeDisplay(historicOrder.OrderTime)
                 </td>
                 <td>
-                    @Program.TimeDisplay(order.CollectionTime)
+                    @Program.TimeDisplay(historicOrder.CollectionTime)
                 </td>
             </tr>
         }
