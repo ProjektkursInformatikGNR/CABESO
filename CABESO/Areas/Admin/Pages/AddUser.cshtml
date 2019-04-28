@@ -17,18 +17,20 @@
     <div class="form-group" id="formform">
         <label asp-for="Input.Form">Klasse</label>
         <select asp-for="Input.Form" class="form-control">
-            @foreach (object[] form in Model.Forms)
+            @foreach (KeyValuePair<int, string> form in Database.FormNames)
             {
-                <option value="@form[1]">
-                    @form[0]
+                <option value="@form.Key">
+                    @form.Value
                 </option>
             }
         </select>
     </div>
     <div class="form-group">
-        <input asp-for="Input.Role" type="radio" value="Student" id="sradbtn" checked /> Schüler
+        <input asp-for="Input.Role" type="radio" value="Student" id="sradbtn" checked /> @Program.Translations.GetValueOrDefault("Student")
         &nbsp;
-        <input asp-for="Input.Role" type="radio" value="Teacher" id="tradbtn" /> Lehrer
+        <input asp-for="Input.Role" type="radio" value="Teacher" id="tradbtn" /> @Program.Translations.GetValueOrDefault("Teacher")
+        &nbsp;
+        <input asp-for="Input.Role" type="radio" value="Employee" id="eradbtn" /> @Program.Translations.GetValueOrDefault("Employee")
     </div>
     <button type="submit" class="btn btn-primary">Hinzufügen</button>
 </form>
@@ -37,9 +39,13 @@
     <partial name="_ValidationScriptsPartial" />
 
     <script>
+        var eRadBtn = document.getElementById('eradbtn');
         var sRadBtn = document.getElementById('sradbtn');
         var tRadBtn = document.getElementById('tradbtn');
         var formForm = document.getElementById('formform');
+        eRadBtn.onclick = function (evt) {
+            formForm.setAttribute('hidden', 'true');
+        };
         sRadBtn.onclick = function (evt) {
             formForm.removeAttribute('hidden');
         };

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 
@@ -9,49 +8,36 @@ namespace CABESO
     public class Client
     {
         public string Id { get; set; }
+        public string Email { get; set; }
         public Name Name { get; set; }
-        public string Form { get; set; }
-        public string[] Roles { get; set; }
+        public int? FormId { get; set; }
+        public string Role { get; set; }
         public bool Admin { get; set; }
         public bool Employee { get; set; }
 
         public object[] ExportArray()
         {
-            return new object[] { Name, Form };
-        }
-
-        private static readonly string _adminId, _employeeId;
-        private static readonly Dictionary<string, string> _roleNames;
-
-        static Client()
-        {
-            _roleNames = new Dictionary<string, string>();
-            Array.ForEach(Database.Select("AspNetRoles", null, "Id", "Name"), role => _roleNames.Add(role[0].ToString(), role[1].ToString()));
-
-            _adminId = _roleNames.FirstOrDefault(role => role.Value.Equals("Admin")).Key;
-            _employeeId = _roleNames.FirstOrDefault(role => role.Value.Equals("Employee")).Key;
+            return new object[] { Name, Database.GetFormName(FormId) };
         }
 
         private static Client Create(object[] data)
         {
-            object[][] form = Database.Select("Forms", $"[Id] = '{data[2]}'", "Name");
-            if (form == null || form.Length != 1)
-                form = new object[][] { new object[] { string.Empty } };
-
             object[][] enrolledRoles = Database.Select("AspNetUserRoles", $"[UserId] = '{data[0]}'", "RoleId");
-            List<string> roles = new List<string>();
+            string role = string.Empty;
             bool admin = false, employee = false;
             foreach (object[] enrolledRole in enrolledRoles)
             {
-                if (enrolledRole[0].Equals(_adminId))
+                if (enrolledRole[0].Equals(Database.AdminId))
                     admin = true;
-                else if (enrolledRole[0].Equals(_employeeId))
-                    employee = true;
                 else
-                    roles.Add(_roleNames[enrolledRole[0].ToString()]);
+                {
+                    if (enrolledRole[0].Equals(Database.EmployeeId))
+                        employee = true;
+                    role = Database.RoleNames[enrolledRole[0].ToString()];
+                }
             }
-            
-            return new Client() { Name = new Name(data[1].ToString(), !string.IsNullOrEmpty(form[0][0].ToString())), Form = form[0][0].ToString(), Admin = admin, Employee = employee, Id = data[0].ToString(), Roles = roles.ToArray() };
+
+            return new Client() { Name = new Name(data[1].ToString(), role.Equals("Student")), FormId = (int?) (data[2] is DBNull ? null : data[2]), Admin = admin, Employee = employee, Id = data[0].ToString(), Role = role, Email = data[1].ToString() };
         }
 
         public static Client Create(UserManager<IdentityUser> userManager, ClaimsPrincipal principal)

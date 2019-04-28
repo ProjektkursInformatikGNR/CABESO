@@ -8,7 +8,7 @@ namespace CABESO.Views.Kitchen
         [Authorize(Roles = "Employee,Admin")]
         public IActionResult Index()
         {
-            return View();
+            return Redirect("/Counter/Index");
         }
     }
 }

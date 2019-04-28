@@ -17,7 +17,7 @@
         <select asp-for="Input.Role" class="form-control">
             @foreach (string role in Model.Roles)
             {
-                <option value="@role">@Program.Translations[role]</option>
+                <option value="@role">@Program.Translations.GetValueOrDefault(role)</option>
             }
         </select>
     </div>

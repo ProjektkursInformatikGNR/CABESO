@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CABESO.Areas.Kitchen.Pages
@@ -10,8 +11,9 @@ namespace CABESO.Areas.Kitchen.Pages
         {
         }
 
-        public void OnGet(string sortOrder)
+        public IActionResult OnGet()
         {
+            return Redirect("/Counter/Orders");
         }
     }
 }

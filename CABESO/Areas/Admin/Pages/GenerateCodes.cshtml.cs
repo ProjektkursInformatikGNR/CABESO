@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace CABESO.Areas.Admin.Pages
         public void OnGet()
         {
             object[][] data = Database.Select("Codes", null, "Code", "CreationTime", "Role").OrderByDescending(d => d[1]).ToArray();
-            Codes = Array.ConvertAll(data, d => new Tuple<string, string, string>(d[0].ToString(), DateTime.Parse(d[1].ToString()).ToLocalTime().ToString(CultureInfo.CurrentCulture), string.IsNullOrEmpty(d[2].ToString()) ? string.Empty : Program.Translations[d[2].ToString()]));
+            Codes = Array.ConvertAll(data, d => new Tuple<string, string, string>(d[0].ToString(), DateTime.Parse(d[1].ToString()).ToLocalTime().ToString(CultureInfo.CurrentCulture), string.IsNullOrEmpty(d[2].ToString()) ? string.Empty : Program.Translations.GetValueOrDefault(d[2].ToString())));
             Roles = Array.ConvertAll(Database.Select("AspNetRoles", "[Name]<>'Admin'", "Name"), r => r[0].ToString());
         }
 

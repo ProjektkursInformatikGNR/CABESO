@@ -13,7 +13,6 @@ namespace CABESO.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        public readonly object[][] Forms;
         private static string _code;
 
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -31,8 +30,6 @@ namespace CABESO.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             //_emailSender = emailSender;
-
-            Forms = Database.Select("Forms", null, "Name", "Id");
         }
 
         [BindProperty]
@@ -68,7 +65,7 @@ namespace CABESO.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "Die beiden Passwörter stimmen nicht überein.")]
             public string ConfirmPassword { get; set; }
 
-            public string Form { get; set; }
+            public int? FormId { get; set; }
         }
 
         public void OnGet(string code = null, string returnUrl = null)
@@ -97,8 +94,8 @@ namespace CABESO.Areas.Identity.Pages.Account
                     if (_userManager.Users.Count() == 1)
                         await _userManager.AddToRoleAsync(user, "Admin");
 
-                    Database.SqlExecute($"UPDATE [dbo].[AspNetUsers] SET {(Role.Equals("Student") ? $"[Form]={Input.Form}, " : "")}[EmailConfirmed]='True' WHERE [Id]='{user.Id}';");
-                    Database.SqlExecute($"DELETE FROM [dbo].[Codes] WHERE [Code]='{_code}';");
+                    Database.Update("AspNetUsers", "[Id]='{user.Id}'", new { Form = Role.Equals("Student") ? Input.FormId : null, EmailConfirmed = true });
+                    Database.Delete("Codes", $"[Code]='{_code}'");
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //var callbackUrl = Url.Page(

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CABESO.Areas.Admin.Pages
@@ -29,7 +30,7 @@ namespace CABESO.Areas.Admin.Pages
         {
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Clients = Clients.Where(client => Array.TrueForAll(SearchKeyWord.Split(' '), s => Array.Exists(new[] { client.Form, client.Name.FirstName, client.Name.LastName }, e => Program.Matches(e, s)))).ToArray();
+                Clients = Clients.Where(client => Array.TrueForAll(SearchKeyWord.Split(' '), s => Array.Exists(new[] { Database.GetFormName(client.FormId), client.Name.FirstName, client.Name.LastName }, e => Program.Matches(e, s)))).ToArray();
 
             FirstNameSort = string.IsNullOrEmpty(sortOrder) ? "!fn" : "";
             LastNameSort = sortOrder == "ln" ? "!ln" : "ln";
@@ -40,7 +41,7 @@ namespace CABESO.Areas.Admin.Pages
 
             IOrderedEnumerable<Client> users = Clients.OrderBy(client => 0);
             foreach (Client client in users)
-                client.Roles = Array.ConvertAll(client.Roles, role => Program.Translations[role]);
+                client.Role = Program.Translations.GetValueOrDefault(client.Role);
 
             switch (sortOrder)
             {
@@ -54,16 +55,16 @@ namespace CABESO.Areas.Admin.Pages
                     users = users.OrderByDescending(client => client.Name.LastName);
                     break;
                 case "r":
-                    users = users.OrderBy(client => client.Roles.FirstOrDefault());
+                    users = users.OrderBy(client => client.Role);
                     break;
                 case "!r":
-                    users = users.OrderByDescending(client => client.Roles.FirstOrDefault());
+                    users = users.OrderByDescending(client => client.Role);
                     break;
                 case "f":
-                    users = users.OrderBy(client => client.Form);
+                    users = users.OrderBy(client => Database.GetFormName(client.FormId));
                     break;
                 case "!f":
-                    users = users.OrderByDescending(client => client.Form);
+                    users = users.OrderByDescending(client => Database.GetFormName(client.FormId));
                     break;
                 case "a":
                     users = users.OrderBy(client => !client.Admin);

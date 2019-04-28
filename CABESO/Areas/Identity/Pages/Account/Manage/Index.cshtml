@@ -6,40 +6,29 @@
 }
 
 <h4>@ViewData["Title"]</h4>
-<partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
     <div class="col-md-6">
-        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="Input.Client.Name.FirstName">Vorname</label>
-            <input asp-for="Input.Client.Name.FirstName" class="form-control" disabled />
+            <label>Vorname</label>
+            <input value="@Model.Client.Name.FirstName" class="form-control" disabled />
         </div>
         <div class="form-group">
-            <label asp-for="Input.Client.Name.LastName">Nachname</label>
-            <input asp-for="Input.Client.Name.LastName" class="form-control" disabled />
+            <label>Nachname</label>
+            <input value="@Model.Client.Name.LastName" class="form-control" disabled />
         </div>
         <div class="form-group">
-            <label asp-for="Input.Email">E-Mail</label>
-            <input asp-for="Input.Email" class="form-control" disabled />
+            <label>E-Mail-Adresse</label>
+            <input value="@Model.Client.Email" class="form-control" disabled />
         </div>
         <div class="form-group">
-            <label asp-for="Input.Client.Roles">
-                @if (Model.Input.Client.Roles.Length > 1)
-                {
-                    <text>Rollen</text>
-                }
-                else
-                {
-                    <text>Rolle</text>
-                }
-            </label>
-            <input value="@string.Join(", ", Array.ConvertAll(Model.Input.Client.Roles, s => Program.Translations[s]))" class="form-control" disabled />
+            <label>Rolle</label>
+            <input value="@Program.Translations.GetValueOrDefault(Model.Client.Role)" class="form-control" disabled />
         </div>
-        @if (!string.IsNullOrEmpty(Model.Input.Client.Form))
+        @if (Model.Client.FormId.HasValue)
         {
             <div class="form-group">
-                <label asp-for="Input.Client.Form">Klasse</label>
-                <input asp-for="Input.Client.Form" class="form-control" disabled />
+                <label>Klasse</label>
+                <input value="@Database.GetFormName(Model.Client.FormId.Value)" class="form-control" disabled />
             </div>
         }
     </div>

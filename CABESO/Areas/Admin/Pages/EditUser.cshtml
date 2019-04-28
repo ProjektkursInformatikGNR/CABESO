@@ -1,0 +1,83 @@
+﻿@page
+@model EditUserModel
+@{
+    ViewData["Title"] = "Benutzer bearbeiten";
+}
+
+<h2>@ViewData["Title"]: @EditUserModel.ClientToEdit.Name</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.Email"></label>
+        <input asp-for="Input.Email" value="@EditUserModel.ClientToEdit.Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Role"></label>
+        <select asp-for="Input.Role" class="form-control" id="roleSelect">
+            @foreach (KeyValuePair<string, string> role in Database.RoleNames)
+            {
+                @if (role.Value.Equals(EditUserModel.ClientToEdit.Role))
+                {
+                    <option value="@role.Value" selected="selected">
+                        @Program.Translations.GetValueOrDefault(role.Value)
+                    </option>
+                }
+                else
+                {
+                    <option value="@role.Value">
+                        @Program.Translations.GetValueOrDefault(role.Value)
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group" id="formForm">
+        <label asp-for="Input.FormId"></label>
+        <select asp-for="Input.FormId" value="@EditUserModel.ClientToEdit.FormId" class="form-control">
+            @foreach (KeyValuePair<int, string> form in Database.FormNames)
+            {
+                @if (form.Key == (EditUserModel.ClientToEdit.FormId ?? -1))
+                {
+                    <option value="@form.Key" selected="selected">
+                        @form.Value
+                    </option>
+                }
+                else
+                {
+                    <option value="@form.Key">
+                        @form.Value
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Admin"></label>
+        @if (EditUserModel.ClientToEdit.Admin)
+        {
+            <input asp-for="Input.Admin" checked type="checkbox" />
+        }
+        else
+        {
+            <input asp-for="Input.Admin" type="checkbox" />
+        }
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+    </div>
+</form>
+
+<script>
+    var roleSelect = document.getElementById('roleSelect');
+    var formForm = document.getElementById('formform');
+    roleSelect.onchange = f;
+    document.onload = f;
+    var f = function (evt) {
+        if (roleSelect.value == 'Student') {
+            formForm.removeAttribute('hidden');
+        }
+        else {
+            formForm.setAttribute('hidden', true);
+        }
+    };
+</script>

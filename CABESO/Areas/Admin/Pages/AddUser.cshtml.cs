@@ -16,7 +16,6 @@ namespace CABESO.Areas.Admin.Pages
     [Authorize(Roles = "Admin")]
     public class AddUserModel : PageModel
     {
-        public readonly object[][] Forms;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<IndexModel> _logger;
         public string ReturnUrl { get; set; }
@@ -26,7 +25,6 @@ namespace CABESO.Areas.Admin.Pages
             _userManager = userManager;
             _logger = logger;
             ReturnUrl = returnUrl ?? ReturnUrl;
-            Forms = Database.Select("Forms", null, "Name", "Id");
         }
 
         [BindProperty]

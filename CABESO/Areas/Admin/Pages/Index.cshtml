@@ -58,10 +58,10 @@
                     @client.Name.LastName
                 </td>
                 <td>
-                    @string.Join(", ", client.Roles)
+                    @client.Role
                 </td>
                 <td>
-                    @client.Form
+                    @Database.GetFormName(client.FormId)
                 </td>
                 <td>
                     @if (client.Admin)
@@ -84,27 +84,11 @@
                     }
                 </td>
                 <td>
-                    @if (!client.Id.Equals(Client.Create(UserManager, User).Id))
+                    <a asp-page="EditUser" asp-route-id="@client.Id">Bearbeiten</a>
+                    @if (!client.Equals(Client.Create(UserManager, User)))
                     {
+                        <text>|</text>
                         <a asp-controller="Admin" asp-action="Delete" asp-route-id="@client.Id">Entfernen</a>
-                        <text>|</text>
-                        @if (client.Admin)
-                        {
-                            <a asp-controller="Admin" asp-action="DegradeAdmin" asp-route-id="@client.Id">Adminrechte entfernen</a>
-                        }
-                        else
-                        {
-                            <a asp-controller="Admin" asp-action="PromoteAdmin" asp-route-id="@client.Id">Adminrechte geben</a>
-                        }
-                        <text>|</text>
-                        @if (client.Employee)
-                        {
-                            <a asp-controller="Admin" asp-action="DegradeEmployee" asp-route-id="@client.Id">Mitarbeiterrechte entfernen</a>
-                        }
-                        else
-                        {
-                            <a asp-controller="Admin" asp-action="PromoteEmployee" asp-route-id="@client.Id">Mitarbeiterrechte geben</a>
-                        }
                     }
                 </td>
             </tr>
