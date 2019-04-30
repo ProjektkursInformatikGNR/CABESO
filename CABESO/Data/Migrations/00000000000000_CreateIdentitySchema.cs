@@ -280,7 +280,7 @@ namespace CABESO.Data.Migrations
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
 
-            migrationBuilder.InsertData("Forms", new[] { "Id", "Name", "Year" }, new object[] { 1, "Q1", 11 });
+            migrationBuilder.InsertData("Forms", new[] { "Id", "Name", "Year" }, new object[] { 1, "", 2012 });
             migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "Role" }, new object[] { "1234567890", Database.SqlNow, "Student" });
 
             migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 1, "belegtes Brötchen", 1.1, false, false });

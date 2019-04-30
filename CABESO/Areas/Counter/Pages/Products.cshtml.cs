@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
@@ -24,7 +25,7 @@ namespace CABESO.Areas.Counter.Pages
 
         public ProductsModel()
         {
-            Products = Product.Enumerate();
+            Products = new ApplicationDbContext().Products.ToArray();
         }
 
         public void OnGet(string sortOrder, string search)

@@ -45,42 +45,6 @@ namespace CABESO
             return dt.ToLocalTime().ToString(CultureInfo.CurrentCulture);
         }
 
-        public static object Convert(string s, Type type)
-        {
-            switch (type)
-            {
-                case Type t when t.Equals(typeof(int)):
-                    return int.Parse(s);
-                case Type t when t.Equals(typeof(int?)):
-                    return string.IsNullOrEmpty(s) ? null : (int?) int.Parse(s);
-                case Type t when t.Equals(typeof(decimal)):
-                    return decimal.Parse(s);
-                case Type t when t.Equals(typeof(decimal?)):
-                    return string.IsNullOrEmpty(s) ? null : (decimal?) decimal.Parse(s);
-                case Type t when t.Equals(typeof(bool)):
-                    return bool.Parse(s);
-                case Type t when t.Equals(typeof(bool?)):
-                    return string.IsNullOrEmpty(s) ? null : (bool?) bool.Parse(s);
-                case Type t when t.Equals(typeof(DateTime)):
-                    return DateTime.Parse(s);
-                case Type t when t.Equals(typeof(Client)):
-                    return Client.Create(s);
-                case Type t when t.Equals(typeof(Product)):
-                    return Product.Create(int.Parse(s));
-                case Type t when t.Equals(typeof(Order)):
-                    return Order.Create(int.Parse(s));
-                case Type t when t.Equals(typeof(DBNull)):
-                    return null;
-                case Type t when t.IsArray:
-                    object[] elements = Array.ConvertAll(s.Split('|'), split => Convert(split, t.GetElementType()));
-                    Array a = Array.CreateInstance(t.GetElementType(), elements.Length);
-                    elements.CopyTo(a, 0);
-                    return a;
-                default:
-                    return s;
-            }
-        }
-
         public static void Main(string[] args)
         {
             Translations = new Dictionary<string, string>
