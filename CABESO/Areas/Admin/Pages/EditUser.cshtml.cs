@@ -8,7 +8,7 @@ namespace CABESO.Areas.Admin.Pages
 {
     public class EditUserModel : PageModel
     {
-        public static Client ClientToEdit { get; private set; }
+        public static IdentityUser CurrentUser { get; private set; }
         public bool StuckAsAdmin { get; private set; }
 
         private readonly UserManager<IdentityUser> _userManager;
@@ -20,20 +20,21 @@ namespace CABESO.Areas.Admin.Pages
 
         public async Task OnGet(string id)
         {
-            ClientToEdit = Client.Create(id);
+            CurrentUser = Database.GetUserById(id);
             StuckAsAdmin = (await _userManager.GetUsersInRoleAsync("Admin")).Count <= 1;
         }
 
         public async Task<IActionResult> OnPost()
         {
-            IdentityUser user = ClientToEdit.ToIdentityUser(_userManager);
-            await _userManager.SetEmailAsync(user, Input.Email);
-            await _userManager.SetUserNameAsync(user, Input.Email);
-            await _userManager.RemoveFromRolesAsync(user, await _userManager.GetRolesAsync(user));
-            await _userManager.AddToRoleAsync(user, Input.Role);
+            CurrentUser.Email = Input.Email;
+            CurrentUser.UserName = Input.Email;
+            Database.Context.Users.Update(CurrentUser);
+            await _userManager.RemoveFromRolesAsync(CurrentUser, await _userManager.GetRolesAsync(CurrentUser));
+            await _userManager.AddToRoleAsync(CurrentUser, Input.Role);
             if (Input.Admin)
-                await _userManager.AddToRoleAsync(user, "Admin");
-            Database.Update("AspNetUsers", $"[Id] = '{user.Id}'", new { Form = Input.Role.Equals("Student") && Input.FormId.HasValue ? (int?) (Input.FormId.Value) : null });
+                await _userManager.AddToRoleAsync(CurrentUser, "Admin");
+            CurrentUser.SetFormId(Input.FormId);
+            Database.Context.SaveChanges();
 
             return LocalRedirect("~/Admin/Index");
         }

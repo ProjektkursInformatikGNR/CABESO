@@ -1,13 +1,15 @@
 ﻿using CABESO.Data;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
+using System.Web;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
-using System.Reflection;
+using System.Security.Claims;
 
 namespace CABESO
 {
@@ -20,6 +22,85 @@ namespace CABESO
             Context.Database.Migrate();
 
             return webHost;
+        }
+
+        private static string roleName;
+        private static bool? admin, employee;
+        private static void RetrieveRoles(IdentityUser user)
+        {
+            foreach (IdentityUserRole<string> role in Context.UserRoles.Where(userRole => userRole.UserId.Equals(user.Id)))
+            {
+                if (role.RoleId.Equals(AdminId))
+                    admin = true;
+                else
+                {
+                    if (role.RoleId.Equals(EmployeeId))
+                        employee = true;
+                    roleName = Context.Roles.FirstOrDefault(r => r.Id.Equals(role.RoleId))?.Name ?? string.Empty;
+                }
+            }
+        }
+
+        public static string GetRoleName(this IdentityUser user)
+        {
+            if (string.IsNullOrEmpty(roleName))
+                RetrieveRoles(user);
+            return roleName ?? string.Empty;
+        }
+
+        public static bool IsAdmin(this IdentityUser user)
+        {
+            if (!admin.HasValue)
+                RetrieveRoles(user);
+            return admin ?? false;
+        }
+
+        public static bool IsEmployee(this IdentityUser user)
+        {
+            if (!employee.HasValue)
+                RetrieveRoles(user);
+            return employee ?? false;
+        }
+        public static Form GetForm(this IdentityUser user)
+        {
+            DbConnection connection = Context.Database.GetDbConnection();
+            connection.ConnectionString = Startup.DefaultConnection;
+            using (DbCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                command.CommandText = $"SELECT [FormId] FROM [dbo].[AspNetUsers] WHERE [Id] = '{user.Id}';";
+                object result = command.ExecuteScalar();
+                connection.Close();
+                return Form.GetFormById(result is int ? (int?)result : null);
+            }
+        }
+
+        public static void SetFormId(this IdentityUser user, int? formId)
+        {
+            DbConnection connection = Context.Database.GetDbConnection();
+            connection.ConnectionString = Startup.DefaultConnection;
+            using (DbCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                command.CommandText = $"UPDATE [dbo].[AspNetUsers] SET [FormId] = '{formId?.ToString() ?? "NULL"}' WHERE [Id]='{user.Id}';";
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        public static Name GetName(this IdentityUser user)
+        {
+            return new Name(user.Email, GetRoleName(user).Equals("Student"));
+        }
+
+        public static IdentityUser GetUserById(string id)
+        {
+            return Context.Users.Find(id);
+        }
+
+        public static IdentityUser GetIdentityUser(this ClaimsPrincipal principal)
+        {
+            return Context.Users.FirstOrDefault(user => user.UserName.Equals(principal.Identity.Name, StringComparison.OrdinalIgnoreCase)) ?? new IdentityUser();
         }
 
         public static string SqlNow
@@ -35,42 +116,11 @@ namespace CABESO
             return dt.ToString("yyyyMMdd hh:mm:ss tt", CultureInfo.InvariantCulture);
         }
 
-        private static Dictionary<string, string> roleNames;
-        private static string adminId, employeeId;
-
-        private static void InitialiseRoles()
-        {
-            roleNames = new Dictionary<string, string>();
-            foreach (object[] role in Select("AspNetRoles", null, "Id", "Name"))
-            {
-                if (role[1].Equals("Admin"))
-                    adminId = role[0].ToString();
-                else
-                {
-                    if (role[1].Equals("Employee"))
-                        employeeId = role[0].ToString();
-                    roleNames.Add(role[0].ToString(), role[1].ToString());
-                }
-            }
-        }
-
-        public static Dictionary<string, string> RoleNames
-        {
-            get
-            {
-                if (roleNames == null)
-                    InitialiseRoles();
-                return roleNames;
-            }
-        }
-
         public static string AdminId
         {
             get
             {
-                if (string.IsNullOrEmpty(adminId))
-                    InitialiseRoles();
-                return adminId;
+                return Context.Roles.FirstOrDefault(role => role.Name.Equals("Admin")).Id;
             }
         }
 
@@ -78,48 +128,8 @@ namespace CABESO
         {
             get
             {
-                if (string.IsNullOrEmpty(employeeId))
-                    InitialiseRoles();
-                return employeeId;
+                return Context.Roles.FirstOrDefault(role => role.Name.Equals("Employee")).Id;
             }
-        }
-
-        private static Dictionary<int, string> formNames;
-
-        public static Dictionary<int, string> FormNames
-        {
-            get
-            {
-                if (formNames == null)
-                {
-                    formNames = new Dictionary<int, string>();
-                    foreach (object[] form in Select("Forms", null))
-                    {
-                        int year = (int) form[2];
-                        int ef = DateTime.Now.Year - (DateTime.Now.Month > 7 ? 0 : 1) - (year > 2018 ? 6 : 5);
-                        string name;
-                        switch (ef - year)
-                        {
-                            case int i when i < 0:
-                                name = (i + 10) + form[1].ToString();
-                                break;
-                            case 0:
-                                name = "EF";
-                                break;
-                            default:
-                                name = "Q" + (ef - year);
-                                break;
-                        }
-                        formNames.Add((int) form[0], name);
-                    }
-                }
-                return formNames;
-            }
-        }
-
-        public static string GetFormName(int? id)
-        {
-            return id.HasValue && id.Value > 0 ? FormNames[id.Value] : string.Empty;
         }
 
         public static ApplicationDbContext Context { get; private set; }

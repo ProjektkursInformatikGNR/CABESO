@@ -50,17 +50,21 @@ namespace CABESO.Areas.Identity.Pages.Account
                     values: new { code },
                     protocol: Request.Scheme);
 
-                SmtpClient client = new SmtpClient(Startup.MailSmtp);
-                client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential(Startup.MailAddress, Startup.MailPassword);
-                client.EnableSsl = true;
+                SmtpClient client = new SmtpClient(Startup.MailSmtp)
+                {
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(Startup.MailAddress, Startup.MailPassword),
+                    EnableSsl = true
+                };
 
-                MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress(Startup.MailAddress);
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress(Startup.MailAddress),
+                    IsBodyHtml = true,
+                    Body = $"Bitte setze dein Passwort zurück, indem du <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> klickst.",
+                    Subject = "CABESO | Passwort zurücksetzen"
+                };
                 mailMessage.To.Add(Input.Email);
-                mailMessage.IsBodyHtml = true;
-                mailMessage.Body = $"Bitte setze dein Passwort zurück, indem du <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> klickst.";
-                mailMessage.Subject = "CABESO | Passwort zurücksetzen";
                 client.Send(mailMessage);
 
                 return RedirectToPage("./ForgotPasswordConfirmation");

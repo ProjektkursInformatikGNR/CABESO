@@ -1,23 +1,53 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Reflection;
 
 namespace CABESO
 {
     public class Order
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Client Client { get; set; }
+        public IdentityUser User { get; set; }
         public Product Product { get; set; }
         public DateTime OrderTime { get; set; }
         public string Notes { get; set; }
         public int Number { get; set; }
         public DateTime CollectionTime { get; set; }
 
-        public void Archive()
+        public static Order GetOrderById(int id)
         {
-            Database.Add("OrderHistory", new { Id, ClientId = Client.Id, ProductId = Product.Id, OrderTime, Notes, Number, CollectionTime });
-            Database.Delete("Orders", $"[Id] = '{Id}'");
+            return Database.Context.Orders.Find(id);
+        }
+
+        [NotMapped]
+        private bool active;
+
+        [NotMapped]
+        public bool Active
+        {
+            get
+            {
+                return active;
+            }
+            set
+            {
+                if (active = value)
+                {
+                    Database.Context.Orders.Add(this as CurrentOrder);
+                    Database.Context.HistoricOrders.Remove(this as HistoricOrder);
+                    Database.Context.SaveChanges();
+                }
+                else
+                {
+                    Database.Context.HistoricOrders.Add(this as HistoricOrder);
+                    Database.Context.Orders.Remove(this as CurrentOrder);
+                    Database.Context.SaveChanges();
+                }
+            }
         }
 
         public override bool Equals(object obj)
@@ -29,13 +59,17 @@ namespace CABESO
         {
             return base.GetHashCode();
         }
-        
-        public static implicit operator Order(HistoricOrder historicOrder)
-        {
-            Order order = new Order();
-            foreach (PropertyInfo property in typeof(Order).GetProperties())
-                property.SetValue(order, typeof(HistoricOrder).GetProperty(property.Name).GetValue(historicOrder));
-            return order;
-        }
+    }
+
+    [Table("OrderHistory")]
+    public class HistoricOrder : Order
+    {
+
+    }
+
+    [Table("Orders")]
+    public class CurrentOrder : Order
+    {
+
     }
 }

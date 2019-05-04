@@ -49,9 +49,10 @@ namespace CABESO.Views.Admin
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult DeactivateCode(string id)
+        public IActionResult DeactivateCode(string code)
         {
-            Database.Delete("Codes", $"[Code] = '{id}'");
+            Database.Context.Codes.Remove(RegistrationCode.GetCodeByCode(code));
+            Database.Context.SaveChanges();
             return LocalRedirect("~/Admin/GenerateCodes");
         }
     }

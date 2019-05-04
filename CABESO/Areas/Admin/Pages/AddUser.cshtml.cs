@@ -48,7 +48,7 @@ namespace CABESO.Areas.Admin.Pages
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                IdentityUser user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 byte[] password = new byte[32];
                 RandomNumberGenerator.Fill(password);
                 string pwd = Convert.ToBase64String(password);
@@ -58,7 +58,7 @@ namespace CABESO.Areas.Admin.Pages
                     _logger.LogInformation("User created with random password.");
                     await _userManager.AddToRoleAsync(user, Input.Role);
                     if (Input.Role.Equals("Student"))
-                        Database.Update("AspNetUsers", $"[Id] = '{user.Id}'", new { Form = (int?) Input.FormId });
+                        user.SetFormId(Input.FormId);
 
                     await _userManager.ConfirmEmailAsync(user, await _userManager.GenerateEmailConfirmationTokenAsync(user));
 

@@ -9,7 +9,7 @@
     <div class="form-group">
         <label asp-for="Input.ProductId"></label>
         <select class="form-control" asp-for="Input.ProductId">
-            @foreach (Product product in Product.Enumerate())
+            @foreach (Product product in Database.Context.Products)
             {
                 <option value="@product.Id">
                     @product

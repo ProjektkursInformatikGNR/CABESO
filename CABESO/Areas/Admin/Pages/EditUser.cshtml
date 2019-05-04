@@ -4,28 +4,28 @@
     ViewData["Title"] = "Benutzer bearbeiten";
 }
 
-<h2>@ViewData["Title"]: @EditUserModel.ClientToEdit.Name</h2>
+<h2>@ViewData["Title"]: @EditUserModel.CurrentUser?.GetName()</h2>
 
 <form method="post">
     <div class="form-group">
         <label asp-for="Input.Email"></label>
-        <input asp-for="Input.Email" value="@EditUserModel.ClientToEdit.Email" class="form-control" />
+        <input asp-for="Input.Email" value="@EditUserModel.CurrentUser?.Email" class="form-control" />
     </div>
     <div class="form-group">
         <label asp-for="Input.Role"></label>
         <select asp-for="Input.Role" class="form-control" id="role_select" onchange="selectChange()" >
-            @foreach (KeyValuePair<string, string> role in Database.RoleNames)
+            @foreach (IdentityRole role in Database.Context.Roles)
             {
-                @if (role.Value.Equals(EditUserModel.ClientToEdit.Role))
+                @if (role.Name.Equals(EditUserModel.CurrentUser?.GetRoleName()))
                 {
-                    <option value="@role.Value" selected="selected">
-                        @Program.Translations.GetValueOrDefault(role.Value)
+                    <option value="@role.Name" selected="selected">
+                        @Program.Translations.GetValueOrDefault(role.Name)
                     </option>
                 }
                 else
                 {
-                    <option value="@role.Value">
-                        @Program.Translations.GetValueOrDefault(role.Value)
+                    <option value="@role.Name">
+                        @Program.Translations.GetValueOrDefault(role.Name)
                     </option>
                 }
             }
@@ -33,19 +33,19 @@
     </div>
     <div class="form-group" id="form_form">
         <label asp-for="Input.FormId"></label>
-        <select asp-for="Input.FormId" value="@EditUserModel.ClientToEdit.FormId" class="form-control">
-            @foreach (KeyValuePair<int, string> form in Database.FormNames.OrderBy(form => form.Value))
+        <select asp-for="Input.FormId" class="form-control">
+            @foreach (Form form in Database.Context.Forms.OrderBy(form => form.ToString()))
             {
-                @if (form.Key == (EditUserModel.ClientToEdit.FormId ?? -1))
+                @if (form.Id == (EditUserModel.CurrentUser.GetForm()?.Id ?? -1))
                 {
-                    <option value="@form.Key" selected="selected">
-                        @form.Value
+                    <option value="@form.Id" selected="selected">
+                        @form.ToString()
                     </option>
                 }
                 else
                 {
-                    <option value="@form.Key">
-                        @form.Value
+                    <option value="@form.Id">
+                        @form.ToString()
                     </option>
                 }
             }
@@ -53,7 +53,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Input.Admin"></label>
-        @if (EditUserModel.ClientToEdit.Admin)
+        @if (EditUserModel.CurrentUser.IsAdmin())
         {
             if (Model.StuckAsAdmin)
             {

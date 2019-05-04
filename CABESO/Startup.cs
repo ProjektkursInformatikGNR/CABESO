@@ -42,6 +42,8 @@ namespace CABESO
 
         public static string MailSmtp { get; private set; }
 
+        public static string DefaultConnection { get; private set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -60,7 +62,7 @@ namespace CABESO
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    DefaultConnection = Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {
                 config.SignIn.RequireConfirmedEmail = false;

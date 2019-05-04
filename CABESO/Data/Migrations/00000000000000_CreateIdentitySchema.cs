@@ -41,7 +41,7 @@ namespace CABESO.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Form = table.Column<int>(nullable: true)
+                    FormId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -159,7 +159,7 @@ namespace CABESO.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
+                    Section = table.Column<string>(nullable: false),
                     Year = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -206,7 +206,7 @@ namespace CABESO.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false),
-                    ClientId = table.Column<string>(nullable: false, maxLength: 450),
+                    UserId = table.Column<string>(nullable: false, maxLength: 450),
                     ProductId = table.Column<int>(nullable: false),
                     OrderTime = table.Column<DateTime>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
@@ -218,7 +218,7 @@ namespace CABESO.Data.Migrations
                     table.PrimaryKey("PK_Orders", x => x.Id);
                 });
 
-            migrationBuilder.AddForeignKey("FK_OrderClientId", "Orders", "ClientId", "AspNetUsers", principalColumn: "Id");
+            migrationBuilder.AddForeignKey("FK_OrderUserId", "Orders", "UserId", "AspNetUsers", principalColumn: "Id");
             migrationBuilder.AddForeignKey("FK_OrderProductId", "Orders", "ProductId", "Products", principalColumn: "Id");
 
             migrationBuilder.CreateTable(
@@ -226,7 +226,7 @@ namespace CABESO.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false),
-                    ClientId = table.Column<string>(nullable: false, maxLength: 450),
+                    UserId = table.Column<string>(nullable: false, maxLength: 450),
                     ProductId = table.Column<int>(nullable: false),
                     OrderTime = table.Column<DateTime>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
@@ -238,7 +238,7 @@ namespace CABESO.Data.Migrations
                     table.PrimaryKey("PK_OrderHistory", x => x.Id);
                 });
 
-            migrationBuilder.AddForeignKey("FK_OrderHistoryClientId", "OrderHistory", "ClientId", "AspNetUsers", principalColumn: "Id");
+            migrationBuilder.AddForeignKey("FK_OrderHistoryUserId", "OrderHistory", "UserId", "AspNetUsers", principalColumn: "Id");
             migrationBuilder.AddForeignKey("FK_OrderHistoryProductId", "OrderHistory", "ProductId", "Products", principalColumn: "Id");
 
             migrationBuilder.CreateIndex(
@@ -280,7 +280,7 @@ namespace CABESO.Data.Migrations
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
 
-            migrationBuilder.InsertData("Forms", new[] { "Id", "Name", "Year" }, new object[] { 1, "", 2012 });
+            migrationBuilder.InsertData("Forms", new[] { "Id", "Section", "Year" }, new object[] { 1, "", 2012 });
             migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "Role" }, new object[] { "1234567890", Database.SqlNow, "Student" });
 
             migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 1, "belegtes Brötchen", 1.1, false, false });

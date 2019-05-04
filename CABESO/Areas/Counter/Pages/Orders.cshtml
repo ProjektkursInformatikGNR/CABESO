@@ -16,7 +16,7 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.ClientNameSort" asp-route-search="@Model.SearchKeyWord">
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.UserNameSort" asp-route-search="@Model.SearchKeyWord">
                     Besteller*in
                 </a>
             </th>
@@ -57,8 +57,8 @@
         @foreach (var order in Model.Orders)
         {
         <tr>
-            <td title="@Database.GetFormName(order.Client.FormId)">
-                @order.Client.Name
+            <td title="@order.User.GetForm().ToString()">
+                @order.User.GetName()
             </td>
             <td>
                 @order.Product.Name

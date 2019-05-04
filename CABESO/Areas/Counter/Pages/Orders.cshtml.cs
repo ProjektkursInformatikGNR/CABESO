@@ -8,7 +8,7 @@ namespace CABESO.Areas.Counter.Pages
     [Authorize(Roles = "Admin,Employee")]
     public class OrdersModel : PageModel
     {
-        public string ClientNameSort { get; set; }
+        public string UserNameSort { get; set; }
         public string ProductNameSort { get; set; }
         public string PricePerProductSort { get; set; }
         public string TotalPriceSort { get; set; }
@@ -21,7 +21,7 @@ namespace CABESO.Areas.Counter.Pages
 
         public OrdersModel()
         {
-            Orders = Order.Enumerate();
+            Orders = Database.Context.Orders.ToArray();
         }
 
         public void OnGet(string sortOrder, string search)
@@ -31,7 +31,7 @@ namespace CABESO.Areas.Counter.Pages
                 Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord)).ToArray();
 
             OrderTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ot" : "";
-            ClientNameSort = sortOrder == "c" ? "!c" : "c";
+            UserNameSort = sortOrder == "un" ? "!un" : "un";
             ProductNameSort = sortOrder == "p" ? "!p" : "p";
             PricePerProductSort = sortOrder == "ppp" ? "!ppp" : "ppp";
             TotalPriceSort = sortOrder == "tp" ? "!tp" : "tp";
@@ -42,11 +42,11 @@ namespace CABESO.Areas.Counter.Pages
 
             switch (sortOrder)
             {
-                case "c":
-                    orders = orders.OrderBy(order => order.Client.Name);
+                case "un":
+                    orders = orders.OrderBy(order => order.User.GetName());
                     break;
-                case "!c":
-                    orders = orders.OrderByDescending(order => order.Client.Name);
+                case "!un":
+                    orders = orders.OrderByDescending(order => order.User.GetName());
                     break;
                 case "p":
                     orders = orders.OrderBy(order => order.Product.Name);

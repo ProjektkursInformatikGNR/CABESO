@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CABESO.Areas.Orders.Pages
@@ -17,19 +18,20 @@ namespace CABESO.Areas.Orders.Pages
 
         public string SearchKeyWord { get; set; }
 
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public IndexModel(UserManager<IdentityUser> userManager)
-        {
-            _userManager = userManager;
-        }
-
         public void OnGet(string sortOrder, string search)
         {
             SearchKeyWord = search ?? string.Empty;
-            Orders = Order.Enumerate().Where(order => order.Client.Equals(Client.Create(_userManager, User))).ToArray();
+
+            IEnumerable<Order> EnumerateOrders()
+            {
+                foreach (Order order in Database.Context.Orders.ToArray())
+                    if (order.User.Id.Equals(User.GetIdentityUser().Id))
+                        yield return order;
+            }
+            Orders = EnumerateOrders().ToArray();
+
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord)).ToArray();
+                Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord))?.ToArray();
 
             OrderTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ot" : "";
             ProductNameSort = sortOrder == "p" ? "!p" : "p";

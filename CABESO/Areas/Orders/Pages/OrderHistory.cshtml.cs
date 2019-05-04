@@ -13,7 +13,7 @@ namespace CABESO.Areas.Orders.Pages
         public string NumberSort { get; set; }
         public string OrderTimeSort { get; set; }
         public string CollectionTimeSort { get; set; }
-        public HistoricOrder[] HistoricOrders { get; set; }
+        public Order[] HistoricOrders { get; set; }
 
         public string SearchKeyWord { get; set; }
 
@@ -27,7 +27,7 @@ namespace CABESO.Areas.Orders.Pages
         public void OnGet(string sortOrder, string search)
         {
             SearchKeyWord = search ?? string.Empty;
-            HistoricOrders = HistoricOrder.Enumerate().Where(historicOrder => historicOrder.Client.Equals(Client.Create(_userManager, User))).ToArray();
+            HistoricOrders = Database.Context.HistoricOrders.Where(historicOrder => historicOrder.User.Equals(User.GetIdentityUser())).ToArray();
             if (!string.IsNullOrEmpty(SearchKeyWord))
                 HistoricOrders = HistoricOrders.Where(historicOrder => Program.Matches(historicOrder.Product.Name, SearchKeyWord)).ToArray();
 
@@ -38,7 +38,7 @@ namespace CABESO.Areas.Orders.Pages
             NumberSort = sortOrder == "n" ? "!n" : "n";
             CollectionTimeSort = sortOrder == "ct" ? "!ct" : "ct";
 
-            IOrderedEnumerable<HistoricOrder> historicOrders = HistoricOrders.OrderBy(historicOrder => 0);
+            IOrderedEnumerable<Order> historicOrders = HistoricOrders.OrderBy(historicOrder => 0);
 
             switch (sortOrder)
             {

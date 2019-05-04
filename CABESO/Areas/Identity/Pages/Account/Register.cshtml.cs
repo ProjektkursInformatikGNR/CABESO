@@ -94,8 +94,9 @@ namespace CABESO.Areas.Identity.Pages.Account
                     if (_userManager.Users.Count() == 1)
                         await _userManager.AddToRoleAsync(user, "Admin");
 
-                    Database.Update("AspNetUsers", $"[Id] = '{user.Id}'", new { Form = Role.Equals("Student") ? Input.FormId : null, EmailConfirmed = true });
-                    Database.Delete("Codes", $"[Code] = '{_code}'");
+                    user.SetFormId(Input.FormId);
+                    Database.Context.Codes.Remove(RegistrationCode.GetCodeByCode(_code));
+                    Database.Context.SaveChanges();
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //var callbackUrl = Url.Page(
@@ -125,11 +126,11 @@ namespace CABESO.Areas.Identity.Pages.Account
             if (string.IsNullOrEmpty(code))
                 return false;
 
-            object[][] codes = Database.Select("Codes", $"[Code] = '{code}'", "Role");
+            var codes = Database.Context.Codes.Where(regCode => regCode.Code.Equals(code));
 
-            if (codes.Length > 0)
+            if (codes.Count() > 0)
             {
-                role = codes[0][0].ToString();
+                role = codes.First().Role;
                 return true;
             }
             ModelState.AddModelError(string.Empty, "Dieser Code ist ungültig.");

@@ -26,14 +26,13 @@ namespace CABESO.Areas.Admin.Pages
             public string Role { get; set; }
         }
 
-        public Tuple<string, string, string>[] Codes;
+        public RegistrationCode[] Codes;
         public string[] Roles;
 
         public void OnGet()
         {
-            object[][] data = Database.Select("Codes", null, "Code", "CreationTime", "Role").OrderByDescending(d => d[1]).ToArray();
-            Codes = Array.ConvertAll(data, d => new Tuple<string, string, string>(d[0].ToString(), DateTime.Parse(d[1].ToString()).ToLocalTime().ToString(CultureInfo.CurrentCulture), string.IsNullOrEmpty(d[2].ToString()) ? string.Empty : Program.Translations.GetValueOrDefault(d[2].ToString())));
-            Roles = Array.ConvertAll(Database.Select("AspNetRoles", "[Name]<>'Admin'", "Name"), r => r[0].ToString());
+            Codes = Database.Context.Codes.OrderByDescending(code => code.CreationTime).ToArray();
+            Roles = Array.ConvertAll(Database.Context.Roles.Where(role => role.Id != Database.AdminId).ToArray(), role => role.Name);
         }
 
         public IActionResult OnPost()
@@ -51,7 +50,8 @@ namespace CABESO.Areas.Admin.Pages
 
             Random random = new Random();
             string code = new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
-            Database.Add("Codes", new { Code = code, CreationTime = Database.SqlNow, Role = role });
+            Database.Context.Codes.Add(new RegistrationCode() { Code = code, CreationTime = DateTime.Now, Role = role });
+            Database.Context.SaveChanges();
         }
     }
 }

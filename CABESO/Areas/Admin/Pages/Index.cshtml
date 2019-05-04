@@ -48,23 +48,23 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var client in Model.Clients)
+        @foreach (var user in Model.Users)
         {
             <tr>
                 <td>
-                    @client.Name.FirstName
+                    @user.GetName().FirstName
                 </td>
                 <td>
-                    @client.Name.LastName
+                    @user.GetName().LastName
                 </td>
                 <td>
-                    @client.Role
+                    @user.GetRoleName()
                 </td>
                 <td>
-                    @Database.GetFormName(client.FormId)
+                    @user.GetForm()?.ToString()
                 </td>
                 <td>
-                    @if (client.Admin)
+                    @if (user.IsAdmin())
                     {
                         <input type="checkbox" checked onclick="return false;" />
                     }
@@ -74,7 +74,7 @@
                     }
                 </td>
                 <td>
-                    @if (client.Employee)
+                    @if (user.IsEmployee())
                     {
                         <input type="checkbox" checked onclick="return false;" />
                     }
@@ -84,11 +84,11 @@
                     }
                 </td>
                 <td>
-                    <a asp-page="EditUser" asp-route-id="@client.Id">Bearbeiten</a>
-                    @if (!client.Equals(Client.Create(UserManager, User)))
+                    <a asp-page="EditUser" asp-route-id="@user.Id">Bearbeiten</a>
+                    @if (!user.Id.Equals(User.GetIdentityUser().Id))
                     {
                         <text>|</text>
-                        <a asp-controller="Admin" asp-action="Delete" asp-route-id="@client.Id">Entfernen</a>
+                        <a asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id">Entfernen</a>
                     }
                 </td>
             </tr>

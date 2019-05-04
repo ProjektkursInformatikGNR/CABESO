@@ -32,7 +32,7 @@ namespace CABESO
                     greeting = "Hallo";
                     break;
             }
-            return string.Format("{0}, {1}!", greeting, name ?? "ihr Luschen");
+            return string.Format("{0}, {1}!", greeting, string.IsNullOrEmpty(name?.ToString().Trim()) ? "ihr Luschen" : name);
         }
 
         public static bool Matches(string entry, string search)

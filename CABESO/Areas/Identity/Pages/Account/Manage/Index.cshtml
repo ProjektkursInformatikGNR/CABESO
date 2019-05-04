@@ -10,25 +10,25 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Vorname</label>
-            <input value="@Model.Client.Name.FirstName" class="form-control" disabled />
+            <input value="@Model.CurrentUser.GetName().FirstName" class="form-control" disabled />
         </div>
         <div class="form-group">
             <label>Nachname</label>
-            <input value="@Model.Client.Name.LastName" class="form-control" disabled />
+            <input value="@Model.CurrentUser.GetName().LastName" class="form-control" disabled />
         </div>
         <div class="form-group">
             <label>E-Mail-Adresse</label>
-            <input value="@Model.Client.Email" class="form-control" disabled />
+            <input value="@Model.CurrentUser.Email" class="form-control" disabled />
         </div>
         <div class="form-group">
             <label>Rolle</label>
-            <input value="@Program.Translations.GetValueOrDefault(Model.Client.Role)" class="form-control" disabled />
+            <input value="@Program.Translations.GetValueOrDefault(Model.CurrentUser.GetRoleName())" class="form-control" disabled />
         </div>
-        @if (Model.Client.FormId.HasValue)
+        @if (Model.CurrentUser.GetForm() != null)
         {
             <div class="form-group">
                 <label>Klasse</label>
-                <input value="@Database.GetFormName(Model.Client.FormId.Value)" class="form-control" disabled />
+                <input value="@Model.CurrentUser.GetForm().ToString()" class="form-control" disabled />
             </div>
         }
     </div>

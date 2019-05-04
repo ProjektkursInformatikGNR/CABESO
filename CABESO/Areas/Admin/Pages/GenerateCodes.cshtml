@@ -35,14 +35,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Tuple<string, string, string> code in Model.Codes)
+        @foreach (RegistrationCode code in Model.Codes)
         {
             <tr>
-                <td>@code.Item1</td>
-                <td>@code.Item2</td>
-                <td>@code.Item3</td>
+                <td>@code.Code</td>
+                <td>@Program.TimeDisplay(code.CreationTime)</td>
+                <td>@code.Role</td>
                 <td>
-                    <a asp-controller="Admin" asp-action="DeactivateCode" asp-route-id="@code.Item1">Deaktivieren</a>
+                    <a asp-controller="Admin" asp-action="DeactivateCode" asp-route-code="@code.Code">Deaktivieren</a>
                 </td>
             </tr>
         }

@@ -8,17 +8,10 @@ namespace CABESO.Areas.Orders.Pages
 {
     public class PlaceOrderModel : PageModel
     {
-
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public PlaceOrderModel(UserManager<IdentityUser> userManager)
-        {
-            _userManager = userManager;
-        }
-
         public IActionResult OnPost()
         {
-            Database.Add("Orders", new { ClientId = Client.Create(_userManager, User).Id, Input.ProductId, OrderTime = Database.SqlNow, Input.Number, Input.Notes, CollectionTime = Database.SqlTimeFormat(Input.CollectionTime) });
+            Database.Context.Orders.Add(new CurrentOrder() { User = User.GetIdentityUser(), Product = Product.GetProductById(Input.ProductId), OrderTime = DateTime.Now, Number = Input.Number, Notes = Input.Notes, CollectionTime = Input.CollectionTime });
+            Database.Context.SaveChanges();
             return Page();
         }
 
