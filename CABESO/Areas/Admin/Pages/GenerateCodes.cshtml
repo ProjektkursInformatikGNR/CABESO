@@ -1,5 +1,5 @@
 ﻿@page
-@model CABESO.Areas.Admin.Pages.GenerateCodesModel
+@model GenerateCodesModel
 @{
     ViewData["Title"] = "Registrierungscodes generieren";
 }
@@ -15,7 +15,7 @@
     <div class="form-group">
         <label asp-for="Input.Role"></label>
         <select asp-for="Input.Role" class="form-control">
-            @foreach (string role in Model.Roles)
+            @foreach (string role in Database.Roles)
             {
                 <option value="@role">@Program.Translations.GetValueOrDefault(role)</option>
             }
@@ -38,9 +38,9 @@
         @foreach (RegistrationCode code in Model.Codes)
         {
             <tr>
-                <td>@code.Code</td>
+                <td><font face="monospace">@code.Code</font></td>
                 <td>@Program.TimeDisplay(code.CreationTime)</td>
-                <td>@code.Role</td>
+                <td>@Program.Translations.GetValueOrDefault(code.Role)</td>
                 <td>
                     <a asp-controller="Admin" asp-action="DeactivateCode" asp-route-code="@code.Code">Deaktivieren</a>
                 </td>

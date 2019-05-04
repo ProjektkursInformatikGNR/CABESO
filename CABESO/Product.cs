@@ -1,14 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CABESO
 {
     [Table("Products")]
     public class Product
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
@@ -20,11 +16,6 @@ namespace CABESO
         public string Size { get; set; }
         public decimal? Deposit { get; set; }
         public string Information { get; set; }
-
-        public static Product GetProductById(int id)
-        {
-            return Database.Context.Products.Find(id);
-        }
 
         public override bool Equals(object obj)
         {

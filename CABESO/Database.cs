@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Web;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -15,20 +13,27 @@ namespace CABESO
 {
     public static class Database
     {
+        private static ApplicationDbContext context;
+
         public static IWebHost MigrateDatabase(this IWebHost webHost)
         {
-            var serviceScopeFactory = webHost.Services.GetService(typeof(IServiceScopeFactory)) as IServiceScopeFactory;
-            Context = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            Context.Database.Migrate();
+            IServiceScopeFactory serviceScopeFactory = webHost.Services.GetService(typeof(IServiceScopeFactory)) as IServiceScopeFactory;
+            context = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            context.Database.Migrate();
 
             return webHost;
         }
 
+        public static readonly string[] Roles = new string[] { "Teacher", "Student", "Employee" };
+
         private static string roleName;
-        private static bool? admin, employee;
+        private static bool admin, employee;
         private static void RetrieveRoles(IdentityUser user)
         {
-            foreach (IdentityUserRole<string> role in Context.UserRoles.Where(userRole => userRole.UserId.Equals(user.Id)))
+            roleName = string.Empty;
+            admin = false;
+            employee = false;
+            foreach (IdentityUserRole<string> role in context.UserRoles.Where(userRole => userRole.UserId.Equals(user.Id)))
             {
                 if (role.RoleId.Equals(AdminId))
                     admin = true;
@@ -36,34 +41,31 @@ namespace CABESO
                 {
                     if (role.RoleId.Equals(EmployeeId))
                         employee = true;
-                    roleName = Context.Roles.FirstOrDefault(r => r.Id.Equals(role.RoleId))?.Name ?? string.Empty;
+                    roleName = context.Roles.FirstOrDefault(r => r.Id.Equals(role.RoleId))?.Name ?? string.Empty;
                 }
             }
         }
 
         public static string GetRoleName(this IdentityUser user)
         {
-            if (string.IsNullOrEmpty(roleName))
-                RetrieveRoles(user);
-            return roleName ?? string.Empty;
+            RetrieveRoles(user);
+            return roleName;
         }
 
         public static bool IsAdmin(this IdentityUser user)
         {
-            if (!admin.HasValue)
-                RetrieveRoles(user);
-            return admin ?? false;
+            RetrieveRoles(user);
+            return admin;
         }
 
         public static bool IsEmployee(this IdentityUser user)
         {
-            if (!employee.HasValue)
-                RetrieveRoles(user);
-            return employee ?? false;
+            RetrieveRoles(user);
+            return employee;
         }
         public static Form GetForm(this IdentityUser user)
         {
-            DbConnection connection = Context.Database.GetDbConnection();
+            DbConnection connection = context.Database.GetDbConnection();
             connection.ConnectionString = Startup.DefaultConnection;
             using (DbCommand command = connection.CreateCommand())
             {
@@ -71,18 +73,22 @@ namespace CABESO
                 command.CommandText = $"SELECT [FormId] FROM [dbo].[AspNetUsers] WHERE [Id] = '{user.Id}';";
                 object result = command.ExecuteScalar();
                 connection.Close();
-                return Form.GetFormById(result is int ? (int?)result : null);
+
+                if (result is int)
+                    return context.Forms.Find(result);
+                else
+                    return null;
             }
         }
 
         public static void SetFormId(this IdentityUser user, int? formId)
         {
-            DbConnection connection = Context.Database.GetDbConnection();
+            DbConnection connection = context.Database.GetDbConnection();
             connection.ConnectionString = Startup.DefaultConnection;
             using (DbCommand command = connection.CreateCommand())
             {
                 connection.Open();
-                command.CommandText = $"UPDATE [dbo].[AspNetUsers] SET [FormId] = '{formId?.ToString() ?? "NULL"}' WHERE [Id]='{user.Id}';";
+                command.CommandText = $"UPDATE [dbo].[AspNetUsers] SET [FormId] = '{formId?.ToString()}' WHERE [Id]='{user.Id}';";
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -95,12 +101,12 @@ namespace CABESO
 
         public static IdentityUser GetUserById(string id)
         {
-            return Context.Users.Find(id);
+            return context.Users.Find(id);
         }
 
         public static IdentityUser GetIdentityUser(this ClaimsPrincipal principal)
         {
-            return Context.Users.FirstOrDefault(user => user.UserName.Equals(principal.Identity.Name, StringComparison.OrdinalIgnoreCase)) ?? new IdentityUser();
+            return context.Users.FirstOrDefault(user => user.UserName.Equals(principal.Identity.Name, StringComparison.OrdinalIgnoreCase)) ?? new IdentityUser();
         }
 
         public static string SqlNow
@@ -120,7 +126,7 @@ namespace CABESO
         {
             get
             {
-                return Context.Roles.FirstOrDefault(role => role.Name.Equals("Admin")).Id;
+                return context.Roles.FirstOrDefault(role => role.Name.Equals("Admin")).Id;
             }
         }
 
@@ -128,10 +134,8 @@ namespace CABESO
         {
             get
             {
-                return Context.Roles.FirstOrDefault(role => role.Name.Equals("Employee")).Id;
+                return context.Roles.FirstOrDefault(role => role.Name.Equals("Employee")).Id;
             }
         }
-
-        public static ApplicationDbContext Context { get; private set; }
     }
 }

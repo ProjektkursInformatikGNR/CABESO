@@ -1,18 +1,33 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CABESO.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace CABESO.Areas.Orders.Pages
 {
     public class PlaceOrderModel : PageModel
     {
+        public Product[] Products { get; private set; }
+
+        private readonly ApplicationDbContext _context;
+
+        public PlaceOrderModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public void OnGet()
+        {
+            Products = _context.Products.ToArray();
+        }
+
         public IActionResult OnPost()
         {
-            Database.Context.Orders.Add(new CurrentOrder() { User = User.GetIdentityUser(), Product = Product.GetProductById(Input.ProductId), OrderTime = DateTime.Now, Number = Input.Number, Notes = Input.Notes, CollectionTime = Input.CollectionTime });
-            Database.Context.SaveChanges();
-            return Page();
+            _context.Orders.Add(new CurrentOrder() { User = User.GetIdentityUser(), Product = _context.Products.Find(Input.ProductId), OrderTime = DateTime.UtcNow, Number = Input.Number, Notes = Input.Notes, CollectionTime = Input.CollectionTime.ToUniversalTime() });
+            _context.SaveChanges();
+            return RedirectToPage();
         }
 
         [BindProperty]

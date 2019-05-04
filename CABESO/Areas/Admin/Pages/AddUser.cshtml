@@ -1,11 +1,11 @@
 ﻿@page
 @model CABESO.Areas.Admin.Pages.AddUserModel
 @{
-    ViewData["Title"] = "AddUser";
+    ViewData["Title"] = "Benutzer hinzufügen";
     ViewData["ActivePage"] = "AddUser";
 }
 
-<form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+<form method="post">
     <h4>Füge jemanden der Gruppe hinzu:</h4>
     <hr />
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -17,7 +17,7 @@
     <div class="form-group" id="formform">
         <label asp-for="Input.FormId">Klasse</label>
         <select asp-for="Input.FormId" class="form-control">
-            @foreach (Form form in Database.Context.Forms.OrderBy(form => form.ToString()))
+            @foreach (Form form in Model.Forms)
             {
                 <option value="@form.Id">
                     @form.ToString()

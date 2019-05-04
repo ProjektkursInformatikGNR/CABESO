@@ -1,3 +1,4 @@
+using CABESO.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -19,13 +20,16 @@ namespace CABESO.Areas.Counter.Pages
 
         public string SearchKeyWord { get; set; }
 
-        public OrdersModel()
+        private readonly ApplicationDbContext _context;
+
+        public OrdersModel(ApplicationDbContext context)
         {
-            Orders = Database.Context.Orders.ToArray();
+            _context = context;
         }
 
         public void OnGet(string sortOrder, string search)
         {
+            Orders = _context.Orders.ToArray();
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
                 Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord)).ToArray();

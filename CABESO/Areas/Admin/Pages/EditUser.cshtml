@@ -14,18 +14,18 @@
     <div class="form-group">
         <label asp-for="Input.Role"></label>
         <select asp-for="Input.Role" class="form-control" id="role_select" onchange="selectChange()" >
-            @foreach (IdentityRole role in Database.Context.Roles)
+            @foreach (string role in Database.Roles)
             {
-                @if (role.Name.Equals(EditUserModel.CurrentUser?.GetRoleName()))
+                @if (role.Equals(EditUserModel.CurrentUser?.GetRoleName()))
                 {
-                    <option value="@role.Name" selected="selected">
-                        @Program.Translations.GetValueOrDefault(role.Name)
+                    <option value="@role" selected="selected">
+                        @Program.Translations.GetValueOrDefault(role)
                     </option>
                 }
                 else
                 {
-                    <option value="@role.Name">
-                        @Program.Translations.GetValueOrDefault(role.Name)
+                    <option value="@role">
+                        @Program.Translations.GetValueOrDefault(role)
                     </option>
                 }
             }
@@ -34,7 +34,7 @@
     <div class="form-group" id="form_form">
         <label asp-for="Input.FormId"></label>
         <select asp-for="Input.FormId" class="form-control">
-            @foreach (Form form in Database.Context.Forms.OrderBy(form => form.ToString()))
+            @foreach (Form form in Model.Forms)
             {
                 @if (form.Id == (EditUserModel.CurrentUser.GetForm()?.Id ?? -1))
                 {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -8,10 +9,12 @@ namespace CABESO.Views.Admin
     public class AdminController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public AdminController(UserManager<IdentityUser> userManager)
+        public AdminController(UserManager<IdentityUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
+            _context = context;
         }
 
         [Authorize(Roles = "Admin")]
@@ -35,7 +38,7 @@ namespace CABESO.Views.Admin
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            IdentityUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
                 await _userManager.DeleteAsync(user);
 
@@ -51,8 +54,8 @@ namespace CABESO.Views.Admin
         [Authorize(Roles = "Admin")]
         public IActionResult DeactivateCode(string code)
         {
-            Database.Context.Codes.Remove(RegistrationCode.GetCodeByCode(code));
-            Database.Context.SaveChanges();
+            _context.Codes.Remove(_context.Codes.Find(code));
+            _context.SaveChanges();
             return LocalRedirect("~/Admin/GenerateCodes");
         }
     }

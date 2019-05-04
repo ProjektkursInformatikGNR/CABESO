@@ -59,27 +59,19 @@ namespace CABESO.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
-            {
                 return Page();
-            }
 
-            var user = await _userManager.FindByEmailAsync(Input.Email);
+            IdentityUser user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
-            {
-                // Don't reveal that the user does not exist
                 return RedirectToPage("./ResetPasswordConfirmation");
-            }
 
-            var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
+            IdentityResult result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
             if (result.Succeeded)
-            {
                 return RedirectToPage("./ResetPasswordConfirmation");
-            }
 
-            foreach (var error in result.Errors)
-            {
+            foreach (IdentityError error in result.Errors)
                 ModelState.AddModelError(string.Empty, error.Description);
-            }
+
             return Page();
         }
     }

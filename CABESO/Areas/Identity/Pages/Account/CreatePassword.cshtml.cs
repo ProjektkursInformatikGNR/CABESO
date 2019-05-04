@@ -42,10 +42,8 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGet(string userId = null, string code = null)
         {
-            if (code == null || userId == null || await _userManager.FindByIdAsync(_userId = userId) == null)
-            {
+            if (string.IsNullOrEmpty(code) || string.IsNullOrEmpty(userId) || await _userManager.FindByIdAsync(_userId = userId) == null)
                 return RedirectToPage("./AccessDenied");
-            }
             else
             {
                 Input = new InputModel
@@ -60,17 +58,16 @@ namespace CABESO.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
-            {
                 return Page();
-            }
 
-            var user = await _userManager.FindByIdAsync(_userId);
+            IdentityUser user = await _userManager.FindByIdAsync(_userId);
             if (user == null)
-            {
                 return Page();
-            }
-            
-            var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
+
+            if (_signInManager.IsSignedIn(User))
+                await _signInManager.SignOutAsync();
+
+            IdentityResult result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);

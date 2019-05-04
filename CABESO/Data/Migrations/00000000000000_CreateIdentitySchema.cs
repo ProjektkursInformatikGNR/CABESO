@@ -158,7 +158,7 @@ namespace CABESO.Data.Migrations
                 name: "Forms",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Section = table.Column<string>(nullable: false),
                     Year = table.Column<int>(nullable: false)
                 },
@@ -184,7 +184,7 @@ namespace CABESO.Data.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     Sale = table.Column<decimal>(nullable: true),
@@ -205,7 +205,7 @@ namespace CABESO.Data.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<string>(nullable: false, maxLength: 450),
                     ProductId = table.Column<int>(nullable: false),
                     OrderTime = table.Column<DateTime>(nullable: false),
@@ -280,64 +280,67 @@ namespace CABESO.Data.Migrations
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
 
-            migrationBuilder.InsertData("Forms", new[] { "Id", "Section", "Year" }, new object[] { 1, "", 2012 });
+            migrationBuilder.InsertData("Forms", new[] { "Section", "Year" }, new object[] { "", 2011 });
+            migrationBuilder.InsertData("Forms", new[] { "Section", "Year" }, new object[] { "", 2012 });
+            migrationBuilder.InsertData("Forms", new[] { "Section", "Year" }, new object[] { "", 2013 });
+
             migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "Role" }, new object[] { "1234567890", Database.SqlNow, "Student" });
 
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 1, "belegtes Brötchen", 1.1, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 2, "belegtes Körnerbrötchen", 1.1, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 3, "belegtes überbackenes Käsebrötchen", 1.2, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 4, "belegtes Laugenbrötchen", 1.2, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 5, "Nutellabrötchen", 0.6, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 6, "Käsebrötchen mit Nutella", 0.9, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 7, "Knolli mit Tomate-Mozzarella", 1.2, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 8, "Sandwich mit Pute", 1.0, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 12, "Sandwich mit Gurke", 1.0, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 13, "Sandwich mit Thunfisch", 1.0, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 9, "belegte Laugenstange", 1.2, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 10, "belegter Wellenreiter", 1.6, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 11, "Baguette mit Schnitzel", 2.0, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 14, "Baguette mit Frikadelle", 2.0, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 15, "Baguette mit Hähnchen", 2.0, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 16, "überbackenes Käsebrötchen", 0.6, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 17, "Laugenstange", 0.6, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 18, "überbackene Laugenstange", 0.9, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 19, "Hefezopf", 0.6, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 20, "Schokocroissant", 0.8, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 21, "Donut", 0.6, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 22, "Kuchen", 0.9, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 23, "normales Brötchen", 0.3, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 24, "Baguette", 0.4, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 25, "Körnerbrötchen", 0.5, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 26, "Hot Dog", 1.1, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 27, "Laugenfladen", 1.4, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 28, "Pizzabrötchen", 0.7, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 29, "Pizzastange", 1.1, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 30, "Pizza Margherita", 1.3, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 31, "Pizza mit Schinken", 1.4, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 32, "Pizza mit Salami", 1.4, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 33, "Pizza mit Thunfisch", 1.5, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 34, "Lasagne", 2.4, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 35, "vegetarischer Salat", 2.5, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 36, "Salat mit Schinken", 2.5, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 37, "Salat mit Hähnchen", 3.5, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 38, "Kinderriegel", 0.4, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 39, "Duplo", 0.4, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 40, "Hanuta", 0.4, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 41, "Corny", 0.4, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 42, "Milchschnitte", 0.4, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 43, "Mentos", 0.7, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 44, "TicTac", 0.7, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 45, "Mars", 0.7, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 46, "Snickers", 0.7, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 47, "Twix", 0.7, true, false });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan" }, new object[] { 48, "Granini", 0.7, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { 49, "Coca-Cola", 0.9, true, true, "0,33 l", 0.15 });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { 50, "Sprite", 0.9, true, true, "0,33 l", 0.15 });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { 51, "Apfelschorle", 0.9, true, true, "0,33 l", 0.15 });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { 52, "Multivitaminsaft", 0.9, true, true, "0,33 l", 0.15 });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { 53, "Mineralwasser", 0.5, true, true, "0,33 l", 0.15 });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan", "Size" }, new object[] { 54, "Kakao", 0.4, true, false, "0,25 l" });
-            migrationBuilder.InsertData("Products", new[] { "Id", "Name", "Price", "Vegetarian", "Vegan", "Size" }, new object[] { 55, "Kakao", 0.7, true, false, "0,5 l" });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "belegtes Brötchen", 1.1, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "belegtes Körnerbrötchen", 1.1, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "belegtes überbackenes Käsebrötchen", 1.2, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "belegtes Laugenbrötchen", 1.2, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Nutellabrötchen", 0.6, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Käsebrötchen mit Nutella", 0.9, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Knolli mit Tomate-Mozzarella", 1.2, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Sandwich mit Pute", 1.0, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Sandwich mit Gurke", 1.0, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Sandwich mit Thunfisch", 1.0, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "belegte Laugenstange", 1.2, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "belegter Wellenreiter", 1.6, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Baguette mit Schnitzel", 2.0, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Baguette mit Frikadelle", 2.0, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Baguette mit Hähnchen", 2.0, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "überbackenes Käsebrötchen", 0.6, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Laugenstange", 0.6, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "überbackene Laugenstange", 0.9, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Hefezopf", 0.6, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Schokocroissant", 0.8, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Donut", 0.6, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Kuchen", 0.9, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "normales Brötchen", 0.3, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Baguette", 0.4, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Körnerbrötchen", 0.5, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Hot Dog", 1.1, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Laugenfladen", 1.4, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Pizzabrötchen", 0.7, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Pizzastange", 1.1, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Pizza Margherita", 1.3, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Pizza mit Schinken", 1.4, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Pizza mit Salami", 1.4, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Pizza mit Thunfisch", 1.5, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Lasagne", 2.4, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "vegetarischer Salat", 2.5, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Salat mit Schinken", 2.5, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Salat mit Hähnchen", 3.5, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Kinderriegel", 0.4, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Duplo", 0.4, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Hanuta", 0.4, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Corny", 0.4, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Milchschnitte", 0.4, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Mentos", 0.7, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "TicTac", 0.7, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Mars", 0.7, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Snickers", 0.7, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Twix", 0.7, true, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Granini", 0.7, true, true });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { "Coca-Cola", 0.9, true, true, "0,33 l", 0.15 });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { "Sprite", 0.9, true, true, "0,33 l", 0.15 });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { "Apfelschorle", 0.9, true, true, "0,33 l", 0.15 });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { "Multivitaminsaft", 0.9, true, true, "0,33 l", 0.15 });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { "Mineralwasser", 0.5, true, true, "0,33 l", 0.15 });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size" }, new object[] { "Kakao", 0.4, true, false, "0,25 l" });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size" }, new object[] { "Kakao", 0.7, true, false, "0,5 l" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

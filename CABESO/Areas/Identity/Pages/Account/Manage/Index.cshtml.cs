@@ -18,11 +18,9 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnGetAsync()
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
+            CurrentUser = await _userManager.GetUserAsync(User);
+            if (CurrentUser == null)
                 return Redirect("/Identity/Account/AccessDenied");
-
-            CurrentUser = User.GetIdentityUser();
             return Page();
         }
     }

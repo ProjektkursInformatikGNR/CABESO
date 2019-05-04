@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
 using System.Threading.Tasks;
 
 namespace CABESO.Areas.Identity.Pages.Account
@@ -19,22 +18,17 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGetAsync(string userId, string code)
         {
-            if (userId == null || code == null)
-            {
+            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(code))
                 return RedirectToPage("/Index");
-            }
 
-            var user = await _userManager.FindByIdAsync(userId);
+            IdentityUser user = await _userManager.FindByIdAsync(userId);
             if (user == null)
-            {
                 return NotFound($"Unable to load user with ID '{userId}'.");
-            }
 
-            var result = await _userManager.ConfirmEmailAsync(user, code);
+            IdentityResult result = await _userManager.ConfirmEmailAsync(user, code);
             if (!result.Succeeded)
-            {
-                throw new InvalidOperationException($"Error confirming email for user with ID '{userId}':");
-            }
+                foreach (IdentityError error in result.Errors)
+                    ModelState.AddModelError(string.Empty, error.Description);
 
             return Page();
         }

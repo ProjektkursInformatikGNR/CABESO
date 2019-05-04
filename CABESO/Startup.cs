@@ -19,7 +19,7 @@ namespace CABESO
 
         public Startup(IHostingEnvironment env)
         {
-            var builder = new ConfigurationBuilder()
+            IConfigurationBuilder builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json",
                              optional: false,
@@ -27,9 +27,7 @@ namespace CABESO
                 .AddEnvironmentVariables();
 
             if (env.IsDevelopment())
-            {
                 builder.AddUserSecrets<Startup>();
-            }
 
             Configuration = builder.Build();
         }
@@ -42,14 +40,14 @@ namespace CABESO
 
         public static string MailSmtp { get; private set; }
 
+        public static string MailPop3 { get; private set; }
+
         public static string DefaultConnection { get; private set; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
@@ -61,24 +59,26 @@ namespace CABESO
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    DefaultConnection = Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(DefaultConnection = Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {
-                config.SignIn.RequireConfirmedEmail = false;
+                config.SignIn.RequireConfirmedEmail = true;
                 config.User.RequireUniqueEmail = true;
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             MailAddress = Configuration["Mail:Address"];
             MailPassword = Configuration["Mail:Password"];
             MailSmtp = Configuration["Mail:Smtp"];
+            MailPop3 = Configuration["Mail:Pop3"];
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -89,7 +89,6 @@ namespace CABESO
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -97,7 +96,6 @@ namespace CABESO
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
             app.UseAuthentication();
 
             app.UseMvc(routes =>

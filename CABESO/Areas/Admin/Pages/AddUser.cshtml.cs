@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Net;
-using System.Net.Mail;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
@@ -16,15 +16,17 @@ namespace CABESO.Areas.Admin.Pages
     [Authorize(Roles = "Admin")]
     public class AddUserModel : PageModel
     {
+        public Form[] Forms { get; private set; }
+
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<IndexModel> _logger;
-        public string ReturnUrl { get; set; }
+        private readonly ApplicationDbContext _context;
 
-        public AddUserModel(UserManager<IdentityUser> userManager, ILogger<IndexModel> logger, string returnUrl = null)
+        public AddUserModel(UserManager<IdentityUser> userManager, ILogger<IndexModel> logger, ApplicationDbContext context)
         {
             _userManager = userManager;
             _logger = logger;
-            ReturnUrl = returnUrl ?? ReturnUrl;
+            _context = context;
         }
 
         [BindProperty]
@@ -43,56 +45,49 @@ namespace CABESO.Areas.Admin.Pages
             public int FormId { get; set; }
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public void OnGet()
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
             if (ModelState.IsValid)
             {
                 IdentityUser user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 byte[] password = new byte[32];
                 RandomNumberGenerator.Fill(password);
                 string pwd = Convert.ToBase64String(password);
-                var result = await _userManager.CreateAsync(user, pwd);
+                IdentityResult result = await _userManager.CreateAsync(user, pwd);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created with random password.");
+
+                    string code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    string callbackUrl = $"http://{HttpContext.Request.Host}/Identity/Account/CreatePassword?userId={user.Id}&code={Uri.EscapeDataString(code)}";
+
+                    if (!Program.SendMail(
+                        user.Email,
+                        "Erstanmeldung",
+                        $"Du wurdest zur Teilnahme an der Cafeteria-Bestellsoftware (CABESO) eingeladen. Klicke <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> zur Erstanmeldung.",
+                        new Name(user.Email, Input.Role.Equals("Student"))) ||
+                        !Program.MailValid(Input.Email))
+                    {
+                        ModelState.AddModelError(string.Empty, "Die angegebene E-Mail-Adresse konnte nicht erreicht werden.");
+                        await _userManager.DeleteAsync(user);
+                        return Page();
+                    }
+
                     await _userManager.AddToRoleAsync(user, Input.Role);
                     if (Input.Role.Equals("Student"))
                         user.SetFormId(Input.FormId);
 
                     await _userManager.ConfirmEmailAsync(user, await _userManager.GenerateEmailConfirmationTokenAsync(user));
-
-                    var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                    //var callbackUrl = Url.Page(
-                    //    "~/Identity/Account/CreatePassword",
-                    //    pageHandler: null,
-                    //    values: new { userId = user.Id, code = code },
-                    //    protocol: Request.Scheme);
-                    string callbackUrl = $"https://{HttpContext.Request.Host}/Identity/Account/CreatePassword?userId={user.Id}&code={code.Replace("+", "%2B")}";
-
-                    SmtpClient client = new SmtpClient(Startup.MailSmtp)
-                    {
-                        UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential(Startup.MailAddress, Startup.MailPassword),
-                        EnableSsl = true
-                    };
-
-                    MailMessage mailMessage = new MailMessage
-                    {
-                        From = new MailAddress(Startup.MailAddress),
-                        IsBodyHtml = true,
-                        Body = $"Hallo {new Name(user.Email, Input.Role.Equals("Student")).ToString()}!<br /><br />Du wurdest zur Online-Wahl am GNR berechtigt. Klicke <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> zur Erstanmeldung.<br /><br /><br />Viele Grüße<br /><br />Das Online-Wahl-Team des GNR",
-                        Subject = "Anmeldung zur GNR-Online-Wahl"
-                    };
-                    mailMessage.To.Add(Input.Email);
-                    client.Send(mailMessage);
-
                     return RedirectToPage();
                 }
-                foreach (var error in result.Errors)
-                {
+
+                foreach (IdentityError error in result.Errors)
                     ModelState.AddModelError(string.Empty, error.Description);
-                }
             }
 
             return Page();

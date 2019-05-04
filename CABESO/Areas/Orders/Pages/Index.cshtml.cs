@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CABESO.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CABESO.Areas.Orders.Pages
@@ -17,18 +16,17 @@ namespace CABESO.Areas.Orders.Pages
         public Order[] Orders { get; set; }
 
         public string SearchKeyWord { get; set; }
+        private readonly ApplicationDbContext _context;
+
+        public IndexModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         public void OnGet(string sortOrder, string search)
         {
             SearchKeyWord = search ?? string.Empty;
-
-            IEnumerable<Order> EnumerateOrders()
-            {
-                foreach (Order order in Database.Context.Orders.ToArray())
-                    if (order.User.Id.Equals(User.GetIdentityUser().Id))
-                        yield return order;
-            }
-            Orders = EnumerateOrders().ToArray();
+            Orders = _context.Orders.Where(order => order.User.Id.Equals(User.GetIdentityUser().Id)).ToArray();
 
             if (!string.IsNullOrEmpty(SearchKeyWord))
                 Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord))?.ToArray();

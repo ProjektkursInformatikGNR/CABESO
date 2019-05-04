@@ -10,7 +10,7 @@
     <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
     <button type="submit" class="btn btn-primary">Suchen</button>
 </form>
-<br />
+<br /><br />
 <table class="table">
     <thead>
         <tr>
@@ -48,7 +48,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var user in Model.Users)
+        @foreach (IdentityUser user in Model.Users)
         {
             <tr>
                 <td>
@@ -58,7 +58,7 @@
                     @user.GetName().LastName
                 </td>
                 <td>
-                    @user.GetRoleName()
+                    @Program.Translations.GetValueOrDefault(user.GetRoleName())
                 </td>
                 <td>
                     @user.GetForm()?.ToString()

@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 namespace CABESO.Areas.Identity.Pages.Account
@@ -13,23 +14,19 @@ namespace CABESO.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
+        public Form[] Forms { get; private set; }
+
         private static string _code;
 
-        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        //private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _context;
 
-        public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
-            ILogger<RegisterModel> logger)
-        //IEmailSender emailSender)
+        public RegisterModel(UserManager<IdentityUser> userManager, ILogger<RegisterModel> logger, ApplicationDbContext context)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
             _logger = logger;
-            //_emailSender = emailSender;
+            _context = context;
         }
 
         [BindProperty]
@@ -72,6 +69,7 @@ namespace CABESO.Areas.Identity.Pages.Account
         {
             ReturnUrl = returnUrl;
             Confirmed = CodeValid(_code = code, out Role);
+            Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -80,43 +78,50 @@ namespace CABESO.Areas.Identity.Pages.Account
             if (!Confirmed)
                 return RedirectToPage(new { code = Input.Code });
 
-            ModelState["Input.Code"].ValidationState = ModelValidationState.Valid;
+            ModelState.Remove("Input.Code");
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
-                var result = await _userManager.CreateAsync(user, Input.Password);
+                IdentityUser user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                IdentityResult result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    
+
+                    string callbackUrl = Url.Page(
+                        "/Account/ConfirmEmail",
+                        pageHandler: null,
+                        values: new { userId = user.Id, code = await _userManager.GenerateEmailConfirmationTokenAsync(user) },
+                        protocol: Request.Scheme);
+
+                    if (!Program.SendMail(
+                        Input.Email,
+                        "E-Mail-Adresse bestätigen",
+                        $"Bitte bestätige deine E-Mail-Adresse, indem du <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> klickst.",
+                        new Name(user.Email, Role.Equals("Student"))) ||
+                        !Program.MailValid(Input.Email))
+                    {
+                        ModelState.AddModelError(string.Empty, "Die angegebene E-Mail-Adresse konnte nicht erreicht werden.");
+                        await _userManager.DeleteAsync(user);
+                        return Page();
+                    }
+
                     await _userManager.AddToRoleAsync(user, Role);
 
                     if (_userManager.Users.Count() == 1)
                         await _userManager.AddToRoleAsync(user, "Admin");
 
                     user.SetFormId(Input.FormId);
-                    Database.Context.Codes.Remove(RegistrationCode.GetCodeByCode(_code));
-                    Database.Context.SaveChanges();
+                    _context.Codes.Remove(_context.Codes.Find(_code));
+                    _context.SaveChanges();
 
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //var callbackUrl = Url.Page(
-                    //    "/Account/ConfirmEmail",
-                    //    pageHandler: null,
-                    //    values: new { userId = user.Id, code = code },
-                    //    protocol: Request.Scheme);
-
-                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    //    $"Please confirm your account by <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    Program.Alert = "Bitte überprüfe dein E-Mail-Postfach und bestätige deine E-Mail-Adresse!";
                     return LocalRedirect(ReturnUrl);
                 }
-                foreach (var error in result.Errors)
-                {
+
+                foreach (IdentityError error in result.Errors)
                     ModelState.AddModelError(string.Empty, error.Description);
-                }
             }
-            
+
             return Page();
         }
 
@@ -126,13 +131,14 @@ namespace CABESO.Areas.Identity.Pages.Account
             if (string.IsNullOrEmpty(code))
                 return false;
 
-            var codes = Database.Context.Codes.Where(regCode => regCode.Code.Equals(code));
+            RegistrationCode regCode = _context.Codes.Find(code);
 
-            if (codes.Count() > 0)
+            if (regCode != null)
             {
-                role = codes.First().Role;
+                role = regCode.Role;
                 return true;
             }
+
             ModelState.AddModelError(string.Empty, "Dieser Code ist ungültig.");
             return false;
         }

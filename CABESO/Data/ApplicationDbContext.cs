@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
-using System.Linq;
 
 namespace CABESO.Data
 {
@@ -33,8 +31,7 @@ namespace CABESO.Data
                    .SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.json")
                    .Build();
-                var connectionString = configuration.GetConnectionString("DefaultConnection");
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             }
         }
 
@@ -46,13 +43,13 @@ namespace CABESO.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Form>().Property(p => p.Id).ValueGeneratedOnAdd().UseSqlServerIdentityColumn();
+            builder.Entity<Form>().Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Entity<HistoricOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => CABESO.Database.GetUserById(v));
-            builder.Entity<HistoricOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Product.GetProductById(v));
-            builder.Entity<CurrentOrder>().Property(p => p.Id).ValueGeneratedOnAdd().UseSqlServerIdentityColumn();
+            builder.Entity<HistoricOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Products.Find(v));
+            builder.Entity<CurrentOrder>().Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Entity<CurrentOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => CABESO.Database.GetUserById(v));
-            builder.Entity<CurrentOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Product.GetProductById(v));
-            builder.Entity<Product>().Property(p => p.Id).ValueGeneratedOnAdd().UseSqlServerIdentityColumn();
+            builder.Entity<CurrentOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Products.Find(v));
+            builder.Entity<Product>().Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Entity<Product>().Property(p => p.Allergens).HasConversion(v => string.Join('|', v), v => v.Split('|', StringSplitOptions.None));
             builder.Entity<RegistrationCode>().HasKey("Code");
             base.OnModelCreating(builder);

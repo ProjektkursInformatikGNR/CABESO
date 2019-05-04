@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CABESO.Areas.Admin.Pages
@@ -22,16 +22,16 @@ namespace CABESO.Areas.Admin.Pages
 
         public string SearchKeyWord { get; set; }
 
-        public IndexModel()
+        public IndexModel(ApplicationDbContext context)
         {
-            Users = Database.Context.Users.ToArray();
+            Users = context.Users.ToArray();
         }
 
         public void OnGet(string search, string sortOrder)
         {
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Users = Users.Where(user => Array.TrueForAll(SearchKeyWord.Split(' '), s => Array.Exists(new[] { user.GetForm().ToString(), user.GetName().FirstName, user.GetName().LastName }, e => Program.Matches(e, s)))).ToArray();
+                Users = Users.Where(user => Array.TrueForAll(SearchKeyWord.Split(' '), s => Array.Exists(new[] { user.GetForm()?.ToString(), user.GetName().FirstName, user.GetName().LastName }, e => Program.Matches(e, s)))).ToArray();
 
             FirstNameSort = string.IsNullOrEmpty(sortOrder) ? "!fn" : "";
             LastNameSort = sortOrder == "ln" ? "!ln" : "ln";

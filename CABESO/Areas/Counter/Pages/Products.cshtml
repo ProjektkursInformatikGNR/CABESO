@@ -11,7 +11,7 @@
     <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
     <button type="submit" class="btn btn-primary">Suchen</button>
 </form>
-<br />
+<br /><br />
 <table class="table">
     <thead>
         <tr>
@@ -76,7 +76,7 @@
                 @string.Format("{0:C2}", product.Sale)
             </td>
             <td>
-                @string.Join(", ", product.Allergens)
+                @string.Join(", ", product.Allergens ?? new string[0])
             </td>
             <td>
                 @if (product.Vegetarian)

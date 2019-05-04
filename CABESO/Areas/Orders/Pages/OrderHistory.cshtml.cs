@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CABESO.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq;
@@ -17,17 +17,17 @@ namespace CABESO.Areas.Orders.Pages
 
         public string SearchKeyWord { get; set; }
 
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public OrderHistoryModel(UserManager<IdentityUser> userManager)
+        public OrderHistoryModel(ApplicationDbContext context)
         {
-            _userManager = userManager;
+            _context = context;
         }
 
         public void OnGet(string sortOrder, string search)
         {
             SearchKeyWord = search ?? string.Empty;
-            HistoricOrders = Database.Context.HistoricOrders.Where(historicOrder => historicOrder.User.Equals(User.GetIdentityUser())).ToArray();
+            HistoricOrders = _context.HistoricOrders.Where(historicOrder => historicOrder.User.Equals(User.GetIdentityUser())).ToArray();
             if (!string.IsNullOrEmpty(SearchKeyWord))
                 HistoricOrders = HistoricOrders.Where(historicOrder => Program.Matches(historicOrder.Product.Name, SearchKeyWord)).ToArray();
 

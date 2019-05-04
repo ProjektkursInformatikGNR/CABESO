@@ -1,24 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Common;
 
 namespace CABESO
 {
     [Table("Forms")]
     public class Form
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Section { get; set; }
         public int Year { get; set; }
-
-        public static Form GetFormById(int? id)
-        {
-            return id.HasValue ? Database.Context.Forms.Find(id.Value) : null;
-        }
 
         public override string ToString()
         {
