@@ -4,6 +4,7 @@ using CABESO.Properties;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace CABESO.Controllers
@@ -18,6 +19,8 @@ namespace CABESO.Controllers
 
             if (context.Users.Count() == 0)
                 signInManager.SignOutAsync();
+
+            byte[] img1 = (byte[]) Resources.ResourceManager.GetObject("Image1");
         }
 
         public IActionResult Index()

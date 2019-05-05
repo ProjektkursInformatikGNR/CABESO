@@ -15,6 +15,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>
                 <a asp-page="./Products" asp-route-sortOrder="@Model.NameSort" asp-route-search="@Model.SearchKeyWord">
                     Bezeichnung
@@ -66,6 +67,12 @@
         @foreach (var product in Model.Products)
         {
         <tr>
+            <td>
+                @if (!string.IsNullOrEmpty(product.Picture))
+                {
+                    <img src="/images/@product.Picture" style="width:75px;height:auto" />
+                }
+            </td>
             <td>
                 @product.Name
             </td>
