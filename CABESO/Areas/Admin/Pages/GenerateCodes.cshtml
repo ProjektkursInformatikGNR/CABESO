@@ -15,9 +15,9 @@
     <div class="form-group">
         <label asp-for="Input.Role"></label>
         <select asp-for="Input.Role" class="form-control">
-            @foreach (string role in Database.Roles)
+            @foreach (IdentityRole role in Database.Roles)
             {
-                <option value="@role">@Program.Translations.GetValueOrDefault(role)</option>
+                <option value="@role.Name">@role.GetDisplayName()</option>
             }
         </select>
     </div>
@@ -39,8 +39,8 @@
         {
             <tr>
                 <td><font face="monospace">@code.Code</font></td>
-                <td>@Program.TimeDisplay(code.CreationTime)</td>
-                <td>@Program.Translations.GetValueOrDefault(code.Role)</td>
+                <td>@code.CreationTime.GetDisplayFormat()</td>
+                <td>@code.Role.GetDisplayName()</td>
                 <td>
                     <a asp-controller="Admin" asp-action="DeactivateCode" asp-route-code="@code.Code">Deaktivieren</a>
                 </td>

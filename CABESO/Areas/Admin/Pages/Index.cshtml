@@ -36,12 +36,12 @@
             </th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.AdminSort">
-                    Administrator*in
+                    @Resources.AdminDisplay
                 </a>
             </th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.EmployeeSort">
-                    Mitarbeiter*in
+                    @Resources.EmployeeDisplay
                 </a>
             </th>
             <th></th>
@@ -58,7 +58,7 @@
                     @user.GetName().LastName
                 </td>
                 <td>
-                    @Program.Translations.GetValueOrDefault(user.GetRoleName())
+                    @user.GetRole().GetDisplayName()
                 </td>
                 <td>
                     @user.GetForm()?.ToString()
@@ -85,7 +85,7 @@
                 </td>
                 <td>
                     <a asp-page="EditUser" asp-route-id="@user.Id">Bearbeiten</a>
-                    @if (!user.Id.Equals(User.GetIdentityUser().Id))
+                    @if (!user.Id.Equals(User.GetIdentityUser().Id) && !user.UserName.Equals(User.Identity.Name))
                     {
                         <text>|</text>
                         <a asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id">Entfernen</a>

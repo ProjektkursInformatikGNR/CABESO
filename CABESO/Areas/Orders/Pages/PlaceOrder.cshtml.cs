@@ -1,4 +1,5 @@
 ﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 
 namespace CABESO.Areas.Orders.Pages
 {
+    [Authorize]
     public class PlaceOrderModel : PageModel
     {
         public Product[] Products { get; private set; }

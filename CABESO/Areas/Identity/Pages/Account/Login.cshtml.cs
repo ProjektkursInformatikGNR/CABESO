@@ -80,7 +80,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, "Bitte bestätige deine E-Mail-Adresse!");
                     return Page();
                 }
-                ModelState.AddModelError(string.Empty, "Ungültige Anmeldedaten.");
+                ModelState.AddModelError(string.Empty, "Die Anmeldedaten sind ungültig.");
             }
 
             return Page();

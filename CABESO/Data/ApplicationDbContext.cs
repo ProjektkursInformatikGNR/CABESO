@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace CABESO.Data
 {
@@ -44,14 +45,15 @@ namespace CABESO.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Form>().Property(p => p.Id).ValueGeneratedOnAdd();
-            builder.Entity<HistoricOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => CABESO.Database.GetUserById(v));
+            builder.Entity<HistoricOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => Users.Find(v));
             builder.Entity<HistoricOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Products.Find(v));
             builder.Entity<CurrentOrder>().Property(p => p.Id).ValueGeneratedOnAdd();
-            builder.Entity<CurrentOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => CABESO.Database.GetUserById(v));
+            builder.Entity<CurrentOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => Users.Find(v));
             builder.Entity<CurrentOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Products.Find(v));
             builder.Entity<Product>().Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Entity<Product>().Property(p => p.Allergens).HasConversion(v => string.Join('|', v), v => v.Split('|', StringSplitOptions.None));
             builder.Entity<RegistrationCode>().HasKey("Code");
+            builder.Entity<RegistrationCode>().Property(p => p.Role).HasConversion(v => v.Name, v => Roles.FirstOrDefault(role => role.Name.Equals(v)));
             base.OnModelCreating(builder);
         }
     }

@@ -1,9 +1,11 @@
 ﻿using CABESO.Data;
+using CABESO.Properties;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.Encodings.Web;
@@ -27,6 +29,7 @@ namespace CABESO.Areas.Identity.Pages.Account
             _userManager = userManager;
             _logger = logger;
             _context = context;
+            Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
         }
 
         [BindProperty]
@@ -34,7 +37,8 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         public string ReturnUrl { get; set; }
 
-        public static string Role;
+
+        public static IdentityRole Role;
 
         public static bool Confirmed { get; set; }
 
@@ -48,11 +52,11 @@ namespace CABESO.Areas.Identity.Pages.Account
 
             [Required]
             [EmailAddress]
-            [Display(Name = "E-Mail Adresse")]
+            [Display(Name = "E-Mail-Adresse")]
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "Das {0} muss mindestens {2} und höchstens {1} Zeichen lang sein.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "Passwörter müssen mindestens {2} und höchstens {1} Zeichen lang sein.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Passwort")]
             public string Password { get; set; }
@@ -68,8 +72,7 @@ namespace CABESO.Areas.Identity.Pages.Account
         public void OnGet(string code = null, string returnUrl = null)
         {
             ReturnUrl = returnUrl;
-            Confirmed = CodeValid(_code = code, out Role);
-            Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
+            Confirmed = CodeValid(_code = code);
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -97,7 +100,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                         Input.Email,
                         "E-Mail-Adresse bestätigen",
                         $"Bitte bestätige deine E-Mail-Adresse, indem du <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> klickst.",
-                        new Name(user.Email, Role.Equals("Student"))) ||
+                        new Name(user.Email, Role.Name.Equals(Resources.Student))) ||
                         !Program.MailValid(Input.Email))
                     {
                         ModelState.AddModelError(string.Empty, "Die angegebene E-Mail-Adresse konnte nicht erreicht werden.");
@@ -105,10 +108,10 @@ namespace CABESO.Areas.Identity.Pages.Account
                         return Page();
                     }
 
-                    await _userManager.AddToRoleAsync(user, Role);
+                    await _userManager.AddToRoleAsync(user, Role.Name);
 
                     if (_userManager.Users.Count() == 1)
-                        await _userManager.AddToRoleAsync(user, "Admin");
+                        await _userManager.AddToRoleAsync(user, Resources.Admin);
 
                     user.SetFormId(Input.FormId);
                     _context.Codes.Remove(_context.Codes.Find(_code));
@@ -125,9 +128,8 @@ namespace CABESO.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private bool CodeValid(string code, out string role)
+        private bool CodeValid(string code)
         {
-            role = null;
             if (string.IsNullOrEmpty(code))
                 return false;
 
@@ -135,7 +137,7 @@ namespace CABESO.Areas.Identity.Pages.Account
 
             if (regCode != null)
             {
-                role = regCode.Role;
+                Role = regCode.Role;
                 return true;
             }
 

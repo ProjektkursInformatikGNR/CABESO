@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using CABESO.Properties;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
@@ -284,7 +285,7 @@ namespace CABESO.Data.Migrations
             migrationBuilder.InsertData("Forms", new[] { "Section", "Year" }, new object[] { "", 2012 });
             migrationBuilder.InsertData("Forms", new[] { "Section", "Year" }, new object[] { "", 2013 });
 
-            migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "Role" }, new object[] { "1234567890", Database.SqlNow, "Student" });
+            migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "Role" }, new object[] { "1234567890", Database.SqlNow, Resources.Student });
 
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "belegtes Brötchen", 1.1, false, false });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "belegtes Körnerbrötchen", 1.1, false, false });

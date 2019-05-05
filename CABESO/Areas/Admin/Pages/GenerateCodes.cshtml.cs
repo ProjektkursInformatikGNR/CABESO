@@ -53,7 +53,7 @@ namespace CABESO.Areas.Admin.Pages
 
             Random random = new Random();
             string code = new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
-            _context.Codes.Add(new RegistrationCode() { Code = code, CreationTime = DateTime.UtcNow, Role = role });
+            _context.Codes.Add(new RegistrationCode() { Code = code, CreationTime = DateTime.UtcNow, Role = _context.Roles.FirstOrDefault(r => r.Name.Equals(role)) });
             _context.SaveChanges();
         }
     }

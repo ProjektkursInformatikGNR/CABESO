@@ -7,13 +7,13 @@
     {
         @if (User != null)
         {
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole(Resources.Admin))
             {
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="Admin" asp-page="/Index">Admin-Bereich</a>
                 </li>
             }
-            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            if (User.IsInRole(Resources.Admin) || User.IsInRole(Resources.Employee))
             {
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="Kitchen" asp-page="/Index">K&uumlchen-Bereich</a>

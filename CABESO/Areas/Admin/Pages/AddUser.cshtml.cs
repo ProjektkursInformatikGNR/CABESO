@@ -1,4 +1,5 @@
 ﻿using CABESO.Data;
+using CABESO.Properties;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -52,6 +53,8 @@ namespace CABESO.Areas.Admin.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            OnGet();
+
             if (ModelState.IsValid)
             {
                 IdentityUser user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
@@ -70,7 +73,7 @@ namespace CABESO.Areas.Admin.Pages
                         user.Email,
                         "Erstanmeldung",
                         $"Du wurdest zur Teilnahme an der Cafeteria-Bestellsoftware (CABESO) eingeladen. Klicke <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> zur Erstanmeldung.",
-                        new Name(user.Email, Input.Role.Equals("Student"))) ||
+                        new Name(user.Email, Input.Role.Equals(Resources.Student))) ||
                         !Program.MailValid(Input.Email))
                     {
                         ModelState.AddModelError(string.Empty, "Die angegebene E-Mail-Adresse konnte nicht erreicht werden.");
@@ -79,7 +82,7 @@ namespace CABESO.Areas.Admin.Pages
                     }
 
                     await _userManager.AddToRoleAsync(user, Input.Role);
-                    if (Input.Role.Equals("Student"))
+                    if (Input.Role.Equals(Resources.Student))
                         user.SetFormId(Input.FormId);
 
                     await _userManager.ConfirmEmailAsync(user, await _userManager.GenerateEmailConfirmationTokenAsync(user));

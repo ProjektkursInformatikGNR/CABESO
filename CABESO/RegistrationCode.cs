@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,7 +11,7 @@ namespace CABESO
         [Key]
         public string Code { get; set; }
         public DateTime CreationTime { get; set; }
-        public string Role { get; set; }
+        public IdentityRole Role { get; set; }
 
         public override bool Equals(object obj)
         {

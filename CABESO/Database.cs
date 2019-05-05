@@ -1,4 +1,5 @@
 ﻿using CABESO.Data;
+using CABESO.Properties;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,59 +14,54 @@ namespace CABESO
 {
     public static class Database
     {
-        private static ApplicationDbContext context;
-
-        public static IWebHost MigrateDatabase(this IWebHost webHost)
+        public static IWebHost MigrateDatabase(this IWebHost webHost, out ApplicationDbContext context)
         {
             IServiceScopeFactory serviceScopeFactory = webHost.Services.GetService(typeof(IServiceScopeFactory)) as IServiceScopeFactory;
             context = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
             context.Database.Migrate();
-
             return webHost;
         }
 
-        public static readonly string[] Roles = new string[] { "Teacher", "Student", "Employee" };
+        public static readonly IdentityRole[] Roles = Startup.Context.Roles.Where(role => !role.Name.Equals(Resources.Admin)).ToArray();
 
-        private static string roleName;
-        private static bool admin, employee;
-        private static void RetrieveRoles(IdentityUser user)
+        private static void RetrieveRoles(IdentityUser user, out IdentityRole role, out bool admin, out bool employee)
         {
-            roleName = string.Empty;
+            role = null;
             admin = false;
             employee = false;
-            foreach (IdentityUserRole<string> role in context.UserRoles.Where(userRole => userRole.UserId.Equals(user.Id)))
+            foreach (IdentityUserRole<string> userRole in Startup.Context.UserRoles.Where(userRole => userRole.UserId.Equals(user.Id)))
             {
-                if (role.RoleId.Equals(AdminId))
+                if (Startup.Context.Roles.Find(userRole.RoleId).Name.Equals(Resources.Admin))
                     admin = true;
                 else
                 {
-                    if (role.RoleId.Equals(EmployeeId))
+                    if (Startup.Context.Roles.Find(userRole.RoleId).Name.Equals(Resources.Admin))
                         employee = true;
-                    roleName = context.Roles.FirstOrDefault(r => r.Id.Equals(role.RoleId))?.Name ?? string.Empty;
+                    role = Startup.Context.Roles.Find(userRole.RoleId);
                 }
             }
         }
 
-        public static string GetRoleName(this IdentityUser user)
+        public static IdentityRole GetRole(this IdentityUser user)
         {
-            RetrieveRoles(user);
-            return roleName;
+            RetrieveRoles(user, out IdentityRole role, out _, out _);
+            return role;
         }
 
         public static bool IsAdmin(this IdentityUser user)
         {
-            RetrieveRoles(user);
+            RetrieveRoles(user, out _, out bool admin, out _);
             return admin;
         }
 
         public static bool IsEmployee(this IdentityUser user)
         {
-            RetrieveRoles(user);
+            RetrieveRoles(user, out _, out _, out bool employee);
             return employee;
         }
         public static Form GetForm(this IdentityUser user)
         {
-            DbConnection connection = context.Database.GetDbConnection();
+            DbConnection connection = Startup.Context.Database.GetDbConnection();
             connection.ConnectionString = Startup.DefaultConnection;
             using (DbCommand command = connection.CreateCommand())
             {
@@ -75,7 +71,7 @@ namespace CABESO
                 connection.Close();
 
                 if (result is int)
-                    return context.Forms.Find(result);
+                    return Startup.Context.Forms.Find(result);
                 else
                     return null;
             }
@@ -83,7 +79,7 @@ namespace CABESO
 
         public static void SetFormId(this IdentityUser user, int? formId)
         {
-            DbConnection connection = context.Database.GetDbConnection();
+            DbConnection connection = Startup.Context.Database.GetDbConnection();
             connection.ConnectionString = Startup.DefaultConnection;
             using (DbCommand command = connection.CreateCommand())
             {
@@ -96,46 +92,37 @@ namespace CABESO
 
         public static Name GetName(this IdentityUser user)
         {
-            return new Name(user.Email, GetRoleName(user).Equals("Student"));
+            return new Name(user.Email, GetRole(user)?.Name.Equals(Resources.Student) ?? false);
         }
 
         public static IdentityUser GetUserById(string id)
         {
-            return context.Users.Find(id);
+            return Startup.Context.Users.Find(id);
         }
 
         public static IdentityUser GetIdentityUser(this ClaimsPrincipal principal)
         {
-            return context.Users.FirstOrDefault(user => user.UserName.Equals(principal.Identity.Name, StringComparison.OrdinalIgnoreCase)) ?? new IdentityUser();
+            return Startup.Context.Users.FirstOrDefault(user => user.UserName.Equals(principal.Identity.Name, StringComparison.OrdinalIgnoreCase)) ?? new IdentityUser();
+        }
+
+        public static string GetDisplayName(this IdentityRole role)
+        {
+            return Resources.ResourceManager.GetString(role.Name + "Display");
+        }
+
+        public static string GetDisplayFormat(this DateTime dt)
+        {
+            return dt.ToLocalTime().ToString(CultureInfo.CurrentCulture);
+        }
+
+        public static string GetSqlFormat(this DateTime dt)
+        {
+            return dt.ToUniversalTime().ToString("yyyyMMdd hh:mm:ss tt", CultureInfo.InvariantCulture);
         }
 
         public static string SqlNow
         {
-            get
-            {
-                return SqlTimeFormat(DateTime.UtcNow);
-            }
-        }
-
-        public static string SqlTimeFormat(DateTime dt)
-        {
-            return dt.ToString("yyyyMMdd hh:mm:ss tt", CultureInfo.InvariantCulture);
-        }
-
-        public static string AdminId
-        {
-            get
-            {
-                return context.Roles.FirstOrDefault(role => role.Name.Equals("Admin")).Id;
-            }
-        }
-
-        public static string EmployeeId
-        {
-            get
-            {
-                return context.Roles.FirstOrDefault(role => role.Name.Equals("Employee")).Id;
-            }
+            get => DateTime.Now.GetSqlFormat();
         }
     }
 }

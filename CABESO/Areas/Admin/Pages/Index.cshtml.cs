@@ -53,10 +53,10 @@ namespace CABESO.Areas.Admin.Pages
                     users = users.OrderByDescending(user => user.GetName().LastName);
                     break;
                 case "r":
-                    users = users.OrderBy(user => user.GetRoleName());
+                    users = users.OrderBy(user => user.GetRole().GetDisplayName());
                     break;
                 case "!r":
-                    users = users.OrderByDescending(user => user.GetRoleName());
+                    users = users.OrderByDescending(user => user.GetRole().GetDisplayName());
                     break;
                 case "f":
                     users = users.OrderBy(user => user.GetForm().ToString());

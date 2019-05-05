@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CABESO.Properties;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -44,7 +45,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                         Input.Email,
                         "Passwort zurücksetzen",
                         $"Bitte setze dein Passwort zurück, indem du <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> klickst.",
-                        new Name(user.Email, user.GetRoleName().Equals("Student")));
+                        new Name(user.Email, user.GetRole()?.Name.Equals(Resources.Student) ?? false));
                 }
 
                 return RedirectToPage("./ForgotPasswordConfirmation");

@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
 
 namespace CABESO
 {
     public class Startup
     {
+        public static ApplicationDbContext Context;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -42,7 +45,11 @@ namespace CABESO
 
         public static string MailPop3 { get; private set; }
 
+        public static string MailReturn { get; private set; }
+
         public static string DefaultConnection { get; private set; }
+
+        public static string PasswordRequirements { get; private set; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -65,7 +72,21 @@ namespace CABESO
             {
                 config.SignIn.RequireConfirmedEmail = true;
                 config.User.RequireUniqueEmail = true;
+
+                PasswordOptions pwdOptions = config.Password;
+                ErrorDescriber describer = new ErrorDescriber();
+                IdentityError[] errors =
+                {
+                    pwdOptions.RequireDigit ? describer.PasswordRequiresDigit() : null,
+                    pwdOptions.RequireLowercase ? describer.PasswordRequiresLower() : null,
+                    pwdOptions.RequireNonAlphanumeric ? describer.PasswordRequiresNonAlphanumeric() : null,
+                    pwdOptions.RequireUppercase ? describer.PasswordRequiresUpper() : null,
+                    pwdOptions.RequiredUniqueChars > 1 ? describer.PasswordRequiresUniqueChars(pwdOptions.RequiredUniqueChars) : null,
+                    describer.PasswordTooShort(pwdOptions.RequiredLength)
+                };
+                PasswordRequirements = string.Join('\n', Array.ConvertAll(errors, error => error?.Description).Where(requirement => !string.IsNullOrEmpty(requirement)));
             })
+                .AddErrorDescriber<ErrorDescriber>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -77,6 +98,7 @@ namespace CABESO
             MailPassword = Configuration["Mail:Password"];
             MailSmtp = Configuration["Mail:Smtp"];
             MailPop3 = Configuration["Mail:Pop3"];
+            MailReturn = Configuration["Mail:Return"];
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

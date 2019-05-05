@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Net;
 using System.Net.Mail;
@@ -14,8 +13,6 @@ namespace CABESO
     public class Program
     {
         public const string ErrorMessage = "Gib bitte {0} an.";
-
-        public static Dictionary<string, string> Translations { get; private set; }
 
         public static string Alert { get; set; }
 
@@ -55,11 +52,6 @@ namespace CABESO
             return !string.IsNullOrEmpty(entry) && !string.IsNullOrEmpty(search) && entry.Contains(search, StringComparison.OrdinalIgnoreCase);
         }
 
-        public static string TimeDisplay(DateTime dt)
-        {
-            return dt.ToLocalTime().ToString(CultureInfo.CurrentCulture);
-        }
-
         public static bool MailValid(string mailAddress)
         {
             Pop3Client client = new Pop3Client();
@@ -82,7 +74,7 @@ namespace CABESO
                     Message message = client.GetMessage(i);
                     if (DateTime.Now - DateTime.Parse(message.Headers.Date) > new TimeSpan(0, 5, 0))
                         return true;
-                    if (!message.Headers.From.MailAddress.Address.Equals("keineantwortadresse@web.de"))
+                    if (!message.Headers.From.MailAddress.Address.Equals(Startup.MailReturn))
                         continue;
                     if (!message.Headers.Subject.Equals("Mail delivery failed: returning message to sender"))
                         continue;
@@ -123,19 +115,10 @@ namespace CABESO
 
         public static void Main(string[] args)
         {
-            Translations = new Dictionary<string, string>
-            {
-                { "Student", "Schüler*in" },
-                { "Teacher", "Lehrer*in" },
-                { "Employee", "Mitarbeiter*in" },
-                { "True", "ja" },
-                { "False", "nein" }
-            };
-
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .Build()
-                .MigrateDatabase()
+                .MigrateDatabase(out Startup.Context)
                 .Run();
         }
     }

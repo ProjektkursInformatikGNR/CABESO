@@ -1,5 +1,5 @@
 ﻿@page
-@model CABESO.Areas.Admin.Pages.AddUserModel
+@model AddUserModel
 @{
     ViewData["Title"] = "Benutzer hinzufügen";
     ViewData["ActivePage"] = "AddUser";
@@ -26,11 +26,11 @@
         </select>
     </div>
     <div class="form-group">
-        <input asp-for="Input.Role" type="radio" value="Student" id="sradbtn" checked /> @Program.Translations.GetValueOrDefault("Student")
+        <input asp-for="Input.Role" type="radio" value="@Resources.Student" id="sradbtn" checked /> @Resources.StudentDisplay
         &nbsp;
-        <input asp-for="Input.Role" type="radio" value="Teacher" id="tradbtn" /> @Program.Translations.GetValueOrDefault("Teacher")
+        <input asp-for="Input.Role" type="radio" value="@Resources.Teacher" id="tradbtn" /> @Resources.TeacherDisplay
         &nbsp;
-        <input asp-for="Input.Role" type="radio" value="Employee" id="eradbtn" /> @Program.Translations.GetValueOrDefault("Employee")
+        <input asp-for="Input.Role" type="radio" value="@Resources.Employee" id="eradbtn" /> @Resources.EmployeeDisplay
     </div>
     <button type="submit" class="btn btn-primary">Hinzufügen</button>
 </form>

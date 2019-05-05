@@ -14,7 +14,7 @@
             <div asp-validation-summary="All" class="text-danger"></div>
             @if (RegisterModel.Confirmed)
             {
-                if (RegisterModel.Role.Equals("Student"))
+                if (RegisterModel.Role.Name.Equals(Resources.Student))
                 {
                     <div class="form-group" id="formform">
                         <label asp-for="Input.FormId">Klasse</label>
@@ -34,7 +34,7 @@
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password"></label>
+                    <label>Passwort <i>(Anforderungen</i> <text title="@Startup.PasswordRequirements">&#9654;</text><i>)</i></label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>

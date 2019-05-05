@@ -1,17 +1,23 @@
-﻿using CABESO.Models;
+﻿using CABESO.Data;
+using CABESO.Models;
+using CABESO.Properties;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CABESO.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController(RoleManager<IdentityRole> roleManager)
+        public HomeController(RoleManager<IdentityRole> roleManager, ApplicationDbContext context, SignInManager<IdentityUser> signInManager)
         {
-            foreach (string role in new[] { "Admin", "Teacher", "Student", "Employee" })
+            foreach (string role in new[] { Resources.Admin, Resources.Teacher, Resources.Student, Resources.Employee })
                 if (!roleManager.RoleExistsAsync(role).Result)
                     while (!roleManager.CreateAsync(new IdentityRole(role)).Result.Succeeded) ;
+
+            if (context.Users.Count() == 0)
+                signInManager.SignOutAsync();
         }
 
         public IActionResult Index()

@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CABESO.Properties
-{
-
-
+namespace CABESO.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
     /// </summary>
@@ -22,7 +22,7 @@ namespace CABESO.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace CABESO.Properties
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CABESO.Properties.Resources", typeof(Resources).Assembly);
@@ -51,12 +51,84 @@ namespace CABESO.Properties
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Admin ähnelt.
+        /// </summary>
+        public static string Admin {
+            get {
+                return ResourceManager.GetString("Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Administrator*in ähnelt.
+        /// </summary>
+        public static string AdminDisplay {
+            get {
+                return ResourceManager.GetString("AdminDisplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Employee ähnelt.
+        /// </summary>
+        public static string Employee {
+            get {
+                return ResourceManager.GetString("Employee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Mitarbeiter*in ähnelt.
+        /// </summary>
+        public static string EmployeeDisplay {
+            get {
+                return ResourceManager.GetString("EmployeeDisplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Student ähnelt.
+        /// </summary>
+        public static string Student {
+            get {
+                return ResourceManager.GetString("Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Schüler*in ähnelt.
+        /// </summary>
+        public static string StudentDisplay {
+            get {
+                return ResourceManager.GetString("StudentDisplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Teacher ähnelt.
+        /// </summary>
+        public static string Teacher {
+            get {
+                return ResourceManager.GetString("Teacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lehrer*in ähnelt.
+        /// </summary>
+        public static string TeacherDisplay {
+            get {
+                return ResourceManager.GetString("TeacherDisplay", resourceCulture);
             }
         }
     }

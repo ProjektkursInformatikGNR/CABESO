@@ -1,4 +1,5 @@
 ﻿using CABESO.Data;
+using CABESO.Properties;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,25 +16,30 @@ namespace CABESO.Areas.Admin.Pages
         public Form[] Forms { get; private set; }
 
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ApplicationDbContext _context;
 
-        public EditUserModel(UserManager<IdentityUser> userManager, ApplicationDbContext context)
+        public EditUserModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ApplicationDbContext context)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
             _context = context;
         }
 
         public async Task OnGet(string id)
         {
             CurrentUser = Database.GetUserById(id);
-            StuckAsAdmin = (await _userManager.GetUsersInRoleAsync("Admin")).Count <= 1;
+            StuckAsAdmin = (await _userManager.GetUsersInRoleAsync(Resources.Admin)).Count <= 1;
             Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
+            bool refresh = CurrentUser.Id.Equals(User.GetIdentityUser().Id);
             CurrentUser.Email = Input.Email;
+            CurrentUser.NormalizedEmail = Input.Email.ToUpper();
             CurrentUser.UserName = Input.Email;
+            CurrentUser.NormalizedUserName = Input.Email.ToUpper();
             _context.Users.Update(CurrentUser);
             _context.UserRoles.RemoveRange(_context.UserRoles.Where(userRole => userRole.UserId.Equals(CurrentUser.Id)));
             _context.UserRoles.Add(new IdentityUserRole<string>()
@@ -45,10 +51,15 @@ namespace CABESO.Areas.Admin.Pages
                 _context.UserRoles.Add(new IdentityUserRole<string>()
                 {
                     UserId = CurrentUser.Id,
-                    RoleId = Database.AdminId
+                    RoleId = _context.Roles.FirstOrDefault(role => role.Name.Equals(Resources.Admin)).Id
                 });
             _context.SaveChanges();
-            CurrentUser.SetFormId(Input.Role.Equals("Student") ? Input.FormId : null);
+            CurrentUser.SetFormId(Input.Role.Equals(Resources.Student) ? Input.FormId : null);
+            if (refresh)
+            {
+                await _signInManager.SignOutAsync();
+                await _signInManager.SignInAsync(CurrentUser, false);
+            }
             return LocalRedirect("~/Admin/Index");
         }
 

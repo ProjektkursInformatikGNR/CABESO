@@ -39,9 +39,8 @@ namespace CABESO.Views.Admin
         public async Task<IActionResult> Delete(string id)
         {
             IdentityUser user = await _userManager.FindByIdAsync(id);
-            if (user != null)
+            if (user != null && !user.Id.Equals(User.GetIdentityUser().Id))
                 await _userManager.DeleteAsync(user);
-
             return LocalRedirect("~/Admin/Index");
         }
 

@@ -65,10 +65,10 @@
                     @order.Number
                 </td>
                 <td>
-                    @Program.TimeDisplay(order.OrderTime)
+                    @order.OrderTime.GetDisplayFormat()
                 </td>
                 <td>
-                    @Program.TimeDisplay(order.CollectionTime)
+                    @order.CollectionTime.GetDisplayFormat()
                 </td>
             </tr>
         }
