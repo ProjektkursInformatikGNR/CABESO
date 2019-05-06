@@ -31,6 +31,9 @@ namespace CABESO
                 case int hour when (hour < 5 || hour >= 22):
                     greeting = "Gute Nacht";
                     break;
+
+                
+                
                 case int hour when (hour >= 5 && hour < 12):
                     greeting = "Guten Morgen";
                     break;
@@ -44,7 +47,14 @@ namespace CABESO
                     greeting = "Hallo";
                     break;
             }
-            return string.Format("{0}, {1}!", greeting, string.IsNullOrEmpty(name?.ToString().Trim()) ? "ihr Luschen" : name);
+
+            if (DateTime.Now.Hour == 3 && DateTime.Now.Minute == 0 && DateTime.Now.Second < 10) {                
+                    return "Gute Nacht, Agon (Projekurs-Informatik Member) !";            
+            } else
+            {
+                return string.Format("{0}, {1}!", greeting, string.IsNullOrEmpty(name?.ToString().Trim()) ? "ihr Luschen" : name);
+            }
+        
         }
 
         public static bool Matches(string entry, string search)
