@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
+using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Threading;
 
 namespace CABESO
@@ -25,26 +28,22 @@ namespace CABESO
 
         public static string Greeting(Name name = null)
         {
-            string greeting;
-            switch (DateTime.Now.Hour)
+            Process proc = new Process
             {
-                case int hour when (hour < 5 || hour >= 22):
-                    greeting = "Gute Nacht";
-                    break;
-                case int hour when (hour >= 5 && hour < 12):
-                    greeting = "Guten Morgen";
-                    break;
-                case int hour when (hour >= 12 && hour < 18):
-                    greeting = "Guten Nachmittag";
-                    break;
-                case int hour when (hour >= 18 && hour < 22):
-                    greeting = "Guten Abend";
-                    break;
-                default:
-                    greeting = "Hallo";
-                    break;
-            }
-            return string.Format("{0}, {1}!", greeting, string.IsNullOrEmpty(name?.ToString().Trim()) ? "ihr Luschen" : name);
+                StartInfo = new ProcessStartInfo()
+                {
+                    FileName = Path.Combine(Environment.CurrentDirectory, "Greeting.exe"),
+                    Arguments = $"\"{name}\"",
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    RedirectStandardOutput = true,
+                    StandardOutputEncoding = Encoding.Unicode
+                }
+            };
+            proc.Start();
+            string greeting;
+            using (StreamReader output = proc.StandardOutput)
+                greeting = output.ReadToEnd();
+            return greeting;
         }
 
         public static bool Matches(string entry, string search)

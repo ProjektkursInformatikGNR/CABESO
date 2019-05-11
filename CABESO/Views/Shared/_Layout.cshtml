@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 @using Microsoft.AspNetCore.Identity
+@using System.IO
 @inject SignInManager<IdentityUser> SignInManager
 <html>
 <head>
@@ -18,8 +19,7 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body onload="@if (string.IsNullOrEmpty(Program.Alert)) { <text>return;</text> } else { <text>alert('@Program.ShowAlert()');</text> } ">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<body onload="@if (string.IsNullOrEmpty(Program.Alert)) { <text>return;</text> } else { <text>alert('@Program.ShowAlert()');</text> }">    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -72,6 +72,11 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
+    <style>
+        embed {
+            display: none;
+        }
+    </style>
 
     @RenderSection("Scripts", required: false)
 </body>

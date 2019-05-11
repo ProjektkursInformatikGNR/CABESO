@@ -5,6 +5,6 @@
 @inject UserManager<IdentityUser> UserManager
 
 <div class="text-center">
-    <h1 class="display-4">@Program.Greeting(User.GetIdentityUser()?.GetName())</h1>
+    @Html.Raw(@Program.Greeting(User.GetIdentityUser()?.GetName()))
     <p>Hier könnte Ihre Werbung stehen.</p>
 </div>
