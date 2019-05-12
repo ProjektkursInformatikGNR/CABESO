@@ -1,7 +1,7 @@
 ﻿@page
-@model CABESO.Areas.Counter.Pages.OrdersModel
+@model CABESO.Areas.Counter.Pages.OrderHistoryModel
 @{
-    ViewData["Title"] = "Bestellungen";
+    ViewData["Title"] = "Bestellhistorie";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -51,8 +51,6 @@
                     Abholdatum
                 </a>
             </th>
-            <th>
-            </th>
         </tr>
     </thead>
     <tbody>
@@ -79,11 +77,6 @@
             </td>
             <td>
                 @order.CollectionTime.GetDisplayFormat()
-            </td>
-            <td>
-                <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
-                <text>|</text>
-                <a asp-controller="Counter" asp-action="Delete" asp-route-id="@order.Id">Entfernen</a>
             </td>
         </tr>
         }
