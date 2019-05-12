@@ -52,6 +52,7 @@ namespace CABESO.Areas.Identity.Pages.Account
 
             [Required]
             [EmailAddress]
+            [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@gnr\.wwschool\.de)$", ErrorMessage = "Bitte nutze deine wwschool-Mail zur Registrierung.")]
             [Display(Name = "E-Mail-Adresse")]
             public string Email { get; set; }
 
