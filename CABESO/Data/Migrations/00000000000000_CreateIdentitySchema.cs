@@ -189,7 +189,7 @@ namespace CABESO.Data.Migrations
                     Name = table.Column<string>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     Sale = table.Column<decimal>(nullable: true),
-                    Picture = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
                     Allergens = table.Column<string>(nullable: true),
                     Vegetarian = table.Column<bool>(nullable: false),
                     Vegan = table.Column<bool>(nullable: false),

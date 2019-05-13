@@ -9,7 +9,7 @@ namespace CABESO
         public string Name { get; set; }
         public decimal Price { get; set; }
         public decimal? Sale { get; set; }
-        public string Picture { get; set; }
+        public string Image { get; set; }
         public string[] Allergens { get; set; }
         public bool Vegetarian { get; set; }
         public bool Vegan { get; set; }

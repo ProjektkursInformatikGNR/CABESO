@@ -42,7 +42,7 @@ namespace CABESO.Areas.Counter.Pages
             CurrentOrder.Number = Input.Number;
             CurrentOrder.Notes = Input.Notes;
             CurrentOrder.OrderTime = Input.CollectionTime;
-            _context.Orders.Update(CurrentOrder);
+            _context.Orders.Update(CurrentOrder as CurrentOrder);
             _context.SaveChanges();
             return LocalRedirect("~/Counter/Orders");
         }

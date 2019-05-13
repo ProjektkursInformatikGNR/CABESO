@@ -1,0 +1,123 @@
+﻿@page
+@model EditProductModel
+@{
+    ViewData["Title"] = "Produkt bearbeiten";
+}
+
+<h2>@ViewData["Title"]: @EditProductModel.CurrentProduct?.Name</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Input.Name"></label>
+        <input asp-for="Input.Name" value="@EditProductModel.CurrentProduct?.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Image"></label>
+        <br />
+        @if (!string.IsNullOrEmpty(EditProductModel.CurrentProduct?.Image))
+        {
+            <img src="/images/@EditProductModel.CurrentProduct?.Image" id="image" style="max-width:300px;height:auto" />
+        }
+        else
+        {
+            <img src="/images/@EditProductModel.CurrentProduct?.Image" id="image" style="max-width:300px;height:auto" hidden />
+        }
+        <hr />
+        <input type="file" asp-for="Input.Image" accept="image/*" id="selectImage" style="display: none;" />
+        <input type="checkbox" asp-for="Input.DeleteImage" id="removeImage" style="display: none;" />
+        <input type="button" class="form-control" value="Durchsuchen..." id="browseImageBtn" />
+        <input type="button" class="form-control" value="Bild entfernen" id="removeImageBtn" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Price"></label>
+        <input asp-for="Input.Price" type="number" step="0.01" min="0.00" value="@Model.ToInput(EditProductModel.CurrentProduct?.Price)" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Sale"></label>
+        <input asp-for="Input.Sale" type="number" step="0.01" min="0.00" value="@Model.ToInput(EditProductModel.CurrentProduct?.Sale)" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Vegetarian"></label>
+        @if (EditProductModel.CurrentProduct?.Vegetarian ?? false)
+        {
+            <input asp-for="Input.Vegetarian" checked type="checkbox" />
+        }
+        else
+        {
+            <input asp-for="Input.Vegetarian" type="checkbox" />
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Vegan"></label>
+        @if (EditProductModel.CurrentProduct?.Vegan ?? false)
+        {
+            <input asp-for="Input.Vegan" checked type="checkbox" />
+        }
+        else
+        {
+            <input asp-for="Input.Vegan" type="checkbox" />
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Size"></label>
+        <input asp-for="Input.Size" value="@EditProductModel.CurrentProduct?.Size" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Deposit"></label>
+        <input asp-for="Input.Deposit" type="number" step="0.01" min="0.00" value="@Model.ToInput(EditProductModel.CurrentProduct?.Deposit)" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Allergens"></label>
+        <select asp-for="Input.Allergens" class="form-control" multiple>
+            @foreach (string allergen in Model.Allergens ?? new string[0])
+            {
+                @if (EditProductModel.CurrentProduct?.Allergens.Contains(allergen) ?? false)
+                {
+                    <option selected="selected">
+                        @allergen
+                    </option>
+                }
+                else
+                {
+                    <option>
+                        @allergen
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Information"></label>
+        <input asp-for="Input.Information" value="@EditProductModel.CurrentProduct?.Information" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+    </div>
+</form>
+
+<script>
+    var selectImage = document.getElementById('selectImage');
+    var browseImageBtn = document.getElementById('browseImageBtn');
+    var removeImageBtn = document.getElementById('removeImageBtn');
+    var image = document.getElementById('image');
+    var removeImage = document.getElementById('removeImage');
+    browseImageBtn.onclick = function (evt) {
+        selectImage.click();
+    };
+    removeImageBtn.onclick = function (evt) {
+        image.src = '';
+        image.setAttribute('hidden', 'true');
+        removeImage.setAttribute('checked', 'true');
+    };
+    selectImage.onchange = function (evt) {
+        removeImage.removeAttribute('checked');
+        if (selectImage.files && selectImage.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image.src = e.target.result;
+                image.removeAttribute('hidden');
+            };
+            reader.readAsDataURL(selectImage.files[0]);
+        }
+    };
+</script>
