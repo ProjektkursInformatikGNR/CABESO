@@ -28,22 +28,31 @@ namespace CABESO.Areas.Counter.Pages
             _context = context;
         }
 
-        public async Task OnGet(string id)
+        public async Task OnGet(int id)
         {
             Products = _context.Products.ToArray();
-            //CurrentOrder = _context.Orders.Find(id);
+            CurrentOrder = _context.Orders.Find(id);
             StuckAsAdmin = (await _userManager.GetUsersInRoleAsync(Resources.Admin)).Count <= 1;
             Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
         }
 
         public async Task<IActionResult> OnPost()
         {
-            //CurrentOrder.Product = _context.Orders.Find();
-            CurrentOrder.Number = Input.Number;
-            CurrentOrder.Notes = Input.Notes;
-            CurrentOrder.OrderTime = Input.CollectionTime;
-            _context.Orders.Update(CurrentOrder);
-            _context.SaveChanges();
+            if (Input.Collected)
+            {
+                //funktioniert noch nicht
+                _context.HistoricOrders.Add(new HistoricOrder() { User = CurrentOrder.User, Product = _context.Products.Find(Input.ProductId), OrderTime = CurrentOrder.OrderTime, Number = Input.Number, Notes = Input.Notes, CollectionTime = Input.CollectionTime.ToUniversalTime() });
+                _context.Orders.Remove((CurrentOrder)CurrentOrder);
+            }
+            else
+            {
+                CurrentOrder.Product = _context.Products.Find(Input.ProductId);
+                CurrentOrder.Number = Input.Number;
+                CurrentOrder.Notes = Input.Notes;
+                CurrentOrder.CollectionTime = Input.CollectionTime;
+                _context.Orders.Update((CurrentOrder)CurrentOrder);
+                _context.SaveChanges();
+            }
             return LocalRedirect("~/Counter/Orders");
         }
 
@@ -63,6 +72,10 @@ namespace CABESO.Areas.Counter.Pages
 
             [Display(Name = "Für wann soll das Gericht zubereitet werden?")]
             public DateTime CollectionTime { get; set; }
+
+            //Übergangslösung
+            [Display(Name = "Wurde das Produkt abgeholt?")]
+            public bool Collected { get; set; }
         }
     }
 }
