@@ -1,12 +1,74 @@
 ﻿@page
-@inject UserManager<IdentityUser> UserManager
 @model IndexModel
 @{
-    ViewData["Title"] = "Küchen-Bereich";
-    ViewData["ActivePage"] = "Index";
+    ViewData["Title"] = "Bestellungen";
 }
 
+<form method="post" class="form-inline">
+    <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
+    <button type="submit" class="btn btn-primary">Suchen</button>
+</form>
+<br /><br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ProductNameSort" asp-route-search="@Model.SearchKeyWord">
+                    Produkt
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
+                    Anzahl
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.UserNameSort" asp-route-search="@Model.SearchKeyWord">
+                    Besteller*in
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CollectionTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Abholdatum
+                </a>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+        <tr>
+            <td>
+                @order.Product.Name
+            </td>
+            <td>
+                @order.Number
+            </td>
+            <td title="@order.User.GetForm().ToString()">
+                @order.User.GetName()
+            </td>
+            <td>
+                @order.CollectionTime.GetDisplayFormat()
+            </td>
+            <td>
+                <input type="button" value="Entfernen" onclick="location.href='@Url.Action("RemoveOrder", "Kitchen", new { id = order.Id })'">
+            </td>
+            <td>
+                <input type="button" value="Bestätigen" onclick="location.href='@Url.Action("ArchiveOrder", "Kitchen", new { id = order.Id })'">
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<style>
+    form {
+        float: right;
+    }
+</style>

@@ -4,25 +4,24 @@
     ViewData["Title"] = "Bestellung bearbeiten";
 }
 
-<h2>@ViewData["Title"]: @EditOrderModel.CurrentOrder.User.GetName()</h2>
+<h2>@ViewData["Title"]: @EditOrderModel.CurrentOrder?.User.GetName() vom @EditOrderModel.CurrentOrder?.OrderTime.ToShortDateString()</h2>
 
 <form method="post">
     <div class="form-group">
         <label asp-for="Input.ProductId"></label>
         <select class="form-control" asp-for="Input.ProductId">
-            <!--falsches Element wird angezeigt-->
             @foreach (Product product in Model.Products)
             {
-                if (product.Id.Equals(EditOrderModel.CurrentOrder.Product))
+                if (product.Id.Equals(EditOrderModel.CurrentOrder?.Product.Id))
                 {
                     <option value="@product.Id" selected="selected">
-                        @product;
+                        @product
                     </option>
                 }
                 else
                 {
                     <option value="@product.Id">
-                        @product;
+                        @product
                     </option>
                 }
             }
@@ -34,32 +33,13 @@
     </div>
     <div class="form-group">
         <label asp-for="Input.CollectionTime"></label>
-        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" value="@EditOrderModel.CurrentOrder.CollectionTime" />
+        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" value="@EditOrderModel.CurrentOrder?.CollectionTime" />
     </div>
     <div class="form-group">
         <label asp-for="Input.Notes"></label>
-        <input class="form-control" asp-for="Input.Notes" value="@EditOrderModel.CurrentOrder.Notes" />
-    </div>
-    <!--Übergangslösung-->
-    <div class="form-group">
-        <label asp-for="Input.Collected"></label>
-        <input asp-for="Input.Collected" type="checkbox" />
+        <input class="form-control" asp-for="Input.Notes" value="@EditOrderModel.CurrentOrder?.Notes" />
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Änderungen speichern</button>
     </div>
 </form>
-
-<script>
-    var roleSelect = document.getElementById('role_select');
-    var formForm = document.getElementById('form_form');
-    function selectChange() {
-        if (roleSelect.value == 'Student') {
-            formForm.removeAttribute('hidden');
-        }
-        else {
-            formForm.setAttribute('hidden', true);
-        }
-    }
-    selectChange();
-</script>

@@ -71,7 +71,7 @@
                 <td>
                     @if (!string.IsNullOrEmpty(product.Image))
                     {
-                        <img src="/images/@product.Image" style="width:75px;height:auto" />
+                        <img src="/images/@product.Image" id="@product.Id" style="width:75px;height:auto;" onclick="javascript: window.open('/images/@product.Image');" />
                     }
                 </td>
                 <td>
@@ -123,12 +123,18 @@
     </tbody>
 </table>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
-
 <style>
     form {
         float: right;
     }
+    img {
+        transition: transform .2s;
+    }
+    img:hover {
+        transform: scale(5);
+    }
 </style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -31,10 +31,30 @@ namespace CABESO
     [Table("OrderHistory")]
     public class HistoricOrder : Order
     {
+        public CurrentOrder ToCurrentOrder() => new CurrentOrder()
+        {
+            CollectionTime = CollectionTime,
+            Id = Id,
+            Notes = Notes,
+            Number = Number,
+            OrderTime = OrderTime,
+            Product = Product,
+            User = User
+        };
     }
 
     [Table("Orders")]
     public class CurrentOrder : Order
     {
+        public HistoricOrder ToHistoricOrder() => new HistoricOrder()
+        {
+            CollectionTime = CollectionTime,
+            Id = Id,
+            Notes = Notes,
+            Number = Number,
+            OrderTime = OrderTime,
+            Product = Product,
+            User = User
+        };
     }
 }

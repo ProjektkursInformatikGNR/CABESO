@@ -83,7 +83,9 @@
             <td>
                 <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
                 <text>|</text>
-                <a asp-controller="Counter" asp-action="Delete" asp-route-id="@order.Id">Entfernen</a>
+                <a asp-controller="Counter" asp-action="ArchiveOrder" asp-route-id="@order.Id">Abholung bestätigen</a>
+                <text>|</text>
+                <a asp-controller="Counter" asp-action="RemoveOrder" asp-route-id="@order.Id">Entfernen</a>
             </td>
         </tr>
         }
