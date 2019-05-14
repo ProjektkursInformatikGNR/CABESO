@@ -45,7 +45,7 @@ namespace CABESO.Areas.Counter.Pages
                     await Input.Image.CopyToAsync(stream);
             }
             Product product = _context.Products.Find(Input.ProductId);
-            product.Picture = Input.ProductId + Path.GetExtension(Input.Image.FileName);
+            product.Image = Input.ProductId + Path.GetExtension(Input.Image.FileName);
             _context.Update(product);
             _context.SaveChanges();
             return Page();

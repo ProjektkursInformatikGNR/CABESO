@@ -124,5 +124,14 @@ namespace CABESO
         {
             get => DateTime.Now.GetSqlFormat();
         }
+
+        public static string GetDisplayFormat(this decimal dec)
+        {
+            return string.Format("{0:C2}", dec).Replace(' ', '\u00A0');
+        }
+        public static string GetDisplayFormat(this decimal? dec)
+        {
+            return dec.HasValue ? GetDisplayFormat(dec.Value) : string.Empty;
+        }
     }
 }

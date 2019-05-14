@@ -7,7 +7,7 @@
 <h2>@ViewData["Title"]</h2>
 <hr />
 
-<form method="post" class="form-inline" >
+<form method="post" class="form-inline">
     <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
     <button type="submit" class="btn btn-primary">Suchen</button>
 </form>
@@ -61,60 +61,64 @@
                     Hinweis
                 </a>
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var product in Model.Products)
         {
-        <tr>
-            <td>
-                @if (!string.IsNullOrEmpty(product.Picture))
-                {
-                    <img src="/images/@product.Picture" style="width:75px;height:auto" />
-                }
-            </td>
-            <td>
-                @product.Name
-            </td>
-            <td>
-                @string.Format("{0:C2}", product.Price)
-            </td>
-            <td>
-                @string.Format("{0:C2}", product.Sale)
-            </td>
-            <td>
-                @string.Join(", ", product.Allergens ?? new string[0])
-            </td>
-            <td>
-                @if (product.Vegetarian)
-                {
-                    <input type="checkbox" checked onclick="return false;" />
-                }
-                else
-                {
-                    <input type="checkbox" onclick="return false;" />
-                }
-            </td>
-            <td>
-                @if (product.Vegan)
-                {
-                    <input type="checkbox" checked onclick="return false;" />
-                }
-                else
-                {
-                    <input type="checkbox" onclick="return false;" />
-                }
-            </td>
-            <td>
-                @product.Size
-            </td>
-            <td>
-                @string.Format("{0:C2}", product.Deposit)
-            </td>
-            <td>
-                @product.Information
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(product.Image))
+                    {
+                        <img src="/images/@product.Image" style="width:75px;height:auto" />
+                    }
+                </td>
+                <td>
+                    @product.Name
+                </td>
+                <td>
+                    @product.Price.GetDisplayFormat()
+                </td>
+                <td>
+                    @product.Sale.GetDisplayFormat()
+                </td>
+                <td>
+                    @string.Join(", ", product.Allergens ?? new string[0])
+                </td>
+                <td>
+                    @if (product.Vegetarian)
+                    {
+                        <input type="checkbox" checked onclick="return false;" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" onclick="return false;" />
+                    }
+                </td>
+                <td>
+                    @if (product.Vegan)
+                    {
+                        <input type="checkbox" checked onclick="return false;" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" onclick="return false;" />
+                    }
+                </td>
+                <td>
+                    @product.Size
+                </td>
+                <td>
+                    @product.Deposit.GetDisplayFormat()
+                </td>
+                <td>
+                    @product.Information
+                </td>
+                <td>
+                    <a asp-page="EditProduct" asp-route-id="@product.Id">Bearbeiten</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
@@ -124,8 +128,7 @@
 }
 
 <style>
-    form
-    {
+    form {
         float: right;
     }
 </style>

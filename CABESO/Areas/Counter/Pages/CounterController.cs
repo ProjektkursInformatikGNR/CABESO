@@ -1,10 +1,20 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.IO;
 
 namespace CABESO.Views.Counter
 {
     public class CounterController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public CounterController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [Authorize(Roles = "Employee,Admin")]
         public IActionResult Index()
         {
