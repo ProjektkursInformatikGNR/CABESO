@@ -1,12 +1,103 @@
 ﻿@page
-@inject UserManager<IdentityUser> UserManager
-@model IndexModel
+@model CABESO.Areas.Counter.Pages.IndexModel
 @{
-    ViewData["Title"] = "Theken-Bereich";
-    ViewData["ActivePage"] = "Index";
+    ViewData["Title"] = "Bestellungen";
 }
 
+<h2>@ViewData["Title"]</h2>
+<hr />
+
+<form method="post" class="form-inline">
+    <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
+    <button type="submit" class="btn btn-primary">Suchen</button>
+</form>
+<br /><br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.UserNameSort" asp-route-search="@Model.SearchKeyWord">
+                    Besteller*in
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.ProductNameSort" asp-route-search="@Model.SearchKeyWord">
+                    Produkt
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.PricePerProductSort" asp-route-search="@Model.SearchKeyWord">
+                    Einzelpreis
+                </a>
+            </th>
+
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.TotalPriceSort" asp-route-search="@Model.SearchKeyWord">
+                    Gesamtpreis
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
+                    Anzahl
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.OrderTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Bestelldatum
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.CollectionTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Abholdatum
+                </a>
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+        <tr>
+            <td title="@order.User.GetForm().ToString()">
+                @order.User.GetName()
+            </td>
+            <td>
+                @order.Product.Name
+            </td>
+            <td>
+                @string.Format("{0:C2}", order.Product.Price)
+            </td>
+            <td>
+                @string.Format("{0:C2}", order.Product.Price * order.Number)
+            </td>
+            <td>
+                @order.Number
+            </td>
+            <td>
+                @order.OrderTime.GetDisplayFormat()
+            </td>
+            <td>
+                @order.CollectionTime.GetDisplayFormat()
+            </td>
+            <td>
+                <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
+                <text>|</text>
+                <a asp-controller="Counter" asp-action="ArchiveOrder" asp-route-id="@order.Id">Abholung bestätigen</a>
+                <text>|</text>
+                <a asp-controller="Counter" asp-action="RemoveOrder" asp-route-id="@order.Id">Entfernen</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<style>
+    form {
+        float: right;
+    }
+</style>
