@@ -31,7 +31,7 @@ namespace CABESO.Areas.Admin.Pages
         {
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Users = Users.Where(user => Array.TrueForAll(SearchKeyWord.Split(' '), s => Array.Exists(new[] { user.GetForm()?.ToString(), user.GetName().FirstName, user.GetName().LastName }, e => Program.Matches(e, s)))).ToArray();
+                Users = Users.Search(search, user => user.GetName(), user => user.GetForm().ToString()).ToArray();
 
             FirstNameSort = string.IsNullOrEmpty(sortOrder) ? "!fn" : "";
             LastNameSort = sortOrder == "ln" ? "!ln" : "ln";

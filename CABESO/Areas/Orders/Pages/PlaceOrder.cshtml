@@ -23,7 +23,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Input.CollectionTime"></label>
-        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" id="colTime" value="@DateTime.Now.ToString("s").Split('T')[0]T12:50" onchange="javascript: updateBtns();" />
+        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" id="colTime" min="@DateTime.Now.AddHours(1).GetHtmlFormat()" max="@DateTime.Now.Date.AddDays(7).GetHtmlFormat()" value="@(DateTime.Now.TimeOfDay.TotalHours > 71.0/6.0 ? DateTime.Now.Date.AddHours(36).AddMinutes(50).GetHtmlFormat() : DateTime.Now.Date.AddHours(12).AddMinutes(50).GetHtmlFormat())" onchange="javascript: updateBtns();" />
     </div>
     <div class="form-group">
         <input type="button" id="btn1" value="1. Pause" onclick="javascript: setTime(905);" />

@@ -16,6 +16,7 @@ namespace CABESO.Areas.Counter.Pages
         public string NumberSort { get; set; }
         public string OrderTimeSort { get; set; }
         public string CollectionTimeSort { get; set; }
+        public string PreparationTimeSort { get; set; }
         public Order[] Orders { get; set; }
 
         public string SearchKeyWord { get; set; }
@@ -32,7 +33,7 @@ namespace CABESO.Areas.Counter.Pages
             Orders = _context.Orders.ToArray();
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord)).ToArray();
+                Orders = Orders.Search(search, order => order.Product.Name, order => order.User.GetName()).ToArray();
 
             OrderTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ot" : "";
             UserNameSort = sortOrder == "un" ? "!un" : "un";
@@ -41,6 +42,7 @@ namespace CABESO.Areas.Counter.Pages
             TotalPriceSort = sortOrder == "tp" ? "!tp" : "tp";
             NumberSort = sortOrder == "n" ? "!n" : "n";
             CollectionTimeSort = sortOrder == "ct" ? "!ct" : "ct";
+            PreparationTimeSort = sortOrder == "ct" ? "!ct" : "ct";
 
             IOrderedEnumerable<Order> orders = Orders.OrderBy(order => 0);
 
@@ -75,6 +77,12 @@ namespace CABESO.Areas.Counter.Pages
                     break;
                 case "!n":
                     orders = orders.OrderByDescending(order => order.Number);
+                    break;
+                case "pt":
+                    orders = orders.OrderBy(order => order.PreparationTime);
+                    break;
+                case "!pt":
+                    orders = orders.OrderByDescending(order => order.PreparationTime);
                     break;
                 case "ct":
                     orders = orders.OrderBy(order => order.CollectionTime);

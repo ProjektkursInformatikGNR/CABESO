@@ -29,7 +29,7 @@
             </th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.CollectionTimeSort" asp-route-search="@Model.SearchKeyWord">
-                    Abholdatum
+                    Abholzeit
                 </a>
             </th>
             <th></th>
@@ -56,7 +56,7 @@
                 <input type="button" value="Entfernen" onclick="location.href='@Url.Action("RemoveOrder", "Kitchen", new { id = order.Id })'">
             </td>
             <td>
-                <input type="button" value="Bestätigen" onclick="location.href='@Url.Action("ArchiveOrder", "Kitchen", new { id = order.Id })'">
+                <input type="button" value="Zubereitung bestätigen" onclick="location.href='@Url.Action("OrderPrepared", "Kitchen", new { id = order.Id })'">
             </td>
         </tr>
         }

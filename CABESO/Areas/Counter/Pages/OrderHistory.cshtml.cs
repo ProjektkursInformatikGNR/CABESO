@@ -15,6 +15,7 @@ namespace CABESO.Areas.Counter.Pages
         public string TotalPriceSort { get; set; }
         public string NumberSort { get; set; }
         public string OrderTimeSort { get; set; }
+        public string PreparationTimeSort { get; set; }
         public string CollectionTimeSort { get; set; }
         public Order[] Orders { get; set; }
 
@@ -32,15 +33,16 @@ namespace CABESO.Areas.Counter.Pages
             Orders = _context.HistoricOrders.ToArray();
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord)).ToArray();
+                Orders = Orders.Search(search, order => order.Product.Name, order => order.User.GetName()).ToArray();
 
-            OrderTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ot" : "";
+            CollectionTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ct" : "";
             UserNameSort = sortOrder == "un" ? "!un" : "un";
             ProductNameSort = sortOrder == "p" ? "!p" : "p";
             PricePerProductSort = sortOrder == "ppp" ? "!ppp" : "ppp";
             TotalPriceSort = sortOrder == "tp" ? "!tp" : "tp";
             NumberSort = sortOrder == "n" ? "!n" : "n";
-            CollectionTimeSort = sortOrder == "ct" ? "!ct" : "ct";
+            PreparationTimeSort = sortOrder == "pt" ? "!pt" : "pt";
+            OrderTimeSort = sortOrder == "ot" ? "!ot" : "ot";
 
             IOrderedEnumerable<Order> orders = Orders.OrderBy(order => 0);
 
@@ -76,17 +78,23 @@ namespace CABESO.Areas.Counter.Pages
                 case "!n":
                     orders = orders.OrderByDescending(order => order.Number);
                     break;
-                case "ct":
-                    orders = orders.OrderBy(order => order.CollectionTime);
+                case "pt":
+                    orders = orders.OrderBy(order => order.PreparationTime);
                     break;
-                case "!ct":
-                    orders = orders.OrderByDescending(order => order.CollectionTime);
+                case "!pt":
+                    orders = orders.OrderByDescending(order => order.PreparationTime);
                     break;
-                case "!ot":
+                case "ot":
                     orders = orders.OrderBy(order => order.OrderTime);
                     break;
-                default:
+                case "!ot":
                     orders = orders.OrderByDescending(order => order.OrderTime);
+                    break;
+                case "!ct":
+                    orders = orders.OrderBy(order => order.CollectionTime);
+                    break;
+                default:
+                    orders = orders.OrderByDescending(order => order.CollectionTime);
                     break;
             }
 
@@ -103,7 +111,7 @@ namespace CABESO.Areas.Counter.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToAction("Orders", "Counter", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });
+            return RedirectToAction("OrderHistory", "Counter", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });
         }
     }
 }

@@ -16,39 +16,44 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.UserNameSort" asp-route-search="@Model.SearchKeyWord">
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.UserNameSort" asp-route-search="@Model.SearchKeyWord">
                     Besteller*in
                 </a>
             </th>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.ProductNameSort" asp-route-search="@Model.SearchKeyWord">
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.ProductNameSort" asp-route-search="@Model.SearchKeyWord">
                     Produkt
                 </a>
             </th>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.PricePerProductSort" asp-route-search="@Model.SearchKeyWord">
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.PricePerProductSort" asp-route-search="@Model.SearchKeyWord">
                     Einzelpreis
                 </a>
             </th>
 
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.TotalPriceSort" asp-route-search="@Model.SearchKeyWord">
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.TotalPriceSort" asp-route-search="@Model.SearchKeyWord">
                     Gesamtpreis
                 </a>
             </th>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
                     Anzahl
                 </a>
             </th>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.OrderTimeSort" asp-route-search="@Model.SearchKeyWord">
-                    Bestelldatum
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.OrderTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Bestellzeit
                 </a>
             </th>
             <th>
-                <a asp-page="./Orders" asp-route-sortOrder="@Model.CollectionTimeSort" asp-route-search="@Model.SearchKeyWord">
-                    Abholdatum
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.PreparationTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Zubereitungszeit
+                </a>
+            </th>
+            <th>
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.CollectionTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Abholzeit
                 </a>
             </th>
         </tr>
@@ -74,6 +79,9 @@
             </td>
             <td>
                 @order.OrderTime.GetDisplayFormat()
+            </td>
+            <td>
+                @(order.PreparationTime?.GetDisplayFormat() ?? "nicht bestätigt")
             </td>
             <td>
                 @order.CollectionTime.GetDisplayFormat()

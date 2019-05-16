@@ -22,12 +22,12 @@ namespace CABESO.Areas.Orders.Pages
 
         public void OnGet()
         {
-            Products = _context.Products.ToArray();
+            Products = _context.Products.OrderBy(product => product.Name).ToArray();
         }
 
         public IActionResult OnPost()
         {
-            _context.Orders.Add(new CurrentOrder() { User = User.GetIdentityUser(), Product = _context.Products.Find(Input.ProductId), OrderTime = DateTime.UtcNow, Number = Input.Number, Notes = Input.Notes, CollectionTime = Input.CollectionTime.ToUniversalTime() });
+            _context.Orders.Add(new CurrentOrder() { User = User.GetIdentityUser(), Product = _context.Products.Find(Input.ProductId), OrderTime = DateTime.UtcNow, Number = Input.Number, Notes = Input.Notes, CollectionTime = Input.CollectionTime.ToUniversalTime(), PreparationTime = null });
             _context.SaveChanges();
             return RedirectToPage();
         }
@@ -46,7 +46,7 @@ namespace CABESO.Areas.Orders.Pages
             [Display(Name = "Weitere Anmerkungen:")]
             public string Notes { get; set; }
 
-            [Display(Name = "Für wann soll das Gericht zubereitet werden?")]
+            [Display(Name = "Gewünschte Abholzeit:")]
             public DateTime CollectionTime { get; set; }
         }
     }

@@ -35,13 +35,12 @@ namespace CABESO.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required(AllowEmptyStrings = false, ErrorMessage = Program.ErrorMessage)]
-            [EmailAddress(ErrorMessage = "Gib bitte eine gültige E-Mail-Adresse an.")]
-            [Display(Name = "die E-Mail-Adresse")]
+            [Display(Name = "wwschool-Adresse (Der Namensteil genügt.)")]
             public string Email { get; set; }
 
             [Required(AllowEmptyStrings = false, ErrorMessage = Program.ErrorMessage)]
             [DataType(DataType.Password)]
-            [Display(Name = "das Passwort")]
+            [Display(Name = "Passwort")]
             public string Password { get; set; }
 
             [Display(Name = "Angemeldet bleiben?")]
@@ -63,6 +62,9 @@ namespace CABESO.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
+                if (!Input.Email.Contains('@'))
+                    Input.Email += "@gnr.wwschool.de";
+
                 SignInResult result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {

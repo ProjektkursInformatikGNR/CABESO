@@ -33,13 +33,11 @@ namespace CABESO.Views.Kitchen
         }
 
         [Authorize(Roles = "Employee,Admin")]
-        public IActionResult ArchiveOrder(int id)
+        public IActionResult OrderPrepared(int id)
         {
             if (_context.Orders.Find(id) is CurrentOrder order)
             {
-                order.CollectionTime = DateTime.UtcNow;
-                _context.HistoricOrders.Add(order.ToHistoricOrder());
-                _context.Orders.Remove(order);
+                order.PreparationTime = DateTime.UtcNow;
                 _context.SaveChanges();
             }
             return LocalRedirect("~/Kitchen/Index");

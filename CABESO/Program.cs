@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -46,11 +47,6 @@ namespace CABESO
             return greeting;
         }
 
-        public static bool Matches(string entry, string search)
-        {
-            return !string.IsNullOrEmpty(entry) && !string.IsNullOrEmpty(search) && entry.Contains(search, StringComparison.OrdinalIgnoreCase);
-        }
-
         public static bool MailValid(string mailAddress)
         {
             Pop3Client client = new Pop3Client();
@@ -58,7 +54,7 @@ namespace CABESO
             client.Authenticate(Startup.MailAddress, Startup.MailPassword);
 
             DateTime start = DateTime.Now;
-            while (DateTime.Now - start < new TimeSpan(0, 0, 10))
+            while (DateTime.Now - start < new TimeSpan(0, 0, 15))
             {
                 if (!Verify())
                     return false;

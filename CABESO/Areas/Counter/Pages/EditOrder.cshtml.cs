@@ -53,7 +53,7 @@ namespace CABESO.Areas.Counter.Pages
             public string Notes { get; set; }
 
             [Required]
-            [Display(Name = "Für wann soll das Gericht zubereitet werden?")]
+            [Display(Name = "Gewünschte Abholzeit:")]
             public DateTime CollectionTime { get; set; }
         }
     }

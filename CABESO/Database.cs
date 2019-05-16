@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Globalization;
 using System.Linq;
@@ -118,6 +120,18 @@ namespace CABESO
         public static string GetSqlFormat(this DateTime dt)
         {
             return dt.ToUniversalTime().ToString("yyyyMMdd hh:mm:ss tt", CultureInfo.InvariantCulture);
+        }
+        public static string GetHtmlFormat(this DateTime dt)
+        {
+            return dt.ToString("s").Remove(16);
+        }
+        public static IEnumerable<T> Search<T>(this IEnumerable<T> list, string search, params Func<T, string>[] entries)
+        {
+            if (entries == null || entries.Length == 0 || string.IsNullOrEmpty(search))
+                return new T[0];
+
+            string[] searchWords = search.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            return list.Where(element => searchWords.Any(searchWord => entries.Any(entry => entry.Invoke(element).Contains(searchWord, StringComparison.OrdinalIgnoreCase))));
         }
 
         public static string SqlNow

@@ -15,6 +15,7 @@ namespace CABESO
         public DateTime OrderTime { get; set; }
         public string Notes { get; set; }
         public int Number { get; set; }
+        public DateTime? PreparationTime { get; set; }
         public DateTime CollectionTime { get; set; }
 
         public override bool Equals(object obj)
@@ -38,6 +39,7 @@ namespace CABESO
             Notes = Notes,
             Number = Number,
             OrderTime = OrderTime,
+            PreparationTime = PreparationTime,
             Product = Product,
             User = User
         };
@@ -53,6 +55,7 @@ namespace CABESO
             Notes = Notes,
             Number = Number,
             OrderTime = OrderTime,
+            PreparationTime = PreparationTime,
             Product = Product,
             User = User
         };

@@ -31,7 +31,7 @@ namespace CABESO.Areas.Orders.Pages
             Orders = _context.Orders.Where(order => order.User.Id.Equals(User.GetIdentityUser().Id)).ToArray();
 
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord))?.ToArray();
+                Orders = Orders.Search(search, order => order.Product.Name).ToArray();
 
             OrderTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ot" : "";
             ProductNameSort = sortOrder == "p" ? "!p" : "p";

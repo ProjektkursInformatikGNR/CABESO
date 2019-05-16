@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Input.CollectionTime"></label>
-        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" value="@EditOrderModel.CurrentOrder?.CollectionTime" />
+        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" value="@EditOrderModel.CurrentOrder?.CollectionTime.ToString("s")" />
     </div>
     <div class="form-group">
         <label asp-for="Input.Notes"></label>

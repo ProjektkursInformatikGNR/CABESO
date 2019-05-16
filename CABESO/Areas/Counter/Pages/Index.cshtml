@@ -43,12 +43,17 @@
             </th>
             <th>
                 <a asp-page="./Orders" asp-route-sortOrder="@Model.OrderTimeSort" asp-route-search="@Model.SearchKeyWord">
-                    Bestelldatum
+                    Bestellzeit
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Orders" asp-route-sortOrder="@Model.PreparationTimeSort" asp-route-search="@Model.SearchKeyWord">
+                    Zubereitungszeit
                 </a>
             </th>
             <th>
                 <a asp-page="./Orders" asp-route-sortOrder="@Model.CollectionTimeSort" asp-route-search="@Model.SearchKeyWord">
-                    Abholdatum
+                    Abholzeit
                 </a>
             </th>
             <th>
@@ -76,6 +81,9 @@
             </td>
             <td>
                 @order.OrderTime.GetDisplayFormat()
+            </td>
+            <td>
+                @(order.PreparationTime?.GetDisplayFormat() ?? "in Bearbeitung")
             </td>
             <td>
                 @order.CollectionTime.GetDisplayFormat()

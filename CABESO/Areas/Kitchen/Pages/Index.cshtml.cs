@@ -26,10 +26,10 @@ namespace CABESO.Areas.Kitchen.Pages
 
         public void OnGet(string sortOrder, string search)
         {
-            Orders = _context.Orders.ToArray();
+            Orders = _context.Orders.Where(order => !order.PreparationTime.HasValue).ToArray();
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Orders = Orders.Where(order => Program.Matches(order.Product.Name, SearchKeyWord)).ToArray();
+                Orders = Orders.Search(search, order => order.Product.Name, order => order.User.GetName()).ToArray();
 
             CollectionTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ct" : "";
             UserNameSort = sortOrder == "un" ? "!un" : "un";
