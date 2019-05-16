@@ -41,7 +41,7 @@ namespace CABESO.Views.Counter
                 _context.Orders.Remove(order);
                 _context.SaveChanges();
             }
-            return LocalRedirect("~/Counter/Orders");
+            return LocalRedirect("~/Counter/Index");
         }
 
         [Authorize(Roles = "Employee,Admin")]
@@ -54,7 +54,7 @@ namespace CABESO.Views.Counter
                 _context.Orders.Remove(order);
                 _context.SaveChanges();
             }
-            return LocalRedirect("~/Counter/Orders");
+            return LocalRedirect("~/Counter/Index");
         }
     }
 }

@@ -23,7 +23,14 @@
     </div>
     <div class="form-group">
         <label asp-for="Input.CollectionTime"></label>
-        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" />
+        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" id="colTime" value="@DateTime.Now.ToString("s").Split('T')[0]T12:50" onchange="javascript: updateBtns();" />
+    </div>
+    <div class="form-group">
+        <input type="button" id="btn1" value="1. Pause" onclick="javascript: setTime(905);" />
+        &nbsp;
+        <input type="button" id="btn2" value="2. Pause" onclick="javascript: setTime(1100);" />
+        &nbsp;
+        <input type="button" id="btn3" value="Mittagspause" style="color:red;" onclick="javascript: setTime(1250);" />
     </div>
     <div class="form-group">
         <label asp-for="Input.Notes"></label>
@@ -33,3 +40,26 @@
         <button type="submit" class="btn btn-primary">Bestellen</button>
     </div>
 </form>
+
+<script>
+    setTime(1250);
+    function setTime(time) {
+        $('#colTime').val($('#colTime').val().slice(0, 11).concat(Math.floor(time / 100).toString().padStart(2, '0'), ':', (time % 100).toString().padStart(2, '0')));
+        updateBtns();
+    }
+    function updateBtns() {
+        $('#btn1').removeAttr('style');
+        $('#btn2').removeAttr('style');
+        $('#btn3').removeAttr('style');
+        var time = $('#colTime').val().slice(-5);
+        if (time.localeCompare('09:05') == 0) {
+            $('#btn1').css('color', 'red');
+        }
+        else if (time.localeCompare('11:00') == 0) {
+            $('#btn2').css('color', 'red');
+        }
+        else if (time.localeCompare('12:50') == 0) {
+            $('#btn3').css('color', 'red');
+        }
+    }
+</script>
