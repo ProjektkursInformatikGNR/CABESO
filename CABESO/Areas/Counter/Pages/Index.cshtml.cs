@@ -111,7 +111,7 @@ namespace CABESO.Areas.Counter.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToAction("Orders", "Counter", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });
+            return RedirectToAction("Index", "Counter", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });
         }
     }
 }
