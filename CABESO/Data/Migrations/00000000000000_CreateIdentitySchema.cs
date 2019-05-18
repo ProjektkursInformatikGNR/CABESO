@@ -160,8 +160,8 @@ namespace CABESO.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Section = table.Column<string>(nullable: false),
-                    Year = table.Column<int>(nullable: false)
+                    Stream = table.Column<string>(nullable: false),
+                    Enrolment = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Globalization;
@@ -131,7 +130,17 @@ namespace CABESO
                 return new T[0];
 
             string[] searchWords = search.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            return list.Where(element => searchWords.Any(searchWord => entries.Any(entry => entry.Invoke(element).Contains(searchWord, StringComparison.OrdinalIgnoreCase))));
+            return list.Where(element => searchWords.Any(searchWord => entries.Any(entry => entry(element).Contains(searchWord, StringComparison.OrdinalIgnoreCase))));
+        }
+
+        public static Form[] GetFormsSelect(this ApplicationDbContext context)
+        {
+            return context.Forms
+                .Where(form => form.GetGrade().Year <= Form.Grade.FIVE.Year && form.GetGrade().Year >= Form.Grade.Q2.Year)
+                .GroupBy(form => form.ToString())
+                .Select(group => group.First())
+                .OrderBy(form => form.GetGrade().Year)
+                .ToArray();
         }
 
         public static string SqlNow

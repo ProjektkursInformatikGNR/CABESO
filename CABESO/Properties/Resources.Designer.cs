@@ -97,6 +97,15 @@ namespace CABESO.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ehemalige*r ähnelt.
+        /// </summary>
+        public static string Graduate {
+            get {
+                return ResourceManager.GetString("Graduate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Student ähnelt.
         /// </summary>
         public static string Student {

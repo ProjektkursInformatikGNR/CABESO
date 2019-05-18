@@ -20,6 +20,8 @@ namespace CABESO
 
         public static string Alert { get; set; }
 
+        public static bool IsG9(int year) => year > 2018;
+
         public static string ShowAlert()
         {
             string alert = Alert;

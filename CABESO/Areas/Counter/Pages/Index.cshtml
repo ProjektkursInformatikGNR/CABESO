@@ -1,5 +1,5 @@
 ﻿@page
-@model CABESO.Areas.Counter.Pages.IndexModel
+@model IndexModel
 @{
     ViewData["Title"] = "Bestellungen";
 }
@@ -63,42 +63,46 @@
     <tbody>
         @foreach (var order in Model.Orders)
         {
-        <tr>
-            <td title="@order.User.GetForm().ToString()">
-                @order.User.GetName()
-            </td>
-            <td>
-                @order.Product.Name
-            </td>
-            <td>
-                @string.Format("{0:C2}", order.Product.Price)
-            </td>
-            <td>
-                @string.Format("{0:C2}", order.Product.Price * order.Number)
-            </td>
-            <td>
-                @order.Number
-            </td>
-            <td>
-                @order.OrderTime.GetDisplayFormat()
-            </td>
-            <td>
-                @(order.PreparationTime?.GetDisplayFormat() ?? "in Bearbeitung")
-            </td>
-            <td>
-                @order.CollectionTime.GetDisplayFormat()
-            </td>
-            <td>
-                <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
-                <text>|</text>
-                <a asp-controller="Counter" asp-action="ArchiveOrder" asp-route-id="@order.Id">Abholung bestätigen</a>
-                <text>|</text>
-                <a asp-controller="Counter" asp-action="RemoveOrder" asp-route-id="@order.Id">Entfernen</a>
-            </td>
-        </tr>
+            <tr>
+                <td title="@order.User.GetForm().ToString()">
+                    @order.User.GetName()
+                </td>
+                <td>
+                    @order.Product.Name
+                </td>
+                <td>
+                    @string.Format("{0:C2}", order.Product.Price)
+                </td>
+                <td>
+                    @string.Format("{0:C2}", order.Product.Price * order.Number)
+                </td>
+                <td>
+                    @order.Number
+                </td>
+                <td>
+                    @order.OrderTime.GetDisplayFormat()
+                </td>
+                <td>
+                    @(order.PreparationTime?.GetDisplayFormat() ?? "in Bearbeitung")
+                </td>
+                <td>
+                    @order.CollectionTime.GetDisplayFormat()
+                </td>
+                <td>
+                    <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
+                    <text>|</text>
+                    <a asp-controller="Counter" asp-action="ArchiveOrder" asp-route-id="@order.Id">Abholung bestätigen</a>
+                    <text>|</text>
+                    <a asp-controller="Counter" asp-action="RemoveOrder" asp-route-id="@order.Id">Entfernen</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+<script>
+    setTimeout(function() { window.location.reload(1); }, 10000);
+</script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

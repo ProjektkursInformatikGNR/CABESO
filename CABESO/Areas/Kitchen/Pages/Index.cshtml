@@ -39,29 +39,33 @@
     <tbody>
         @foreach (var order in Model.Orders)
         {
-        <tr>
-            <td>
-                @order.Product.Name
-            </td>
-            <td>
-                @order.Number
-            </td>
-            <td title="@order.User.GetForm().ToString()">
-                @order.User.GetName()
-            </td>
-            <td>
-                @order.CollectionTime.GetDisplayFormat()
-            </td>
-            <td>
-                <input type="button" value="Entfernen" onclick="location.href='@Url.Action("RemoveOrder", "Kitchen", new { id = order.Id })'">
-            </td>
-            <td>
-                <input type="button" value="Zubereitung bestätigen" onclick="location.href='@Url.Action("OrderPrepared", "Kitchen", new { id = order.Id })'">
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @order.Product.Name
+                </td>
+                <td>
+                    @order.Number
+                </td>
+                <td title="@order.User.GetForm().ToString()">
+                    @order.User.GetName()
+                </td>
+                <td>
+                    @order.CollectionTime.GetDisplayFormat()
+                </td>
+                <td>
+                    <input type="button" value="Entfernen" onclick="location.href='@Url.Action("RemoveOrder", "Kitchen", new { id = order.Id })'">
+                </td>
+                <td>
+                    <input type="button" value="Zubereitung bestätigen" onclick="location.href='@Url.Action("OrderPrepared", "Kitchen", new { id = order.Id })'">
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+<script>
+    setTimeout(function () { window.location.reload(1); }, 10000);
+</script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

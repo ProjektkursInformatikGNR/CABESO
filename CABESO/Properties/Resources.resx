@@ -129,6 +129,9 @@
   <data name="EmployeeDisplay" xml:space="preserve">
     <value>Mitarbeiter*in</value>
   </data>
+  <data name="Graduate" xml:space="preserve">
+    <value>Ehemalige*r</value>
+  </data>
   <data name="Student" xml:space="preserve">
     <value>Student</value>
   </data>

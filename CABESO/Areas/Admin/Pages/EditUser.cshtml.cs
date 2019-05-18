@@ -30,7 +30,7 @@ namespace CABESO.Areas.Admin.Pages
         {
             CurrentUser = Database.GetUserById(id);
             StuckAsAdmin = (await _userManager.GetUsersInRoleAsync(Resources.Admin)).Count <= 1;
-            Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
+            Forms = _context.GetFormsSelect();
         }
 
         public async Task<IActionResult> OnPost()

@@ -1,0 +1,52 @@
+﻿@page
+@model AddFormModel
+@{
+    ViewData["Title"] = "Klasse hinzufügen";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.Grade"></label>
+        <input type="number" asp-for="Input.Grade" class="form-control" min="4" max="13" onchange="javascript: streamSelection(this.value);" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Streams"></label>
+        <br />
+        @{ int i = 0; }
+        @foreach ((char stream, bool taken) in Model.GetTakenStreams(0))
+        {
+            <input type="checkbox" asp-for="Input.Streams[i]" id="opt_@stream" />
+            <label>@stream</label>
+            i++;
+        }
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Hinzufügen</button>
+    </div>
+</form>
+
+<script>
+    function streamSelection(grade) {
+        $('#submitBtn').removeAttr('disabled');
+        @for (int grade = 4; grade <= 13; grade++)
+        {
+            <text>if (grade == @grade) {</text>
+        @foreach ((char stream, bool taken) in Model.GetTakenStreams(grade))
+        {
+            if (taken)
+            {
+                <text>$('#opt_@stream').attr('checked', true);
+            $('#opt_@stream').attr('disabled', true);</text>
+            }
+            else
+            {
+                <text>$('#opt_@stream').removeAttr('checked');
+            $('#opt_@stream').removeAttr('disabled');</text>
+            }
+        }
+            <text>}</text>
+            }
+        }
+</script>

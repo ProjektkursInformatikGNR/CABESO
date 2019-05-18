@@ -48,7 +48,7 @@ namespace CABESO.Areas.Admin.Pages
 
         public void OnGet()
         {
-            Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
+            Forms = _context.GetFormsSelect();
         }
 
         public async Task<IActionResult> OnPostAsync()

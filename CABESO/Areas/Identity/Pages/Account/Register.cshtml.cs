@@ -29,7 +29,7 @@ namespace CABESO.Areas.Identity.Pages.Account
             _userManager = userManager;
             _logger = logger;
             _context = context;
-            Forms = _context.Forms.OrderBy(form => form.ToString()).ToArray();
+            Forms = _context.GetFormsSelect();
         }
 
         [BindProperty]
