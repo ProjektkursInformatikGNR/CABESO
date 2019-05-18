@@ -283,9 +283,9 @@ namespace CABESO.Data.Migrations
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
 
-            migrationBuilder.InsertData("Forms", new[] { "Section", "Year" }, new object[] { "", 2011 });
-            migrationBuilder.InsertData("Forms", new[] { "Section", "Year" }, new object[] { "", 2012 });
-            migrationBuilder.InsertData("Forms", new[] { "Section", "Year" }, new object[] { "", 2013 });
+            migrationBuilder.InsertData("Forms", new[] { "Stream", "Enrolment" }, new object[] { "", 2011 });
+            migrationBuilder.InsertData("Forms", new[] { "Stream", "Enrolment" }, new object[] { "", 2012 });
+            migrationBuilder.InsertData("Forms", new[] { "Stream", "Enrolment" }, new object[] { "", 2013 });
 
             migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "Role" }, new object[] { "1234567890", Database.SqlNow, Resources.Student });
 

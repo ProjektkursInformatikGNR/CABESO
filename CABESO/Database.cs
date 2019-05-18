@@ -136,7 +136,7 @@ namespace CABESO
         public static Form[] GetFormsSelect(this ApplicationDbContext context)
         {
             return context.Forms
-                .Where(form => form.GetGrade().Year <= Form.Grade.FIVE.Year && form.GetGrade().Year >= Form.Grade.Q2.Year)
+                .Where(form => form.GetGrade().Year >= Form.Grade.FIVE.Year && form.GetGrade().Year <= Form.Grade.Q2.Year)
                 .GroupBy(form => form.ToString())
                 .Select(group => group.First())
                 .OrderBy(form => form.GetGrade().Year)
