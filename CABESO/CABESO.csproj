@@ -26,6 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Areas\Admin\Pages\EditForm.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Areas\Counter\Pages\EditOrder.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

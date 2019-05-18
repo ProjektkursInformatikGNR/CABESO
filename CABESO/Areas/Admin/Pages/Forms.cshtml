@@ -1,0 +1,53 @@
+﻿@page
+@inject UserManager<IdentityUser> UserManager
+@model FormsModel
+@{
+    ViewData["Title"] = "Admin-Bereich";
+    ViewData["ActivePage"] = "Klassenübersicht";
+}
+
+<form method="post" class="form-inline">
+    <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
+    <button type="submit" class="btn btn-primary">Suchen</button>
+</form>
+<br /><br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Forms" asp-route-sortOrder="@Model.Sort">
+                    Klasse
+                </a>
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Form form in Model.Forms)
+        {
+            <tr>
+                <td>
+                    @form.ToString()
+                </td>
+                <td>
+                    <a asp-page="EditForm" asp-route-id="@form.Id">Bearbeiten</a>
+                        <text>|</text>
+                    <!--Funktioniert noch nicht-->
+                        <a asp-controller="Admin" asp-action="DeleteForm" asp-route-id="@form.Id">Entfernen</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    form {
+        float: right;
+    }
+</style>
