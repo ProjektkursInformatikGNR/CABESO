@@ -19,6 +19,7 @@
                     Klasse
                 </a>
             </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -31,13 +32,15 @@
                 </td>
                 <td>
                     <a asp-page="EditForm" asp-route-id="@form.Id">Bearbeiten</a>
-                    |
-                    <a asp-controller="Admin" asp-action="DeleteForm" asp-route-id="@form.Id">Entfernen</a>
+                        <text>|</text>
+                    <!--Funktioniert noch nicht-->
+                        <a asp-controller="Admin" asp-action="DeleteForm" asp-route-id="@form.Id">Entfernen</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

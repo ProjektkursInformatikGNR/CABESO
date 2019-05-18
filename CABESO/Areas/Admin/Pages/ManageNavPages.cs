@@ -12,6 +12,7 @@ namespace CABESO.Areas.Admin.Pages
         public static string AddForm => "AddForm";
         public static string EditUser => "EditUser";
         public static string Forms => "Forms";
+        public static string AddForm => "AddForm";
         public static string EditForm => "EditForm";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
@@ -20,6 +21,7 @@ namespace CABESO.Areas.Admin.Pages
         public static string AddFormNavClass(ViewContext viewContext) => PageNavClass(viewContext, AddForm);
         public static string EditUserNavClass(ViewContext viewContext) => PageNavClass(viewContext, EditUser);
         public static string FormsNavClass(ViewContext viewContext) => PageNavClass(viewContext, Forms);
+        public static string AddFormNavClass(ViewContext viewContext) => PageNavClass(viewContext, AddForm);
         public static string EditFormNavClass(ViewContext viewContext) => PageNavClass(viewContext, EditForm);
 
         private static string PageNavClass(ViewContext viewContext, string page)
