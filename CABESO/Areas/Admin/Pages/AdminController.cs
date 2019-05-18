@@ -57,5 +57,13 @@ namespace CABESO.Views.Admin
             _context.SaveChanges();
             return LocalRedirect("~/Admin/GenerateCodes");
         }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult DeleteForm(int id)
+        {
+            Form form = _context.Forms.Find(id);
+            _context.Forms.Remove(form);
+            return LocalRedirect("~/Admin/Forms");
+        }
     }
 }
