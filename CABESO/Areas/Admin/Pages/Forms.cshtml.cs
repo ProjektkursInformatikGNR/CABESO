@@ -2,7 +2,6 @@ using CABESO.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
 using System.Linq;
 
 namespace CABESO.Areas.Admin.Pages
@@ -26,17 +25,16 @@ namespace CABESO.Areas.Admin.Pages
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
                 Forms = Forms.Search(search, form => form.ToString()).ToArray();
-            //Funktioniert noch nicht
             Sort = string.IsNullOrEmpty(sortOrder) ? "!" : "";
 
             IOrderedEnumerable<Form> forms = Forms.OrderBy(user => 0);
             switch (sortOrder)
             {
                 case "!":
-                    forms = forms.OrderByDescending(form => form.ToString());
+                    forms = forms.OrderByDescending(form => form.GetGrade().Year);
                     break;
                 case "":
-                    forms = forms.OrderBy(form => form.ToString());
+                    forms = forms.OrderBy(form => form.GetGrade().Year);
                     break;
             }
         }
