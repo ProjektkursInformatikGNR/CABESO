@@ -17,6 +17,27 @@
             }
         </select>
     </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>
+                    @if (!String.IsNullOrEmpty(Model.SelectedProduct.Image))
+                    {
+                        <img src="/images/@Model.SelectedProduct.Image" id="Input.ProductId" style="width:100px;height:auto;" onclick="javascript: window.open('/images/@Model.SelectedProduct.Image');" />
+                    }
+                </td>
+                <td>
+                    <p>@Model.Vegan</p>
+                    <p>@Model.Vegetarian</p>
+                    @if (!string.IsNullOrEmpty(Model.SelectedProduct.Information))
+                    {
+                        <p><b>Weitere Hinweise:</b></p>
+                        <p>@Model.SelectedProduct.Information</p>
+                    }
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <div class="form-group">
         <label asp-for="Input.Number"></label>
         <input class="form-control" type="number" min="1" max="10" value="1" asp-for="Input.Number" />
@@ -62,4 +83,18 @@
             $('#btn3').css('color', 'red');
         }
     }
+    setTimeout(function () {
+        Model.UpdateTable();
+        //document.getElementsByClassName("table").item(1).TEXT_NODE = Model.VeganVegetarian;
+
+        //var table = $(this).parent().parent();
+        //var tdPicture = table.children(td(1));
+        //tdPicture.text = "Test";
+
+        //window.location.reload(1);
+    }, 1000);
 </script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
