@@ -1,65 +1,56 @@
 ﻿using CABESO.Data;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace CABESO.Areas.Counter.Pages
 {
-    public class EditProductModel : PageModel
+    public class AddProductModel : PageModel
     {
-        public static Product CurrentProduct { get; private set; }
         public string[] Allergens { get; private set; }
 
         private readonly ApplicationDbContext _context;
 
-        public EditProductModel(ApplicationDbContext context)
+        public AddProductModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public void OnGet(int id)
-        {
-            CurrentProduct = _context.Products.Find(id);
-        }
-
         public async Task<IActionResult> OnPost()
         {
-            if (Input.DeleteImage)
+            Product product = new Product()
             {
-                System.IO.File.Delete(Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", CurrentProduct.Image));
-                CurrentProduct.Image = string.Empty;
-            }
-            else if (Input.Image != null)
+                Name = Input.Name,
+                Price = FromInput(Input.Price) ?? 0m,
+                Sale = FromInput(Input.Sale),
+                Vegetarian = Input.Vegetarian,
+                Vegan = Input.Vegan,
+                Size = Input.Size,
+                Deposit = FromInput(Input.Deposit),
+                Allergens = Input.Allergens,
+                Information = Input.Information
+            };
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            if (Input.Image != null)
             {
-                CurrentProduct.Image = CurrentProduct.Id + Path.GetExtension(Input.Image.FileName);
-                string filePath = Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", CurrentProduct.Image);
+                product.Image = product.Id + Path.GetExtension(Input.Image.FileName);
+                string filePath = Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", product.Image);
                 if (Input.Image.Length > 0)
                 {
                     if (!Directory.Exists(Path.GetDirectoryName(filePath)))
                         Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-                    using (Stream stream = new FileStream(filePath, FileMode.Create))
+                    using (Stream stream = new FileStream(filePath, FileMode.CreateNew))
                         await Input.Image.CopyToAsync(stream);
                 }
+                _context.Products.Update(product);
             }
-
-            CurrentProduct.Name = Input.Name;
-            CurrentProduct.Price = FromInput(Input.Price) ?? 0m;
-            CurrentProduct.Sale = FromInput(Input.Sale);
-            CurrentProduct.Vegetarian = Input.Vegetarian;
-            CurrentProduct.Vegan = Input.Vegan;
-            CurrentProduct.Size = Input.Size;
-            CurrentProduct.Deposit = FromInput(Input.Deposit);
-            CurrentProduct.Allergens = Input.Allergens;
-            CurrentProduct.Information = Input.Information;
-            _context.Products.Update(CurrentProduct);
             _context.SaveChanges();
             return LocalRedirect("~/Counter/Products");
         }
