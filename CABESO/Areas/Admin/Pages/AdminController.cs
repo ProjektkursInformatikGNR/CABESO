@@ -63,6 +63,7 @@ namespace CABESO.Views.Admin
         {
             Form form = _context.Forms.Find(id);
             _context.Forms.Remove(form);
+            _context.SaveChanges();
             return LocalRedirect("~/Admin/Forms");
         }
     }

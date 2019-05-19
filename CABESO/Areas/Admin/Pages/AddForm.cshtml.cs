@@ -21,6 +21,7 @@ namespace CABESO.Areas.Admin.Pages
         {
             string[] streams = Array.ConvertAll(_context.Forms.Where(form => form.Enrolment == grade.Enrolment).ToArray(), form => form.Stream);
 
+            yield return ('-', streams.Contains(""));
             for (char c = 'A'; c <= 'Z'; c++)
                 yield return (c, streams.Contains(c.ToString()));
         }
@@ -29,10 +30,10 @@ namespace CABESO.Areas.Admin.Pages
         {
             if (ModelState.IsValid)
             {
-                for (int stream = 0; stream < 26; stream++)
+                for (int stream = 0; stream < 27; stream++)
                 {
-                    if (Input.Streams[stream] && _context.Forms.Where(form => form.GetGrade().Year == Input.Grade && form.Stream.Length > 0 && form.Stream[0] == 'A' + stream).Count() == 0)
-                        _context.Forms.Add(new Form() { Stream = ((char)('A' + stream)).ToString(), Enrolment = ((Form.Grade) Input.Grade).Enrolment });
+                    if (Input.Streams[stream] && _context.Forms.Where(form => form.GetGrade() != null && form.GetGrade().Year == Input.Grade && (form.Stream.Length > 0 && form.Stream[0] == 'A' + stream - 1 || string.IsNullOrEmpty(form.Stream) && stream == 0)).Count() == 0)
+                        _context.Forms.Add(new Form() { Stream = stream == 0 ? "" : ((char)('A' + stream)).ToString(), Enrolment = ((Form.Grade) Input.Grade).Enrolment });
                 }
                 _context.SaveChanges();
                 return RedirectToPage();

@@ -1,6 +1,5 @@
 ﻿using CABESO.Properties;
 using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
@@ -41,7 +40,7 @@ namespace CABESO
             public int Enrolment { get; private set; }
             public int Year { get; private set; }
 
-            private string _name;
+            private readonly string _name;
             public override string ToString() => _name;
 
             public static Grade FOUR => new Grade("4", GetYearStart(DateTime.Now.AddYears(1)), 4);
@@ -69,7 +68,7 @@ namespace CABESO
             public static implicit operator Grade(int i)
             {
                 if (i >= FOUR.Year && i <= Q2.Year)
-                    return Grades.First(grade => grade.Year == i);
+                    return Grades.FirstOrDefault(grade => grade != null && grade.Year == i);
                 Grade g;
                 if ((g = Grades.FirstOrDefault(grade => grade?.Enrolment == i)) != null)
                     return g;

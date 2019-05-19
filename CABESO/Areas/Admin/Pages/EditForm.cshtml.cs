@@ -1,9 +1,7 @@
 ﻿using CABESO.Data;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
 
 namespace CABESO.Areas.Admin.Pages
@@ -13,8 +11,7 @@ namespace CABESO.Areas.Admin.Pages
     {
         
         private readonly ApplicationDbContext _context;
-        public Form CurrentForm;
-        private int CurrentFormId;
+        public static Form CurrentForm;
 
         public EditFormModel(ApplicationDbContext context)
         {
@@ -26,28 +23,23 @@ namespace CABESO.Areas.Admin.Pages
 
         public class InputModel
         {
-            [Required(AllowEmptyStrings = false, ErrorMessage = "Geben Sie bitte den Jahrgang an.")]
-            [Display(Name = "Jahrgang")]
+            [Required(AllowEmptyStrings = false, ErrorMessage = "Gib bitte den Jahrgang an.")]
+            [Display(Name = "Derzeitiger Jahrgang")]
             public int Year { get; set; }
 
-            [Required(AllowEmptyStrings = false, ErrorMessage = "Geben Sie bitte die Klasse an.")]
-            [Display(Name = "Klasse")]
-            public string Section { get; set; }
-
-            public int FormId { get; set; }
+            [Display(Name = "Klassenzug")]
+            public string Stream { get; set; }
         }
 
         public void OnGet(int id)
         {
             CurrentForm = _context.Forms.Find(id);
-            CurrentFormId = id;
         }
 
         public IActionResult OnPost()
         {
-            //Problem mit Reference statt Instanz
-            CurrentForm.Year = Input.Year;
-            CurrentForm.Section = Input.Section;
+            CurrentForm.Enrolment = ((Form.Grade) Input.Year).Enrolment;
+            CurrentForm.Stream = string.IsNullOrEmpty(Input.Stream) ? "" : Input.Stream;
             _context.Forms.Update(CurrentForm);
             _context.SaveChanges();
             return LocalRedirect("~/Admin/Forms");
