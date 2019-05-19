@@ -220,8 +220,8 @@ namespace CABESO.Data.Migrations
                     table.PrimaryKey("PK_Orders", x => x.Id);
                 });
 
-            migrationBuilder.AddForeignKey("FK_OrderUserId", "Orders", "UserId", "AspNetUsers", principalColumn: "Id");
-            migrationBuilder.AddForeignKey("FK_OrderProductId", "Orders", "ProductId", "Products", principalColumn: "Id");
+            migrationBuilder.AddForeignKey("FK_OrderUserId", "Orders", "UserId", "AspNetUsers", principalColumn: "Id", onDelete: ReferentialAction.Cascade, onUpdate: ReferentialAction.Cascade);
+            migrationBuilder.AddForeignKey("FK_OrderProductId", "Orders", "ProductId", "Products", principalColumn: "Id", onDelete: ReferentialAction.Cascade, onUpdate: ReferentialAction.Cascade);
 
             migrationBuilder.CreateTable(
                 name: "OrderHistory",
@@ -241,8 +241,8 @@ namespace CABESO.Data.Migrations
                     table.PrimaryKey("PK_OrderHistory", x => x.Id);
                 });
 
-            migrationBuilder.AddForeignKey("FK_OrderHistoryUserId", "OrderHistory", "UserId", "AspNetUsers", principalColumn: "Id");
-            migrationBuilder.AddForeignKey("FK_OrderHistoryProductId", "OrderHistory", "ProductId", "Products", principalColumn: "Id");
+            migrationBuilder.AddForeignKey("FK_OrderHistoryUserId", "OrderHistory", "UserId", "AspNetUsers", principalColumn: "Id", onDelete: ReferentialAction.Cascade, onUpdate: ReferentialAction.Cascade);
+            migrationBuilder.AddForeignKey("FK_OrderHistoryProductId", "OrderHistory", "ProductId", "Products", principalColumn: "Id", onDelete: ReferentialAction.Cascade, onUpdate: ReferentialAction.Cascade);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

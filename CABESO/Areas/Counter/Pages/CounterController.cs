@@ -33,6 +33,18 @@ namespace CABESO.Views.Counter
         }
 
         [Authorize(Roles = "Employee,Admin")]
+        public IActionResult RemoveProduct(int id)
+        {
+            Product product = _context.Products.Find(id);
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+            }
+            return LocalRedirect("~/Counter/Products");
+        }
+
+        [Authorize(Roles = "Employee,Admin")]
         public IActionResult RemoveOrder(int id)
         {
             CurrentOrder order = _context.Orders.Find(id);

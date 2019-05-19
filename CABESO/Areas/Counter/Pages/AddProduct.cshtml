@@ -1,0 +1,93 @@
+﻿@page
+@model AddProductModel
+@{
+    ViewData["Title"] = "Produkt hinzufügen";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Input.Name"></label>
+        <input asp-for="Input.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Image"></label>
+        <br />
+        <img src="" id="image" style="max-width:300px;height:auto" hidden />
+        <hr />
+        <input type="file" asp-for="Input.Image" accept="image/*" id="selectImage" style="display: none;" />
+        <input type="checkbox" asp-for="Input.DeleteImage" id="removeImage" style="display: none;" />
+        <input type="button" class="form-control" value="Durchsuchen..." id="browseImageBtn" />
+        <input type="button" class="form-control" value="Bild entfernen" id="removeImageBtn" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Price"></label>
+        <input asp-for="Input.Price" type="number" step="0.01" min="0.00" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Sale"></label>
+        <input asp-for="Input.Sale" type="number" step="0.01" min="0.00" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Vegetarian"></label>
+        <input asp-for="Input.Vegetarian" type="checkbox" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Vegan"></label>
+        <input asp-for="Input.Vegan" type="checkbox" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Size"></label>
+        <input asp-for="Input.Size" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Deposit"></label>
+        <input asp-for="Input.Deposit" type="number" step="0.01" min="0.00" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Allergens"></label>
+        <select asp-for="Input.Allergens" class="form-control" multiple>
+            @foreach (string allergen in Model.Allergens ?? new string[0])
+            {
+                <option>
+                    @allergen
+                </option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Information"></label>
+        <input asp-for="Input.Information" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+    </div>
+</form>
+
+<script>
+    var selectImage = document.getElementById('selectImage');
+    var browseImageBtn = document.getElementById('browseImageBtn');
+    var removeImageBtn = document.getElementById('removeImageBtn');
+    var image = document.getElementById('image');
+    var removeImage = document.getElementById('removeImage');
+    browseImageBtn.onclick = function (evt) {
+        selectImage.click();
+    };
+    removeImageBtn.onclick = function (evt) {
+        image.src = '';
+        image.setAttribute('hidden', 'true');
+        removeImage.setAttribute('checked', 'true');
+    };
+    selectImage.onchange = function (evt) {
+        removeImage.removeAttribute('checked');
+        if (selectImage.files && selectImage.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image.src = e.target.result;
+                image.removeAttribute('hidden');
+            };
+            reader.readAsDataURL(selectImage.files[0]);
+        }
+    };
+</script>
