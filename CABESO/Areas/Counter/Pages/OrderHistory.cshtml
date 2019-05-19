@@ -56,6 +56,12 @@
                     Abholzeit
                 </a>
             </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NoteSort" asp-route-search="@Model.SearchKeyWord">
+                    Anmerkungen
+                </a>
+            </th>
+
         </tr>
     </thead>
     <tbody>
@@ -85,6 +91,9 @@
             </td>
             <td>
                 @order.CollectionTime.GetDisplayFormat()
+            </td>
+            <td>
+                @order.Notes
             </td>
         </tr>
         }

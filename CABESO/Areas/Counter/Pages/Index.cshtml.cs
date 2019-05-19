@@ -17,6 +17,7 @@ namespace CABESO.Areas.Counter.Pages
         public string OrderTimeSort { get; set; }
         public string CollectionTimeSort { get; set; }
         public string PreparationTimeSort { get; set; }
+        public string NoteSort { get; set; }
         public Order[] Orders { get; set; }
 
         public string SearchKeyWord { get; set; }
@@ -43,6 +44,7 @@ namespace CABESO.Areas.Counter.Pages
             NumberSort = sortOrder == "n" ? "!n" : "n";
             CollectionTimeSort = sortOrder == "ct" ? "!ct" : "ct";
             PreparationTimeSort = sortOrder == "ct" ? "!ct" : "ct";
+            NoteSort = sortOrder == "no" ? "!no" : "no";
 
             IOrderedEnumerable<Order> orders = Orders.OrderBy(order => 0);
 
@@ -89,6 +91,12 @@ namespace CABESO.Areas.Counter.Pages
                     break;
                 case "!ct":
                     orders = orders.OrderByDescending(order => order.CollectionTime);
+                    break;
+                case "no":
+                    orders = orders.OrderBy(order => order.Notes);
+                    break;
+                case "!no":
+                    orders = orders.OrderByDescending(order => order.Notes);
                     break;
                 case "!ot":
                     orders = orders.OrderBy(order => order.OrderTime);
