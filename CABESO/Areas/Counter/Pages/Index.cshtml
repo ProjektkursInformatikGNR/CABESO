@@ -57,59 +57,69 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NoteSort" asp-route-search="@Model.SearchKeyWord">
-                    Anmerkungen
-                </a>
-            </th>
-            <th>
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var order in Model.Orders)
         {
-        <tr>
-            <td title="@order.User.GetForm().ToString()">
-                @order.User.GetName()
-            </td>
-            <td>
-                @order.Product.Name
-            </td>
-            <td>
-                @string.Format("{0:C2}", order.Product.Price)
-            </td>
-            <td>
-                @string.Format("{0:C2}", order.Product.Price * order.Number)
-            </td>
-            <td>
-                @order.Number
-            </td>
-            <td>
-                @order.OrderTime.GetDisplayFormat()
-            </td>
-            <td>
-                @(order.PreparationTime?.GetDisplayFormat() ?? "in Bearbeitung")
-            </td>
-            <td>
-                @order.CollectionTime.GetDisplayFormat()
-            </td>
-            <td>
-                @order.Notes
-            </td>
-            <td>
-                <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
-                <text>|</text>
-                <a asp-controller="Counter" asp-action="ArchiveOrder" asp-route-id="@order.Id">Abholung bestätigen</a>
-                <text>|</text>
-                <a asp-controller="Counter" asp-action="RemoveOrder" asp-route-id="@order.Id">Entfernen</a>
-            </td>
-        </tr>
+            <tr>
+                @if (string.IsNullOrEmpty(order.User.GetForm()?.ToString()))
+                {
+                    <td>
+                        @order.User.GetName()
+                    </td>
+                }
+                else
+                {
+                    <td title="Klasse: @order.User.GetForm().ToString()">
+                        @order.User.GetName()
+                    </td>
+                }
+                @if (string.IsNullOrEmpty(order.Notes))
+                {
+                    <td>
+                        @order.Product.Name
+                    </td>
+                }
+                else
+                {
+                    <td title="Anmerkungen: @order.Notes">
+                        @order.Product.Name
+                    </td>
+                }
+                <td>
+                    @string.Format("{0:C2}", order.Product.Price)
+                </td>
+                <td>
+                    @string.Format("{0:C2}", order.Product.Price * order.Number)
+                </td>
+                <td>
+                    @order.Number
+                </td>
+                <td>
+                    @order.OrderTime.GetDisplayFormat()
+                </td>
+                <td>
+                    @(order.PreparationTime?.GetDisplayFormat() ?? "in Bearbeitung")
+                </td>
+                <td>
+                    @order.CollectionTime.GetDisplayFormat()
+                </td>
+                <td>
+                    <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
+                    <text>|</text>
+                    <a asp-controller="Counter" asp-action="ArchiveOrder" asp-route-id="@order.Id">Abholung bestätigen</a>
+                    <text>|</text>
+                    <a asp-controller="Counter" asp-action="RemoveOrder" asp-route-id="@order.Id">Entfernen</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
 
 <script>
-    setTimeout(function() { window.location.reload(1); }, 10000);
+    setTimeout(function () { window.location.reload(1); }, 10000);
 </script>
 
 @section Scripts {

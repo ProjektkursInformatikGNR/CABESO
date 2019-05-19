@@ -1,8 +1,8 @@
 ﻿@page
-@model FormsModel
+@model AllergensModel
 @{
-    ViewData["Title"] = "Klassenübersicht";
-    ViewData["ActivePage"] = "Forms";
+    ViewData["Title"] = "Allergenübersicht";
+    ViewData["ActivePage"] = "Allergens";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -17,8 +17,8 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Forms" asp-route-sortOrder="@Model.Sort">
-                    Klasse
+                <a asp-page="./Allergens" asp-route-sortOrder="@Model.Sort">
+                    Allergen
                 </a>
             </th>
 
@@ -26,16 +26,16 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Form form in Model.Forms)
+        @foreach (Allergen allergen in Model.Allergens)
         {
             <tr>
                 <td>
-                    @form.ToString()
+                    @allergen.Description
                 </td>
                 <td>
-                    <a asp-page="EditForm" asp-route-id="@form.Id">Bearbeiten</a>
+                    <a asp-page="EditAllergen" asp-route-id="@allergen.Id">Bearbeiten</a>
                     <text>|</text>
-                    <a asp-controller="Admin" asp-action="RemoveForm" asp-route-id="@form.Id">Entfernen</a>
+                    <a asp-controller="Counter" asp-action="RemoveAllergen" asp-route-id="@allergen.Id">Entfernen</a>
                 </td>
             </tr>
         }

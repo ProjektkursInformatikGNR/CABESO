@@ -1,7 +1,7 @@
 ﻿@page
 @model ProductsModel
 @{
-    ViewData["Title"] = "Produktliste";
+    ViewData["Title"] = "Produktübersicht";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -84,7 +84,10 @@
                     @product.Sale.GetDisplayFormat()
                 </td>
                 <td>
-                    @string.Join(", ", product.Allergens ?? new string[0])
+                    @foreach (Allergen allergen in product.Allergens ?? new Allergen[0])
+                    {
+                        <span title="@allergen.Description">@Model.AllergenIndices[allergen.Id]</span><text> </text>
+                    }
                 </td>
                 <td>
                     @if (product.Vegetarian)

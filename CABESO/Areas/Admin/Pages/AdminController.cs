@@ -36,7 +36,7 @@ namespace CABESO.Views.Admin
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Remove(string id)
         {
             IdentityUser user = await _userManager.FindByIdAsync(id);
             if (user != null && !user.Id.Equals(User.GetIdentityUser().Id))
@@ -59,7 +59,7 @@ namespace CABESO.Views.Admin
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult DeleteForm(int id)
+        public IActionResult RemoveForm(int id)
         {
             Form form = _context.Forms.Find(id);
             _context.Forms.Remove(form);

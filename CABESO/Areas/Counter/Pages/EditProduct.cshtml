@@ -69,18 +69,18 @@
     <div class="form-group">
         <label asp-for="Input.Allergens"></label>
         <select asp-for="Input.Allergens" class="form-control" multiple>
-            @foreach (string allergen in Model.Allergens ?? new string[0])
+            @foreach (Allergen allergen in Model.Allergens ?? new Allergen[0])
             {
-                @if (EditProductModel.CurrentProduct?.Allergens.Contains(allergen) ?? false)
+                @if (EditProductModel.CurrentProduct?.Allergens?.Contains(allergen) ?? false)
                 {
-                    <option selected="selected">
-                        @allergen
+                    <option value="@allergen.Id" selected="selected">
+                        @allergen.Description
                     </option>
                 }
                 else
                 {
-                    <option>
-                        @allergen
+                    <option value="@allergen.Id">
+                        @allergen.Description
                     </option>
                 }
             }

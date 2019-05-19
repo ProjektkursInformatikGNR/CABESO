@@ -8,7 +8,7 @@
 <form method="post">
     <div class="form-group">
         <label asp-for="Input.ProductId"></label>
-        <select class="form-control" asp-for="Input.ProductId">
+        <select class="form-control" asp-for="Input.ProductId" id="prodSelect" onchange="javascript: update();">
             @foreach (Product product in Model.Products)
             {
                 <option value="@product.Id">
@@ -21,19 +21,15 @@
         <tbody>
             <tr>
                 <td>
-                    @if (!String.IsNullOrEmpty(Model.SelectedProduct.Image))
-                    {
-                        <img src="/images/@Model.SelectedProduct.Image" id="Input.ProductId" style="width:100px;height:auto;" onclick="javascript: window.open('/images/@Model.SelectedProduct.Image');" />
-                    }
+                    <img id="image" style="width:100px;height:auto;" onclick="javascript: window.open($(this).attr('src'));" hidden />
                 </td>
                 <td>
-                    <p>@Model.Vegan</p>
-                    <p>@Model.Vegetarian</p>
-                    @if (!string.IsNullOrEmpty(Model.SelectedProduct.Information))
-                    {
-                        <p><b>Weitere Hinweise:</b></p>
-                        <p>@Model.SelectedProduct.Information</p>
-                    }
+                    <p id="vegetarian" hidden></p>
+                    <p id="vegan" hidden></p>
+                    <p id="allergensHeader" hidden><b>Allergene:</b></p>
+                    <p id="allergens" hidden></p>
+                    <p id="infoHeader" hidden><b>Weitere Hinweise:</b></p>
+                    <p id="information" hidden></p>
                 </td>
             </tr>
         </tbody>
@@ -62,6 +58,15 @@
     </div>
 </form>
 
+<style>
+    img {
+        transition: transform .2s;
+    }
+    img:hover {
+        transform: scale(5);
+    }
+</style>
+
 <script>
     setTime(1250);
     function setTime(time) {
@@ -83,16 +88,34 @@
             $('#btn3').css('color', 'red');
         }
     }
-    setTimeout(function () {
-        Model.UpdateTable();
-        //document.getElementsByClassName("table").item(1).TEXT_NODE = Model.VeganVegetarian;
-
-        //var table = $(this).parent().parent();
-        //var tdPicture = table.children(td(1));
-        //tdPicture.text = "Test";
-
-        //window.location.reload(1);
-    }, 1000);
+    function update() {
+        $.ajax({
+            url: '/Orders/GetProductData',
+            data: {
+                id: $('#prodSelect').val()
+            }
+        })
+            .done(function (result) {
+                if (result.image != "") {
+                    $('#image').attr('src', '/images/'.concat(result.image));
+                    $('#image').removeAttr('hidden');
+                }
+                $('#vegetarian').text('Vegetarisch: '.concat(result.vegetarian));
+                $('#vegetarian').removeAttr('hidden');
+                $('#vegan').text('Vegan: '.concat(result.vegan));
+                $('#vegan').removeAttr('hidden');
+                if (result.allergens != "") {
+                    $('#allergensHeader').removeAttr('hidden');
+                    $('#allergens').text(result.allergens);
+                    $('#allergens').removeAttr('hidden');
+                }
+                if (result.information != "") {
+                    $('#infoHeader').removeAttr('hidden');
+                    $('#information').text(result.information);
+                    $('#information').removeAttr('hidden');
+                }
+            });
+    }
 </script>
 
 @section Scripts {

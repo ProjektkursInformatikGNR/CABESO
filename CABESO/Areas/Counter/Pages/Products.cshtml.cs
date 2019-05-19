@@ -21,13 +21,16 @@ namespace CABESO.Areas.Counter.Pages
         public string SizeSort { get; set; }
         public string DepositSort { get; set; }
         public string InformationSort { get; set; }
-        public Product[] Products { get; set; }
-
+        public Product[] Products { get; private set; }
+        public Dictionary<int, int> AllergenIndices { get; private set; }
         public string SearchKeyWord { get; set; }
 
-        public ProductsModel()
+        private readonly ApplicationDbContext _context;
+
+        public ProductsModel(ApplicationDbContext context)
         {
-            Products = new ApplicationDbContext().Products.ToArray();
+            _context = context;
+            Products = _context.Products.ToArray();
         }
 
         public void OnGet(string sortOrder, string search)
@@ -105,8 +108,12 @@ namespace CABESO.Areas.Counter.Pages
                     products = products.OrderBy(product => product.Name);
                     break;
             }
-
             Products = products.ThenBy(product => product.Name).ToArray();
+
+            AllergenIndices = new Dictionary<int, int>();
+            int i = 0;
+            foreach (Allergen allergen in _context.Allergens)
+                AllergenIndices.Add(allergen.Id, ++i);
         }
 
         [BindProperty]

@@ -41,17 +41,19 @@ namespace CABESO.Data
         public DbSet<CurrentOrder> Orders { get; set; }
         public DbSet<HistoricOrder> HistoricOrders { get; set; }
         public DbSet<RegistrationCode> Codes { get; set; }
+        public DbSet<Allergen> Allergens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Form>().Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Entity<Allergen>().Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Entity<Product>().Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Entity<Product>().Property(p => p.Allergens).HasConversion(v => v == null ? "" : string.Join('|', Array.ConvertAll(v, allergen => allergen.Id)), v => string.IsNullOrEmpty(v) ? new Allergen[0] : Array.ConvertAll(v.Split('|', StringSplitOptions.RemoveEmptyEntries), id => new ApplicationDbContext().Allergens.Find(int.Parse(id))));
             builder.Entity<HistoricOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => Users.Find(v));
             builder.Entity<HistoricOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Products.Find(v));
             builder.Entity<CurrentOrder>().Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Entity<CurrentOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => Users.Find(v));
             builder.Entity<CurrentOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Products.Find(v));
-            builder.Entity<Product>().Property(p => p.Id).ValueGeneratedOnAdd();
-            builder.Entity<Product>().Property(p => p.Allergens).HasConversion(v => string.Join('|', v), v => v.Split('|', StringSplitOptions.None));
             builder.Entity<RegistrationCode>().HasKey("Code");
             builder.Entity<RegistrationCode>().Property(p => p.Role).HasConversion(v => v.Name, v => Roles.FirstOrDefault(role => role.Name.Equals(v)));
             base.OnModelCreating(builder);

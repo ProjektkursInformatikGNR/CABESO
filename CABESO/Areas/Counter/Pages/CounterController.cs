@@ -68,5 +68,17 @@ namespace CABESO.Views.Counter
             }
             return LocalRedirect("~/Counter/Index");
         }
+
+        [Authorize(Roles = "Employee,Admin")]
+        public IActionResult RemoveAllergen(int id)
+        {
+            Allergen allergen = _context.Allergens.Find(id);
+            if (allergen != null)
+            {
+                _context.Allergens.Remove(allergen);
+                _context.SaveChanges();
+            }
+            return LocalRedirect("~/Counter/Allergens");
+        }
     }
 }

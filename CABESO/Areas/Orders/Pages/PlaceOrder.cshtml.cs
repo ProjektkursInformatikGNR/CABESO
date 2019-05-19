@@ -12,7 +12,6 @@ namespace CABESO.Areas.Orders.Pages
     public class PlaceOrderModel : PageModel
     {
         public Product[] Products { get; private set;}
-        public Product SelectedProduct { get; private set; }
         public string Vegan { get; private set; }
         public string Vegetarian { get; private set; }
         public string Information { get; private set; }
@@ -27,7 +26,6 @@ namespace CABESO.Areas.Orders.Pages
         public void OnGet()
         {
             Products = _context.Products.OrderBy(product => product.Name).ToArray();
-            UpdateTable();
         }
 
         public IActionResult OnPost()
@@ -35,30 +33,6 @@ namespace CABESO.Areas.Orders.Pages
             _context.Orders.Add(new CurrentOrder() { User = User.GetIdentityUser(), Product = _context.Products.Find(Input.ProductId), OrderTime = DateTime.UtcNow, Number = Input.Number, Notes = Input.Notes, CollectionTime = Input.CollectionTime.ToUniversalTime(), PreparationTime = null });
             _context.SaveChanges();
             return RedirectToPage();
-        }
-
-        public void UpdateTable()
-        {
-            if (SelectedProduct == null)
-                SelectedProduct = _context.Products.Find(20);
-            else
-                SelectedProduct = _context.Products.Find(Input.ProductId);
-
-            if (SelectedProduct.Vegan)
-            {
-                Vegan = "Vegan: ✓";
-                Vegetarian = "Vegetarisch: ✓";
-            }
-            else if (SelectedProduct.Vegetarian)
-            {
-                Vegan = "Vegan: X";
-                Vegetarian = "Vegetarisch: ✓";
-            }
-            else
-            {
-                Vegan = "Vegan: X";
-                Vegetarian = "Vegetarisch: X";
-            }
         }
 
         [BindProperty]

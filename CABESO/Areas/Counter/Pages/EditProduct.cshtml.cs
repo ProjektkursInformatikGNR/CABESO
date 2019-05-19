@@ -16,7 +16,7 @@ namespace CABESO.Areas.Counter.Pages
     public class EditProductModel : PageModel
     {
         public static Product CurrentProduct { get; private set; }
-        public string[] Allergens { get; private set; }
+        public Allergen[] Allergens { get; private set; }
 
         private readonly ApplicationDbContext _context;
 
@@ -28,6 +28,7 @@ namespace CABESO.Areas.Counter.Pages
         public void OnGet(int id)
         {
             CurrentProduct = _context.Products.Find(id);
+            Allergens = _context.Allergens.ToArray();
         }
 
         public async Task<IActionResult> OnPost()
@@ -57,7 +58,7 @@ namespace CABESO.Areas.Counter.Pages
             CurrentProduct.Vegan = Input.Vegan;
             CurrentProduct.Size = Input.Size;
             CurrentProduct.Deposit = FromInput(Input.Deposit);
-            CurrentProduct.Allergens = Input.Allergens;
+            CurrentProduct.Allergens = Array.ConvertAll(Input.Allergens ?? new int[0], id => _context.Allergens.Find(id));
             CurrentProduct.Information = Input.Information;
             _context.Products.Update(CurrentProduct);
             _context.SaveChanges();
@@ -99,7 +100,7 @@ namespace CABESO.Areas.Counter.Pages
 
             [Required]
             [Display(Name = "Allergene")]
-            public string[] Allergens { get; set; }
+            public int[] Allergens { get; set; }
 
             [Display(Name = "Weitere Hinweise")]
             public string Information { get; set; }

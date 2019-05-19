@@ -48,10 +48,10 @@
     <div class="form-group">
         <label asp-for="Input.Allergens"></label>
         <select asp-for="Input.Allergens" class="form-control" multiple>
-            @foreach (string allergen in Model.Allergens ?? new string[0])
+            @foreach (Allergen allergen in Model.Allergens ?? new Allergen[0])
             {
-                <option>
-                    @allergen
+                <option value="@allergen.Id">
+                    @allergen.Description
                 </option>
             }
         </select>
@@ -61,7 +61,7 @@
         <input asp-for="Input.Information" class="form-control" />
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+        <button type="submit" class="btn btn-primary">Hinzufügen</button>
     </div>
 </form>
 

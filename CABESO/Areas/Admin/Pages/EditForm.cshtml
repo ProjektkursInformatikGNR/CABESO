@@ -1,12 +1,12 @@
 ﻿@page
 @model EditFormModel
 @{
-    ViewData["Title"] = "Klasse hinzufügen";
+    ViewData["Title"] = "Klasse bearbeiten";
     ViewData["ActivePage"] = "AddForm";
 }
 
 <form method="post">
-    <h4>Füge eine Klasse hinzu:</h4>
+    <h4>@ViewData["Title"]: @EditFormModel.CurrentForm.ToString()</h4>
     <hr />
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
@@ -17,9 +17,10 @@
         <label asp-for="Input.Stream"></label>
         <input asp-for="Input.Stream" class="form-control" value="@EditFormModel.CurrentForm.Stream" />
     </div>
-    
+
     <button type="submit" class="btn btn-primary">Änderungen speichern</button>
 </form>
 
 @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }

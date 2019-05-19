@@ -7,19 +7,25 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CABESO.Areas.Counter.Pages
 {
     public class AddProductModel : PageModel
     {
-        public string[] Allergens { get; private set; }
+        public Allergen[] Allergens { get; private set; }
 
         private readonly ApplicationDbContext _context;
 
         public AddProductModel(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        public void OnGet()
+        {
+            Allergens = _context.Allergens.ToArray();
         }
 
         public async Task<IActionResult> OnPost()
@@ -33,7 +39,7 @@ namespace CABESO.Areas.Counter.Pages
                 Vegan = Input.Vegan,
                 Size = Input.Size,
                 Deposit = FromInput(Input.Deposit),
-                Allergens = Input.Allergens,
+                Allergens = Array.ConvertAll(Input.Allergens ?? new int[0], id => _context.Allergens.Find(id)),
                 Information = Input.Information
             };
             _context.Products.Add(product);
@@ -90,7 +96,7 @@ namespace CABESO.Areas.Counter.Pages
 
             [Required]
             [Display(Name = "Allergene")]
-            public string[] Allergens { get; set; }
+            public int[] Allergens { get; set; }
 
             [Display(Name = "Weitere Hinweise")]
             public string Information { get; set; }

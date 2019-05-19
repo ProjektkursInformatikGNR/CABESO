@@ -244,6 +244,18 @@ namespace CABESO.Data.Migrations
             migrationBuilder.AddForeignKey("FK_OrderHistoryUserId", "OrderHistory", "UserId", "AspNetUsers", principalColumn: "Id", onDelete: ReferentialAction.Cascade, onUpdate: ReferentialAction.Cascade);
             migrationBuilder.AddForeignKey("FK_OrderHistoryProductId", "OrderHistory", "ProductId", "Products", principalColumn: "Id", onDelete: ReferentialAction.Cascade, onUpdate: ReferentialAction.Cascade);
 
+            migrationBuilder.CreateTable(
+                name: "Allergens",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Description = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Allergens", x => x.Id);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",

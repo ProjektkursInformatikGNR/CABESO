@@ -1,43 +1,43 @@
-using CABESO.Data;
+﻿using CABESO.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq;
 
-namespace CABESO.Areas.Admin.Pages
+namespace CABESO.Areas.Counter.Pages
 {
     [Authorize(Roles = "Admin")]
-    public class FormsModel : PageModel
+    public class AllergensModel : PageModel
     {
-        public Form[] Forms;
+        public Allergen[] Allergens;
 
         public string Sort { get; set; }
 
         public string SearchKeyWord { get; set; }
 
-        public FormsModel(ApplicationDbContext context)
+        public AllergensModel(ApplicationDbContext context)
         {
-            Forms = context.Forms.ToArray();
+            Allergens = context.Allergens.ToArray();
         }
 
         public void OnGet(string search, string sortOrder)
         {
             SearchKeyWord = search ?? string.Empty;
             if (!string.IsNullOrEmpty(SearchKeyWord))
-                Forms = Forms.Search(search, form => form.ToString()).ToArray();
+                Allergens = Allergens.Search(search, allergen => allergen.ToString()).ToArray();
             Sort = string.IsNullOrEmpty(sortOrder) ? "!" : "";
 
-            IOrderedEnumerable<Form> forms = Forms.OrderBy(user => 0);
+            IOrderedEnumerable<Allergen> allergens = Allergens.OrderBy(allergen => 0);
             switch (sortOrder)
             {
                 case "!":
-                    forms = forms.OrderByDescending(form => form.GetGrade().Year);
+                    allergens = allergens.OrderByDescending(allergen => allergen.Description);
                     break;
-                case "":
-                    forms = forms.OrderBy(form => form.GetGrade().Year);
+                default:
+                    allergens = allergens.OrderBy(allergen => allergen.Description);
                     break;
             }
-            Forms = forms.ToArray();
+            Allergens = allergens.ToArray();
         }
 
         [BindProperty]
@@ -50,7 +50,7 @@ namespace CABESO.Areas.Admin.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToAction("Forms", "Admin", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });
+            return RedirectToAction("Allergens", "Counter", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });
         }
     }
 }

@@ -66,7 +66,7 @@ namespace CABESO
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(DefaultConnection = Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(DefaultConnection = Configuration.GetConnectionString("DefaultConnection")), contextLifetime: ServiceLifetime.Transient);
 
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {

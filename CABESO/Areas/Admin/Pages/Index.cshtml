@@ -88,7 +88,7 @@
                     @if (!user.Id.Equals(User.GetIdentityUser().Id) && !user.UserName.Equals(User.Identity.Name))
                     {
                         <text>|</text>
-                        <a asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id">Entfernen</a>
+                        <a asp-controller="Admin" asp-action="Remove" asp-route-id="@user.Id">Entfernen</a>
                     }
                 </td>
             </tr>

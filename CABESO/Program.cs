@@ -9,6 +9,7 @@ using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 
@@ -49,8 +50,16 @@ namespace CABESO
             return greeting;
         }
 
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+
+        public static bool HasInternetConnection() => InternetGetConnectedState(out _, 0);
+
         public static bool MailValid(string mailAddress)
         {
+            if (!HasInternetConnection())
+                return true;
+
             Pop3Client client = new Pop3Client();
             client.Connect(Startup.MailPop3, 995, true);
             client.Authenticate(Startup.MailAddress, Startup.MailPassword);
