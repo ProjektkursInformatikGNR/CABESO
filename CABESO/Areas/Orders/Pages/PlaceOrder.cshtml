@@ -39,7 +39,7 @@
         <input class="form-control" type="number" min="1" max="10" value="1" asp-for="Input.Number" />
     </div>
     <div class="form-group">
-        <label asp-for="Input.CollectionTime"></label>
+        <label asp-for="Input.CollectionTime"></label><span>Frühstmögliche Abholzeit: @DateTime.Now.AddHours(1).GetDisplayFormat()</span>
         <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" id="colTime" min="@DateTime.Now.AddHours(1).GetHtmlFormat()" max="@DateTime.Now.Date.AddDays(7).GetHtmlFormat()" value="@(DateTime.Now.TimeOfDay.TotalHours > 71.0/6.0 ? DateTime.Now.Date.AddHours(36).AddMinutes(50).GetHtmlFormat() : DateTime.Now.Date.AddHours(12).AddMinutes(50).GetHtmlFormat())" onchange="javascript: updateBtns();" />
     </div>
     <div class="form-group">

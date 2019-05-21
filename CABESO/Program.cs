@@ -93,6 +93,9 @@ namespace CABESO
 
         public static bool SendMail(string mailAddress, string subject, string body, string name = null)
         {
+            if (!HasInternetConnection())
+                return true;
+
             SmtpClient client = new SmtpClient(Startup.MailSmtp)
             {
                 UseDefaultCredentials = false,

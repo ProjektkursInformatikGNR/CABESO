@@ -59,5 +59,15 @@ namespace CABESO
             Product = Product,
             User = User
         };
+
+        public bool DateIsValid()
+        {
+            if (CollectionTime.DayOfWeek == DayOfWeek.Saturday || CollectionTime.DayOfWeek == DayOfWeek.Sunday)
+                return false;
+            if (CollectionTime.TimeOfDay < new TimeSpan(8, 15, 0) || CollectionTime.TimeOfDay > new TimeSpan(12, 50, 0))
+                return false;
+            Holidays holidays = Holidays.Create();
+            return true;
+        }
     }
 }
