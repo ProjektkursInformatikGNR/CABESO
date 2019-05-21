@@ -43,11 +43,17 @@
         <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" id="colTime" min="@DateTime.Now.AddHours(1).GetHtmlFormat()" max="@DateTime.Now.Date.AddDays(7).GetHtmlFormat()" value="@(DateTime.Now.TimeOfDay.TotalHours > 71.0/6.0 ? DateTime.Now.Date.AddHours(36).AddMinutes(50).GetHtmlFormat() : DateTime.Now.Date.AddHours(12).AddMinutes(50).GetHtmlFormat())" onchange="javascript: updateBtns();" />
     </div>
     <div class="form-group">
-        <input type="button" id="btn1" value="1. Pause" onclick="javascript: setTime(905);" />
+        <input type="button" id="btn1" value="1. Fünfminutenpause" onclick="javascript: setTime(815);" />
         &nbsp;
-        <input type="button" id="btn2" value="2. Pause" onclick="javascript: setTime(1100);" />
+        <input type="button" id="btn2" value="1. Pause" onclick="javascript: setTime(905);" />
         &nbsp;
-        <input type="button" id="btn3" value="Mittagspause" style="color:red;" onclick="javascript: setTime(1250);" />
+        <input type="button" id="btn3" value="2. Fünfminutenpause" onclick="javascript: setTime(1010);" />
+        &nbsp;
+        <input type="button" id="btn4" value="2. Pause" onclick="javascript: setTime(1100);" />
+        &nbsp;
+        <input type="button" id="btn5" value="3. Fünfminutenpause" onclick="javascript: setTime(1200);" />
+        &nbsp;
+        <input type="button" id="btn6" value="Mittagspause" style="color:red;" onclick="javascript: setTime(1250);" />
     </div>
     <div class="form-group">
         <label asp-for="Input.Notes"></label>
@@ -77,15 +83,27 @@
         $('#btn1').removeAttr('style');
         $('#btn2').removeAttr('style');
         $('#btn3').removeAttr('style');
+        $('#btn4').removeAttr('style');
+        $('#btn5').removeAttr('style');
+        $('#btn6').removeAttr('style');
         var time = $('#colTime').val().slice(-5);
-        if (time.localeCompare('09:05') == 0) {
+        if (time.localeCompare('08:15') == 0) {
             $('#btn1').css('color', 'red');
         }
-        else if (time.localeCompare('11:00') == 0) {
+        else if (time.localeCompare('09:05') == 0) {
             $('#btn2').css('color', 'red');
         }
-        else if (time.localeCompare('12:50') == 0) {
+        else if (time.localeCompare('10:10') == 0) {
             $('#btn3').css('color', 'red');
+        }
+        else if (time.localeCompare('11:00') == 0) {
+            $('#btn4').css('color', 'red');
+        }
+        else if (time.localeCompare('12:00') == 0) {
+            $('#btn5').css('color', 'red');
+        }
+        else if (time.localeCompare('12:50') == 0) {
+            $('#btn6').css('color', 'red');
         }
     }
     function update() {

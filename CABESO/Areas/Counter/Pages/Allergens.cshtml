@@ -9,6 +9,7 @@
 <hr />
 
 <form method="post" class="form-inline">
+    <a class="btn btn-primary nav-item @ManageNavPages.AddAllergenNavClass(ViewContext)" id="addallergen" asp-page="./AddAllergen">Allergen hinzufügen</a>
     <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
     <button type="submit" class="btn btn-primary">Suchen</button>
 </form>
