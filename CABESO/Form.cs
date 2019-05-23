@@ -1,5 +1,6 @@
 ﻿using CABESO.Properties;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
@@ -12,6 +13,12 @@ namespace CABESO
         public string Stream { get; set; }
         public int Enrolment { get; set; }
         public Grade GetGrade() => Enrolment;
+        public static IEnumerable<char> GetStreams()
+        {
+            yield return '-';
+            for (char c = 'A'; c <= 'Z'; c++)
+                yield return c;
+        }
 
         public override string ToString()
         {

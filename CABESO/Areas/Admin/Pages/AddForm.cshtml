@@ -9,15 +9,15 @@
 <form method="post">
     <div class="form-group">
         <label asp-for="Input.Grade"></label>
-        <input type="number" asp-for="Input.Grade" class="form-control" min="4" max="13" onchange="javascript: streamSelection(this.value);" />
+        <input type="number" asp-for="Input.Grade" id="grade_input" class="form-control" min="4" max="13" onchange="javascript: update();" />
     </div>
     <div class="form-group">
         <label asp-for="Input.Streams"></label>
         <br />
         @{ int i = 0; }
-        @foreach ((char stream, bool taken) in Model.GetTakenStreams(0))
+        @foreach (char stream in Form.GetStreams())
         {
-            <input type="checkbox" asp-for="Input.Streams[i]" id="opt_@stream" />
+            <input type="checkbox" asp-for="Input.Streams[i]" id="opt_@i" />
             <label>@stream</label>
             i++;
         }
@@ -28,27 +28,27 @@
 </form>
 
 <script>
-    function streamSelection(grade) {
-        $('#submitBtn').removeAttr('disabled');
-        @for (int grade = 4; grade <= 13; grade++)
-        {
-            <text>if (grade == @grade) {</text>
-        @foreach ((char stream, bool taken) in Model.GetTakenStreams(grade))
-        {
-            if (taken)
-            {
-                <text>$('#opt_@stream').attr('checked', true);
-            $('#opt_@stream').attr('disabled', true);</text>
+    function update() {
+        $.ajax({
+            url: '/Admin/GetFormData',
+            data: {
+                data: $('#grade_input').val()
             }
-            else
-            {
-                <text>$('#opt_@stream').removeAttr('checked');
-            $('#opt_@stream').removeAttr('disabled');</text>
-            }
-        }
-            <text>}</text>
-            }
-        }
+        })
+            .done(function (result) {
+                $('#submitBtn').removeAttr('disabled');
+                $.each(result, function (key, value) {
+                    if (value) {
+                        $('#opt_'.concat(key)).attr('checked', true);
+                        $('#opt_'.concat(key)).attr('disabled', true);
+                    }
+                    else {
+                        $('#opt_'.concat(key)).removeAttr('checked');
+                        $('#opt_'.concat(key)).removeAttr('disabled');
+                    }
+                });
+            });
+    }
 </script>
 
 @section Scripts {

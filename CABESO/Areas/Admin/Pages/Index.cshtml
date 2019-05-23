@@ -6,6 +6,7 @@
     ViewData["ActivePage"] = "Index";
 }
 
+<a class="btn btn-primary" asp-page="./AddUser">Benutzer hinzufügen</a>
 <form method="post" class="form-inline">
     <input asp-for="Input.SearchKeyWord" class="form-control" value="@Model.SearchKeyWord" />
     <button type="submit" class="btn btn-primary">Suchen</button>

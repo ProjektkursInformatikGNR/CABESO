@@ -17,15 +17,6 @@ namespace CABESO.Areas.Admin.Pages
             _context = context;
         }
 
-        public IEnumerable<(char, bool)> GetTakenStreams(Form.Grade grade)
-        {
-            string[] streams = Array.ConvertAll(_context.Forms.Where(form => form.Enrolment == grade.Enrolment).ToArray(), form => form.Stream);
-
-            yield return ('-', streams.Contains(""));
-            for (char c = 'A'; c <= 'Z'; c++)
-                yield return (c, streams.Contains(c.ToString()));
-        }
-
         public IActionResult OnPost()
         {
             if (ModelState.IsValid)
@@ -36,7 +27,7 @@ namespace CABESO.Areas.Admin.Pages
                         _context.Forms.Add(new Form() { Stream = stream == 0 ? "" : ((char)('A' + stream - 1)).ToString(), Enrolment = ((Form.Grade) Input.Grade).Enrolment });
                 }
                 _context.SaveChanges();
-                return RedirectToPage();
+                return LocalRedirect("~/Admin/Forms");
             }
             return Page();
         }

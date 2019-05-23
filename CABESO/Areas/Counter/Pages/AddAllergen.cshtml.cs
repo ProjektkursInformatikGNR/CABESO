@@ -34,7 +34,7 @@ namespace CABESO.Areas.Counter.Pages
             };
             _context.Allergens.Add(allergen);
             _context.SaveChanges();
-            return RedirectToPage();
+            return LocalRedirect("~/Counter/Allergens");
         }
     }
 }

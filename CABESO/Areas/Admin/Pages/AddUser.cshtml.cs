@@ -86,7 +86,7 @@ namespace CABESO.Areas.Admin.Pages
                         user.SetFormId(Input.FormId);
 
                     await _userManager.ConfirmEmailAsync(user, await _userManager.GenerateEmailConfirmationTokenAsync(user));
-                    return RedirectToPage();
+                    return LocalRedirect("~/Admin/Index");
                 }
 
                 foreach (IdentityError error in result.Errors)
