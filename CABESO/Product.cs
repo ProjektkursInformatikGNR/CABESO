@@ -29,7 +29,7 @@ namespace CABESO
 
         public override string ToString()
         {
-            return string.Format("{0}{1} - {2}", Name, string.IsNullOrEmpty(Size) ? string.Empty : string.Format(" ({0})", Size), string.Format("{0:C2}", Price - (Sale ?? 0m)) + (Deposit.HasValue ? string.Format(" (+ {0:C2} Pfand)", Deposit) : string.Empty)); 
+            return Id == -1 ? string.Empty : string.Format("{0}{1} - {2}", Name, string.IsNullOrEmpty(Size) ? string.Empty : string.Format(" ({0})", Size), string.Format("{0:C2}", Price - (Sale ?? 0m)) + (Deposit.HasValue ? string.Format(" (+ {0:C2} Pfand)", Deposit) : string.Empty)); 
         }
     }
 }

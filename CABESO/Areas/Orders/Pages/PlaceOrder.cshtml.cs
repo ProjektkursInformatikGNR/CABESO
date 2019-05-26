@@ -12,6 +12,7 @@ namespace CABESO.Areas.Orders.Pages
     public class PlaceOrderModel : PageModel
     {
         public Product[] Products { get; private set;}
+        public TimeRange[] ValidCollectionTimes { get; private set; }
         public string Vegan { get; private set; }
         public string Vegetarian { get; private set; }
         public string Information { get; private set; }
@@ -21,18 +22,27 @@ namespace CABESO.Areas.Orders.Pages
         public PlaceOrderModel(ApplicationDbContext context)
         {
             _context = context;
+            ValidCollectionTimes = CurrentOrder.ValidCollectionTimes();
+            Products = new[] { new Product() { Id = -1 } }.Concat(_context.Products.OrderBy(product => product.Name)).ToArray();
         }
 
         public void OnGet()
         {
-            Products = _context.Products.OrderBy(product => product.Name).ToArray();
         }
 
         public IActionResult OnPost()
         {
-            _context.Orders.Add(new CurrentOrder() { User = User.GetIdentityUser(), Product = _context.Products.Find(Input.ProductId), OrderTime = DateTime.UtcNow, Number = Input.Number, Notes = Input.Notes, CollectionTime = Input.CollectionTime.ToUniversalTime(), PreparationTime = null });
-            _context.SaveChanges();
-            return RedirectToPage();
+            if (!ValidCollectionTimes.Any(tr => tr.Includes(Input.CollectionTime)))
+                ModelState.AddModelError(string.Empty, "Zur angegebenen Abholzeit steht die Cafeteria leider nicht zur Verfügung.");
+            if (ModelState.IsValid)
+            {
+                for (int order = 0; order < Input.ProductIds.Length; order++)
+                    if (Input.ProductIds[order] > 0)
+                        _context.Orders.Add(new CurrentOrder() { User = User.GetIdentityUser(), Product = _context.Products.Find(Input.ProductIds[order]), OrderTime = DateTime.UtcNow, Number = Input.Numbers[order], Notes = Input.Notes, CollectionTime = Input.CollectionTime.ToUniversalTime(), PreparationTime = null });
+                _context.SaveChanges();
+                return RedirectToPage();
+            }
+            return Page();
         }
 
         [BindProperty]
@@ -41,10 +51,10 @@ namespace CABESO.Areas.Orders.Pages
         public class InputModel
         {
             [Display(Name = "Wähle ein Gericht aus:")]
-            public int ProductId { get; set; }
+            public int[] ProductIds { get; set; }
 
             [Display(Name = "Anzahl der Bestellungen:")]
-            public int Number { get; set; }
+            public int[] Numbers { get; set; }
 
             [Display(Name = "Weitere Anmerkungen:")]
             public string Notes { get; set; }

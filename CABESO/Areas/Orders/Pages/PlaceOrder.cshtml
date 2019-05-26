@@ -6,40 +6,62 @@
 
 <h2>Neue Bestellung aufgeben</h2>
 <form method="post">
-    <div class="form-group">
-        <label asp-for="Input.ProductId"></label>
-        <select class="form-control" asp-for="Input.ProductId" id="prodSelect" onchange="javascript: update();">
-            @foreach (Product product in Model.Products)
-            {
-                <option value="@product.Id">
-                    @product
-                </option>
-            }
-        </select>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div id="orders">
+        <div id="order1">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label asp-for="Input.ProductIds"></label>
+                        </td>
+                        <td></td>
+                        <td>
+                            <label asp-for="Input.Numbers"></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select class="form-control" name="Input.ProductIds[0]" id="prodSelect1" onchange="javascript: update($(this).attr('id').slice(10));">
+                                @foreach (Product product in Model.Products)
+                                {
+                                    <option value="@product.Id">
+                                        @product
+                                    </option>
+                                }
+                            </select>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input class="form-control" type="number" min="1" max="10" value="1" name="Input.Numbers[0]" id="number1" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img id="image1" style="width:100px;height:auto;" onclick="javascript: window.open($(this).attr('src'));" hidden />
+                        </td>
+                        <td>
+                            <p id="vegetarian1" hidden></p>
+                            <p id="vegan1" hidden></p>
+                            <p id="allergensHeader1" hidden><b>Allergene:</b></p>
+                            <p id="allergens1" hidden></p>
+                            <p id="infoHeader1" hidden><b>Weitere Hinweise:</b></p>
+                            <p id="information1" hidden></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <table class="table">
-        <tbody>
-            <tr>
-                <td>
-                    <img id="image" style="width:100px;height:auto;" onclick="javascript: window.open($(this).attr('src'));" hidden />
-                </td>
-                <td>
-                    <p id="vegetarian" hidden></p>
-                    <p id="vegan" hidden></p>
-                    <p id="allergensHeader" hidden><b>Allergene:</b></p>
-                    <p id="allergens" hidden></p>
-                    <p id="infoHeader" hidden><b>Weitere Hinweise:</b></p>
-                    <p id="information" hidden></p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <div class="form-group">
-        <label asp-for="Input.Number"></label>
-        <input class="form-control" type="number" min="1" max="10" value="1" asp-for="Input.Number" />
+        <input type="button" class="btn" value="Bestellung hinzufügen" onclick="javascript: addOrder();" />
     </div>
     <div class="form-group">
-        <label asp-for="Input.CollectionTime"></label><span>Frühstmögliche Abholzeit: @DateTime.Now.AddHours(1).GetDisplayFormat()</span>
+        <label asp-for="Input.CollectionTime"></label><span> <i>Frühstmögliche Abholzeit: @Model.ValidCollectionTimes[0].Start.GetDisplayFormat()</i></span>
         <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" id="colTime" min="@DateTime.Now.AddHours(1).GetHtmlFormat()" max="@DateTime.Now.Date.AddDays(7).GetHtmlFormat()" value="@(DateTime.Now.TimeOfDay.TotalHours > 71.0/6.0 ? DateTime.Now.Date.AddHours(36).AddMinutes(50).GetHtmlFormat() : DateTime.Now.Date.AddHours(12).AddMinutes(50).GetHtmlFormat())" onchange="javascript: updateBtns();" />
     </div>
     <div class="form-group">
@@ -68,9 +90,10 @@
     img {
         transition: transform .2s;
     }
-    img:hover {
-        transform: scale(5);
-    }
+
+        img:hover {
+            transform: scale(5);
+        }
 </style>
 
 <script>
@@ -106,33 +129,55 @@
             $('#btn6').css('color', 'red');
         }
     }
-    function update() {
+    function update(id) {
         $.ajax({
             url: '/Orders/GetProductData',
             data: {
-                id: $('#prodSelect').val()
+                id: $('#prodSelect'.concat(id)).val()
             }
         })
             .done(function (result) {
                 if (result.image != "") {
-                    $('#image').attr('src', '/images/'.concat(result.image));
-                    $('#image').removeAttr('hidden');
+                    $('#image'.concat(id)).attr('src', '/images/'.concat(result.image));
+                    $('#image'.concat(id)).removeAttr('hidden');
                 }
-                $('#vegetarian').text('Vegetarisch: '.concat(result.vegetarian));
-                $('#vegetarian').removeAttr('hidden');
-                $('#vegan').text('Vegan: '.concat(result.vegan));
-                $('#vegan').removeAttr('hidden');
+                $('#vegetarian'.concat(id)).text('Vegetarisch: '.concat(result.vegetarian));
+                $('#vegetarian'.concat(id)).removeAttr('hidden');
+                $('#vegan'.concat(id)).text('Vegan: '.concat(result.vegan));
+                $('#vegan'.concat(id)).removeAttr('hidden');
                 if (result.allergens != "") {
-                    $('#allergensHeader').removeAttr('hidden');
-                    $('#allergens').text(result.allergens);
-                    $('#allergens').removeAttr('hidden');
+                    $('#allergensHeader'.concat(id)).removeAttr('hidden');
+                    $('#allergens'.concat(id)).text(result.allergens);
+                    $('#allergens'.concat(id)).removeAttr('hidden');
                 }
                 if (result.information != "") {
-                    $('#infoHeader').removeAttr('hidden');
-                    $('#information').text(result.information);
-                    $('#information').removeAttr('hidden');
+                    $('#infoHeader'.concat(id)).removeAttr('hidden');
+                    $('#information'.concat(id)).text(result.information);
+                    $('#information'.concat(id)).removeAttr('hidden');
                 }
             });
+    }
+    function renameCloneIdsAndNames(objClone) {
+        if (objClone.attr('id')) {
+            objClone.attr('id', objClone.attr('id').replace(/\d+$/, function (strId) { return parseInt(strId) + 1; }));
+        }
+        objClone.find('[id]').each(function () {
+            var strNewId = $(this).attr('id').replace(/\d+$/, function (strId) { return parseInt(strId) + 1; });
+            $(this).attr('id', strNewId);
+            if ($(this).attr('name')) {
+                var strNewName = $(this).attr('name').replace(/\[\d+\]/g, function (strName) {
+                    strName = strName.replace(/[\[\]']+/g, '');
+                    var intNumber = parseInt(strName) + 1;
+                    return '[' + intNumber + ']'
+                });
+                $(this).attr('name', strNewName);
+            }
+        });
+        return objClone;
+    }
+    function addOrder() {
+        var clone = renameCloneIdsAndNames($('#orders div:last').clone(true, true));
+        $('#orders').append(clone);
     }
 </script>
 

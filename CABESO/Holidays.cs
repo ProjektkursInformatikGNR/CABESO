@@ -30,6 +30,8 @@ namespace CABESO
         [JsonProperty("2. Weihnachtstag")]
         public Holiday Weihnachtstag2 { get; set; }
 
+        public Holiday[] GetHolidays() => Array.ConvertAll(typeof(Holidays).GetProperties(), prop => prop.GetValue(this) as Holiday);
+
         public static Holidays Create()
         {
             if (!Program.HasInternetConnection())

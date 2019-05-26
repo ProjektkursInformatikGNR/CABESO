@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace CABESO
 {
@@ -60,14 +62,92 @@ namespace CABESO
             User = User
         };
 
-        public bool DateIsValid()
+        public static TimeRange[] ValidCollectionTimes()
         {
-            if (CollectionTime.DayOfWeek == DayOfWeek.Saturday || CollectionTime.DayOfWeek == DayOfWeek.Sunday)
-                return false;
-            if (CollectionTime.TimeOfDay < new TimeSpan(8, 15, 0) || CollectionTime.TimeOfDay > new TimeSpan(12, 50, 0))
-                return false;
-            Holidays holidays = Holidays.Create();
-            return true;
+            TimeRange[] validDays = ((TimeRange) (DateTime.Now.AddHours(1), DateTime.Now.AddDays(7))).SplitDays()
+                .Where(day => day.Start.DayOfWeek != DayOfWeek.Saturday
+                && day.Start.DayOfWeek != DayOfWeek.Sunday
+                && !Holidays.Create().GetHolidays().Any(holiday => holiday.Date == day.Start.Date))
+                .ToArray();
+            foreach (TimeRange day in validDays)
+            {
+                if (day.Start.TimeOfDay < new TimeSpan(8, 15, 0))
+                    day.Start = day.Start.Date.Add(new TimeSpan(8, 15, 0));
+                day.End = day.Start.Date.Add(new TimeSpan(12, 50, 0));
+            }
+            return validDays;
+        }
+    }
+
+    public class TimeRange
+    {
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+
+        public TimeRange(DateTime start, DateTime end)
+        {
+            Start = start;
+            End = end;
+        }
+
+        public TimeSpan Duration { get => End - Start; }
+
+        public bool Includes(DateTime dt)
+        {
+            return dt >= Start && dt <= End;
+        }
+
+        public bool Includes(TimeRange tr)
+        {
+            return tr.Start >= Start && tr.End <= End;
+        }
+
+        public TimeRange[] Split(DateTime dt)
+        {
+            TimeRange range1 = (Start, dt);
+            TimeRange range2 = (dt, End);
+            List<TimeRange> ranges = new List<TimeRange>();
+            if (range1.Duration > TimeSpan.Zero)
+                ranges.Add(range1);
+            if (range2.Duration > TimeSpan.Zero)
+                ranges.Add(range2);
+            return ranges.ToArray();
+        }
+
+        public TimeRange[] SplitDays()
+        {
+            List<TimeRange> days = new List<TimeRange>();
+            DateTime split = Start;
+            while (split < End)
+                days.Add((split, split = split.AddDays(1).Date));
+            if (split > End)
+                days[days.Count - 1].End = End;
+            return days.ToArray();
+        }
+
+        public TimeRange[] Exclude(TimeRange tr)
+        {
+            return Split(tr.Start).Concat(Split(tr.End)).Except(new[] { tr }).ToArray();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is TimeRange tr && tr.Start == Start && tr.End == End;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}", Start.GetDisplayFormat(), End.GetDisplayFormat());
+        }
+
+        public static implicit operator TimeRange((DateTime Start, DateTime End) range)
+        {
+            return new TimeRange(range.Start, range.End);
         }
     }
 }
