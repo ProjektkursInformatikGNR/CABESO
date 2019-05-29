@@ -9,10 +9,12 @@ namespace CABESO.Areas.Orders.Pages
         public static string Index => "Index";
         public static string PlaceOrder => "PlaceOrder";
         public static string OrderHistory => "OrderHistory";
+        public static string EditOrder => "EditOrder";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
         public static string PlaceOrderNavClass(ViewContext viewContext) => PageNavClass(viewContext, PlaceOrder);
         public static string OrdersHistoryNavClass(ViewContext viewContext) => PageNavClass(viewContext, OrderHistory);
+        public static string EditOrderNavClass(ViewContext viewContext) => PageNavClass(viewContext, EditOrder);
 
         private static string PageNavClass(ViewContext viewContext, string page)
         {

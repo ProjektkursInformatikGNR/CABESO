@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace CABESO.Areas.Counter.Pages
+namespace CABESO.Areas.Orders.Pages
 {
     public class EditOrderModel : PageModel
     {
@@ -33,7 +33,7 @@ namespace CABESO.Areas.Counter.Pages
             CurrentOrder.CollectionTime = Input.CollectionTime.ToUniversalTime();
             _context.Orders.Update(CurrentOrder as CurrentOrder);
             _context.SaveChanges();
-            return LocalRedirect("~/Counter/Index");
+            return LocalRedirect("~/Orders/Index");
         }
 
         [BindProperty]

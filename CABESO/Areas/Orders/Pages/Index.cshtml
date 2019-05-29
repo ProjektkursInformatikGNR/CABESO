@@ -46,6 +46,9 @@
                     Abholzeit
                 </a>
             </th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -69,6 +72,15 @@
                 </td>
                 <td>
                     @order.CollectionTime.GetDisplayFormat()
+                </td>
+                <td>
+                    
+                    @if (order.PreparationTime.Equals(null) && order.CollectionTime > DateTime.Now.AddHours(1))
+                    {
+                        <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
+                        <text>|</text>
+                        <a asp-controller="Orders" asp-action="Remove" asp-route-id="@order.Id">Entfernen</a>
+                    }
                 </td>
             </tr>
         }

@@ -1,0 +1,45 @@
+﻿@page
+@model EditOrderModel
+@{
+    ViewData["Title"] = "Bestellung bearbeiten";
+}
+
+<h2>@ViewData["Title"]: @EditOrderModel.CurrentOrder?.User.GetName() vom @EditOrderModel.CurrentOrder?.OrderTime.ToShortDateString()</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.ProductId"></label>
+        <select class="form-control" asp-for="Input.ProductId">
+            @foreach (Product product in Model.Products)
+            {
+                if (product.Id.Equals(EditOrderModel.CurrentOrder?.Product.Id))
+                {
+                    <option value="@product.Id" selected="selected">
+                        @product
+                    </option>
+                }
+                else
+                {
+                    <option value="@product.Id">
+                        @product
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Number"></label>
+        <input class="form-control" type="number" min="1" max="10" value="@EditOrderModel.CurrentOrder?.Number" asp-for="Input.Number" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.CollectionTime"></label>
+        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" value="@EditOrderModel.CurrentOrder?.CollectionTime.ToString("s")" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Notes"></label>
+        <input class="form-control" asp-for="Input.Notes" value="@EditOrderModel.CurrentOrder?.Notes" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+    </div>
+</form>
