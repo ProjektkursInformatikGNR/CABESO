@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.IO;
@@ -21,44 +21,48 @@ namespace CABESO.Areas.Counter.Pages
         public AddProductModel(ApplicationDbContext context)
         {
             _context = context;
-        }
-
-        public void OnGet()
-        {
             Allergens = _context.Allergens.ToArray();
         }
 
         public async Task<IActionResult> OnPost()
         {
-            Product product = new Product()
+            if (ModelState.IsValid)
             {
-                Name = Input.Name,
-                Price = FromInput(Input.Price) ?? 0m,
-                Sale = FromInput(Input.Sale),
-                Vegetarian = Input.Vegetarian,
-                Vegan = Input.Vegan,
-                Size = Input.Size,
-                Deposit = FromInput(Input.Deposit),
-                Allergens = Array.ConvertAll(Input.Allergens ?? new int[0], id => _context.Allergens.Find(id)),
-                Information = Input.Information
-            };
-            _context.Products.Add(product);
-            _context.SaveChanges();
-            if (Input.Image != null)
-            {
-                product.Image = product.Id + Path.GetExtension(Input.Image.FileName);
-                string filePath = Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", product.Image);
-                if (Input.Image.Length > 0)
+                List<Allergen> selectedAllergens = new List<Allergen>();
+                for (int i = 0; i < Allergens.Length; i++)
+                    if (Input.SelectedAllergens[i].Equals("True", StringComparison.OrdinalIgnoreCase))
+                        selectedAllergens.Add(Allergens[i]);
+                Product product = new Product()
                 {
-                    if (!Directory.Exists(Path.GetDirectoryName(filePath)))
-                        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-                    using (Stream stream = new FileStream(filePath, FileMode.CreateNew))
-                        await Input.Image.CopyToAsync(stream);
+                    Name = Input.Name,
+                    Price = FromInput(Input.Price) ?? 0m,
+                    Sale = FromInput(Input.Sale),
+                    Vegetarian = Input.Vegetarian,
+                    Vegan = Input.Vegan,
+                    Size = Input.Size,
+                    Deposit = FromInput(Input.Deposit),
+                    Information = Input.Information,
+                    Allergens = selectedAllergens.ToArray()
+                };
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                if (Input.Image != null)
+                {
+                    product.Image = product.Id + Path.GetExtension(Input.Image.FileName);
+                    string filePath = Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", product.Image);
+                    if (Input.Image.Length > 0)
+                    {
+                        if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+                            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                        using (Stream stream = new FileStream(filePath, FileMode.CreateNew))
+                            await Input.Image.CopyToAsync(stream);
+                    }
+                    _context.Products.Update(product);
                 }
-                _context.Products.Update(product);
+                _context.SaveChanges();
+                return LocalRedirect("~/Counter/Products");
             }
-            _context.SaveChanges();
-            return LocalRedirect("~/Counter/Products");
+            return Page();
         }
 
         [BindProperty]
@@ -94,14 +98,13 @@ namespace CABESO.Areas.Counter.Pages
             [Display(Name = "Pfand")]
             public string Deposit { get; set; }
 
-            [Required]
-            [Display(Name = "Allergene")]
-            public int[] Allergens { get; set; }
-
             [Display(Name = "Weitere Hinweise")]
             public string Information { get; set; }
 
             public bool DeleteImage { get; set; }
+
+            [Display(Name = "Allergene")]
+            public string[] SelectedAllergens { get; set; }
         }
 
         public string ToInput(decimal? number) => string.Format(CultureInfo.InvariantCulture, "{0}", number ?? string.Empty as object);

@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Produktübersicht";
 }
+@using CABESO.Data
+@inject ApplicationDbContext Context
 
 <h2>@ViewData["Title"]</h2>
 <hr />
@@ -128,6 +130,16 @@
         }
     </tbody>
 </table>
+<hr />
+<label>Allergen-Index:</label>
+<ul>
+    @foreach (KeyValuePair<int, int> allergenIndex in Model.AllergenIndices)
+    {
+        <li>
+            @allergenIndex.Value: @Context.Allergens.Find(allergenIndex.Key).Description
+        </li>
+    }
+</ul>
 
 <style>
     form {

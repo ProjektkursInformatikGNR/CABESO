@@ -38,11 +38,15 @@ namespace CABESO.Areas.Admin.Pages
 
         public IActionResult OnPost()
         {
-            CurrentForm.Enrolment = ((Form.Grade) Input.Year).Enrolment;
-            CurrentForm.Stream = string.IsNullOrEmpty(Input.Stream) ? "" : Input.Stream;
-            _context.Forms.Update(CurrentForm);
-            _context.SaveChanges();
-            return LocalRedirect("~/Admin/Forms");
+            if (ModelState.IsValid)
+            {
+                CurrentForm.Enrolment = ((Form.Grade)Input.Year).Enrolment;
+                CurrentForm.Stream = string.IsNullOrEmpty(Input.Stream) ? "" : Input.Stream;
+                _context.Forms.Update(CurrentForm);
+                _context.SaveChanges();
+                return LocalRedirect("~/Admin/Forms");
+            }
+            return Page();
         }
     }
 }

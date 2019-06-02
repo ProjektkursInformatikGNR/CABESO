@@ -34,10 +34,14 @@ namespace CABESO.Areas.Counter.Pages
 
         public IActionResult OnPost()
         {
-            CurrentAllergen.Description = Input.Description;
-            _context.Allergens.Update(CurrentAllergen);
-            _context.SaveChanges();
-            return LocalRedirect("~/Counter/Allergens");
+            if (ModelState.IsValid)
+            {
+                CurrentAllergen.Description = Input.Description;
+                _context.Allergens.Update(CurrentAllergen);
+                _context.SaveChanges();
+                return LocalRedirect("~/Counter/Allergens");
+            }
+            return Page();
         }
     }
 }
