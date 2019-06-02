@@ -11,11 +11,11 @@ namespace CABESO.Areas.Counter.Pages
     {
         public string UserNameSort { get; set; }
         public string ProductNameSort { get; set; }
-        public string PricePerProductSort { get; set; }
         public string TotalPriceSort { get; set; }
         public string NumberSort { get; set; }
         public string OrderTimeSort { get; set; }
         public string CollectionTimeSort { get; set; }
+        public string CollectionPlaceSort { get; set; }
         public string PreparationTimeSort { get; set; }
         public string NoteSort { get; set; }
         public Order[] Orders { get; set; }
@@ -39,11 +39,11 @@ namespace CABESO.Areas.Counter.Pages
             OrderTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ot" : "";
             UserNameSort = sortOrder == "un" ? "!un" : "un";
             ProductNameSort = sortOrder == "p" ? "!p" : "p";
-            PricePerProductSort = sortOrder == "ppp" ? "!ppp" : "ppp";
             TotalPriceSort = sortOrder == "tp" ? "!tp" : "tp";
             NumberSort = sortOrder == "n" ? "!n" : "n";
             CollectionTimeSort = sortOrder == "ct" ? "!ct" : "ct";
-            PreparationTimeSort = sortOrder == "ct" ? "!ct" : "ct";
+            CollectionTimeSort = sortOrder == "cp" ? "!cp" : "cp";
+            PreparationTimeSort = sortOrder == "pt" ? "!pt" : "pt";
             NoteSort = sortOrder == "no" ? "!no" : "no";
 
             IOrderedEnumerable<Order> orders = Orders.OrderBy(order => 0);
@@ -61,12 +61,6 @@ namespace CABESO.Areas.Counter.Pages
                     break;
                 case "!p":
                     orders = orders.OrderByDescending(order => order.Product.Name);
-                    break;
-                case "ppp":
-                    orders = orders.OrderBy(order => order.Product.Price);
-                    break;
-                case "!ppp":
-                    orders = orders.OrderByDescending(order => order.Product.Price);
                     break;
                 case "tp":
                     orders = orders.OrderBy(order => order.Product.Price * order.Number);
@@ -91,6 +85,12 @@ namespace CABESO.Areas.Counter.Pages
                     break;
                 case "!ct":
                     orders = orders.OrderByDescending(order => order.CollectionTime);
+                    break;
+                case "cp":
+                    orders = orders.OrderBy(order => order.CollectionPlace);
+                    break;
+                case "!cp":
+                    orders = orders.OrderByDescending(order => order.CollectionPlace);
                     break;
                 case "no":
                     orders = orders.OrderBy(order => order.Notes);

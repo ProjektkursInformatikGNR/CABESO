@@ -8,7 +8,7 @@
 <form method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div id="orders">
-        <div id="order1">
+        <div id="order0" data-price="0" data-number="1" hidden>
             <table class="table">
                 <tbody>
                     <tr>
@@ -19,10 +19,11 @@
                         <td>
                             <label asp-for="Input.Numbers"></label>
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>
-                            <select class="form-control" name="Input.ProductIds[0]" id="prodSelect1" onchange="javascript: update($(this).attr('id').slice(10));">
+                            <select class="form-control" name="Input.ProductIds[0]" id="prodSelect0" onchange="javascript: update($(this).attr('id').slice(10));">
                                 @foreach (Product product in Model.Products)
                                 {
                                     <option value="@product.Id">
@@ -33,7 +34,10 @@
                         </td>
                         <td>&nbsp;</td>
                         <td>
-                            <input class="form-control" type="number" min="1" max="10" value="1" name="Input.Numbers[0]" id="number1" />
+                            <input class="form-control" type="number" min="1" max="10" value="1" name="Input.Numbers[0]" id="number0" onchange="javascript: $('#order'.concat($(this).attr('id').slice(6))).data('number', $(this).val()); updateTotalPrice();" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="Bestellung entfernen" id="removeOrder0" onclick="javascript: removeOrder($(this).attr('id').slice(11));" />
                         </td>
                     </tr>
                 </tbody>
@@ -42,15 +46,15 @@
                 <tbody>
                     <tr>
                         <td>
-                            <img id="image1" style="width:100px;height:auto;" onclick="javascript: window.open($(this).attr('src'));" hidden />
+                            <img id="image0" style="width:100px;height:auto;" onclick="javascript: window.open($(this).attr('src'));" hidden />
                         </td>
                         <td>
-                            <p id="vegetarian1" hidden></p>
-                            <p id="vegan1" hidden></p>
-                            <p id="allergensHeader1" hidden><b>Allergene:</b></p>
-                            <p id="allergens1" hidden></p>
-                            <p id="infoHeader1" hidden><b>Weitere Hinweise:</b></p>
-                            <p id="information1" hidden></p>
+                            <p id="vegetarian0" hidden></p>
+                            <p id="vegan0" hidden></p>
+                            <p id="allergensHeader0" hidden><b>Allergene:</b></p>
+                            <p id="allergens0" hidden></p>
+                            <p id="infoHeader0" hidden><b>Weitere Hinweise:</b></p>
+                            <p id="information0" hidden></p>
                         </td>
                     </tr>
                 </tbody>
@@ -61,8 +65,19 @@
         <input type="button" class="btn" value="Bestellung hinzufügen" onclick="javascript: addOrder();" />
     </div>
     <div class="form-group">
-        <label asp-for="Input.CollectionTime"></label><span> <i>Frühstmögliche Abholzeit: @Model.ValidCollectionTimes[0].Start.GetDisplayFormat()</i></span>
-        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" id="colTime" min="@DateTime.Now.AddHours(1).GetHtmlFormat()" max="@DateTime.Now.Date.AddDays(7).GetHtmlFormat()" value="@(DateTime.Now.TimeOfDay.TotalHours > 71.0/6.0 ? DateTime.Now.Date.AddHours(36).AddMinutes(50).GetHtmlFormat() : DateTime.Now.Date.AddHours(12).AddMinutes(50).GetHtmlFormat())" onchange="javascript: updateBtns();" />
+        <label asp-for="Input.CollectionPlace"></label>
+        <select class="form-control" asp-for="Input.CollectionPlace">
+            @foreach (string place in Model.ValidCollectionPlaces)
+            {
+                <option>
+                    @place
+                </option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.CollectionTime"></label><span> <i>Frühstmögliche Abholzeit: @Model.ValidCollectionTimes[0].Start.GetDisplayFormat(false)</i></span>
+        <input class="form-control" type="datetime-local" asp-for="Input.CollectionTime" id="colTime" min="@Model.ValidCollectionTimes[0].Start.GetHtmlFormat()" max="@Model.ValidCollectionTimes.Last().End.GetHtmlFormat()" value="@((Model.ValidCollectionTimes[0].Includes(Model.ValidCollectionTimes[0].Start.Date.AddHours(12).AddMinutes(50)) ? Model.ValidCollectionTimes[0] : Model.ValidCollectionTimes[1]).Start.Date.AddHours(12).AddMinutes(50).GetHtmlFormat())" onchange="javascript: updateBtns();" />
     </div>
     <div class="form-group">
         <input type="button" id="btn1" value="1. Fünfminutenpause" onclick="javascript: setTime(815);" />
@@ -82,6 +97,9 @@
         <input class="form-control" asp-for="Input.Notes" />
     </div>
     <div class="form-group">
+        <label id="totalPrice">Gesamtpreis: 0,00 €</label>
+    </div>
+    <div class="form-group">
         <button type="submit" class="btn btn-primary">Bestellen</button>
     </div>
 </form>
@@ -97,7 +115,7 @@
 </style>
 
 <script>
-    setTime(1250);
+    setTimeout(function () { addOrder(); }, 0);
     function setTime(time) {
         $('#colTime').val($('#colTime').val().slice(0, 11).concat(Math.floor(time / 100).toString().padStart(2, '0'), ':', (time % 100).toString().padStart(2, '0')));
         updateBtns();
@@ -155,29 +173,44 @@
                     $('#information'.concat(id)).text(result.information);
                     $('#information'.concat(id)).removeAttr('hidden');
                 }
+                $('#order'.concat(id)).data('price', result.price);
+                updateTotalPrice();
             });
     }
+    function updateTotalPrice() {
+        var totalPrice = 0.0;
+        $('#orders').children('div').each(function () {
+            if (!$(this).attr('hidden')) {
+                totalPrice += parseFloat($(this).data('price')) * parseInt($(this).data('number'));
+            }
+        });
+        $('#totalPrice').text('Gesamtpreis: '.concat(totalPrice.toFixed(2).replace('.', ',')).concat(' €'));
+    }
+    var i = 1;
     function renameCloneIdsAndNames(objClone) {
         if (objClone.attr('id')) {
-            objClone.attr('id', objClone.attr('id').replace(/\d+$/, function (strId) { return parseInt(strId) + 1; }));
+            objClone.attr('id', objClone.attr('id').replace(/\d+$/, i));
         }
         objClone.find('[id]').each(function () {
-            var strNewId = $(this).attr('id').replace(/\d+$/, function (strId) { return parseInt(strId) + 1; });
+            var strNewId = $(this).attr('id').replace(/\d+$/, i);
             $(this).attr('id', strNewId);
             if ($(this).attr('name')) {
-                var strNewName = $(this).attr('name').replace(/\[\d+\]/g, function (strName) {
-                    strName = strName.replace(/[\[\]']+/g, '');
-                    var intNumber = parseInt(strName) + 1;
-                    return '[' + intNumber + ']'
-                });
+                var strNewName = $(this).attr('name').replace(/\[\d+\]/g, '[' + i + ']');
                 $(this).attr('name', strNewName);
             }
         });
+        i++;
         return objClone;
     }
     function addOrder() {
-        var clone = renameCloneIdsAndNames($('#orders div:last').clone(true, true));
+        var clone = renameCloneIdsAndNames($('#order0').clone(true, true));
+        clone.removeAttr('hidden');
         $('#orders').append(clone);
+    }
+    function removeOrder(id) {
+        $('#order'.concat(id)).attr('hidden', true);
+        $('#prodSelect'.concat(id)).val(-1);
+        updateTotalPrice();
     }
 </script>
 

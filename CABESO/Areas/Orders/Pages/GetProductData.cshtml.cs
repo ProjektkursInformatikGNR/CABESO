@@ -25,7 +25,8 @@ namespace CABESO.Areas.Orders.Pages
                 vegetarian = product.Vegetarian ? "✓" : "X",
                 vegan = product.Vegan ? "✓" : "X",
                 allergens = string.Join(", ", Array.ConvertAll(product.Allergens ?? new Allergen[0], allergen => allergen.Description)),
-                information = product.Information ?? ""
+                information = product.Information ?? "",
+                price = product.Price
             });
         }
     }

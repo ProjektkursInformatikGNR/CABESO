@@ -10,11 +10,11 @@ namespace CABESO.Areas.Orders.Pages
     public class OrderHistoryModel : PageModel
     {
         public string ProductNameSort { get; set; }
-        public string PricePerProductSort { get; set; }
         public string TotalPriceSort { get; set; }
         public string NumberSort { get; set; }
         public string OrderTimeSort { get; set; }
         public string CollectionTimeSort { get; set; }
+        public string CollectionPlaceSort { get; set; }
         public HistoricOrder[] HistoricOrders { get; set; }
 
         public string SearchKeyWord { get; set; }
@@ -35,10 +35,10 @@ namespace CABESO.Areas.Orders.Pages
 
             OrderTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ot" : "";
             ProductNameSort = sortOrder == "p" ? "!p" : "p";
-            PricePerProductSort = sortOrder == "ppp" ? "!ppp" : "ppp";
             TotalPriceSort = sortOrder == "tp" ? "!tp" : "tp";
             NumberSort = sortOrder == "n" ? "!n" : "n";
             CollectionTimeSort = sortOrder == "ct" ? "!ct" : "ct";
+            CollectionPlaceSort = sortOrder == "cp" ? "!cp" : "cp";
 
             IOrderedEnumerable<HistoricOrder> historicOrders = HistoricOrders.OrderBy(historicOrder => 0);
 
@@ -49,12 +49,6 @@ namespace CABESO.Areas.Orders.Pages
                     break;
                 case "!p":
                     historicOrders = historicOrders.OrderByDescending(historicOrder => historicOrder.Product.Name);
-                    break;
-                case "ppp":
-                    historicOrders = historicOrders.OrderBy(historicOrder => historicOrder.Product.Price);
-                    break;
-                case "!ppp":
-                    historicOrders = historicOrders.OrderByDescending(historicOrder => historicOrder.Product.Price);
                     break;
                 case "tp":
                     historicOrders = historicOrders.OrderBy(historicOrder => historicOrder.Product.Price * historicOrder.Number);
@@ -73,6 +67,12 @@ namespace CABESO.Areas.Orders.Pages
                     break;
                 case "!ct":
                     historicOrders = historicOrders.OrderByDescending(historicOrder => historicOrder.CollectionTime);
+                    break;
+                case "cp":
+                    historicOrders = historicOrders.OrderBy(historicOrder => historicOrder.CollectionPlace);
+                    break;
+                case "!cp":
+                    historicOrders = historicOrders.OrderByDescending(historicOrder => historicOrder.CollectionPlace);
                     break;
                 case "!ot":
                     historicOrders = historicOrders.OrderBy(historicOrder => historicOrder.OrderTime);

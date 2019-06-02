@@ -21,19 +21,13 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.PricePerProductSort" asp-route-search="@Model.SearchKeyWord">
-                    Einzelpreis
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
+                    Anzahl
                 </a>
             </th>
-
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.TotalPriceSort" asp-route-search="@Model.SearchKeyWord">
                     Gesamtpreis
-                </a>
-            </th>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
-                    Anzahl
                 </a>
             </th>
             <th>
@@ -46,31 +40,36 @@
                     Abholzeit
                 </a>
             </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CollectionPlaceSort" asp-route-search="@Model.SearchKeyWord">
+                    Abholort
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var historicOrder in Model.HistoricOrders)
         {
-            <tr>
-                <td>
-                    @historicOrder.Product.Name
-                </td>
-                <td>
-                    @string.Format("{0:C2}", historicOrder.Product.Price)
-                </td>
-                <td>
-                    @string.Format("{0:C2}", historicOrder.Product.Price * historicOrder.Number)
-                </td>
-                <td>
-                    @historicOrder.Number
-                </td>
-                <td>
-                    @historicOrder.OrderTime.GetDisplayFormat()
-                </td>
-                <td>
-                    @historicOrder.CollectionTime.GetDisplayFormat()
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @historicOrder.Product.Name
+            </td>
+            <td>
+                @historicOrder.Number
+            </td>
+            <td>
+                @string.Format("{0:C2}", historicOrder.Product.Price * historicOrder.Number)
+            </td>
+            <td>
+                @historicOrder.OrderTime.GetDisplayFormat()
+            </td>
+            <td>
+                @historicOrder.CollectionTime.GetDisplayFormat()
+            </td>
+            <td>
+                @historicOrder.CollectionPlace
+            </td>
+        </tr>
         }
     </tbody>
 </table>

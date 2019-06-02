@@ -111,9 +111,9 @@ namespace CABESO
             return Resources.ResourceManager.GetString(role.Name + "Display");
         }
 
-        public static string GetDisplayFormat(this DateTime dt)
+        public static string GetDisplayFormat(this DateTime dt, bool showSeconds = true)
         {
-            return dt.ToLocalTime().ToString(CultureInfo.CurrentCulture);
+            return showSeconds ? dt.ToLocalTime().ToString(CultureInfo.CurrentCulture) : dt.ToLocalTime().ToString("dd/MM/yyyy HH:mm", CultureInfo.CurrentCulture);
         }
 
         public static string GetSqlFormat(this DateTime dt)

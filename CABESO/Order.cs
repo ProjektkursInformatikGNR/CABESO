@@ -20,6 +20,8 @@ namespace CABESO
         public DateTime? PreparationTime { get; set; }
         public DateTime CollectionTime { get; set; }
 
+        public string CollectionPlace { get; set; }
+
         public override bool Equals(object obj)
         {
             return obj is Order && (obj as Order).Id == Id;
@@ -36,6 +38,7 @@ namespace CABESO
     {
         public CurrentOrder ToCurrentOrder() => new CurrentOrder()
         {
+            CollectionPlace = CollectionPlace,
             CollectionTime = CollectionTime,
             Id = Id,
             Notes = Notes,
@@ -52,6 +55,7 @@ namespace CABESO
     {
         public HistoricOrder ToHistoricOrder() => new HistoricOrder()
         {
+            CollectionPlace = CollectionPlace,
             CollectionTime = CollectionTime,
             Id = Id,
             Notes = Notes,

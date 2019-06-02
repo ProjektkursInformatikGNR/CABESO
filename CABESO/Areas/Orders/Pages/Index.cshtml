@@ -21,19 +21,13 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.PricePerProductSort" asp-route-search="@Model.SearchKeyWord">
-                    Einzelpreis
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
+                    Anzahl
                 </a>
             </th>
-
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.TotalPriceSort" asp-route-search="@Model.SearchKeyWord">
                     Gesamtpreis
-                </a>
-            </th>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
-                    Anzahl
                 </a>
             </th>
             <th>
@@ -47,6 +41,11 @@
                 </a>
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CollectionPlaceSort" asp-route-search="@Model.SearchKeyWord">
+                    Abholort
+                </a>
+            </th>
+            <th>
 
             </th>
         </tr>
@@ -54,35 +53,35 @@
     <tbody>
         @foreach (var order in Model.Orders)
         {
-            <tr>
-                <td>
-                    @order.Product.Name
-                </td>
-                <td>
-                    @string.Format("{0:C2}", order.Product.Price)
-                </td>
-                <td>
-                    @string.Format("{0:C2}", order.Product.Price * order.Number)
-                </td>
-                <td>
-                    @order.Number
-                </td>
-                <td>
-                    @order.OrderTime.GetDisplayFormat()
-                </td>
-                <td>
-                    @order.CollectionTime.GetDisplayFormat()
-                </td>
-                <td>
-                    
-                    @if (order.PreparationTime.Equals(null) && order.CollectionTime > DateTime.Now.AddHours(1))
-                    {
-                        <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
-                        <text>|</text>
-                        <a asp-controller="Orders" asp-action="Remove" asp-route-id="@order.Id">Entfernen</a>
-                    }
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @order.Product.Name
+            </td>
+            <td>
+                @order.Number
+            </td>
+            <td>
+                @string.Format("{0:C2}", order.Product.Price * order.Number)
+            </td>
+            <td>
+                @order.OrderTime.GetDisplayFormat()
+            </td>
+            <td>
+                @order.CollectionTime.GetDisplayFormat()
+            </td>
+            <td>
+                @order.CollectionPlace
+            </td>
+            <td>
+
+                @if (order.PreparationTime.Equals(null) && order.CollectionTime > DateTime.Now.AddHours(1))
+                {
+                    <a asp-page="EditOrder" asp-route-id="@order.Id">Bearbeiten</a>
+                    <text>|</text>
+                    <a asp-controller="Orders" asp-action="Remove" asp-route-id="@order.Id">Entfernen</a>
+                }
+            </td>
+        </tr>
         }
     </tbody>
 </table>

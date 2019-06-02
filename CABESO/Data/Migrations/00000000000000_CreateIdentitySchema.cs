@@ -213,7 +213,8 @@ namespace CABESO.Data.Migrations
                     Notes = table.Column<string>(nullable: true),
                     Number = table.Column<int>(nullable: false, defaultValue: 1),
                     PreparationTime = table.Column<DateTime>(nullable: true),
-                    CollectionTime = table.Column<DateTime>(nullable: false)
+                    CollectionTime = table.Column<DateTime>(nullable: false),
+                    CollectionPlace = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -234,7 +235,8 @@ namespace CABESO.Data.Migrations
                     Notes = table.Column<string>(nullable: true),
                     Number = table.Column<int>(nullable: false, defaultValue: 1),
                     PreparationTime = table.Column<DateTime>(nullable: true),
-                    CollectionTime = table.Column<DateTime>(nullable: false)
+                    CollectionTime = table.Column<DateTime>(nullable: false),
+                    CollectionPlace = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

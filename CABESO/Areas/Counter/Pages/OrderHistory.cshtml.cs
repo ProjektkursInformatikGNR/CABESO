@@ -11,12 +11,12 @@ namespace CABESO.Areas.Counter.Pages
     {
         public string UserNameSort { get; set; }
         public string ProductNameSort { get; set; }
-        public string PricePerProductSort { get; set; }
         public string TotalPriceSort { get; set; }
         public string NumberSort { get; set; }
         public string OrderTimeSort { get; set; }
         public string PreparationTimeSort { get; set; }
         public string CollectionTimeSort { get; set; }
+        public string CollectionPlaceSort { get; set; }
         public string NoteSort { get; set; }
         public Order[] Orders { get; set; }
 
@@ -39,7 +39,7 @@ namespace CABESO.Areas.Counter.Pages
             CollectionTimeSort = string.IsNullOrEmpty(sortOrder) ? "!ct" : "";
             UserNameSort = sortOrder == "un" ? "!un" : "un";
             ProductNameSort = sortOrder == "p" ? "!p" : "p";
-            PricePerProductSort = sortOrder == "ppp" ? "!ppp" : "ppp";
+            CollectionPlaceSort = sortOrder == "cp" ? "!cp" : "cp";
             TotalPriceSort = sortOrder == "tp" ? "!tp" : "tp";
             NumberSort = sortOrder == "n" ? "!n" : "n";
             PreparationTimeSort = sortOrder == "pt" ? "!pt" : "pt";
@@ -61,12 +61,6 @@ namespace CABESO.Areas.Counter.Pages
                     break;
                 case "!p":
                     orders = orders.OrderByDescending(order => order.Product.Name);
-                    break;
-                case "ppp":
-                    orders = orders.OrderBy(order => order.Product.Price);
-                    break;
-                case "!ppp":
-                    orders = orders.OrderByDescending(order => order.Product.Price);
                     break;
                 case "tp":
                     orders = orders.OrderBy(order => order.Product.Price * order.Number);
@@ -97,6 +91,12 @@ namespace CABESO.Areas.Counter.Pages
                     break;
                 case "!no":
                     orders = orders.OrderByDescending(order => order.Notes);
+                    break;
+                case "cp":
+                    orders = orders.OrderBy(order => order.CollectionPlace);
+                    break;
+                case "!cp":
+                    orders = orders.OrderByDescending(order => order.CollectionPlace);
                     break;
                 case "!ct":
                     orders = orders.OrderBy(order => order.CollectionTime);

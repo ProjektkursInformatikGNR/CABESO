@@ -26,19 +26,13 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.PricePerProductSort" asp-route-search="@Model.SearchKeyWord">
-                    Einzelpreis
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
+                    Anzahl
                 </a>
             </th>
-
             <th>
                 <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.TotalPriceSort" asp-route-search="@Model.SearchKeyWord">
                     Gesamtpreis
-                </a>
-            </th>
-            <th>
-                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.NumberSort" asp-route-search="@Model.SearchKeyWord">
-                    Anzahl
                 </a>
             </th>
             <th>
@@ -56,55 +50,60 @@
                     Abholzeit
                 </a>
             </th>
+            <th>
+                <a asp-page="./OrderHistory" asp-route-sortOrder="@Model.CollectionPlaceSort" asp-route-search="@Model.SearchKeyWord">
+                    Abholort
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var order in Model.Orders)
         {
-            <tr>
-                @if (string.IsNullOrEmpty(order.User.GetForm()?.ToString()))
-                {
-                    <td>
-                        @order.User.GetName()
-                    </td>
-                }
-                else
-                {
-                    <td title="Klasse: @order.User.GetForm().ToString()">
-                        @order.User.GetName()
-                    </td>
-                }
-                @if (string.IsNullOrEmpty(order.Notes))
-                {
-                    <td>
-                        @order.Product.Name
-                    </td>
-                }
-                else
-                {
-                    <td title="Anmerkungen: @order.Notes">
-                        @order.Product.Name
-                    </td>
-                }
+        <tr>
+            @if (string.IsNullOrEmpty(order.User.GetForm()?.ToString()))
+            {
                 <td>
-                    @string.Format("{0:C2}", order.Product.Price)
+                    @order.User.GetName()
                 </td>
+            }
+            else
+            {
+                <td title="Klasse: @order.User.GetForm().ToString()">
+                    @order.User.GetName()
+                </td>
+            }
+            @if (string.IsNullOrEmpty(order.Notes))
+            {
                 <td>
-                    @string.Format("{0:C2}", order.Product.Price * order.Number)
+                    @order.Product.Name
                 </td>
-                <td>
-                    @order.Number
+            }
+            else
+            {
+                <td title="Anmerkungen: @order.Notes">
+                    @order.Product.Name
                 </td>
-                <td>
-                    @order.OrderTime.GetDisplayFormat()
-                </td>
-                <td>
-                    @(order.PreparationTime?.GetDisplayFormat() ?? "nicht bestätigt")
-                </td>
-                <td>
-                    @order.CollectionTime.GetDisplayFormat()
-                </td>
-            </tr>
+            }
+            <td>
+                @order.Number
+            </td>
+            <td>
+                @string.Format("{0:C2}", order.Product.Price * order.Number)
+            </td>
+            <td>
+                @order.OrderTime.GetDisplayFormat()
+            </td>
+            <td>
+                @(order.PreparationTime?.GetDisplayFormat() ?? "nicht bestätigt")
+            </td>
+            <td>
+                @order.CollectionTime.GetDisplayFormat()
+            </td>
+            <td>
+                @order.CollectionPlace
+            </td>
+        </tr>
         }
     </tbody>
 </table>
