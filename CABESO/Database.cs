@@ -124,6 +124,10 @@ namespace CABESO
         {
             return dt.ToString("s").Remove(16);
         }
+        public static string GetHtmlDateFormat(this DateTime dt)
+        {
+            return dt.ToString("s").Remove(10);
+        }
         public static IEnumerable<T> Search<T>(this IEnumerable<T> list, string search, params Func<T, string>[] entries)
         {
             if (entries == null || entries.Length == 0 || string.IsNullOrEmpty(search))

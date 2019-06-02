@@ -53,7 +53,7 @@
                     @order.CollectionTime.GetDisplayFormat()
                 </td>
                 <td>
-                    <input type="button" class="btn btn-primary" value="Entfernen" onclick="location.href='@Url.Action("RemoveOrder", "Kitchen", new { id = order.Id })'">
+                    <input type="button" class="btn" value="Entfernen" onclick="location.href='@Url.Action("RemoveOrder", "Kitchen", new { id = order.Id })'">
                 </td>
                 <td>
                     <input type="button" class="btn btn-primary" value="Zubereitung bestätigen" onclick="location.href='@Url.Action("OrderPrepared", "Kitchen", new { id = order.Id })'">

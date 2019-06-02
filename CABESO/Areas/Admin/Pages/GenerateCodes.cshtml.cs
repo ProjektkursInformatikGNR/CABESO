@@ -12,7 +12,10 @@ namespace CABESO.Areas.Admin.Pages
     public class GenerateCodesModel : PageModel
     {
         [BindProperty]
-        public InputModel Input { get; set; }
+        public GenerateInputModel GenerateInput { get; set; }
+
+        [BindProperty]
+        public DeactivateInputModel DeactivateInput { get; set; }
 
         public RegistrationCode[] Codes { get; private set; }
 
@@ -23,7 +26,7 @@ namespace CABESO.Areas.Admin.Pages
             _context = context;
         }
 
-        public class InputModel
+        public class GenerateInputModel
         {
             [Required]
             [Display(Name = "Anzahl")]
@@ -34,32 +37,16 @@ namespace CABESO.Areas.Admin.Pages
             public string Role { get; set; }
         }
 
+        public class DeactivateInputModel
+        {
+            [Required]
+            [Display(Name = "Altersgrenze")]
+            public DateTime Limit { get; set; }
+        }
+
         public void OnGet()
         {
             Codes = _context.Codes.OrderByDescending(code => code.CreationTime).ToArray();
-        }
-
-        public IActionResult OnPost()
-        {
-
-            if (ModelState.IsValid)
-            {
-                for (int i = 0; i < Input.Number; i++)
-                    GenerateCode(Input.Role);
-                return RedirectToPage();
-            }
-            return Page();
-        }
-
-        public void GenerateCode(string role)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            const int length = 10;
-
-            Random random = new Random();
-            string code = new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
-            _context.Codes.Add(new RegistrationCode() { Code = code, CreationTime = DateTime.UtcNow, Role = _context.Roles.FirstOrDefault(r => r.Name.Equals(role)) });
-            _context.SaveChanges();
         }
     }
 }
