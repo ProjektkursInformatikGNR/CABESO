@@ -41,9 +41,14 @@ namespace CABESO.Areas.Admin.Pages
 
         public IActionResult OnPost()
         {
-            for (int i = 0; i < Input.Number; i++)
-                GenerateCode(Input.Role);
-            return RedirectToPage();
+
+            if (ModelState.IsValid)
+            {
+                for (int i = 0; i < Input.Number; i++)
+                    GenerateCode(Input.Role);
+                return RedirectToPage();
+            }
+            return Page();
         }
 
         public void GenerateCode(string role)

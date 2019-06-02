@@ -35,32 +35,36 @@ namespace CABESO.Areas.Admin.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            bool refresh = CurrentUser.Id.Equals(User.GetIdentityUser().Id);
-            CurrentUser.Email = Input.Email;
-            CurrentUser.NormalizedEmail = Input.Email.ToUpper();
-            CurrentUser.UserName = Input.Email;
-            CurrentUser.NormalizedUserName = Input.Email.ToUpper();
-            _context.Users.Update(CurrentUser);
-            _context.UserRoles.RemoveRange(_context.UserRoles.Where(userRole => userRole.UserId.Equals(CurrentUser.Id)));
-            _context.UserRoles.Add(new IdentityUserRole<string>()
+            if (ModelState.IsValid)
             {
-                UserId = CurrentUser.Id,
-                RoleId = _context.Roles.FirstOrDefault(role => role.Name.Equals(Input.Role)).Id
-            });
-            if (Input.Admin)
+                bool refresh = CurrentUser.Id.Equals(User.GetIdentityUser().Id);
+                CurrentUser.Email = Input.Email;
+                CurrentUser.NormalizedEmail = Input.Email.ToUpper();
+                CurrentUser.UserName = Input.Email;
+                CurrentUser.NormalizedUserName = Input.Email.ToUpper();
+                _context.Users.Update(CurrentUser);
+                _context.UserRoles.RemoveRange(_context.UserRoles.Where(userRole => userRole.UserId.Equals(CurrentUser.Id)));
                 _context.UserRoles.Add(new IdentityUserRole<string>()
                 {
                     UserId = CurrentUser.Id,
-                    RoleId = _context.Roles.FirstOrDefault(role => role.Name.Equals(Resources.Admin)).Id
+                    RoleId = _context.Roles.FirstOrDefault(role => role.Name.Equals(Input.Role)).Id
                 });
-            _context.SaveChanges();
-            CurrentUser.SetFormId(Input.Role.Equals(Resources.Student) ? Input.FormId : null);
-            if (refresh)
-            {
-                await _signInManager.SignOutAsync();
-                await _signInManager.SignInAsync(CurrentUser, false);
+                if (Input.Admin)
+                    _context.UserRoles.Add(new IdentityUserRole<string>()
+                    {
+                        UserId = CurrentUser.Id,
+                        RoleId = _context.Roles.FirstOrDefault(role => role.Name.Equals(Resources.Admin)).Id
+                    });
+                _context.SaveChanges();
+                CurrentUser.SetFormId(Input.Role.Equals(Resources.Student) ? Input.FormId : null);
+                if (refresh)
+                {
+                    await _signInManager.SignOutAsync();
+                    await _signInManager.SignInAsync(CurrentUser, false);
+                }
+                return LocalRedirect("~/Admin/Index");
             }
-            return LocalRedirect("~/Admin/Index");
+            return Page();
         }
 
         [BindProperty]
