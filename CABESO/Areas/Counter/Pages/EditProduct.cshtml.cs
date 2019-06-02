@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.IO;
@@ -24,54 +23,46 @@ namespace CABESO.Areas.Counter.Pages
         public EditProductModel(ApplicationDbContext context)
         {
             _context = context;
-            Allergens = _context.Allergens.ToArray();
         }
 
         public void OnGet(int id)
         {
             CurrentProduct = _context.Products.Find(id);
+            Allergens = _context.Allergens.ToArray();
         }
 
         public async Task<IActionResult> OnPost()
         {
-            if (ModelState.IsValid)
+            if (Input.DeleteImage)
             {
-                if (Input.DeleteImage)
-                {
-                    System.IO.File.Delete(Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", CurrentProduct.Image));
-                    CurrentProduct.Image = string.Empty;
-                }
-                else if (Input.Image != null)
-                {
-                    CurrentProduct.Image = CurrentProduct.Id + Path.GetExtension(Input.Image.FileName);
-                    string filePath = Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", CurrentProduct.Image);
-                    if (Input.Image.Length > 0)
-                    {
-                        if (!Directory.Exists(Path.GetDirectoryName(filePath)))
-                            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-                        using (Stream stream = new FileStream(filePath, FileMode.Create))
-                            await Input.Image.CopyToAsync(stream);
-                    }
-                }
-
-                CurrentProduct.Name = Input.Name;
-                CurrentProduct.Price = FromInput(Input.Price) ?? 0m;
-                CurrentProduct.Sale = FromInput(Input.Sale);
-                CurrentProduct.Vegetarian = Input.Vegetarian;
-                CurrentProduct.Vegan = Input.Vegan;
-                CurrentProduct.Size = Input.Size;
-                CurrentProduct.Deposit = FromInput(Input.Deposit);
-                List<Allergen> selectedAllergens = new List<Allergen>();
-                for (int i = 0; i < Allergens.Length; i++)
-                    if (Input.SelectedAllergens[i].Equals("True", StringComparison.OrdinalIgnoreCase))
-                        selectedAllergens.Add(Allergens[i]);
-                CurrentProduct.Allergens = selectedAllergens.ToArray();
-                CurrentProduct.Information = Input.Information;
-                _context.Products.Update(CurrentProduct);
-                _context.SaveChanges();
-                return LocalRedirect("~/Counter/Products");
+                System.IO.File.Delete(Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", CurrentProduct.Image));
+                CurrentProduct.Image = string.Empty;
             }
-            return Page();
+            else if (Input.Image != null)
+            {
+                CurrentProduct.Image = CurrentProduct.Id + Path.GetExtension(Input.Image.FileName);
+                string filePath = Path.Combine(Environment.CurrentDirectory, "wwwroot", "images", CurrentProduct.Image);
+                if (Input.Image.Length > 0)
+                {
+                    if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+                        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                    using (Stream stream = new FileStream(filePath, FileMode.Create))
+                        await Input.Image.CopyToAsync(stream);
+                }
+            }
+
+            CurrentProduct.Name = Input.Name;
+            CurrentProduct.Price = FromInput(Input.Price) ?? 0m;
+            CurrentProduct.Sale = FromInput(Input.Sale);
+            CurrentProduct.Vegetarian = Input.Vegetarian;
+            CurrentProduct.Vegan = Input.Vegan;
+            CurrentProduct.Size = Input.Size;
+            CurrentProduct.Deposit = FromInput(Input.Deposit);
+            CurrentProduct.Allergens = Array.ConvertAll(Input.Allergens ?? new int[0], id => _context.Allergens.Find(id));
+            CurrentProduct.Information = Input.Information;
+            _context.Products.Update(CurrentProduct);
+            _context.SaveChanges();
+            return LocalRedirect("~/Counter/Products");
         }
 
         [BindProperty]
@@ -107,13 +98,14 @@ namespace CABESO.Areas.Counter.Pages
             [Display(Name = "Pfand")]
             public string Deposit { get; set; }
 
+            [Required]
+            [Display(Name = "Allergene")]
+            public int[] Allergens { get; set; }
+
             [Display(Name = "Weitere Hinweise")]
             public string Information { get; set; }
 
             public bool DeleteImage { get; set; }
-
-            [Display(Name = "Allergene")]
-            public string[] SelectedAllergens { get; set; }
         }
 
         public string ToInput(decimal? number) => string.Format(CultureInfo.InvariantCulture, "{0}", number ?? string.Empty as object);

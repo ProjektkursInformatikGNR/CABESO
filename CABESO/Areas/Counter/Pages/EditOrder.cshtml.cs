@@ -27,17 +27,13 @@ namespace CABESO.Areas.Counter.Pages
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
-            {
-                CurrentOrder.Product = _context.Products.Find(Input.ProductId);
-                CurrentOrder.Number = Input.Number;
-                CurrentOrder.Notes = Input.Notes;
-                CurrentOrder.CollectionTime = Input.CollectionTime.ToUniversalTime();
-                _context.Orders.Update(CurrentOrder as CurrentOrder);
-                _context.SaveChanges();
-                return LocalRedirect("~/Counter/Index");
-            }
-            return Page();
+            CurrentOrder.Product = _context.Products.Find(Input.ProductId);
+            CurrentOrder.Number = Input.Number;
+            CurrentOrder.Notes = Input.Notes;
+            CurrentOrder.CollectionTime = Input.CollectionTime.ToUniversalTime();
+            _context.Orders.Update(CurrentOrder as CurrentOrder);
+            _context.SaveChanges();
+            return LocalRedirect("~/Counter/Index");
         }
 
         [BindProperty]

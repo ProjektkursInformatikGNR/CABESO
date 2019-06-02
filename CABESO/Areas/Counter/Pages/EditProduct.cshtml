@@ -67,32 +67,24 @@
         <input asp-for="Input.Deposit" type="number" step="0.01" min="0.00" value="@Model.ToInput(EditProductModel.CurrentProduct?.Deposit)" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="Input.SelectedAllergens"></label>
-        <div class="multiselect">
-            <div class="selectBox" onclick="showCheckboxes()">
-                <select class="form-control">
-                    <option>Allergene auswählen...</option>
-                </select>
-                <div class="overSelect"></div>
-            </div>
-            <div id="checkboxes" class="form-control">
-                @{ int i = 0; }
-                @foreach (Allergen allergen in Model.Allergens ?? new Allergen[0])
+        <label asp-for="Input.Allergens"></label>
+        <select asp-for="Input.Allergens" class="form-control" multiple>
+            @foreach (Allergen allergen in Model.Allergens ?? new Allergen[0])
+            {
+                @if (EditProductModel.CurrentProduct?.Allergens?.Contains(allergen) ?? false)
                 {
-                    <label for="cb@(allergen.Id)" class="form-control">
-                        @if (EditProductModel.CurrentProduct.Allergens?.Contains(allergen) ?? false)
-                        {
-                            <input type="checkbox" id="cb@(allergen.Id)" asp-for="Input.SelectedAllergens[i]" checked="checked" /><text>&nbsp;</text>@allergen.Description
-                        }
-                        else
-                        {
-                            <input type="checkbox" id="cb@(allergen.Id)" asp-for="Input.SelectedAllergens[i]" /><text>&nbsp;</text>@allergen.Description
-                        }
-                    </label>
-                    i++;
+                    <option value="@allergen.Id" selected="selected">
+                        @allergen.Description
+                    </option>
                 }
-            </div>
-        </div>
+                else
+                {
+                    <option value="@allergen.Id">
+                        @allergen.Description
+                    </option>
+                }
+            }
+        </select>
     </div>
     <div class="form-group">
         <label asp-for="Input.Information"></label>
@@ -104,18 +96,6 @@
 </form>
 
 <script>
-    var expanded = false;
-    function showCheckboxes() {
-        var checkboxes = document.getElementById("checkboxes");
-        if (!expanded) {
-            checkboxes.style.display = "block";
-            expanded = true;
-        } else {
-            checkboxes.style.display = "none";
-            expanded = false;
-        }
-    }
-
     var selectImage = document.getElementById('selectImage');
     var browseImageBtn = document.getElementById('browseImageBtn');
     var removeImageBtn = document.getElementById('removeImageBtn');
@@ -141,37 +121,3 @@
         }
     };
 </script>
-
-<style>
-    .selectBox {
-        position: relative;
-    }
-
-        .selectBox select {
-            width: 100%;
-            font-weight: bold;
-        }
-
-    .overSelect {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
-
-    #checkboxes {
-        display: none;
-        border: 1px #dadada solid;
-        overflow: auto;
-        height: 150px;
-    }
-
-        #checkboxes label {
-            display: block;
-        }
-
-            #checkboxes label:hover {
-                background-color: #1e90ff;
-            }
-</style>

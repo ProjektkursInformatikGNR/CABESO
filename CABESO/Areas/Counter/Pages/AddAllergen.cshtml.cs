@@ -28,17 +28,13 @@ namespace CABESO.Areas.Counter.Pages
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            Allergen allergen = new Allergen()
             {
-                Allergen allergen = new Allergen()
-                {
-                    Description = Input.Description
-                };
-                _context.Allergens.Add(allergen);
-                _context.SaveChanges();
-                return LocalRedirect("~/Counter/Allergens");
-            }
-            return Page();
+                Description = Input.Description
+            };
+            _context.Allergens.Add(allergen);
+            _context.SaveChanges();
+            return LocalRedirect("~/Counter/Allergens");
         }
     }
 }
