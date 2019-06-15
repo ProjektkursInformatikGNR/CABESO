@@ -7,7 +7,7 @@ namespace CABESO.Areas.Orders.Pages
 {
     public class GetProductDataModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         public GetProductDataModel(ApplicationDbContext context)
         {

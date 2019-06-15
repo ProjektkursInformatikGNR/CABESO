@@ -8,8 +8,8 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager; //Der Manager der Benutzerverwaltung
+        private readonly SignInManager<IdentityUser> _signInManager; //Der Manager der Anmeldeverwaltung
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public ChangePasswordModel(
@@ -22,13 +22,19 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
             _logger = logger;
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
         [TempData]
         public string StatusMessage { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Required(AllowEmptyStrings = false, ErrorMessage = Program.ErrorMessage)]
             [DataType(DataType.Password)]

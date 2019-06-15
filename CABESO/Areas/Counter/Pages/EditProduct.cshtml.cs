@@ -19,7 +19,7 @@ namespace CABESO.Areas.Counter.Pages
         public static Product CurrentProduct { get; private set; }
         public Allergen[] Allergens { get; private set; }
 
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         public EditProductModel(ApplicationDbContext context)
         {
@@ -74,10 +74,16 @@ namespace CABESO.Areas.Counter.Pages
             return Page();
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Required(AllowEmptyStrings = false)]
             [Display(Name = "Bezeichnung")]

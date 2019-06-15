@@ -1,5 +1,6 @@
 ﻿using CABESO.Data;
 using CABESO.Properties;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,16 +10,43 @@ using System.Threading.Tasks;
 
 namespace CABESO.Areas.Admin.Pages
 {
+    /// <summary>
+    /// Die Modellklasse der Razor Page zur Bearbeitung eines Benutzers
+    /// </summary>
+    [Authorize(Roles = "Admin")]
     public class EditUserModel : PageModel
     {
+        /// <summary>
+        /// Der zu bearbeitende Benutzer
+        /// </summary>
         public static IdentityUser CurrentUser { get; private set; }
+
+        /// <summary>
+        /// Der Indikator, ob der zu bearbeitende Benutzer der einzige Admin ist und, wenn dem so ist, diese Berechtigungsstufe behalten muss
+        /// </summary>
         public bool StuckAsAdmin { get; private set; }
+
+        /// <summary>
+        /// Die zur Verfügung stehenden Schulklassen
+        /// </summary>
         public Form[] Forms { get; private set; }
 
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager; //Der Manager der Benutzerverwaltung
+        private readonly SignInManager<IdentityUser> _signInManager; //Der Manager der Anmeldeverwaltung
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
+        /// <summary>
+        /// Erzeugt ein neues <seealso cref="EditUserModel"/>.
+        /// </summary>
+        /// <param name="userManager">
+        /// Die Benutzerverwaltungsinstanz per Dependency Injection
+        /// </param>
+        /// <param name="signInManager">
+        /// Die Anmeldeverwaltungsinstanz per Dependency Injection
+        /// </param>
+        /// <param name="context">
+        /// Der Datenbankkontext per Dependency Injection
+        /// </param>
         public EditUserModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ApplicationDbContext context)
         {
             _userManager = userManager;
@@ -26,6 +54,13 @@ namespace CABESO.Areas.Admin.Pages
             _context = context;
         }
 
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+        /// Er initialisiert die Eigenschaften <seealso cref="CurrentUser"/>, <seealso cref="StuckAsAdmin"/> sowie <seealso cref="Forms"/>.</para>
+        /// </summary>
+        /// <param name="id">
+        /// Die ID des zu bearbeitenden Benutzers
+        /// </param>
         public async Task OnGet(string id)
         {
             CurrentUser = Database.GetUserById(id);
@@ -33,6 +68,13 @@ namespace CABESO.Areas.Admin.Pages
             Forms = _context.GetFormsSelect();
         }
 
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Bearbeiten"-Buttons).<para>
+        /// Er bearbeitet auf Grundlage der eingegebenen Informationen den gegebenen Benutzer.</para>
+        /// </summary>
+        /// <returns>
+        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// </returns>
         public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
@@ -67,20 +109,41 @@ namespace CABESO.Areas.Admin.Pages
             return Page();
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
+            /// <summary>
+            /// Die E-Mail-Adresse des zu bearbeitenden Benutzers (erforderlich)
+            /// </summary>
+            [Required]
             [Display(Name = "E-Mail-Adresse")]
             public string Email { get; set; }
 
+            /// <summary>
+            /// Die Rolle (Schüler*in, Lehrer*in oder Mitarbeiter*in) des zu bearbeitenden Benutzers (erforderlich)
+            /// </summary>
+            [Required]
             [Display(Name = "Rolle")]
             public string Role { get; set; }
 
+            /// <summary>
+            /// Die ID der Schulklasse des zu bearbeitenden Benutzers (optional)
+            /// </summary>
             [Display(Name = "Klasse")]
             public int? FormId { get; set; }
 
+            /// <summary>
+            /// Die Berechtigungsstufe (Admin oder Benutzer) des zu bearbeitenden Benutzers (erforderlich)
+            /// </summary>
+            [Required]
             [Display(Name = "Administrator: ")]
             public bool Admin { get; set; }
         }

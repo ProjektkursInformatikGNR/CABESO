@@ -8,25 +8,73 @@ using System.Linq;
 
 namespace CABESO.Areas.Admin.Pages
 {
+    /// <summary>
+    /// Die Modellklasse der Razor Page zur Übersicht der Benutzer
+    /// </summary>
     [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
-        public IdentityUser[] Users;
+        /// <summary>
+        /// Die zur Verfügung stehende Benutzer
+        /// </summary>
+        public IdentityUser[] Users { get; private set; }
 
+        /// <summary>
+        /// Das Sortierverhalten der Tabelle in Bezug auf den Vornamen des Benutzers
+        /// </summary>
         public string FirstNameSort { get; set; }
+
+        /// <summary>
+        /// Das Sortierverhalten der Tabelle in Bezug auf den Nachnamen des Benutzers
+        /// </summary>
         public string LastNameSort { get; set; }
+
+        /// <summary>
+        /// Das Sortierverhalten der Tabelle in Bezug auf die Rolle des Benutzers
+        /// </summary>
         public string RoleSort { get; set; }
+
+        /// <summary>
+        /// Das Sortierverhalten der Tabelle in Bezug auf die Schulklasse des Benutzers
+        /// </summary>
         public string FormSort { get; set; }
+
+        /// <summary>
+        /// Das Sortierverhalten der Tabelle in Bezug auf den Administratorenstatus des Benutzers
+        /// </summary>
         public string AdminSort { get; set; }
+
+        /// <summary>
+        /// Das Sortierverhalten der Tabelle in Bezug auf den Mitarbeiterstatus des Benutzers
+        /// </summary>
         public string EmployeeSort { get; set; }
 
+        /// <summary>
+        /// Der zu suchende Ausdruck
+        /// </summary>
         public string SearchKeyWord { get; set; }
 
+        /// <summary>
+        /// Erzeugt ein neues <seealso cref="IndexModel"/>.
+        /// </summary>
+        /// <param name="context">
+        /// Der Datenbankkontext per Dependency Injection
+        /// </param>
         public IndexModel(ApplicationDbContext context)
         {
             Users = context.Users.ToArray();
         }
 
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+        /// Er konfiguriert gegebenenfalls die Tabelle gemäß der Such- und/oder Sortieranfrage.</para>
+        /// </summary>
+        /// <param name="search">
+        /// Der zu suchende Ausdruck
+        /// </param>
+        /// <param name="sortOrder">
+        /// Das Sortierverhalten
+        /// </param>
         public void OnGet(string search, string sortOrder)
         {
             SearchKeyWord = search ?? string.Empty;
@@ -84,14 +132,27 @@ namespace CABESO.Areas.Admin.Pages
             Users = users.ThenBy(user => user.GetName().LastName).ToArray();
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             public string SearchKeyWord { get; set; }
         }
 
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Suchen"- bzw. eines Sortieren-Buttons).<para>
+        /// Er lädt die Weboberfläche neu, sodass der Such- und/oder Sortieranfrage Rechnung getragen werden kann.</para>
+        /// </summary>
+        /// <returns>
+        /// Die Anweisung zum Neuladen der Oberfläche
+        /// </returns>
         public IActionResult OnPost()
         {
             return RedirectToAction("Index", "Admin", new { sortOrder = string.Empty, search = Input.SearchKeyWord?.Trim() ?? string.Empty });

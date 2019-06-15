@@ -20,9 +20,9 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         private static string _code;
 
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager; //Der Manager der Benutzerverwaltung
         private readonly ILogger<RegisterModel> _logger;
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         public RegisterModel(UserManager<IdentityUser> userManager, ILogger<RegisterModel> logger, ApplicationDbContext context)
         {
@@ -32,7 +32,10 @@ namespace CABESO.Areas.Identity.Pages.Account
             Forms = _context.GetFormsSelect();
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
@@ -42,7 +45,10 @@ namespace CABESO.Areas.Identity.Pages.Account
 
         public static bool Confirmed { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Required]
             [StringLength(10, ErrorMessage = "Der Code muss genau 10 Zeichen lang sein.", MinimumLength = 10)]

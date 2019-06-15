@@ -25,7 +25,7 @@ namespace CABESO.Areas.Counter.Pages
         public Dictionary<int, int> AllergenIndices { get; private set; }
         public string SearchKeyWord { get; set; }
 
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         public ProductsModel(ApplicationDbContext context)
         {
@@ -116,10 +116,16 @@ namespace CABESO.Areas.Counter.Pages
                 AllergenIndices.Add(allergen.Id, ++i);
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             public string SearchKeyWord { get; set; }
         }

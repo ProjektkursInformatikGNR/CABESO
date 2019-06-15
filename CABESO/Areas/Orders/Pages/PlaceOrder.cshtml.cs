@@ -15,7 +15,7 @@ namespace CABESO.Areas.Orders.Pages
         public TimeRange[] ValidCollectionTimes { get; private set; }
         public string[] ValidCollectionPlaces { get => new[] { "E-Gebäude", "G-Gebäude" }; }
 
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         public PlaceOrderModel(ApplicationDbContext context)
         {
@@ -43,10 +43,16 @@ namespace CABESO.Areas.Orders.Pages
             return Page();
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Display(Name = "Wähle ein Gericht aus:")]
             public int[] ProductIds { get; set; }

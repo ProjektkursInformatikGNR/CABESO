@@ -10,8 +10,8 @@ namespace CABESO.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class CreatePasswordModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager; //Der Manager der Anmeldeverwaltung
+        private readonly UserManager<IdentityUser> _userManager; //Der Manager der Benutzerverwaltung
         private static string _userId;
 
         public CreatePasswordModel(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
@@ -20,10 +20,16 @@ namespace CABESO.Areas.Identity.Pages.Account
             _userManager = userManager;
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Required]
             [StringLength(100, ErrorMessage = "Das {0} muss mindestens {2} und höchstens {1} Zeichen lang sein.", MinimumLength = 6)]

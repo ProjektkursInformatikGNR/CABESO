@@ -12,7 +12,7 @@ namespace CABESO.Areas.Counter.Pages
         public Product[] Products { get; private set; }
         public static Order CurrentOrder { get; private set; }
 
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         public EditOrderModel(ApplicationDbContext context)
         {
@@ -40,10 +40,16 @@ namespace CABESO.Areas.Counter.Pages
             return Page();
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Required]
             [Display(Name = "Gericht")]

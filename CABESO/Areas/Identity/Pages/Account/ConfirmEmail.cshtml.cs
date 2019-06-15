@@ -9,7 +9,7 @@ namespace CABESO.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager; //Der Manager der Benutzerverwaltung
 
         public ConfirmEmailModel(UserManager<IdentityUser> userManager)
         {

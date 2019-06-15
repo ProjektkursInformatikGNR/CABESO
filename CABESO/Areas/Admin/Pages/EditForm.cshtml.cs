@@ -10,7 +10,7 @@ namespace CABESO.Areas.Admin.Pages
     public class EditFormModel : PageModel
     {
         
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
         public static Form CurrentForm;
 
         public EditFormModel(ApplicationDbContext context)
@@ -18,10 +18,16 @@ namespace CABESO.Areas.Admin.Pages
             _context = context;
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Required(AllowEmptyStrings = false, ErrorMessage = "Gib bitte den Jahrgang an.")]
             [Display(Name = "Derzeitiger Jahrgang")]

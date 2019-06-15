@@ -9,7 +9,7 @@ namespace CABESO.Areas.Counter.Pages
     [Authorize(Roles = "Admin,Employee")]
     public class EditAllergenModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
         public static Allergen CurrentAllergen;
 
         public EditAllergenModel(ApplicationDbContext context)
@@ -17,10 +17,16 @@ namespace CABESO.Areas.Counter.Pages
             _context = context;
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Required(AllowEmptyStrings = false, ErrorMessage = "Gib bitte die Beschreibung an.")]
             [Display(Name = "Beschreibung")]

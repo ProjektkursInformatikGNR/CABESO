@@ -8,35 +8,68 @@ using System.Threading.Tasks;
 
 namespace CABESO.Views.Admin
 {
+    /// <summary>
+    /// Der Controller der Area "Admin" ist zuständig für die Ausführung der Actions.
+    /// </summary>
     public class AdminController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager; //Der Manager der Benutzerverwaltung
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
+        /// <summary>
+        /// Erzeugt einen neuen <seealso cref="AdminController"/>.
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="context"></param>
         public AdminController(UserManager<IdentityUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             _context = context;
         }
 
+        /// <summary>
+        /// Die Weiterleitung zur Razor Page <seealso cref="CABESO.Areas.Admin.Pages.Areas_Admin_Pages_Index"/>
+        /// </summary>
+        /// <returns>
+        /// Die Anweisung der Weiterleitung
+        /// </returns>
         [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Die Weiterleitung zur Razor Page <seealso cref="CABESO.Areas.Admin.Pages.Areas_Admin_Pages_GenerateCodes"/>
+        /// </summary>
+        /// <returns>
+        /// Die Anweisung der Weiterleitung
+        /// </returns>
         [Authorize(Roles = "Admin")]
         public IActionResult GenerateCodes()
         {
             return View();
         }
 
+        /// <summary>
+        /// Die Weiterleitung zur Razor Page <seealso cref="CABESO.Areas.Admin.Pages.Areas_Admin_Pages_AddUser"/>
+        /// </summary>
+        /// <returns>
+        /// Die Anweisung der Weiterleitung
+        /// </returns>
         [Authorize(Roles = "Admin")]
         public IActionResult AddUser()
         {
             return View();
         }
 
+        /// <summary>
+        /// Entfernt einen gegebenen Benutzer aus der Datenbank.
+        /// </summary>
+        /// <param name="id">Die ID des zu entfernenden Benutzers</param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Benutzerübersicht
+        /// </returns>
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Remove(string id)
         {
@@ -46,12 +79,27 @@ namespace CABESO.Views.Admin
             return LocalRedirect("~/Admin/Index");
         }
 
+        /// <summary>
+        /// Die Weiterleitung zur Razor Page <seealso cref="CABESO.Areas.Admin.Pages.Areas_Admin_Pages_EditUser"/>
+        /// </summary>
+        /// <returns>
+        /// Die Anweisung der Weiterleitung
+        /// </returns>
         [Authorize(Roles = "Admin")]
         public IActionResult EditUser()
         {
             return View();
         }
 
+        /// <summary>
+        /// Deaktiviert einen <seealso cref="RegistrationCode"/>, indem dieser aus der Datenbank entfernt wird.
+        /// </summary>
+        /// <param name="code">
+        /// Die alpha-numerische Zeichenkette des zu deaktivierenden Codes
+        /// </param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Codegenerierung
+        /// </returns>
         [Authorize(Roles = "Admin")]
         public IActionResult DeactivateCode(string code)
         {
@@ -60,6 +108,13 @@ namespace CABESO.Views.Admin
             return LocalRedirect("~/Admin/GenerateCodes");
         }
 
+        /// <summary>
+        /// Entfernt eine <seealso cref="Form"/> aus der Datenbank.
+        /// </summary>
+        /// <param name="id">Die ID der zu entfernenden Schulklasse</param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Klassenübersicht
+        /// </returns>
         [Authorize(Roles = "Admin")]
         public IActionResult RemoveForm(int id)
         {
@@ -69,26 +124,41 @@ namespace CABESO.Views.Admin
             return LocalRedirect("~/Admin/Forms");
         }
 
-
+        /// <summary>
+        /// Generiert zufällig neue Registrierungscodes für die gegebene Rolle.
+        /// </summary>
+        /// <param name="number">
+        /// Die Anzahl der zu generierenden Codes
+        /// </param>
+        /// <param name="role">
+        /// Die Rolle der neuen Benutzer
+        /// </param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Codegenerierung
+        /// </returns>
         [HttpPost]
         public IActionResult Generate(int number, string role)
         {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const int length = 10;
             for (int i = 0; i < number; i++)
-                GenerateCode(role);
+            {
+                string code = new string(Enumerable.Repeat(chars, length).Select(s => s[new Random().Next(s.Length)]).ToArray());
+                _context.Codes.Add(new RegistrationCode() { Code = code, CreationTime = DateTime.UtcNow, Role = _context.Roles.FirstOrDefault(r => r.Name.Equals(role)) });
+            }
+            _context.SaveChanges();
             return LocalRedirect("~/Admin/GenerateCodes");
         }
 
-        public void GenerateCode(string role)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            const int length = 10;
-
-            Random random = new Random();
-            string code = new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
-            _context.Codes.Add(new RegistrationCode() { Code = code, CreationTime = DateTime.UtcNow, Role = _context.Roles.FirstOrDefault(r => r.Name.Equals(role)) });
-            _context.SaveChanges();
-        }
-
+        /// <summary>
+        /// Deaktiviert obsolete Codes, indem diese aus der Datenbank entfernt werden.
+        /// </summary>
+        /// <param name="limit">
+        /// Codes, die vor oder an diesem Tag generiert wurden, sind zu deaktivieren.
+        /// </param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Codegenerierung
+        /// </returns>
         [HttpPost]
         public IActionResult DeactivateOldCodes(DateTime limit)
         {

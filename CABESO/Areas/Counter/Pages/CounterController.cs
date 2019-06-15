@@ -7,7 +7,7 @@ namespace CABESO.Views.Counter
 {
     public class CounterController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         public CounterController(ApplicationDbContext context)
         {

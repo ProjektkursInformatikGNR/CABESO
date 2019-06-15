@@ -22,7 +22,7 @@ namespace CABESO.Areas.Counter.Pages
 
         public string SearchKeyWord { get; set; }
 
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         public IndexModel(ApplicationDbContext context)
         {
@@ -109,10 +109,16 @@ namespace CABESO.Areas.Counter.Pages
             Orders = orders.ThenByDescending(order => order.CollectionTime).ToArray();
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             public string SearchKeyWord { get; set; }
         }

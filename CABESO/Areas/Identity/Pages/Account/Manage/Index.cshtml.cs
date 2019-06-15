@@ -9,7 +9,7 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
     {
         public IdentityUser CurrentUser { get; set; }
 
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager; //Der Manager der Benutzerverwaltung
 
         public IndexModel(UserManager<IdentityUser> userManager)
         {

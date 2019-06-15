@@ -13,8 +13,8 @@ namespace CABESO.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager; //Der Manager der Benutzerverwaltung
+        private readonly SignInManager<IdentityUser> _signInManager; //Der Manager der Anmeldeverwaltung
         private readonly ILogger<LoginModel> _logger;
 
         public LoginModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
@@ -24,7 +24,10 @@ namespace CABESO.Areas.Identity.Pages.Account
             _logger = logger;
         }
 
-        [BindProperty]
+        /// <summary>
+		/// Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+		/// </summary>
+		[BindProperty]
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
@@ -32,7 +35,10 @@ namespace CABESO.Areas.Identity.Pages.Account
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public class InputModel
+        /// <summary>
+		/// Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
+		/// </summary>
+		public class InputModel
         {
             [Required(AllowEmptyStrings = false, ErrorMessage = Program.ErrorMessage)]
             [Display(Name = "wwschool-Adresse (Der Namensteil genügt.)")]
