@@ -28,7 +28,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="CABESO.Areas.Admin.Pages.Areas_Admin_Pages_Index"/>
+        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Admin.Pages.Areas_Admin_Pages_Index"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -40,7 +40,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="CABESO.Areas.Admin.Pages.Areas_Admin_Pages_GenerateCodes"/>
+        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Admin.Pages.Areas_Admin_Pages_GenerateCodes"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -52,7 +52,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="CABESO.Areas.Admin.Pages.Areas_Admin_Pages_AddUser"/>
+        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Admin.Pages.Areas_Admin_Pages_AddUser"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -80,7 +80,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="CABESO.Areas.Admin.Pages.Areas_Admin_Pages_EditUser"/>
+        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Admin.Pages.Areas_Admin_Pages_EditUser"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung

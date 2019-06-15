@@ -1,4 +1,5 @@
 ﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,18 +13,38 @@ using System.Threading.Tasks;
 
 namespace CABESO.Areas.Counter.Pages
 {
+    /// <summary>
+    /// Die Modellklasse der Razor Page zum Hinzufügen eines Produkts
+    /// </summary>
+    [Authorize(Roles = "Admin,Employee")]
     public class AddProductModel : PageModel
     {
+        /// <summary>
+        /// Die zur Verfügung stehende Allergene
+        /// </summary>
         public Allergen[] Allergens { get; private set; }
 
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
+        /// <summary>
+        /// Erzeugt ein neues <seealso cref="AddProductModel"/>.
+        /// </summary>
+        /// <param name="context">
+        /// Der Datenbankkontext per Dependency Injection
+        /// </param>
         public AddProductModel(ApplicationDbContext context)
         {
             _context = context;
             Allergens = _context.Allergens.ToArray();
         }
 
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Hinzufügen"-Buttons).<para>
+        /// Er erstellt auf Grundlage der eingegebenen Informationen ein neues Produkt.</para>
+        /// </summary>
+        /// <returns>
+        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// </returns>
         public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
@@ -76,44 +97,81 @@ namespace CABESO.Areas.Counter.Pages
 		/// </summary>
 		public class InputModel
         {
+            /// <summary>
+            /// Die Bezeichnung des hinzuzufügenden Produkts (erforderlich)
+            /// </summary>
             [Required(AllowEmptyStrings = false)]
             [Display(Name = "Bezeichnung")]
             public string Name { get; set; }
 
+            /// <summary>
+            /// Die Abbildung des hinzuzufügenden Produkts (optional)
+            /// </summary>
             [Display(Name = "Bild")]
             public IFormFile Image { get; set; }
 
+            /// <summary>
+            /// Der Preis des hinzuzufügenden Produkts (erforderlich)
+            /// </summary>
             [Required(AllowEmptyStrings = false)]
             [Display(Name = "Preis")]
             public string Price { get; set; }
 
+            /// <summary>
+            /// Der Rabatt auf das hinzuzufügende Produkt (optional)
+            /// </summary>
             [Display(Name = "Rabatt")]
             public string Sale { get; set; }
 
+            /// <summary>
+            /// Der Indikator, ob das hinzuzufügende Produkt vegetarisch ist (erforderlich)
+            /// </summary>
             [Required]
             [Display(Name = "Vegetarisch?")]
             public bool Vegetarian { get; set; }
 
+            /// <summary>
+            /// Der Indikator, ob das hinzuzufügende Produkt vegan ist (erforderlich)
+            /// </summary>
             [Required]
             [Display(Name = "Vegan?")]
             public bool Vegan { get; set; }
 
+            /// <summary>
+            /// Die Größe des hinzuzufügenden Produkts (optional)
+            /// </summary>
             [Display(Name = "Größe")]
             public string Size { get; set; }
 
+            /// <summary>
+            /// Der Pfandbetrag des hinzuzufügenden Produkts (optional)
+            /// </summary>
             [Display(Name = "Pfand")]
             public string Deposit { get; set; }
 
+            /// <summary>
+            /// Weitere Hinweise zum hinzuzufügenden Produkt (optional)
+            /// </summary>
             [Display(Name = "Weitere Hinweise")]
             public string Information { get; set; }
 
-            public bool DeleteImage { get; set; }
-
+            /// <summary>
+            /// Die für das hinzuzufügende Produkt ausgewählten Allergene (erforderlich)
+            /// </summary>
+            [Required]
             [Display(Name = "Allergene")]
             public string[] SelectedAllergens { get; set; }
         }
 
-        public string ToInput(decimal? number) => string.Format(CultureInfo.InvariantCulture, "{0}", number ?? string.Empty as object);
+        /// <summary>
+        /// Konvertiert die Preiseingabe vom <seealso cref="string"/>-Format ins <seealso cref="decimal"/>-Format.
+        /// </summary>
+        /// <param name="number">
+        /// Die Benutzereingabe
+        /// </param>
+        /// <returns>
+        /// Der Dezimalwert
+        /// </returns>
         public decimal? FromInput(string number)
         {
             bool b = decimal.TryParse(number, NumberStyles.Currency, CultureInfo.InvariantCulture, out decimal d);

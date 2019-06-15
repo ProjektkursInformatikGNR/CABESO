@@ -5,33 +5,57 @@ using System;
 
 namespace CABESO.Views.Counter
 {
+    /// <summary>
+    /// Der Controller der Area "Counter" ist zuständig für die Ausführung der Actions.
+    /// </summary>
     public class CounterController : Controller
     {
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
+        /// <summary>
+        /// Erzeugt einen neuen <seealso cref="CounterController"/>.
+        /// </summary>
+        /// <param name="context">
+        /// Der Datenbankkontext
+        /// </param>
         public CounterController(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Counter.Pages.Areas_Counter_Pages_Index"/>
+        /// </summary>
+        /// <returns>
+        /// Die Anweisung der Weiterleitung
+        /// </returns>
         [Authorize(Roles = "Employee,Admin")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Authorize(Roles = "Employee,Admin")]
-        public IActionResult Orders()
-        {
-            return View();
-        }
-
+        /// <summary>
+        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Counter.Pages.Areas_Counter_Pages_Products"/>
+        /// </summary>
+        /// <returns>
+        /// Die Anweisung der Weiterleitung
+        /// </returns>
         [Authorize(Roles = "Employee,Admin")]
         public IActionResult Products()
         {
             return View();
         }
 
+        /// <summary>
+        /// Entfernt das gegebene <seealso cref="Product"/> aus der Datenbank.
+        /// </summary>
+        /// <param name="id">
+        /// Die ID des zu entfernenden Produkts
+        /// </param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Produktübersicht
+        /// </returns>
         [Authorize(Roles = "Employee,Admin")]
         public IActionResult RemoveProduct(int id)
         {
@@ -44,6 +68,15 @@ namespace CABESO.Views.Counter
             return LocalRedirect("~/Counter/Products");
         }
 
+        /// <summary>
+        /// Entfernt die gegebene <seealso cref="Order"/> aus der Datenbank.
+        /// </summary>
+        /// <param name="id">
+        /// Die ID der zu entfernenden Bestellung
+        /// </param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Bestellungsübersicht
+        /// </returns>
         [Authorize(Roles = "Employee,Admin")]
         public IActionResult RemoveOrder(int id)
         {
@@ -56,6 +89,15 @@ namespace CABESO.Views.Counter
             return LocalRedirect("~/Counter/Index");
         }
 
+        /// <summary>
+        /// Archiviert eine Bestellung, indem diese aus der Tabelle "Orders" in "OrderHistory" verschoben wird.
+        /// </summary>
+        /// <param name="id">
+        /// Die ID der zu archivierenden Bestellung
+        /// </param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Bestellungsübersicht
+        /// </returns>
         [Authorize(Roles = "Employee,Admin")]
         public IActionResult ArchiveOrder(int id)
         {
@@ -69,6 +111,15 @@ namespace CABESO.Views.Counter
             return LocalRedirect("~/Counter/Index");
         }
 
+        /// <summary>
+        /// Entfernt ein gegebenes <seealso cref="Allergen"/> aus der Datenbank.
+        /// </summary>
+        /// <param name="id">
+        /// Die ID des zu entfernenden Allergens
+        /// </param>
+        /// <returns>
+        /// Die Anweisung zur Rückkehr zur Allergenübersicht
+        /// </returns>
         [Authorize(Roles = "Employee,Admin")]
         public IActionResult RemoveAllergen(int id)
         {

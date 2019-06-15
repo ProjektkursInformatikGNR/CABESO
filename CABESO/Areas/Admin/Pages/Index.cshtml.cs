@@ -67,7 +67,7 @@ namespace CABESO.Areas.Admin.Pages
 
         /// <summary>
         /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
-        /// Er konfiguriert gegebenenfalls die Tabelle gemäß der Such- und/oder Sortieranfrage.</para>
+        /// Er konfiguriert gegebenenfalls die Tabelle gemäß der Suchanfrage.</para>
         /// </summary>
         /// <param name="search">
         /// Der zu suchende Ausdruck
@@ -143,12 +143,15 @@ namespace CABESO.Areas.Admin.Pages
 		/// </summary>
 		public class InputModel
         {
+            /// <summary>
+            /// Der zu suchende Ausdruck
+            /// </summary>
             public string SearchKeyWord { get; set; }
         }
 
         /// <summary>
-        /// Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Suchen"- bzw. eines Sortieren-Buttons).<para>
-        /// Er lädt die Weboberfläche neu, sodass der Such- und/oder Sortieranfrage Rechnung getragen werden kann.</para>
+        /// Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Suchen"-Buttons).<para>
+        /// Er lädt die Weboberfläche neu, sodass der Suchanfrage Rechnung getragen werden kann.</para>
         /// </summary>
         /// <returns>
         /// Die Anweisung zum Neuladen der Oberfläche

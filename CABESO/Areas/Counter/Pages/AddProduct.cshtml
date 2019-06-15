@@ -17,7 +17,6 @@
         <img src="" id="image" style="max-width:300px;height:auto" hidden />
         <hr />
         <input type="file" asp-for="Input.Image" accept="image/*" id="selectImage" style="display: none;" />
-        <input type="checkbox" asp-for="Input.DeleteImage" id="removeImage" style="display: none;" />
         <input type="button" class="form-control" value="Durchsuchen..." id="browseImageBtn" />
         <input type="button" class="form-control" value="Bild entfernen" id="removeImageBtn" />
     </div>
@@ -92,17 +91,14 @@
     var browseImageBtn = document.getElementById('browseImageBtn');
     var removeImageBtn = document.getElementById('removeImageBtn');
     var image = document.getElementById('image');
-    var removeImage = document.getElementById('removeImage');
     browseImageBtn.onclick = function (evt) {
         selectImage.click();
     };
     removeImageBtn.onclick = function (evt) {
         image.src = '';
         image.setAttribute('hidden', 'true');
-        removeImage.setAttribute('checked', 'true');
     };
     selectImage.onchange = function (evt) {
-        removeImage.removeAttribute('checked');
         if (selectImage.files && selectImage.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {

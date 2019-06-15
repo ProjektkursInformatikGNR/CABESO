@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CABESO.Areas.Counter.Pages
 {
+    /// <summary>
+    /// Die Modellklasse der Razor Page zur Bearbeitung eines Allergens
+    /// </summary>
     [Authorize(Roles = "Admin,Employee")]
     public class EditAllergenModel : PageModel
     {
@@ -33,11 +36,25 @@ namespace CABESO.Areas.Counter.Pages
             public string Description { get; set; }
         }
 
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+        /// Er initialisiert das zu bearbeitende Allergen <seealso cref="CurrentAllergen"/> anhand der ID.</para>
+        /// </summary>
+        /// <param name="id">
+        /// Die ID des zu bearbeitenden Allergens
+        /// </param>
         public void OnGet(int id)
         {
             CurrentAllergen = _context.Allergens.Find(id);
         }
 
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Bearbeiten"-Buttons).<para>
+        /// Er bearbeitet auf Grundlage der eingegebenen Informationen das gegebenene Allergen.</para>
+        /// </summary>
+        /// <returns>
+        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// </returns>
         public IActionResult OnPost()
         {
             if (ModelState.IsValid)
