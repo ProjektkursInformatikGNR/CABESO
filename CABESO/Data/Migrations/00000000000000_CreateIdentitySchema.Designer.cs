@@ -11,6 +11,12 @@ namespace CABESO.Data.Migrations
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
+        /// <summary>
+        /// Vorgegebene Erstellung des Datenbankmodells durch das Login-Scaffolding
+        /// </summary>
+        /// <param name="modelBuilder">
+        /// Die Erzeugerinstanz der Datenbankmodellierung
+        /// </param>
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

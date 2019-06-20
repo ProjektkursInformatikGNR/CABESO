@@ -69,6 +69,9 @@ namespace CABESO.Areas.Admin.Pages
         /// </summary>
         public class DeactivateInputModel
         {
+            /// <summary>
+            /// Der Zeitpunkt, ab dem die Registrierungscodes zu entfernen sind
+            /// </summary>
             [Required]
             [Display(Name = "Altersgrenze")]
             public DateTime Limit { get; set; }

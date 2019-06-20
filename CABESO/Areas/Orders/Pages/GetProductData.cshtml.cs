@@ -7,7 +7,7 @@ using System;
 namespace CABESO.Areas.Orders.Pages
 {
     /// <summary>
-    /// Eine Hilfsklasse zur AJAX-Kommunikation der <see cref="Areas_Orders_Pages_PlaceOrder"/>-Weboberfläche.
+    /// Eine Hilfsklasse zur AJAX-Kommunikation der "PlaceOrder"-Weboberfläche.
     /// </summary>
     [Authorize]
     public class GetProductDataModel : PageModel

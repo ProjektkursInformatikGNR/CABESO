@@ -14,14 +14,38 @@ using System.Threading;
 
 namespace CABESO
 {
+    /// <summary>
+    /// Startklasse des Projekts
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Standardmäßige Fehlermeldung
+        /// </summary>
         public const string ErrorMessage = "Gib bitte {0} an.";
 
+        /// <summary>
+        /// Pop-up-Meldung im Buffer
+        /// </summary>
         public static string Alert { get; set; }
 
+        /// <summary>
+        /// Gibt an, ob sich ein gegebener Jahrgang im G9-System befindet.
+        /// </summary>
+        /// <param name="year">
+        /// Der zu untersuchende Jahrgang
+        /// </param>
+        /// <returns>
+        /// Gibt <c>true</c> zurück, falls der Jahrgang sich im G9-System befindet, sonst <c>false</c>.
+        /// </returns>
         public static bool IsG9(int year) => year > 2018;
 
+        /// <summary>
+        /// Liefert die Pop-up-Meldung zurück und leert dabei den Buffer.
+        /// </summary>
+        /// <returns>
+        /// Die Pop-up-Meldung
+        /// </returns>
         public static string ShowAlert()
         {
             string alert = Alert;
@@ -29,6 +53,15 @@ namespace CABESO
             return alert;
         }
 
+        /// <summary>
+        /// Bezieht aus dem externen Programm "Greeting.exe" eine passende Begrüßung für die Startseite.
+        /// </summary>
+        /// <param name="name">
+        /// Der Name des zu begrüßenden Benutzers
+        /// </param>
+        /// <returns>
+        /// Die anzuzeigende Begrüßungsformel
+        /// </returns>
         public static string Greeting(Name name = null)
         {
             Process proc = new Process
@@ -49,11 +82,26 @@ namespace CABESO
             return greeting;
         }
 
-        [DllImport("wininet.dll")]
+        [DllImport("wininet.dll")] //Aus einer externen DLL importierte Funktionen
         private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
 
+        /// <summary>
+        /// Gibt an, ob derzeit eine Verbindung zum Internet besteht.
+        /// </summary>
+        /// <returns>
+        /// Gibt <c>true</c> zurück, wenn eine Verbindung aufgebautb werden kann, sonst <c>false</c>.
+        /// </returns>
         public static bool HasInternetConnection() => InternetGetConnectedState(out _, 0);
 
+        /// <summary>
+        /// Überprüft, ob eine gegebene E-Mail-Adresse gültig ist, indem ex negativo auf eine Fehlermeldung vom Provider gewartet wird.
+        /// </summary>
+        /// <param name="mailAddress">
+        /// Die zu überprüfende E-Mail-Adresse
+        /// </param>
+        /// <returns>
+        /// Gibt <c>true</c> zurück, wenn die E-Mail-Adresse gültig ist, sonst <c>false</c>.
+        /// </returns>
         public static bool MailValid(string mailAddress)
         {
             if (!HasInternetConnection())
@@ -90,6 +138,27 @@ namespace CABESO
             }
         }
 
+        /// <summary>
+        /// Versendet eine E-Mail von einem statischen E-Mail-Konto an eine gegebene Adresse.
+        /// </summary>
+        /// <param name="mailAddress">
+        /// Die E-Mail-Adresse des Empfängers
+        /// </param>
+        /// <param name="name">
+        /// Der Name des Empfängers
+        /// </param>
+        /// <param name="subject">
+        /// Der Inhalt der Betreffzeile der E-Mail
+        /// </param>
+        /// <param name="body">
+        /// Der Textinhalt der E-Mail
+        /// </param>
+        /// <param name="links">
+        /// Ggf. in der E-Mail verwandte Hyperlinks
+        /// </param>
+        /// <returns>
+        /// Gibt <c>true</c> zurück, wenn die E-Mail erfolgreich versandt wurde, sonst <c>false</c>.
+        /// </returns>
         public static bool SendMail(string mailAddress, string name, string subject, string body, params (string Url, string Text)[] links)
         {
             if (!HasInternetConnection())
@@ -124,6 +193,12 @@ namespace CABESO
             }
         }
 
+        /// <summary>
+        /// Startmethode; Baut alle Kontexte auf und startet die Weboberfläche.
+        /// </summary>
+        /// <param name="args">
+        /// Befehlszeilenargumente für den Programmstart
+        /// </param>
         public static void Main(string[] args)
         {
             WebHost.CreateDefaultBuilder(args)

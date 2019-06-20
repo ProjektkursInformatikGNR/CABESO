@@ -56,9 +56,20 @@
     <MSHelpViewerSdkLinkType>Msdn</MSHelpViewerSdkLinkType>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="CABESO.Areas.Counter.Pages" isDocumented="True">Das Namespace &lt;see cref="CABESO.Areas.Counter.Pages"/&gt; beinhaltet Features für die Herausgabe der zubereiteten Bestellungen sowie für die cafeteriainterne Verwaltung.</NamespaceSummaryItem>
-<NamespaceSummaryItem name="CABESO.Areas.Admin.Pages" isDocumented="True">Das Namespace &lt;see cref="CABESO.Areas.Admin.Pages"/&gt; beinhaltet Features für die institutionelle Verwaltung der Benutzer und ihrer Gruppenzugehörigkeiten.</NamespaceSummaryItem></NamespaceSummaries>
+<NamespaceSummaryItem name="CABESO.Areas.Admin.Pages" isDocumented="True">Das Namespace &lt;see cref="CABESO.Areas.Admin.Pages" /&gt; beinhaltet Features für die institutionelle Verwaltung der Benutzer und ihrer Gruppenzugehörigkeiten.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO" isDocumented="True">Das Namespace &lt;see cref="CABESO" /&gt; beinhaltet grundlegende Startklassen sowie Datenmodellierungsklassen.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Areas.Identity.Pages" isDocumented="True">Das Namespace &lt;see cref="CABESO.Areas.Identity.Pages" /&gt; beinhaltet an sich größenteils lediglich das Error-View, darüber hinaus jedoch das Subnamespace &lt;see cref="CABESO.Areas.Identity.Pages.Account" /&gt; für die Verwaltung der Kontodaten des angemedeten Benutzers.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Areas.Identity.Pages.Account" isDocumented="True">Das Namespace &lt;see cref="CABESO.Areas.Identity.Pages.Account" /&gt; beinhaltet Features zur Anmedldung, Registrierung sowie zum Support. Des Weiteren beinhaltet es das Subnamespace &lt;see cref="CABESO.Areas.Identity.Pages.Account.Manage" /&gt; zur Selbstverwaltung der Kontodaten durch den Benutzer.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Areas.Identity.Pages.Account.Manage" isDocumented="True">Das Namespace &lt;see cref="CABESO.Areas.Identity.Pages.Account.Manage" /&gt; beinhaltet Features für den Benutzer zur Einsicht sowie zur Verwaltung der eigenen Kontodaten.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Areas.Kitchen.Pages" isDocumented="True">Das Namespace &lt;see cref="CABESO.Areas.Kitchen.Pages" /&gt; beihaltet die Funktionalitäten für die Arbeit in der Küche der Cafeteria, insbesondere in Bezug auf die Zubereitung der bestellten Gerichte.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Areas.Orders.Pages" isDocumented="True">Das Namespace &lt;see cref="CABESO.Areas.Orders.Pages" /&gt; beinhaltet Features zur Aufgabe von Bestellungen durch den Benutzer und die Einsicht und Verwaltung bereits getätigter Bestellungen.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Controllers" isDocumented="True">Das Namespace &lt;see cref="CABESO.Controllers" /&gt; beinhaltet die einzelnen Controller-Klassen der anderen Namespaces, die die angeforderten Actions durchführen.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Data" isDocumented="True">Das Namespace &lt;see cref="CABESO.Data" /&gt; beinhaltet die Kontextklassen zur Kommunikation mit der Datenbankanbindung, insbesondere zur Erstellung (siehe &lt;see cref="CABESO.Data.Migrations" /&gt;) und Datenmodellierung.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Data.Migrations" isDocumented="True">Das Namespace &lt;see cref="CABESO.Data.Migrations" /&gt; beinhaltet speziell die Datenbankkontextklassen zum Aufbau und Abbild der Infrastruktur der Datenbank.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="CABESO.Models" isDocumented="True">Das Namespace &lt;see cref="CABESO.Models" /&gt; beinhaltet universelle Seiten wie die Startseite, ohne einer Area zugeordnet oder durch Razor Pages realisiert zu sein.</NamespaceSummaryItem></NamespaceSummaries>
     <ProjectSummary>
     </ProjectSummary>
+    <MissingTags>Summary, Parameter, Returns, Namespace, TypeParameter, AutoDocumentDispose</MissingTags>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

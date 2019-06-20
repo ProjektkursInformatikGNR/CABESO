@@ -4,6 +4,48 @@
         <name>CABESO</name>
     </assembly>
     <members>
+        <member name="T:CABESO.Allergen">
+            <summary>
+            Die Datenbankabbildungsklasse mit Bezug zur Tabellenspalte "Allergens"
+            </summary>
+        </member>
+        <member name="P:CABESO.Allergen.Id">
+            <summary>
+            Die ID des gegebenen Allergens
+            </summary>
+        </member>
+        <member name="P:CABESO.Allergen.Description">
+            <summary>
+            Die Beschreibung des gegebenen Allergens
+            </summary>
+        </member>
+        <member name="M:CABESO.Allergen.ToString">
+            <summary>
+            Die standardmäßige Objektbeschreibung entspricht hier der Beschreibung des Allergens.
+            </summary>
+            <returns>
+            Die Beschreibung des Objekts
+            </returns>
+        </member>
+        <member name="M:CABESO.Allergen.Equals(System.Object)">
+            <summary>
+            Als Vergleichsoperation genügt hier der Vergleich des Unique Keys <see cref="P:CABESO.Allergen.Id"/>.
+            </summary>
+            <param name="obj">
+            Ein Vergleichsobjekt
+            </param>
+            <returns>
+            Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Allergen.GetHashCode">
+            <summary>
+            Zur Generierung des Hashs wird auf von <see cref="T:System.Object"/> geerbte Methode zurückgegriffen.
+            </summary>
+            <returns>
+            Der Hash-Code des Objekts
+            </returns>
+        </member>
         <member name="T:CABESO.Areas.Admin.Pages.AddFormModel">
             <summary>
             Die Modellklasse der Razor Page zum Hinzufügen einer Schulklasse
@@ -115,6 +157,105 @@
             Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
             </returns>
         </member>
+        <member name="T:CABESO.Areas.Admin.Pages.AdminNavPages">
+            <summary>
+            Eine Hilfsklasse zur Navigation innerhalb der Area "Admin"
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Admin.Pages.AdminNavPages.Index">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.IndexModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Admin.Pages.AdminNavPages.GenerateCodes">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.GenerateCodesModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Admin.Pages.AdminNavPages.EditUser">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.EditUserModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Admin.Pages.AdminNavPages.Forms">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.FormsModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Admin.Pages.AdminNavPages.EditForm">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.EditFormModel"/>
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Admin.Pages.AdminNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.IndexModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Admin.Pages.AdminNavPages.GenerateCodesNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.GenerateCodesModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Admin.Pages.AdminNavPages.EditUserNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.EditUserModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Admin.Pages.AdminNavPages.FormsNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.FormsModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Admin.Pages.AdminNavPages.EditFormNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.EditFormModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Admin.Pages.AdminNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext,System.String)">
+            <summary>
+            Liefert Informationen darüber, ob die gegebene Seite als aktiv angezeigt werden soll.
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <param name="page">
+            Die zu untersuchende Seite
+            </param>
+            <returns>
+            Indikator, ob die Seite als aktiv gekennzeichnet werden soll
+            </returns>
+        </member>
         <member name="T:CABESO.Areas.Admin.Pages.EditFormModel">
             <summary>
             Die Modellklasse der Razor Page zur Bearbeitung einer Schulklasse
@@ -213,6 +354,9 @@
             <param name="id">
             Die ID des zu bearbeitenden Benutzers
             </param>
+            <returns>
+            Syntaktisch wird ein <see cref="T:System.Threading.Tasks.Task"/> zurückgegeben, wegen des <c>await</c>-Schlüsselworts beim Aufruf entspricht dieser semantisch jedoch <c>void</c>.
+            </returns>
         </member>
         <member name="M:CABESO.Areas.Admin.Pages.EditUserModel.OnPost">
             <summary>
@@ -365,6 +509,11 @@
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
         </member>
+        <member name="P:CABESO.Areas.Admin.Pages.GenerateCodesModel.DeactivateInputModel.Limit">
+            <summary>
+            Der Zeitpunkt, ab dem die Registrierungscodes zu entfernen sind
+            </summary>
+        </member>
         <member name="M:CABESO.Areas.Admin.Pages.GenerateCodesModel.OnGet">
             <summary>
             Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
@@ -373,7 +522,7 @@
         </member>
         <member name="T:CABESO.Areas.Admin.Pages.GetFormDataModel">
             <summary>
-            Eine Hilfsklasse zur AJAX-Kommunikation der <see cref="!:AddForm"/>-Weboberfläche.
+            Eine Hilfsklasse zur AJAX-Kommunikation der "AddForm"-Weboberfläche.
             </summary>
         </member>
         <member name="M:CABESO.Areas.Admin.Pages.GetFormDataModel.#ctor(CABESO.Data.ApplicationDbContext)">
@@ -473,7 +622,7 @@
         </member>
         <member name="P:CABESO.Areas.Admin.Pages.IndexModel.InputModel.SearchKeyWord">
             <summary>
-            Der zu suchende Ausdruck
+            Der zu suchende Ausdruck (optional)
             </summary>
         </member>
         <member name="M:CABESO.Areas.Admin.Pages.IndexModel.OnPost">
@@ -483,105 +632,6 @@
             </summary>
             <returns>
             Die Anweisung zum Neuladen der Oberfläche
-            </returns>
-        </member>
-        <member name="T:CABESO.Areas.Admin.Pages.ManageNavPages">
-            <summary>
-            Eine Hilfsklasse zur Navigation innerhalb der Area "Admin"
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Admin.Pages.ManageNavPages.Index">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.IndexModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Admin.Pages.ManageNavPages.GenerateCodes">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.GenerateCodesModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Admin.Pages.ManageNavPages.EditUser">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.EditUserModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Admin.Pages.ManageNavPages.Forms">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.FormsModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Admin.Pages.ManageNavPages.EditForm">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.EditFormModel"/>
-            </summary>
-        </member>
-        <member name="M:CABESO.Areas.Admin.Pages.ManageNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.IndexModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Admin.Pages.ManageNavPages.GenerateCodesNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.GenerateCodesModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Admin.Pages.ManageNavPages.EditUserNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.EditUserModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Admin.Pages.ManageNavPages.FormsNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.FormsModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Admin.Pages.ManageNavPages.EditFormNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Admin.Pages.EditFormModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Admin.Pages.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext,System.String)">
-            <summary>
-            Liefert Informationen darüber, ob die gegebene Seite als aktiv angezeigt werden soll.
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <param name="page">
-            Die zu untersuchende Seite
-            </param>
-            <returns>
-            Indikator, ob die Seite als aktiv gekennzeichnet werden soll
             </returns>
         </member>
         <member name="T:CABESO.Areas.Counter.Pages.AddAllergenModel">
@@ -771,7 +821,7 @@
         </member>
         <member name="P:CABESO.Areas.Counter.Pages.AllergensModel.InputModel.SearchKeyWord">
             <summary>
-            Der zu suchende Ausdruck
+            Der zu suchende Ausdruck (optional)
             </summary>
         </member>
         <member name="M:CABESO.Areas.Counter.Pages.AllergensModel.OnPost">
@@ -781,6 +831,137 @@
             </summary>
             <returns>
             Die Anweisung zum Neuladen der Oberfläche
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Counter.Pages.CounterNavPages">
+            <summary>
+            Eine Hilfsklasse zur Navigation innerhalb der Area "Counter"
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Counter.Pages.CounterNavPages.Index">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.IndexModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Counter.Pages.CounterNavPages.OrderHistory">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.OrderHistoryModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Counter.Pages.CounterNavPages.EditOrder">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.EditOrderModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Counter.Pages.CounterNavPages.Products">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.ProductsModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Counter.Pages.CounterNavPages.AddProduct">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AddProductModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Counter.Pages.CounterNavPages.Allergens">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AllergensModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Counter.Pages.CounterNavPages.AddAllergen">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AddAllergenModel"/>
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Counter.Pages.CounterNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.IndexModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Counter.Pages.CounterNavPages.OrderHistoryNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.OrderHistoryModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Counter.Pages.CounterNavPages.EditOrderNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.EditOrderModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Counter.Pages.CounterNavPages.ProductsNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.ProductsModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Counter.Pages.CounterNavPages.AddProductNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AddProductModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Counter.Pages.CounterNavPages.AllergensNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AllergensModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Counter.Pages.CounterNavPages.AddAllergenNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AddAllergenModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Counter.Pages.CounterNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext,System.String)">
+            <summary>
+            Liefert Informationen darüber, ob die gegebene Seite als aktiv angezeigt werden soll.
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <param name="page">
+            Die zu untersuchende Seite
+            </param>
+            <returns>
+            Indikator, ob die Seite als aktiv gekennzeichnet werden soll
             </returns>
         </member>
         <member name="T:CABESO.Areas.Counter.Pages.EditAllergenModel">
@@ -1123,7 +1304,7 @@
         </member>
         <member name="P:CABESO.Areas.Counter.Pages.IndexModel.InputModel.SearchKeyWord">
             <summary>
-            Der zu suchende Ausdruck
+            Der zu suchende Ausdruck (optional)
             </summary>
         </member>
         <member name="M:CABESO.Areas.Counter.Pages.IndexModel.OnPost">
@@ -1133,137 +1314,6 @@
             </summary>
             <returns>
             Die Anweisung zum Neuladen der Oberfläche
-            </returns>
-        </member>
-        <member name="T:CABESO.Areas.Counter.Pages.ManageNavPages">
-            <summary>
-            Eine Hilfsklasse zur Navigation innerhalb der Area "Counter"
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Counter.Pages.ManageNavPages.Index">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.IndexModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Counter.Pages.ManageNavPages.OrderHistory">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.OrderHistoryModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Counter.Pages.ManageNavPages.EditOrder">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.EditOrderModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Counter.Pages.ManageNavPages.Products">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.ProductsModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Counter.Pages.ManageNavPages.AddProduct">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AddProductModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Counter.Pages.ManageNavPages.Allergens">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AllergensModel"/>
-            </summary>
-        </member>
-        <member name="P:CABESO.Areas.Counter.Pages.ManageNavPages.AddAllergen">
-            <summary>
-            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AddAllergenModel"/>
-            </summary>
-        </member>
-        <member name="M:CABESO.Areas.Counter.Pages.ManageNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.IndexModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Counter.Pages.ManageNavPages.OrderHistoryNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.OrderHistoryModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Counter.Pages.ManageNavPages.EditOrderNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.EditOrderModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Counter.Pages.ManageNavPages.ProductsNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.ProductsModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Counter.Pages.ManageNavPages.AddProductNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AddProductModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Counter.Pages.ManageNavPages.AllergensNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AllergensModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Counter.Pages.ManageNavPages.AddAllergenNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
-            <summary>
-            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Counter.Pages.AddAllergenModel"/>
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <returns>
-            Die Navigationsinformation
-            </returns>
-        </member>
-        <member name="M:CABESO.Areas.Counter.Pages.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext,System.String)">
-            <summary>
-            Liefert Informationen darüber, ob die gegebene Seite als aktiv angezeigt werden soll.
-            </summary>
-            <param name="viewContext">
-            Der Ansichtkontext
-            </param>
-            <param name="page">
-            Die zu untersuchende Seite
-            </param>
-            <returns>
-            Indikator, ob die Seite als aktiv gekennzeichnet werden soll
             </returns>
         </member>
         <member name="T:CABESO.Areas.Counter.Pages.OrderHistoryModel">
@@ -1358,7 +1408,7 @@
         </member>
         <member name="P:CABESO.Areas.Counter.Pages.OrderHistoryModel.InputModel.SearchKeyWord">
             <summary>
-            Der zu suchende Ausdruck
+            Der zu suchende Ausdruck (optional)
             </summary>
         </member>
         <member name="M:CABESO.Areas.Counter.Pages.OrderHistoryModel.OnPost">
@@ -1467,7 +1517,7 @@
         </member>
         <member name="P:CABESO.Areas.Counter.Pages.ProductsModel.InputModel.SearchKeyWord">
             <summary>
-            Der zu suchende Ausdruck
+            Der zu suchende Ausdruck (optional)
             </summary>
         </member>
         <member name="M:CABESO.Areas.Counter.Pages.ProductsModel.OnPost">
@@ -1479,6 +1529,55 @@
             Die Anweisung zum Neuladen der Oberfläche
             </returns>
         </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.AccessDeniedModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Anzeige einer fehlenden Zugriffsberechtigung
+            </summary>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.ConfirmEmailModel">
+            <summary>
+            Modellklasse der Razor Page zur Verifizierung einer neuen E-Mail-Adresse
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.ConfirmEmailModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.ConfirmEmailModel"/>.
+            </summary>
+            <param name="userManager">
+            Die Benutzerverwaltungsinstanz per Dependency Injection
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.ConfirmEmailModel.OnGetAsync(System.String,System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er verifiziert den benutzerspezifischen Bestätigungscode und gibt ggf. Fehlermeldungen aus.</para>
+            </summary>
+            <param name="userId">
+            Die ID des Benutzers, dessen E-Mail-Adresse zu verifizieren ist.
+            </param>
+            <param name="code">
+            Der intern generierte Bestätigungscode für die E-Mail-Adresse
+            </param>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Erstellung eines Passworts für einen neuen Benutzer
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.#ctor(Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel"/>.
+            </summary>
+            <param name="signInManager">
+            Die Anmeldeverwaltungsinstanz per Dependency Injection
+            </param>
+            <param name="userManager">
+            Die Benutzerverwaltungsinstanz per Dependency Injection
+            </param>
+        </member>
         <member name="P:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.Input">
             <summary>
             Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
@@ -1488,6 +1587,63 @@
             <summary>
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.InputModel.Password">
+            <summary>
+            Das neue Passwort für den Benutzer (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.InputModel.ConfirmPassword">
+            <summary>
+            Das neue Passwort zur Bestätigung (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.InputModel.Code">
+            <summary>
+            (versteckt) Der Passworterstellungscode per E-Mail
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.InputModel.UserId">
+            <summary>
+            (versteckt) Die ID des neuen Benutzers
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.OnGet(System.String,System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er verifiziert die Benutzer-ID und initialisiert im Erfolgsfall die URL-Daten.</para>
+            </summary>
+            <param name="userId">
+            Die ID des Benutzers, dessen Passwort festzulegen ist.
+            </param>
+            <param name="code">
+            Der intern generierte Passworterstellungscode für den Benutzer
+            </param>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.OnPostAsync">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Passwort einrichten"-Buttons).<para>
+            Er verifiziert den Passworterstellungscode und legt im Erfolgsfall das neue Passwort fest.</para>
+            </summary>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.ForgotPasswordModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Versendung einer E-Mail zur Zurücksetzung des Benutzerpassworts
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.ForgotPasswordModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.ForgotPasswordModel"/>.
+            </summary>
+            <param name="userManager">
+            Die Benutzerverwaltungsinstanz per Dependency Injection
+            </param>
         </member>
         <member name="P:CABESO.Areas.Identity.Pages.Account.ForgotPasswordModel.Input">
             <summary>
@@ -1499,9 +1655,54 @@
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
         </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.ForgotPasswordModel.InputModel.Email">
+            <summary>
+            Die E-Mail-Adresse des Benutzers, der sein Passwort zurückzusetzen wünscht
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.ForgotPasswordModel.OnPostAsync">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Senden"-Buttons).<para>
+            Er verifiziert die E-Mail-Adresse und sendet im Erfolgsfall eine E-Mail mit einem Zurücksetzungslink.</para>
+            </summary>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.ForgotPasswordConfirmation">
+            <summary>
+            Die Modellklasse der Razor Page zur Bestätigung der Versendung der E-Mail zur Zurücksetzung des Benutzerpassworts
+            </summary>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.LockoutModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Benachrichtigung eines Benutzers über seinen Lockout
+            </summary>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.LoginModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Anmeldung eines Benutzers mit seinen Kontodaten
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.LoginModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.LoginModel"/>.
+            </summary>
+            <param name="userManager">
+            Die Benutzerverwaltungsinstanz per Dependency Injection
+            </param>
+            <param name="signInManager">
+            Die Anmeldeverwaltungsinstanz per Dependency Injection
+            </param>
+        </member>
         <member name="P:CABESO.Areas.Identity.Pages.Account.LoginModel.Input">
             <summary>
             Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.LoginModel.ReturnUrl">
+            <summary>
+            Die URL, zu der nach Beendigung der Anmeldung zurückgekehrt werden soll
             </summary>
         </member>
         <member name="T:CABESO.Areas.Identity.Pages.Account.LoginModel.InputModel">
@@ -1509,9 +1710,94 @@
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
         </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.LoginModel.InputModel.Email">
+            <summary>
+            Die E-Mail-Adresse zur Anmeldung (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.LoginModel.InputModel.Password">
+            <summary>
+            Das Passwort zur Anmeldung (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.LoginModel.InputModel.RememberMe">
+            <summary>
+            Der Indikator, ob die Anmeldedaten als Cookie lokal gespeichert werden sollen (erforderlich)
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.LoginModel.OnGetAsync(System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er loggt ggf. den aktuellen Benutzer aus und initialisiert die Eigenschaft <see cref="P:CABESO.Areas.Identity.Pages.Account.LoginModel.ReturnUrl"/>.</para>
+            </summary>
+            <param name="returnUrl">
+            Die URL, zu der nach Beendigung der Anmeldung zurückgekehrt werden soll
+            </param>
+            <returns>
+            Syntaktisch wird ein <see cref="T:System.Threading.Tasks.Task"/> zurückgegeben, wegen des <c>await</c>-Schlüsselworts beim Aufruf entspricht dieser semantisch jedoch <c>void</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.LoginModel.OnPostAsync(System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Anmelden"-Buttons).<para>
+            Er loggt den Benutzer mit den gegebenen Kontodaten ein und zeigt ggf. Fehlermeldungen an.</para>
+            </summary>
+            <param name="returnUrl">
+            Die URL, zu der nach Beendigung der Anmeldung zurückgekehrt werden soll
+            </param>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.LogoutModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Abmeldung des aktuellen Benutzers
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.LogoutModel.#ctor(Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.LogoutModel"/>.
+            </summary>
+            <param name="signInManager">
+            Die Anmeldeverwaltungsinstanz per Dependency Injection
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.LogoutModel.OnPost(System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier automatisch durch Aufrufen der Razor Page).<para>
+            Er loggt den aktuellen Benutzer aus.</para>
+            </summary>
+            <param name="returnUrl">
+            Die URL, zu der nach Beendigung der Abmeldung zurückgekehrt werden soll
+            </param>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel">
+            <summary>
+            Die Modellklasse der Razor Page zur manuellen Änderung des Benutzerpassworts
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel"/>.
+            </summary>
+            <param name="userManager">
+            Die Benutzerverwaltungsinstanz per Dependency Injection
+            </param>
+            <param name="signInManager">
+            Die Anmeldeverwaltungsinstanz per Dependency Injection
+            </param>
+        </member>
         <member name="P:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.Input">
             <summary>
             Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.StatusMessage">
+            <summary>
+            Die grüne Statusmeldung (wird zur Mitteilung der erfolgreichen Änerung des Benutzerpassworts benutzt)
             </summary>
         </member>
         <member name="T:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel">
@@ -1519,15 +1805,235 @@
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
         </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.OldPassword">
+            <summary>
+            Das alte, zu ersetzende Benutzerpasswort (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.NewPassword">
+            <summary>
+            Das neue Benutzerpasswort (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.ConfirmPassword">
+            <summary>
+            Das neue Passwort zur Bestätigung (erforderlich)
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.OnGetAsync">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er überprüft, ob aktuell ein gültiger Benutzer angemeldet ist.</para>
+            </summary>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.OnPostAsync">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Passwort ändern"-Buttons).<para>
+            Er ändert das Passwort des aktuellen Benutzers und gibt eine Rückmeldung (entweder Statusmeldung oder Fehlermeldung).</para>
+            </summary>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.Manage.IndexModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Anzeige der Kontoinfomationen des aktuellen Benutzers
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.Manage.IndexModel.CurrentUser">
+            <summary>
+            Der aktuell angemeldete Benutzer
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.Manage.IndexModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.Manage.IndexModel"/>.
+            </summary>
+            <param name="userManager">
+            Die Benutzerverwaltungsinstanz per Dependency Injection
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er initialisiert ggf. die Eigenschaft <see cref="P:CABESO.Areas.Identity.Pages.Account.Manage.IndexModel.CurrentUser"/> und gibt andernfalls eine Zugriffsablehnung aus.</para>
+            </summary>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.Manage.ManageNavPages">
+            <summary>
+            Eine Hilfsklasse zur Navigation innerhalb der Subarea "Identity.Account.Manage"
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.Manage.ManageNavPages.Index">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Identity.Pages.Account.Manage.IndexModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.Manage.ManageNavPages.ChangePassword">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel"/>
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.Manage.ManageNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Identity.Pages.Account.Manage.IndexModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.Manage.ManageNavPages.ChangePasswordNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.Manage.ManageNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext,System.String)">
+            <summary>
+            Liefert Informationen darüber, ob die gegebene Seite als aktiv angezeigt werden soll.
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <param name="page">
+            Die zu untersuchende Seite
+            </param>
+            <returns>
+            Indikator, ob die Seite als aktiv gekennzeichnet werden soll
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.RegisterModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Registrierung eines neuen Benutzers
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.Forms">
+            <summary>
+            Die zur Verfügung stehenden Schulklassen
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.RegisterModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.RegisterModel"/>.
+            </summary>
+            <param name="userManager">
+            Die Benutzerverwaltungsinstanz per Dependency Injection
+            </param>
+            <param name="context">
+            Der Datenbankkontext per Dependency Injection
+            </param>
+        </member>
         <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.Input">
             <summary>
             Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.ReturnUrl">
+            <summary>
+            Die URL, zu der nach Beendigung der Registrierung zurückgekehrt werden soll
+            </summary>
+        </member>
+        <member name="F:CABESO.Areas.Identity.Pages.Account.RegisterModel.Role">
+            <summary>
+            Die Rolle, der der neue Benutzer zugeordnet werden soll
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.Confirmed">
+            <summary>
+            Der Indikator, ob der Registrierungsvorgang bereits durch Eingabe des Registrierungscode eingeleitet wurde
             </summary>
         </member>
         <member name="T:CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel">
             <summary>
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel.Code">
+            <summary>
+            Der zehnstellige, alphanumerische Registrierungscode (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel.Email">
+            <summary>
+            Die E-Mail-Adresse des zu registrierenden Benutzers (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel.Password">
+            <summary>
+            Das Passwort des zu registrierenden Benutzers (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel.ConfirmPassword">
+            <summary>
+            Das neue Passwort zur Bestätigung (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel.FormId">
+            <summary>
+            Die ID der Schulklasse, der der zu registrierende Benutzer zugeordnet werden soll
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.RegisterModel.OnGet(System.String,System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er initialisiert die Eigenschaften <see cref="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.ReturnUrl"/> sowie <see cref="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.Confirmed"/>.</para>
+            </summary>
+            <param name="code">
+            Der zehnstellige, alphanumerische Registrierungscode
+            </param>
+            <param name="returnUrl">
+            Die URL, zu der nach Beendigung der Registrierung zurückgekehrt werden soll
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.RegisterModel.OnPostAsync(System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Registrieren"-Buttons).<para>
+            Er verifiziert die Kontodaten, registriert im Erfolgsfall den neuen Benutzer und sendet eine E-Mail zur Bestätigung der E-Mail-Adresse.</para>
+            </summary>
+            <param name="returnUrl">
+            Die URL, zu der nach Beendigung der Registrierung zurückgekehrt werden soll
+            </param>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.RegisterModel.CodeValid(System.String)">
+            <summary>
+            Überprüft den eingegebenen Registrerungscode anhand der Datenbank und legt im Erfolgsfall die verknüpfte Rolle fest.
+            </summary>
+            <param name="code">
+            Der zu verifizierende Registrierungscode
+            </param>
+            <returns>
+            Gibt <c>true</c> wieder, wenn der Code gültig (also in der Datenbank aufzufinden) ist, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel">
+            <summary>
+            Die Modellklasse der Razor Page zur angeforderten Zürucksetzung des Benutzerpassworts
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel"/>.
+            </summary>
+            <param name="userManager">
+            Die Benutzerverwaltungsinstanz per Dependency Injection
+            </param>
         </member>
         <member name="P:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.Input">
             <summary>
@@ -1539,6 +2045,126 @@
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
         </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Email">
+            <summary>
+            Die E-Mail-Adresse des Benutzers, der sein Passwort zurückzusetzen wünscht (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Password">
+            <summary>
+            Das neue Passwort des Benutzers (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.ConfirmPassword">
+            <summary>
+            Das neue Passwort zur Bestätigung (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Code">
+            <summary>
+            (versteckt) Der Passwortzurücksetzungscode
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.OnGet(System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er initialisiert ggf. die Eigenschaft <see cref="P:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Code"/> und zeigt andernfalls eine Zugriffsablehnung an.</para>
+            </summary>
+            <param name="code">
+            Der Passwortzurücksetzungscode per E-Mail
+            </param>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.OnPostAsync">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Passwort zurücksetzen"-Buttons).<para>
+            Er verifiziert den Passwortzurücksetzungscode und ersetzt im Erfolgsfall das Benutzerpasswort durch das eingegebene.</para>
+            </summary>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.Account.ResetPasswordConfirmationModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Mitteilung der erfolgreichen Zurücksetzung des Benutzerpassworts
+            </summary>
+        </member>
+        <member name="T:CABESO.Areas.Identity.Pages.ErrorModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Anzeige der Details eines internen Fehlers
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.ErrorModel.RequestId">
+            <summary>
+            Die Request-ID des aufgeworfenen Fehlers
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.ErrorModel.ShowRequestId">
+            <summary>
+            Der Indikator, ob die Request-ID in der Weboberfläche angezeigt werden soll
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Identity.Pages.ErrorModel.OnGet">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er initialisiert die Eigenschaft <see cref="P:CABESO.Areas.Identity.Pages.ErrorModel.RequestId"/>.</para>
+            </summary>
+        </member>
+        <member name="T:CABESO.Areas.Kitchen.Pages.IndexModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Übersicht der zuzubereitenden Bestellungen
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Kitchen.Pages.IndexModel.UserNameSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf den Namen des Bestellers bzw. der Bestellerin
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Kitchen.Pages.IndexModel.ProductNameSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Produktbezeichnung
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Kitchen.Pages.IndexModel.NumberSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Menge der bestellten Produkte
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Kitchen.Pages.IndexModel.CollectionTimeSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Abholzeit
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Kitchen.Pages.IndexModel.Orders">
+            <summary>
+            Die derzeit offenen Bestellungen
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Kitchen.Pages.IndexModel.SearchKeyWord">
+            <summary>
+            Der zu suchende Ausdruck
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Kitchen.Pages.IndexModel.#ctor(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Kitchen.Pages.IndexModel"/>.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:CABESO.Areas.Kitchen.Pages.IndexModel.OnGet(System.String,System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er konfiguriert gegebenenfalls die Tabelle gemäß der Suchanfrage.</para>
+            </summary>
+            <param name="search">
+            Der zu suchende Ausdruck
+            </param>
+            <param name="sortOrder">
+            Das Sortierverhalten
+            </param>
+        </member>
         <member name="P:CABESO.Areas.Kitchen.Pages.IndexModel.Input">
             <summary>
             Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
@@ -1548,6 +2174,64 @@
             <summary>
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
+        </member>
+        <member name="P:CABESO.Areas.Kitchen.Pages.IndexModel.InputModel.SearchKeyWord">
+            <summary>
+            Der zu suchende Ausdruck (optional)
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Kitchen.Pages.IndexModel.OnPost">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Suchen"-Buttons).<para>
+            Er lädt die Weboberfläche neu, sodass der Suchanfrage Rechnung getragen werden kann.</para>
+            </summary>
+            <returns>
+            Die Anweisung zum Neuladen der Oberfläche
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Orders.Pages.EditOrderModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Bearbeitung einer Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.EditOrderModel.Products">
+            <summary>
+            Die zur Verfügung stehenden Produkte
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.EditOrderModel.CurrentOrder">
+            <summary>
+            Die zu bearbeitende Bestellung
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.EditOrderModel.#ctor(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Orders.Pages.EditOrderModel"/>.
+            </summary>
+            <param name="context">
+            Der Datenbankkontext per Dependency Injection
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.EditOrderModel.OnGet(System.Int32)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er initialisiert die zu bearbeitende Bestellung <see cref="P:CABESO.Areas.Orders.Pages.EditOrderModel.CurrentOrder"/> anhand der ID.</para>
+            </summary>
+            <param name="id">
+            Die ID der zu bearbeitenden Bestellung
+            </param>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.EditOrderModel.OnPost">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Bearbeiten"-Buttons).<para>
+            Er bearbeitet auf Grundlage der eingegebenen Informationen die gegebenene Bestellung.</para>
+            </summary>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
         </member>
         <member name="P:CABESO.Areas.Orders.Pages.EditOrderModel.Input">
             <summary>
@@ -1559,6 +2243,116 @@
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
         </member>
+        <member name="P:CABESO.Areas.Orders.Pages.EditOrderModel.InputModel.ProductId">
+            <summary>
+            Die ID des zu bestellenden Produkts (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.EditOrderModel.InputModel.Number">
+            <summary>
+            Die Bestellmenge des gegebenen Produkts (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.EditOrderModel.InputModel.Notes">
+            <summary>
+            Weitere Anmerkungen zur Bestellung (optional)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.EditOrderModel.InputModel.CollectionTime">
+            <summary>
+            Die gewünschte Zeit der Abholung der Bestellung (erforderlich)
+            </summary>
+        </member>
+        <member name="T:CABESO.Areas.Orders.Pages.GetProductDataModel">
+            <summary>
+            Eine Hilfsklasse zur AJAX-Kommunikation der "PlaceOrder"-Weboberfläche.
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.GetProductDataModel.#ctor(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Orders.Pages.GetProductDataModel"/>.
+            </summary>
+            <param name="context">
+            Der Datenbankkontext per Dependency Injection
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.GetProductDataModel.OnGet(System.Int32)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald eine AJAX-Anfrage gestartet wird.<para>
+            Er liefert zu einem gegebenen Produkt die jeweiligen Details.</para>
+            </summary>
+            <param name="id">
+            Die ID des gegebenen Produkts
+            </param>
+            <returns>
+            Die Produktdetails im JSON-Format
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Orders.Pages.IndexModel">
+            <summary>
+            Die Modellklasse der Razor Page zur Übersicht der vom Benutzer aufgegebenen Bestellungen
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.ProductNameSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Produktbezeichnung
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.TotalPriceSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf den Gesamtpreis der Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.NumberSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Menge der bestellten Produkte
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.OrderTimeSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Bestellzeit
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.CollectionTimeSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Abholzeit
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.CollectionPlaceSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf den Abholort
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.Orders">
+            <summary>
+            Die derzeit offenen Bestellungen
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.SearchKeyWord">
+            <summary>
+            Der zu suchende Ausdruck
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.IndexModel.#ctor(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Orders.Pages.IndexModel"/>.
+            </summary>
+            <param name="context">
+            Der Datenbankkontext per Dependency Injection
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.IndexModel.OnGet(System.String,System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er konfiguriert gegebenenfalls die Tabelle gemäß der Suchanfrage.</para>
+            </summary>
+            <param name="search">
+            Der zu suchende Ausdruck
+            </param>
+            <param name="sortOrder">
+            Das Sortierverhalten
+            </param>
+        </member>
         <member name="P:CABESO.Areas.Orders.Pages.IndexModel.Input">
             <summary>
             Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
@@ -1568,6 +2362,85 @@
             <summary>
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.IndexModel.InputModel.SearchKeyWord">
+            <summary>
+            Der zu suchende Ausdruck (optional)
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.IndexModel.OnPost">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Suchen"-Buttons).<para>
+            Er lädt die Weboberfläche neu, sodass der Suchanfrage Rechnung getragen werden kann.</para>
+            </summary>
+            <returns>
+            Die Anweisung zum Neuladen der Oberfläche
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Orders.Pages.OrderHistoryModel">
+            <summary>
+            Die Modellklasse der Razor Page zur benutzerspezifischen Bestellhistorie
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.ProductNameSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Produktbezeichnung
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.TotalPriceSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf den Gesamtpreis der Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.NumberSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Menge der bestellten Produkte
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.OrderTimeSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Bestellzeit
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.CollectionTimeSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf die Abholzeit
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.CollectionPlaceSort">
+            <summary>
+            Das Sortierverhalten der Tabelle in Bezug auf den Abholort
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.HistoricOrders">
+            <summary>
+            Die bisher archivierten Bestellungen
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.SearchKeyWord">
+            <summary>
+            Der zu suchende Ausdruck
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.OrderHistoryModel.#ctor(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Orders.Pages.OrderHistoryModel"/>.
+            </summary>
+            <param name="context">
+            Der Datenbankkontext per DependencyInjection
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.OrderHistoryModel.OnGet(System.String,System.String)">
+            <summary>
+            Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
+            Er konfiguriert gegebenenfalls die Tabelle gemäß der Suchanfrage.</para>
+            </summary>
+            <param name="search">
+            Der zu suchende Ausdruck
+            </param>
+            <param name="sortOrder">
+            Das Sortierverhalten
+            </param>
         </member>
         <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.Input">
             <summary>
@@ -1579,6 +2452,140 @@
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
         </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrderHistoryModel.InputModel.SearchKeyWord">
+            <summary>
+            Der zu suchende Ausdruck (optional)
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.OrderHistoryModel.OnPost">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Suchen"-Buttons).<para>
+            Er lädt die Weboberfläche neu, sodass der Suchanfrage Rechnung getragen werden kann.</para>
+            </summary>
+            <returns>
+            Die Anweisung zum Neuladen der Oberfläche
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Orders.Pages.OrdersNavPages">
+            <summary>
+            Eine Hilfsklasse zur Navigation innerhalb der Area "Orders"
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrdersNavPages.Index">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Orders.Pages.IndexModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrdersNavPages.PlaceOrder">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Orders.Pages.PlaceOrderModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrdersNavPages.OrderHistory">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Orders.Pages.OrderHistoryModel"/>
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.OrdersNavPages.EditOrder">
+            <summary>
+            Der Name der Seite mit der Modellklasse <see cref="T:CABESO.Areas.Orders.Pages.EditOrderModel"/>
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.OrdersNavPages.IndexNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Orders.Pages.IndexModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.OrdersNavPages.PlaceOrderNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Orders.Pages.PlaceOrderModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.OrdersNavPages.OrderHistoryNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="P:CABESO.Areas.Orders.Pages.OrdersNavPages.OrderHistory"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.OrdersNavPages.EditOrderNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext)">
+            <summary>
+            Die Navigationsinformation für die Seite mit der Modellklasse <see cref="T:CABESO.Areas.Orders.Pages.EditOrderModel"/>
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <returns>
+            Die Navigationsinformation
+            </returns>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.OrdersNavPages.PageNavClass(Microsoft.AspNetCore.Mvc.Rendering.ViewContext,System.String)">
+            <summary>
+            Liefert Informationen darüber, ob die gegebene Seite als aktiv angezeigt werden soll.
+            </summary>
+            <param name="viewContext">
+            Der Ansichtkontext
+            </param>
+            <param name="page">
+            Die zu untersuchende Seite
+            </param>
+            <returns>
+            Indikator, ob die Seite als aktiv gekennzeichnet werden soll
+            </returns>
+        </member>
+        <member name="T:CABESO.Areas.Orders.Pages.PlaceOrderModel">
+            <summary>
+            Die Modellklasse der Razor Page zum Aufgeben einer Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.Products">
+            <summary>
+            Die zur Verfügung stehenden Produkte
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.ValidCollectionTimes">
+            <summary>
+            Die zur Verfügung stehenden Zeiträume zur Abholung
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.ValidCollectionPlaces">
+            <summary>
+            Die möglichen Abholorte (E-Gebäude und G-Gebäude)
+            </summary>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.PlaceOrderModel.#ctor(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Areas.Orders.Pages.PlaceOrderModel"/>.
+            </summary>
+            <param name="context">
+            Der Datenbankkontext per Dependency Injection
+            </param>
+        </member>
+        <member name="M:CABESO.Areas.Orders.Pages.PlaceOrderModel.OnPost">
+            <summary>
+            Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Bestellen"-Buttons).<para>
+            Er gibt die Bestellungen auf Grundlage der eingegebenen Produktauswahlen auf.</para>
+            </summary>
+            <returns>
+            Ein <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+            </returns>
+        </member>
         <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.Input">
             <summary>
             Ein Hilfsobjekt, das die Eingabeinformationen der Weboberfläche zwischenspeichert.
@@ -1589,43 +2596,81 @@
             Eine Datenstruktur zur Zwischenspeicherung der Eingabeinformationen
             </summary>
         </member>
-        <member name="T:CABESO.Views.Admin.AdminController">
+        <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.InputModel.ProductIds">
+            <summary>
+            Die IDs der zu bestellenden Produkte (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.InputModel.Numbers">
+            <summary>
+            Die jeweilige Menge der Bestellungen (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.InputModel.Notes">
+            <summary>
+            Weitere Anmerkungen zur Bestellung (optional)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.InputModel.CollectionTime">
+            <summary>
+            Die gewünschte Zeit der Abholung der Bestellung (erforderlich)
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Orders.Pages.PlaceOrderModel.InputModel.CollectionPlace">
+            <summary>
+            Der gewünschte Ort der Abholung der Bestellung (erforderlich)
+            </summary>
+        </member>
+        <member name="T:CABESO.Controllers.AccountController">
+            <summary>
+            Der Controller der Subarea "Identity.Account" ist zuständig für die Ausführung der Actions.
+            </summary>
+        </member>
+        <member name="M:CABESO.Controllers.AccountController.Login">
+            <summary>
+            Die Weiterleitung zur Razor Page "Login"
+            </summary>
+            <returns>
+            Die Anweisung der Weiterleitung
+            </returns>
+        </member>
+        <member name="T:CABESO.Controllers.AdminController">
             <summary>
             Der Controller der Area "Admin" ist zuständig für die Ausführung der Actions.
             </summary>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},CABESO.Data.ApplicationDbContext)">
+        <member name="M:CABESO.Controllers.AdminController.#ctor(Microsoft.AspNetCore.Identity.UserManager{Microsoft.AspNetCore.Identity.IdentityUser},CABESO.Data.ApplicationDbContext)">
             <summary>
-            Erzeugt einen neuen <see cref="T:CABESO.Views.Admin.AdminController"/>.
+            Erzeugt einen neuen <see cref="T:CABESO.Controllers.AdminController"/>.
             </summary>
             <param name="userManager"></param>
             <param name="context"></param>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.Index">
+        <member name="M:CABESO.Controllers.AdminController.Index">
             <summary>
-            Die Weiterleitung zur Razor Page <see cref="!:Areas.Admin.Pages.Areas_Admin_Pages_Index"/>
+            Die Weiterleitung zur Razor Page "Index"
             </summary>
             <returns>
             Die Anweisung der Weiterleitung
             </returns>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.GenerateCodes">
+        <member name="M:CABESO.Controllers.AdminController.GenerateCodes">
             <summary>
-            Die Weiterleitung zur Razor Page <see cref="!:Areas.Admin.Pages.Areas_Admin_Pages_GenerateCodes"/>
+            Die Weiterleitung zur Razor Page "GenerateCodes"
             </summary>
             <returns>
             Die Anweisung der Weiterleitung
             </returns>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.AddUser">
+        <member name="M:CABESO.Controllers.AdminController.AddUser">
             <summary>
-            Die Weiterleitung zur Razor Page <see cref="!:Areas.Admin.Pages.Areas_Admin_Pages_AddUser"/>
+            Die Weiterleitung zur Razor Page "AddUser"
             </summary>
             <returns>
             Die Anweisung der Weiterleitung
             </returns>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.Remove(System.String)">
+        <member name="M:CABESO.Controllers.AdminController.Remove(System.String)">
             <summary>
             Entfernt einen gegebenen Benutzer aus der Datenbank.
             </summary>
@@ -1634,15 +2679,15 @@
             Die Anweisung zur Rückkehr zur Benutzerübersicht
             </returns>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.EditUser">
+        <member name="M:CABESO.Controllers.AdminController.EditUser">
             <summary>
-            Die Weiterleitung zur Razor Page <see cref="!:Areas.Admin.Pages.Areas_Admin_Pages_EditUser"/>
+            Die Weiterleitung zur Razor Page "EditUser"
             </summary>
             <returns>
             Die Anweisung der Weiterleitung
             </returns>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.DeactivateCode(System.String)">
+        <member name="M:CABESO.Controllers.AdminController.DeactivateCode(System.String)">
             <summary>
             Deaktiviert einen <see cref="T:CABESO.RegistrationCode"/>, indem dieser aus der Datenbank entfernt wird.
             </summary>
@@ -1653,7 +2698,7 @@
             Die Anweisung zur Rückkehr zur Codegenerierung
             </returns>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.RemoveForm(System.Int32)">
+        <member name="M:CABESO.Controllers.AdminController.RemoveForm(System.Int32)">
             <summary>
             Entfernt eine <see cref="T:CABESO.Form"/> aus der Datenbank.
             </summary>
@@ -1662,7 +2707,7 @@
             Die Anweisung zur Rückkehr zur Klassenübersicht
             </returns>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.Generate(System.Int32,System.String)">
+        <member name="M:CABESO.Controllers.AdminController.Generate(System.Int32,System.String)">
             <summary>
             Generiert zufällig neue Registrierungscodes für die gegebene Rolle.
             </summary>
@@ -1676,7 +2721,7 @@
             Die Anweisung zur Rückkehr zur Codegenerierung
             </returns>
         </member>
-        <member name="M:CABESO.Views.Admin.AdminController.DeactivateOldCodes(System.DateTime)">
+        <member name="M:CABESO.Controllers.AdminController.DeactivateOldCodes(System.DateTime)">
             <summary>
             Deaktiviert obsolete Codes, indem diese aus der Datenbank entfernt werden.
             </summary>
@@ -1687,36 +2732,36 @@
             Die Anweisung zur Rückkehr zur Codegenerierung
             </returns>
         </member>
-        <member name="T:CABESO.Views.Counter.CounterController">
+        <member name="T:CABESO.Controllers.CounterController">
             <summary>
             Der Controller der Area "Counter" ist zuständig für die Ausführung der Actions.
             </summary>
         </member>
-        <member name="M:CABESO.Views.Counter.CounterController.#ctor(CABESO.Data.ApplicationDbContext)">
+        <member name="M:CABESO.Controllers.CounterController.#ctor(CABESO.Data.ApplicationDbContext)">
             <summary>
-            Erzeugt einen neuen <see cref="T:CABESO.Views.Counter.CounterController"/>.
+            Erzeugt einen neuen <see cref="T:CABESO.Controllers.CounterController"/>.
             </summary>
             <param name="context">
             Der Datenbankkontext
             </param>
         </member>
-        <member name="M:CABESO.Views.Counter.CounterController.Index">
+        <member name="M:CABESO.Controllers.CounterController.Index">
             <summary>
-            Die Weiterleitung zur Razor Page <see cref="!:Areas.Counter.Pages.Areas_Counter_Pages_Index"/>
+            Die Weiterleitung zur Razor Page "Index"
             </summary>
             <returns>
             Die Anweisung der Weiterleitung
             </returns>
         </member>
-        <member name="M:CABESO.Views.Counter.CounterController.Products">
+        <member name="M:CABESO.Controllers.CounterController.Products">
             <summary>
-            Die Weiterleitung zur Razor Page <see cref="!:Areas.Counter.Pages.Areas_Counter_Pages_Products"/>
+            Die Weiterleitung zur Razor Page "Products"
             </summary>
             <returns>
             Die Anweisung der Weiterleitung
             </returns>
         </member>
-        <member name="M:CABESO.Views.Counter.CounterController.RemoveProduct(System.Int32)">
+        <member name="M:CABESO.Controllers.CounterController.RemoveProduct(System.Int32)">
             <summary>
             Entfernt das gegebene <see cref="T:CABESO.Product"/> aus der Datenbank.
             </summary>
@@ -1727,7 +2772,7 @@
             Die Anweisung zur Rückkehr zur Produktübersicht
             </returns>
         </member>
-        <member name="M:CABESO.Views.Counter.CounterController.RemoveOrder(System.Int32)">
+        <member name="M:CABESO.Controllers.CounterController.RemoveOrder(System.Int32)">
             <summary>
             Entfernt die gegebene <see cref="T:CABESO.Order"/> aus der Datenbank.
             </summary>
@@ -1738,7 +2783,7 @@
             Die Anweisung zur Rückkehr zur Bestellungsübersicht
             </returns>
         </member>
-        <member name="M:CABESO.Views.Counter.CounterController.ArchiveOrder(System.Int32)">
+        <member name="M:CABESO.Controllers.CounterController.ArchiveOrder(System.Int32)">
             <summary>
             Archiviert eine Bestellung, indem diese aus der Tabelle "Orders" in "OrderHistory" verschoben wird.
             </summary>
@@ -1749,7 +2794,7 @@
             Die Anweisung zur Rückkehr zur Bestellungsübersicht
             </returns>
         </member>
-        <member name="M:CABESO.Views.Counter.CounterController.RemoveAllergen(System.Int32)">
+        <member name="M:CABESO.Controllers.CounterController.RemoveAllergen(System.Int32)">
             <summary>
             Entfernt ein gegebenes <see cref="T:CABESO.Allergen"/> aus der Datenbank.
             </summary>
@@ -1759,6 +2804,1430 @@
             <returns>
             Die Anweisung zur Rückkehr zur Allergenübersicht
             </returns>
+        </member>
+        <member name="T:CABESO.Controllers.HomeController">
+            <summary>
+            Der Controller der Viewssektion "Home" ist zuständig für die Ausführung der Actions.
+            </summary>
+        </member>
+        <member name="M:CABESO.Controllers.HomeController.#ctor(Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},CABESO.Data.ApplicationDbContext,Microsoft.AspNetCore.Identity.SignInManager{Microsoft.AspNetCore.Identity.IdentityUser})">
+            <summary>
+            Erzeugt einen neuen <see cref="T:CABESO.Controllers.HomeController"/>.
+            </summary>
+            <param name="roleManager">
+            Die Rollenverwaltungsinstanz per Dependency Injection
+            </param>
+            <param name="context">
+            Der Datenbankkontext per Dependency Injection
+            </param>
+            <param name="signInManager">
+            Die Anmeldeverwaltungsinstanz per Dependency Injection
+            </param>
+        </member>
+        <member name="M:CABESO.Controllers.HomeController.Index">
+            <summary>
+            Die Weiterleitung zum View "Index" (Startseite)
+            </summary>
+            <returns>
+            Die Anweisung der Weiterleitung
+            </returns>
+        </member>
+        <member name="M:CABESO.Controllers.HomeController.PageNotFound">
+            <summary>
+            Die Weiterleitung zum View "PageNotFound" (meist durch einen Error 404 ausgelöst)
+            </summary>
+            <returns>
+            Die Anweisung der Weiterleitung
+            </returns>
+        </member>
+        <member name="M:CABESO.Controllers.HomeController.Error">
+            <summary>
+            Die Weiterleitung zum View "Error" (durch eine unbehandelte Ausnahme ausgelöst)
+            </summary>
+            <returns>
+            Die Anweisung der Weiterleitung
+            </returns>
+        </member>
+        <member name="T:CABESO.Controllers.KitchenController">
+            <summary>
+            Der Controller der Area "Kitchen" ist zuständig für die Ausführung der Actions.
+            </summary>
+        </member>
+        <member name="M:CABESO.Controllers.KitchenController.#ctor(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt einen neuen <see cref="T:CABESO.Controllers.KitchenController"/>.
+            </summary>
+            <param name="context">
+            Der Datenbankkontext
+            </param>
+        </member>
+        <member name="M:CABESO.Controllers.KitchenController.Index">
+            <summary>
+            Die Weiterleitung zur Razor Page "Index"
+            </summary>
+            <returns>
+            Die Anweisung der Weiterleitung
+            </returns>
+        </member>
+        <member name="M:CABESO.Controllers.KitchenController.RemoveOrder(System.Int32)">
+            <summary>
+            Entfernt die gegebene <see cref="T:CABESO.Order"/> aus der Datenbank.
+            </summary>
+            <param name="id">
+            Die ID der zu entfernenden Bestellung
+            </param>
+            <returns>
+            Die Anweisung zur Rückkehr zur Bestellungsübersicht
+            </returns>
+        </member>
+        <member name="M:CABESO.Controllers.KitchenController.OrderPrepared(System.Int32)">
+            <summary>
+            Kennzeichnet eine <see cref="T:CABESO.Order"/> als zubereitet, sodass diese nicht länger in der Tabelle angezeigt wird.
+            </summary>
+            <param name="id">
+            Die ID der zubereiteten Bestellung
+            </param>
+            <returns>
+            Die Anweisung zur Rückkehr zur Bestellungsübersicht
+            </returns>
+        </member>
+        <member name="T:CABESO.Controllers.OrdersController">
+            <summary>
+            Der Controller der Area "Orders" ist zuständig für die Ausführung der Actions.
+            </summary>
+        </member>
+        <member name="M:CABESO.Controllers.OrdersController.#ctor(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Erzeugt einen neuen <see cref="T:CABESO.Controllers.OrdersController"/>.
+            </summary>
+            <param name="context">
+            Der Datenbankkontext
+            </param>
+        </member>
+        <member name="M:CABESO.Controllers.OrdersController.Index">
+            <summary>
+            Die Weiterleitung zur Razor Page "Index"
+            </summary>
+            <returns>
+            Die Anweisung der Weiterleitung
+            </returns>
+        </member>
+        <member name="M:CABESO.Controllers.OrdersController.PlaceOrder">
+            <summary>
+            Die Weiterleitung zur Razor Page "PlaceOrder"
+            </summary>
+            <returns>
+            Die Anweisung der Weiterleitung
+            </returns>
+        </member>
+        <member name="M:CABESO.Controllers.OrdersController.OrderHistory">
+            <summary>
+            Die Weiterleitung zur Razor Page "OrderHistory"
+            </summary>
+            <returns>
+            Die Anweisung der Weiterleitung
+            </returns>
+        </member>
+        <member name="M:CABESO.Controllers.OrdersController.RemoveOrder(System.Int32)">
+            <summary>
+            Entfernt die gegebene <see cref="T:CABESO.Order"/> aus der Datenbank.
+            </summary>
+            <param name="id">
+            Die ID der zu entfernenden Bestellung
+            </param>
+            <returns>
+            Die Anweisung zur Rückkehr zur Bestellungsübersicht
+            </returns>
+        </member>
+        <member name="T:CABESO.Database">
+            <summary>
+            Eine statische Klasse zur Erweiterung bereits bestehender Klassen
+            </summary>
+        </member>
+        <member name="M:CABESO.Database.MigrateDatabase(Microsoft.AspNetCore.Hosting.IWebHost,CABESO.Data.ApplicationDbContext@)">
+            <summary>
+            Bindet eine Instanz des <see cref="T:CABESO.Data.ApplicationDbContext"/> in den Migrationsvorgang ein.
+            </summary>
+            <param name="webHost">
+            Der Host des Webservers
+            </param>
+            <param name="context">
+            Der initialisierte Datenbankkontext
+            </param>
+            <returns></returns>
+        </member>
+        <member name="F:CABESO.Database.Roles">
+            <summary>
+            Die typischerweise zur Auswahl stehenden Rollen (Schüler*in, Lehrer*in, Mitarbeiter*in)
+            </summary>
+        </member>
+        <member name="M:CABESO.Database.RetrieveRoles(Microsoft.AspNetCore.Identity.IdentityUser,Microsoft.AspNetCore.Identity.IdentityRole@,System.Boolean@,System.Boolean@)">
+            <summary>
+            Gibt die Rollenzugehörigkeiten eines gegebenen Benutzers zurück.
+            </summary>
+            <param name="user">
+            Der zu betrachtende Benutzer
+            </param>
+            <param name="role">
+            Wird auf ggf. auf "Student" oder "Teacher" gesetzt, andernfalls bleibt es bei <c>null</c>.
+            </param>
+            <param name="admin">
+            Wird auf <c>true</c> gesetzt, falls <paramref name="user"/> ein Administrator ist.
+            </param>
+            <param name="employee">
+            Wird auf <c>true</c> gesetzt, falls <paramref name="user"/> ein Mitarbeiter bzw. eine Mitarbeiterin ist.
+            </param>
+        </member>
+        <member name="M:CABESO.Database.GetRole(Microsoft.AspNetCore.Identity.IdentityUser)">
+            <summary>
+            Gibt ggf. die Schüler*innen- bzw. Lehrer*innen-Rolle des Benutzers zurück.
+            </summary>
+            <param name="user">
+            Der zu betrachtende Benutzer
+            </param>
+            <returns>
+            Die Rolle des Benutzers
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.IsAdmin(Microsoft.AspNetCore.Identity.IdentityUser)">
+            <summary>
+            Gibt an, ob der Benutzer ein Administrator ist.
+            </summary>
+            <param name="user">
+            Der zu betrachtende Benutzer
+            </param>
+            <returns>
+            Gibt <c>true</c> zurück, falls der Benutzer ein Administrator ist, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.IsEmployee(Microsoft.AspNetCore.Identity.IdentityUser)">
+            <summary>
+            Gibt an, ob der Benutzer ein Mitarbeiter bzw. eine Mitarbeiterin ist.
+            </summary>
+            <param name="user">
+            Der zu betrachtende Benutzer
+            </param>
+            <returns>
+            Gibt <c>true</c> zurück, falls der Benutzer ein Mitarbeiter bzw. eine Mitarbeiterin ist, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetForm(Microsoft.AspNetCore.Identity.IdentityUser)">
+            <summary>
+            Gibt die ihm zugehörige Schulklasse eines Benutzers zurück.
+            </summary>
+            <param name="user">
+            Der zu betrachtende Benutzer
+            </param>
+            <returns>
+            Die Schulklasse des Benutzers (kann <c>null</c> sein)
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.SetFormId(Microsoft.AspNetCore.Identity.IdentityUser,System.Nullable{System.Int32})">
+            <summary>
+            Legt die Schulklassenzugehörigkeit eines Benutzers anhand der ID der Schulklasse fest.
+            </summary>
+            <param name="user">
+            Der zu betrachtende Benutzer
+            </param>
+            <param name="formId">
+            Die ID der zuzuordnenden Schulklasse
+            </param>
+        </member>
+        <member name="M:CABESO.Database.GetName(Microsoft.AspNetCore.Identity.IdentityUser)">
+            <summary>
+            Gibt den Namen eines gegebenen Benutzers zurück.
+            </summary>
+            <param name="user">
+            Der zu betrachtende Benutzer
+            </param>
+            <returns>
+            Der Name des Benutzers
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetUserById(System.String)">
+            <summary>
+            Gibt anhand der ID den zugeordneten Benutzer zurück.
+            </summary>
+            <param name="id">
+            Die ID des gesuchten Benutzers
+            </param>
+            <returns>
+            Der gesuchte Benutzer
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetIdentityUser(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Gibt anhand des <see cref="T:System.Security.Claims.ClaimsPrincipal"/> den zugeordneten Benutzer zurück.
+            </summary>
+            <param name="principal">
+            Das <see cref="T:System.Security.Claims.ClaimsPrincipal"/> des gesuchten Benutzers
+            </param>
+            <returns>
+            Der gesuchte Benutzer
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetDisplayName(Microsoft.AspNetCore.Identity.IdentityRole)">
+            <summary>
+            Gibt die anzuzeigende Bezeichnung einer gegebenen Rolle zurück.
+            </summary>
+            <param name="role">
+            Die anzuzeigende Rolle
+            </param>
+            <returns>
+            Der Anzeigename der Rolle
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetDisplayFormat(System.DateTime,System.Boolean)">
+            <summary>
+            Konvertiert ein <see cref="T:System.DateTime"/>-Objekt in ein lesbares Format ("dd.MM.yyyy HH:mm[:ss]").
+            </summary>
+            <param name="dt">
+            Das zu konvertierende Objekt
+            </param>
+            <param name="showSeconds">
+            Der Indikator, ob im Format auch Sekunden anzuzeigen sind.
+            </param>
+            <returns>
+            Das als <see cref="T:System.String"/> konvertierte <see cref="T:System.DateTime"/>-Objekt
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetSqlFormat(System.DateTime)">
+            <summary>
+            Konvertiert ein <see cref="T:System.DateTime"/>-Objekt in das von SQL geforderte Format ("yyyyMMdd hh:mm:ss tt").
+            </summary>
+            <param name="dt">
+            Das zu konvertierende Objekt
+            </param>
+            <returns>
+            Das als <see cref="T:System.String"/> konvertierte <see cref="T:System.DateTime"/>-Objekt
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetHtmlFormat(System.DateTime)">
+            <summary>
+            Konvertiert ein <see cref="T:System.DateTime"/>-Objekt in das von HTML geforderte Uhrzeitformat ("yyyy-MM-ddTHH:mm").
+            </summary>
+            <param name="dt">
+            Das zu konvertierende Objekt
+            </param>
+            <returns>
+            Das als <see cref="T:System.String"/> konvertierte <see cref="T:System.DateTime"/>-Objekt
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetHtmlDateFormat(System.DateTime)">
+            <summary>
+            Konvertiert ein <see cref="T:System.DateTime"/>-Objekt in das von HTML geforderte Tagesformat ("yyyy-MM-dd").
+            </summary>
+            <param name="dt">
+            Das zu konvertierende Objekt
+            </param>
+            <returns>
+            Das als <see cref="T:System.String"/> konvertierte <see cref="T:System.DateTime"/>-Objekt
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.Search``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String}[])">
+            <summary>
+            Durchsucht eine Datenstruktur nach einem Ausdruck und gibt zutreffende Elemente zurück.
+            </summary>
+            <typeparam name="T">
+            Der generische Datentyp der Datenstruktur
+            </typeparam>
+            <param name="list">
+            Die zu durchsuchende Datenstruktur
+            </param>
+            <param name="search">
+            Der zu suchende Ausdruck
+            </param>
+            <param name="entries">
+            Die Eigenschaften eines Elementes vom Datentyp <typeparamref name="T"/>, die bei der Suche berücksichtigt werden sollen
+            </param>
+            <returns>
+            Alle zutreffenden Elemente aus der Datenstruktur
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetFormsSelect(CABESO.Data.ApplicationDbContext)">
+            <summary>
+            Gibt eine Datenstruktur von Schulklassen zurück, zwischen denen der Benutzer typischerweise wählen kann.
+            </summary>
+            <param name="context">
+            Der Datenbankkontext
+            </param>
+            <returns>
+            Die zur Auswahl stehenden Schulklassen
+            </returns>
+        </member>
+        <member name="P:CABESO.Database.SqlNow">
+            <summary>
+            Gibt den jetzigen Zeitpunkt im SQL-Format anhand der Methode <see cref="M:CABESO.Database.GetSqlFormat(System.DateTime)"/> zurück.
+            </summary>
+        </member>
+        <member name="M:CABESO.Database.GetDisplayFormat(System.Decimal)">
+            <summary>
+            Konvertiert ein <see cref="T:System.Decimal"/>-Objekt in einen Geldbetrag.
+            </summary>
+            <param name="dec">
+            Der zu konvertierende Dezimalwert
+            </param>
+            <returns>
+            Der anzuzeigende Geldbetrag
+            </returns>
+        </member>
+        <member name="M:CABESO.Database.GetDisplayFormat(System.Nullable{System.Decimal})">
+            <summary>
+            Konvertiert ein <see cref="T:System.Nullable`1"/>-Objekt in einen Geldbetrag anhand der Methode <see cref="M:CABESO.Database.GetDisplayFormat(System.Decimal)"/>.
+            </summary>
+            <param name="dec">
+            Der zu konvertierende Dezimalwert
+            </param>
+            <returns>
+            Der anzuzeigende Geldbetrag
+            </returns>
+        </member>
+        <member name="T:CABESO.Data.ApplicationDbContext">
+            <summary>
+            Der Datenbankkontext des Projekts unter Anwendung des Entity Framework Core
+            </summary>
+        </member>
+        <member name="M:CABESO.Data.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{CABESO.Data.ApplicationDbContext})">
+            <summary>
+            Erzeugt einen neuen <see cref="T:CABESO.Data.ApplicationDbContext"/> auf Grundlage gegebener Einstellungen.
+            </summary>
+            <param name="options">
+            Die Kontexteinstellungen
+            </param>
+        </member>
+        <member name="M:CABESO.Data.ApplicationDbContext.#ctor">
+            <summary>
+            Erzeugt einen neuen <see cref="T:CABESO.Data.ApplicationDbContext"/> mit Standardeinstellungen.
+            </summary>
+        </member>
+        <member name="M:CABESO.Data.ApplicationDbContext.CreateDbContext(System.String[])">
+            <summary>
+            Erzeugt einen neuen <see cref="T:CABESO.Data.ApplicationDbContext"/> auf Grundlage gegebener Einstellungen.
+            </summary>
+            <param name="args">
+            Die Kontexteinstellungen
+            </param>
+            <returns>
+            Der erzeugte <see cref="T:CABESO.Data.ApplicationDbContext"/>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Data.ApplicationDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Beschreibt den Konfigurationsvorgang des <see cref="T:CABESO.Data.ApplicationDbContext"/>.<para>
+            Der Datenbankkontext wird mit den Projekteinstellungen und der SQL-Server-Verbindung verknüpft.</para>
+            </summary>
+            <param name="optionsBuilder">
+            Die Erzeugerinstanz der Datenbankkontexteinstellungen
+            </param>
+        </member>
+        <member name="P:CABESO.Data.ApplicationDbContext.Products">
+            <summary>
+            Die Abbildung der Datentabelle "Products"
+            </summary>
+        </member>
+        <member name="P:CABESO.Data.ApplicationDbContext.Forms">
+            <summary>
+            Die Abbildung der Datentabelle "Forms"
+            </summary>
+        </member>
+        <member name="P:CABESO.Data.ApplicationDbContext.Orders">
+            <summary>
+            Die Abbildung der Datentabelle "Orders"
+            </summary>
+        </member>
+        <member name="P:CABESO.Data.ApplicationDbContext.HistoricOrders">
+            <summary>
+            Die Abbildung der Datentabelle "OrderHistory"
+            </summary>
+        </member>
+        <member name="P:CABESO.Data.ApplicationDbContext.Codes">
+            <summary>
+            Die Abbildung der Datentabelle "Codes"
+            </summary>
+        </member>
+        <member name="P:CABESO.Data.ApplicationDbContext.Allergens">
+            <summary>
+            Die Abbildung der Datentabelle "Allergens"
+            </summary>
+        </member>
+        <member name="M:CABESO.Data.ApplicationDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Beschreibt besondere Vorgänge bei der Kommunikation zwischen Datenbank und Datenbankkontext (z. B. Konvertierungen oder automatisch befüllte Datenfelder).
+            </summary>
+            <param name="builder">
+            Die Erzeugerinstanz der Datenbankmodellierung
+            </param>
+        </member>
+        <member name="T:CABESO.Data.Migrations.CreateIdentitySchema">
+            <summary>
+            Strukturabbild der Datenbank
+            </summary>
+        </member>
+        <member name="M:CABESO.Data.Migrations.CreateIdentitySchema.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Beschreibt den strukturellen Inhalt der einzubindenden Datentabellen zur Erstellung des Datenbankmodells.
+            </summary>
+            <param name="migrationBuilder">
+            Die Erzeugerinstanz der Datenmigration
+            </param>
+        </member>
+        <member name="M:CABESO.Data.Migrations.CreateIdentitySchema.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            Beschreibt den Vorgang des Herunternehmens der Datentaballen.
+            </summary>
+            <param name="migrationBuilder">
+            Die Erzeugerinstanz der Datenmigration
+            </param>
+        </member>
+        <member name="M:CABESO.Data.Migrations.CreateIdentitySchema.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Vorgegebene Erstellung des Datenbankmodells durch das Login-Scaffolding
+            </summary>
+            <param name="modelBuilder">
+            Die Erzeugerinstanz der Datenbankmodellierung
+            </param>
+        </member>
+        <member name="T:CABESO.ErrorDescriber">
+            <summary>
+            Übersetzungen der normierten Fehlermeldungen
+            </summary>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.DefaultError">
+            <summary>
+            Unspezifischer Fehler
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.ConcurrencyFailure">
+            <summary>
+            Parallelitätsfehler
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.PasswordMismatch">
+            <summary>
+            Keine Überstimmung der Passwörter
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.InvalidToken">
+            <summary>
+            Ungültiger Schlüssel
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.LoginAlreadyAssociated">
+            <summary>
+            Duplikat der Anmeldedaten
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.InvalidUserName(System.String)">
+            <summary>
+            Ungültiger Benutzername
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.InvalidEmail(System.String)">
+            <summary>
+            Ungültige E-Mail-Adresse
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.DuplicateUserName(System.String)">
+            <summary>
+            Duplikat des Benutzernamens
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.DuplicateEmail(System.String)">
+            <summary>
+            Duplikat der E-Mail-Adresse
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.InvalidRoleName(System.String)">
+            <summary>
+            Ungültige Rollenbezeichnung
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.DuplicateRoleName(System.String)">
+            <summary>
+            Duplikat des Rollennamens
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.UserAlreadyHasPassword">
+            <summary>
+            Benutzerpasswort bereits eingerichtet
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.UserLockoutNotEnabled">
+            <summary>
+            Benutzer-Lockout deaktiviert
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.UserAlreadyInRole(System.String)">
+            <summary>
+            Benutzer bereits der Rolle zugeordnet
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.UserNotInRole(System.String)">
+            <summary>
+            Benutzer der Rolle nicht zugeordnet
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.PasswordTooShort(System.Int32)">
+            <summary>
+            Passwortlänge unzureichend
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.PasswordRequiresNonAlphanumeric">
+            <summary>
+            Kein Sonderzeichen im Passwort
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.PasswordRequiresDigit">
+            <summary>
+            Keine Ziffer im Passwort
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.PasswordRequiresLower">
+            <summary>
+            Kein Kleinbuchstabe im Passwort
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.PasswordRequiresUpper">
+            <summary>
+            Kein Großbuchstabe im Passwort
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.PasswordRequiresUniqueChars(System.Int32)">
+            <summary>
+            Unzureichend einzigartige Zeichen
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="M:CABESO.ErrorDescriber.RecoveryCodeRedemptionFailed">
+            <summary>
+            Unmögliche Verwertung des Wiederherstellungscodes
+            </summary>
+            <returns>
+            Die übersetzte Fehlermeldung
+            </returns>
+        </member>
+        <member name="T:CABESO.Form">
+            <summary>
+            Die Datenbankabbildungsklasse mit Bezug zur Tabellenspalte "Forms"
+            </summary>
+        </member>
+        <member name="P:CABESO.Form.Id">
+            <summary>
+            Die ID der gegebenen Schulklasse
+            </summary>
+        </member>
+        <member name="P:CABESO.Form.Stream">
+            <summary>
+            Der Klassenzug der gegebenen Schulklasse
+            </summary>
+        </member>
+        <member name="P:CABESO.Form.Enrolment">
+            <summary>
+            Das Jahr des Beginns der fünften Klasse (ohne Wiederholungen o. Ä.) für die Schüler der gegebenen Schulklasse
+            </summary>
+        </member>
+        <member name="M:CABESO.Form.GetGrade">
+            <summary>
+            Gibt den Jahrgang, dem die Schulklasse zuzuordnen ist, zurück.
+            </summary>
+            <returns>
+            Der zuzuordnende Jahrgang
+            </returns>
+        </member>
+        <member name="M:CABESO.Form.GetStreams">
+            <summary>
+            Gibt eine Datenstruktur mit allen möglichen Klassenzügen ('A' bis 'Z' sowie '-' für keinen Klassenzug) zurück.
+            </summary>
+            <returns>
+            Alle möglichen Klassenzüge
+            </returns>
+        </member>
+        <member name="M:CABESO.Form.ToString">
+            <summary>
+            Die standardmäßige Objektbeschreibung entspricht hier dem Klassennamen (typischerweise Jahrgang und Klassenzug).
+            </summary>
+            <returns>
+            Die Beschreibung des Objekts
+            </returns>
+        </member>
+        <member name="M:CABESO.Form.GetHashCode">
+            <summary>
+            Zur Generierung des Hashs wird auf von <see cref="T:System.Object"/> geerbte Methode zurückgegriffen.
+            </summary>
+            <returns>
+            Der Hash-Code des Objekts
+            </returns>
+        </member>
+        <member name="M:CABESO.Form.Equals(System.Object)">
+            <summary>
+            Als Vergleichsoperation genügt hier der Vergleich des Unique Keys <see cref="P:CABESO.Form.Id"/>.
+            </summary>
+            <param name="obj">
+            Ein Vergleichsobjekt
+            </param>
+            <returns>
+            Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:CABESO.Grade">
+            <summary>
+            Die Abbildung eines Jahrgangs als Menge von Schulklassen mit gleichem Fortschritt in der Schullaufbahn
+            </summary>
+        </member>
+        <member name="M:CABESO.Grade.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Erzeugt eine neue <see cref="T:CABESO.Grade"/>.
+            </summary>
+            <param name="name">
+            Die Bezeichnung der Jahrgangsstufe
+            </param>
+            <param name="enrolment">
+            Das Jahr des Beginns der fünften Klasse für die Schüler dieses Jahrgangs
+            </param>
+            <param name="year">
+            Der numerische Wert des Jahrgangs als Indikator für den Fortschritt in der Schullaufbahn (5 bis 12/13)
+            </param>
+        </member>
+        <member name="P:CABESO.Grade.Enrolment">
+            <summary>
+            Das Jahr des Beginns der fünften Klasse für die Schüler dieses Jahrgangs
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.Year">
+            <summary>
+            Der numerische Wert des Jahrgangs als Indikator für den Fortschritt in der Schullaufbahn (5 bis 12/13)
+            </summary>
+        </member>
+        <member name="M:CABESO.Grade.ToString">
+            <summary>
+            Die standardmäßige Objektbeschreibung entspricht hier der Bezeichnung des Jahrgangs.
+            </summary>
+            <returns>
+            Die Beschreibung des Objekts
+            </returns>
+        </member>
+        <member name="P:CABESO.Grade.FOUR">
+            <summary>
+            Die vierte Jahrgangsstufe (im Falle einer Registrierung vor Schulbeginn)
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.FIVE">
+            <summary>
+            Die fünfte Jahrgangsstufe
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.SIX">
+            <summary>
+            Die sechste Jahrgangsstufe
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.SEVEN">
+            <summary>
+            Die siebente Jahrgangsstufe
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.EIGHT">
+            <summary>
+            Die achte Jahrgangsstufe
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.NINE">
+            <summary>
+            Die neunte Jahrgangsstufe
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.TEN">
+            <summary>
+            Die zehnte Jahrgangsstufe (ab dem ersten G9-Jahrgang)
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.EF">
+            <summary>
+            Die Einführungsphase (zehnte bzw. elfte Jahrgangsstufe)
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.Q1">
+            <summary>
+            Das erste Jahr der Qualifikationsphase (elfte bzw. zwölfte Jahrgangsstufe)
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.Q2">
+            <summary>
+            Das zweite Jahr der Qualifikationsphase (zwölfte bzw. 13. Jahrgangsstufe)
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.GRADUATE">
+            <summary>
+            Die Gruppe der Alumnae und Alumni (im Falle einer späten Austragung)
+            </summary>
+        </member>
+        <member name="P:CABESO.Grade.Grades">
+            <summary>
+            Die zur Verfügung stehenden Jahrgangsstufen
+            </summary>
+        </member>
+        <member name="M:CABESO.Grade.GetYearStart(System.DateTime)">
+            <summary>
+            Gibt das Jahr des Beginns des zum gegebenen Zeitpunkt laufenden Schuljahres wieder.
+            </summary>
+            <param name="time">
+            Der zu betrachtende Zeitpunkt
+            </param>
+            <returns>
+            Die Jahreszahl des Schuljahres
+            </returns>
+        </member>
+        <member name="M:CABESO.Grade.AdjustG8(CABESO.Grade,System.Func{CABESO.Grade,CABESO.Grade})">
+            <summary>
+            Passt einen gegebenen Jahrgang an, falls dieser noch ins System G8 fällt, und gibt ihn wieder zurück.
+            </summary>
+            <param name="grade">
+            Der ggf. anzupassende Jahrgang
+            </param>
+            <param name="adjustment">
+            Die ggf. vorzunehmende Anpassung
+            </param>
+            <returns>
+            Der ggf. angepasste Jahrgang
+            </returns>
+        </member>
+        <member name="M:CABESO.Grade.op_Implicit(System.Int32)~CABESO.Grade">
+            <summary>
+            Extrahiert aus einem Parameter vom Datentyp <see cref="T:System.Int32"/> eine passende Jahrgangsstufe.<para>
+            Im Intervall [5; 12/13] wird die Zahl als Jahrgang, im Intervall der derzeitigen Einschulungsjahre als ein solches Jahr interpretiert.</para>
+            </summary>
+            <param name="i">
+            Der zu interpretierende Zahlenwert
+            </param>
+        </member>
+        <member name="T:CABESO.Holidays">
+            <summary>
+            Eine Sammlung der Feiertage in NRW (mithilfe der API des <see href="https://www.feiertage-api.de/">Feiertage Webservice</see>)
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.Neujahrstag">
+            <summary>
+            Neujahrstag (01.01.)
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.Karfreitag">
+            <summary>
+            Karfreitag
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.Ostermontag">
+            <summary>
+            Ostermontag
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.TagDerArbeit">
+            <summary>
+            Tag der Arbeit (01.05.)
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.ChristiHimmelfahrt">
+            <summary>
+            Christi Himmelfahrt
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.Pfingstmontag">
+            <summary>
+            Pfingstmontag
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.Fronleichnam">
+            <summary>
+            Fronleichnam
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.TagDerDeutschenEinheit">
+            <summary>
+            Tag der Deutschen Einheit (03.10.)
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.Allerheiligen">
+            <summary>
+            Allerheiligen (01.11.)
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.Weihnachtstag1">
+            <summary>
+            1. Weihnachtstag (25.12.)
+            </summary>
+        </member>
+        <member name="P:CABESO.Holidays.Weihnachtstag2">
+            <summary>
+            1. Weihnachtstag (26.12.)
+            </summary>
+        </member>
+        <member name="M:CABESO.Holidays.GetHolidays">
+            <summary>
+            Gibt alle zur Verfügung stehenden Feiertage im laufenden Kalendarjahr zurück.
+            </summary>
+            <returns>
+            Diesjährige Feiertage
+            </returns>
+        </member>
+        <member name="M:CABESO.Holidays.Create">
+            <summary>
+            Initialisiert die Eigenschaften vom Datentyp <see cref="T:CABESO.Holiday"/> anhand der API des Feiertage Webservice.
+            </summary>
+            <returns>
+            Ein mit aktuellen Daten befülltes <see cref="T:CABESO.Holidays"/>-Objekt.
+            </returns>
+        </member>
+        <member name="T:CABESO.Holiday">
+            <summary>
+            Die Abbildung eines Feiertages
+            </summary>
+        </member>
+        <member name="P:CABESO.Holiday._date">
+            <summary>
+            Das Datum des Feiertages im Format "yyyy-MM-dd"
+            </summary>
+        </member>
+        <member name="P:CABESO.Holiday.Notes">
+            <summary>
+            Ggf. zusätzliche Hinweise/Einschränkungen des Feiertages
+            </summary>
+        </member>
+        <member name="P:CABESO.Holiday.Date">
+            <summary>
+            Das als <see cref="T:System.DateTime"/> konvertierte Datum des Feiertages
+            </summary>
+        </member>
+        <member name="T:CABESO.Models.ErrorViewModel">
+            <summary>
+            Das View Model des Page Models "Error Model" zur Strukturierung der Fehlerdaten
+            </summary>
+        </member>
+        <member name="P:CABESO.Models.ErrorViewModel.RequestId">
+            <summary>
+            Die ID des Error Requests
+            </summary>
+        </member>
+        <member name="P:CABESO.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            Der Indikator, ob die Request-ID in der Weboberfläche angezeigt werden soll.
+            </summary>
+        </member>
+        <member name="T:CABESO.Name">
+            <summary>
+            Die Abbildung des Namens eines Benutzers mit Vor- und Nachnamen
+            </summary>
+        </member>
+        <member name="M:CABESO.Name.#ctor(System.String,System.Boolean)">
+            <summary>
+            Erzeugt einen neuen <see cref="T:CABESO.Name"/>, indem die Informationen der wwschool-Adresse entnommen werden.
+            </summary>
+            <param name="mail">
+            Die wwschool-Adresse des Benutzers
+            </param>
+            <param name="student">
+            Der Indikator, ob der Benutzer ein Schüler bzw. eine Schülerin ist (bedeutet eine Umkehrung der Reihenfolge von Vor- und Nachnamen)
+            </param>
+        </member>
+        <member name="P:CABESO.Name.FirstName">
+            <summary>
+            Der Vorname des Benutzers
+            </summary>
+        </member>
+        <member name="P:CABESO.Name.LastName">
+            <summary>
+            Der Nachname des Benutzers
+            </summary>
+        </member>
+        <member name="M:CABESO.Name.ToString">
+            <summary>
+            Die standardmäßige Objektbeschreibung entspricht hier der Abfolge von Vor- und Nachnamen.
+            </summary>
+            <returns>
+            Die Beschreibung des Objekts
+            </returns>
+        </member>
+        <member name="M:CABESO.Name.CompareTo(System.Object)">
+            <summary>
+            Als Vergleichsoperation werden hier die jeweiligen Zeichenketten miteinander verglichen.
+            </summary>
+            <param name="obj">
+            Ein Vergleichsobjekt
+            </param>
+            <returns>
+            Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Name.op_Implicit(CABESO.Name)~System.String">
+            <summary>
+            Konvertiert den gegebenen Namen in einen <see cref="T:System.String"/> mithilfe der Methode <see cref="M:CABESO.Name.ToString"/>.
+            </summary>
+            <param name="name">
+            Der zu konvertierende Name
+            </param>
+        </member>
+        <member name="T:CABESO.Order">
+            <summary>
+            Die Abbildung einer aufgegebenen Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.Id">
+            <summary>
+            Die ID der gegebenen Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.User">
+            <summary>
+            Der Besteller bzw. die Bestellerin
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.Product">
+            <summary>
+            Das bestellte Produkt
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.OrderTime">
+            <summary>
+            Die Zeit der Aufgabe der Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.Notes">
+            <summary>
+            Weitere Anmerkungen zur Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.Number">
+            <summary>
+            Die Anzahl der bestellten Produkte
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.PreparationTime">
+            <summary>
+            Die Zeit der vollendeten Zubereitung
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.CollectionTime">
+            <summary>
+            Die Zeit der (geplanten) Abholung der Bestellung
+            </summary>
+        </member>
+        <member name="P:CABESO.Order.CollectionPlace">
+            <summary>
+            Der Abholort
+            </summary>
+        </member>
+        <member name="M:CABESO.Order.Equals(System.Object)">
+            <summary>
+            Als Vergleichsoperation genügt hier der Vergleich des Unique Keys <see cref="P:CABESO.Order.Id"/>.
+            </summary>
+            <param name="obj">
+            Ein Vergleichsobjekt
+            </param>
+            <returns>
+            Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Order.GetHashCode">
+            <summary>
+            Zur Generierung des Hashs wird auf von <see cref="T:System.Object"/> geerbte Methode zurückgegriffen.
+            </summary>
+            <returns>
+            Der Hash-Code des Objekts
+            </returns>
+        </member>
+        <member name="T:CABESO.HistoricOrder">
+            <summary>
+            Eine bereits behandelte und archivierte <see cref="T:CABESO.Order"/>
+            </summary>
+        </member>
+        <member name="M:CABESO.HistoricOrder.ToCurrentOrder">
+            <summary>
+            Konvertiert eine archivierte <see cref="T:CABESO.HistoricOrder"/> in eine aktuelle <see cref="T:CABESO.CurrentOrder"/>.
+            </summary>
+            <returns>
+            Die konvertierte <see cref="T:CABESO.CurrentOrder"/>
+            </returns>
+        </member>
+        <member name="T:CABESO.CurrentOrder">
+            <summary>
+            Eine aufgegebene und noch zu behandelnde <see cref="T:CABESO.Order"/>
+            </summary>
+        </member>
+        <member name="M:CABESO.CurrentOrder.ToHistoricOrder">
+            <summary>
+            Konvertiert eine aktuelle <see cref="T:CABESO.CurrentOrder"/> in eine archivierte <see cref="T:CABESO.HistoricOrder"/>.
+            </summary>
+            <returns>
+            Die konvertierte <see cref="T:CABESO.HistoricOrder"/>
+            </returns>
+        </member>
+        <member name="M:CABESO.CurrentOrder.ValidCollectionTimes">
+            <summary>
+            Ermittelt alle gültigen Abholzeiten innerhalb der nächsten Woche.
+            </summary>
+            <returns>
+            Gültige Abholzeiten
+            </returns>
+        </member>
+        <member name="T:CABESO.TimeRange">
+            <summary>
+            Repräsentation einer Zeitspanne mit Start- sowie Endzeitpunkt
+            </summary>
+        </member>
+        <member name="P:CABESO.TimeRange.Start">
+            <summary>
+            Der Start der Zeitspanne
+            </summary>
+        </member>
+        <member name="P:CABESO.TimeRange.End">
+            <summary>
+            Das Ende der Zeitspanne
+            </summary>
+        </member>
+        <member name="M:CABESO.TimeRange.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            Erzeugt eine neue <see cref="T:CABESO.TimeRange"/>
+            </summary>
+            <param name="start">
+            Der Start der Zeitspanne
+            </param>
+            <param name="end">
+            Das Ende der Zeitspanne
+            </param>
+        </member>
+        <member name="P:CABESO.TimeRange.Duration">
+            <summary>
+            Die Länge der Zeitspanne
+            </summary>
+        </member>
+        <member name="M:CABESO.TimeRange.Includes(System.DateTime)">
+            <summary>
+            Gibt an, ob sich ein gegebener Zeitpunkt innerhalb der Zeitspanne befindet.
+            </summary>
+            <param name="dt">
+            Der zu überprüfende Zeitpunkt
+            </param>
+            <returns>
+            Gibt <c>true</c> zurück, wenn der Zeitpunkt innerhalb der Zeitspanne liegt, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.TimeRange.Includes(CABESO.TimeRange)">
+            <summary>
+            Gibt an, ob sich eine gegebene Zeitspanne innerhalb der Zeitspanne befindet.
+            </summary>
+            <param name="tr">
+            Die zu überprüfende Zeitspanne
+            </param>
+            <returns>
+            Gibt <c>true</c> zurück, wenn die Zeitspanne innerhalb der Zeitspanne liegt, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.TimeRange.Split(System.DateTime)">
+            <summary>
+            Teilt die Zeitspanne in zwei Teilzeitspannen, von denen eine vor dem gegebenen Zeitpunkt liegt und die andere danach.
+            </summary>
+            <param name="dt">
+            Der Grenzzeitpunkt
+            </param>
+            <returns>
+            Der <see cref="T:System.Array"/> der beiden Zeitspannen
+            </returns>
+        </member>
+        <member name="M:CABESO.TimeRange.SplitDays">
+            <summary>
+            Zerlegt die Zeitspanne in die einzelnen Tageskomponenten.
+            </summary>
+            <returns>
+            Die einzelnen Tageskomponenten
+            </returns>
+        </member>
+        <member name="M:CABESO.TimeRange.Exclude(CABESO.TimeRange)">
+            <summary>
+            Entfernt aus der Zeitspanne eine gegebene Zeitspanne.
+            </summary>
+            <param name="tr">
+            Die zu entfernende Zeitspanne
+            </param>
+            <returns>
+            Die restliche Zeitspanne
+            </returns>
+        </member>
+        <member name="M:CABESO.TimeRange.Equals(System.Object)">
+            <summary>
+            Als Vergleichsoperation genügt hier der Vergleich der Start- und Endzeitpunkte.
+            </summary>
+            <param name="obj">
+            Ein Vergleichsobjekt
+            </param>
+            <returns>
+            Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.TimeRange.GetHashCode">
+            <summary>
+            Zur Generierung des Hashs wird auf von <see cref="T:System.Object"/> geerbte Methode zurückgegriffen.
+            </summary>
+            <returns>
+            Der Hash-Code des Objekts
+            </returns>
+        </member>
+        <member name="M:CABESO.TimeRange.ToString">
+            <summary>
+            Die standardmäßige Objektbeschreibung entspricht hier der Abfolge von Start- und Endzeitpunkt.
+            </summary>
+            <returns>
+            Die Beschreibung des Objekts
+            </returns>
+        </member>
+        <member name="M:CABESO.TimeRange.op_Implicit(System.ValueTuple{System.DateTime,System.DateTime})~CABESO.TimeRange">
+            <summary>
+            Konvertiert ein <see cref="T:System.ValueTuple`2"/> in ein Objekt vom Datentyp <see cref="T:CABESO.TimeRange"/>.
+            </summary>
+            <param name="range">
+            Das Tupel des Start- und Endzeitpunkts
+            </param>
+        </member>
+        <member name="T:CABESO.Product">
+            <summary>
+            Die Datenbankabbildungsklasse mit Bezug zur Tabellenspalte "Products"
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Id">
+            <summary>
+            Die ID des gegebenen Produkts
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Name">
+            <summary>
+            Die Bezeichnung des gegebenen Produkts
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Price">
+            <summary>
+            Der Preis des gegebene Produkts
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Sale">
+            <summary>
+            Der Rabatt auf das gegebene Produkt
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Image">
+            <summary>
+            Der Dateipfad zur Abbildung des gegebenen Produkts
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Allergens">
+            <summary>
+            Die Sammlung der Allergene des gegebenen Produkts
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Vegetarian">
+            <summary>
+            Der Indikator, ob das gegebene Produkt vegetarisch ist
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Vegan">
+            <summary>
+            Der Indikator, ob das gegebene Produkt vegan ist
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Size">
+            <summary>
+            Die Größe des gegebenen Produkts
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Deposit">
+            <summary>
+            Der Pfandbetrag des gegebenen Produkts
+            </summary>
+        </member>
+        <member name="P:CABESO.Product.Information">
+            <summary>
+            Weitere Hinweise zum gegebenen Produkt
+            </summary>
+        </member>
+        <member name="M:CABESO.Product.Equals(System.Object)">
+            <summary>
+            Als Vergleichsoperation genügt hier der Vergleich des Unique Keys <see cref="P:CABESO.Product.Id"/>.
+            </summary>
+            <param name="obj">
+            Ein Vergleichsobjekt
+            </param>
+            <returns>
+            Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Product.GetHashCode">
+            <summary>
+            Zur Generierung des Hashs wird auf von <see cref="T:System.Object"/> geerbte Methode zurückgegriffen.
+            </summary>
+            <returns>
+            Der Hash-Code des Objekts
+            </returns>
+        </member>
+        <member name="M:CABESO.Product.ToString">
+            <summary>
+            Die standardmäßige Objektbeschreibung entspricht hier der Produktbezeichnung ggf. mit Hinweis auf die Größe und/oder den Pfandbetrag.
+            </summary>
+            <returns>
+            Die Beschreibung des Objekts
+            </returns>
+        </member>
+        <member name="T:CABESO.Program">
+            <summary>
+            Startklasse des Projekts
+            </summary>
+        </member>
+        <member name="F:CABESO.Program.ErrorMessage">
+            <summary>
+            Standardmäßige Fehlermeldung
+            </summary>
+        </member>
+        <member name="P:CABESO.Program.Alert">
+            <summary>
+            Pop-up-Meldung im Buffer
+            </summary>
+        </member>
+        <member name="M:CABESO.Program.IsG9(System.Int32)">
+            <summary>
+            Gibt an, ob sich ein gegebener Jahrgang im G9-System befindet.
+            </summary>
+            <param name="year">
+            Der zu untersuchende Jahrgang
+            </param>
+            <returns>
+            Gibt <c>true</c> zurück, falls der Jahrgang sich im G9-System befindet, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Program.ShowAlert">
+            <summary>
+            Liefert die Pop-up-Meldung zurück und leert dabei den Buffer.
+            </summary>
+            <returns>
+            Die Pop-up-Meldung
+            </returns>
+        </member>
+        <member name="M:CABESO.Program.Greeting(CABESO.Name)">
+            <summary>
+            Bezieht aus dem externen Programm "Greeting.exe" eine passende Begrüßung für die Startseite.
+            </summary>
+            <param name="name">
+            Der Name des zu begrüßenden Benutzers
+            </param>
+            <returns>
+            Die anzuzeigende Begrüßungsformel
+            </returns>
+        </member>
+        <member name="M:CABESO.Program.HasInternetConnection">
+            <summary>
+            Gibt an, ob derzeit eine Verbindung zum Internet besteht.
+            </summary>
+            <returns>
+            Gibt <c>true</c> zurück, wenn eine Verbindung aufgebautb werden kann, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Program.MailValid(System.String)">
+            <summary>
+            Überprüft, ob eine gegebene E-Mail-Adresse gültig ist, indem ex negativo auf eine Fehlermeldung vom Provider gewartet wird.
+            </summary>
+            <param name="mailAddress">
+            Die zu überprüfende E-Mail-Adresse
+            </param>
+            <returns>
+            Gibt <c>true</c> zurück, wenn die E-Mail-Adresse gültig ist, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Program.SendMail(System.String,System.String,System.String,System.String,System.ValueTuple{System.String,System.String}[])">
+            <summary>
+            Versendet eine E-Mail von einem statischen E-Mail-Konto an eine gegebene Adresse.
+            </summary>
+            <param name="mailAddress">
+            Die E-Mail-Adresse des Empfängers
+            </param>
+            <param name="name">
+            Der Name des Empfängers
+            </param>
+            <param name="subject">
+            Der Inhalt der Betreffzeile der E-Mail
+            </param>
+            <param name="body">
+            Der Textinhalt der E-Mail
+            </param>
+            <param name="links">
+            Ggf. in der E-Mail verwandte Hyperlinks
+            </param>
+            <returns>
+            Gibt <c>true</c> zurück, wenn die E-Mail erfolgreich versandt wurde, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.Program.Main(System.String[])">
+            <summary>
+            Startmethode; Baut alle Kontexte auf und startet die Weboberfläche.
+            </summary>
+            <param name="args">
+            Befehlszeilenargumente für den Programmstart
+            </param>
         </member>
         <member name="T:CABESO.Properties.Resources">
             <summary>
@@ -1820,6 +4289,130 @@
             <summary>
               Sucht eine lokalisierte Zeichenfolge, die Lehrer*in ähnelt.
             </summary>
+        </member>
+        <member name="T:CABESO.RegistrationCode">
+            <summary>
+            Die Datenbankabbildungsklasse mit Bezug zur Tabellenspalte "Codes"
+            </summary>
+        </member>
+        <member name="P:CABESO.RegistrationCode.Code">
+            <summary>
+            Der zehnstellige, alphanumerische Registrierungscode
+            </summary>
+        </member>
+        <member name="P:CABESO.RegistrationCode.CreationTime">
+            <summary>
+            Die Zeit der Erstellung des Codes
+            </summary>
+        </member>
+        <member name="P:CABESO.RegistrationCode.Role">
+            <summary>
+            Die mit dem Code verknüpfte Rolle
+            </summary>
+        </member>
+        <member name="M:CABESO.RegistrationCode.Equals(System.Object)">
+            <summary>
+            Als Vergleichsoperation werden hier die Codes selbst jeweils als <see cref="T:System.String"/> miteinander verglichen.
+            </summary>
+            <param name="obj">
+            Ein Vergleichsobjekt
+            </param>
+            <returns>
+            Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CABESO.RegistrationCode.GetHashCode">
+            <summary>
+            Zur Generierung des Hashs wird auf von <see cref="T:System.Object"/> geerbte Methode zurückgegriffen.
+            </summary>
+            <returns>
+            Der Hash-Code des Objekts
+            </returns>
+        </member>
+        <member name="T:CABESO.Startup">
+            <summary>
+            Initialisierungsklasse zur Konfiguration der Projektkontexte
+            </summary>
+        </member>
+        <member name="F:CABESO.Startup.Context">
+            <summary>
+            Der Datenbankkontext
+            </summary>
+        </member>
+        <member name="M:CABESO.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Startup"/> mit gegebener Konfiguration.
+            </summary>
+            <param name="configuration">
+            Die Initialkonfiguration
+            </param>
+        </member>
+        <member name="M:CABESO.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Erzeugt ein neues <see cref="T:CABESO.Startup"/> in einer gegebenen Umgebung.
+            </summary>
+            <param name="env">
+            Die Konfigurationsumgebung
+            </param>
+        </member>
+        <member name="P:CABESO.Startup.Configuration">
+            <summary>
+            Die Konfiguration des Projekts
+            </summary>
+        </member>
+        <member name="P:CABESO.Startup.MailAddress">
+            <summary>
+            Die statische E-Mail-Adresse als Absender
+            </summary>
+        </member>
+        <member name="P:CABESO.Startup.MailPassword">
+            <summary>
+            Das Passwort des Sender-E-Mail-Kontos
+            </summary>
+        </member>
+        <member name="P:CABESO.Startup.MailSmtp">
+            <summary>
+            Der SMTP-Server des Sender-E-Mail-Kontos
+            </summary>
+        </member>
+        <member name="P:CABESO.Startup.MailPop3">
+            <summary>
+            Der POP3-Server des Sender-E-Mail-Kontos
+            </summary>
+        </member>
+        <member name="P:CABESO.Startup.MailReturn">
+            <summary>
+            Die E-Mail-Adresse des Absenders bei Rücksendung von empfängerlosen E-Mails
+            </summary>
+        </member>
+        <member name="P:CABESO.Startup.DefaultConnection">
+            <summary>
+            Der Verbindungsstring zum Datenbankserver
+            </summary>
+        </member>
+        <member name="P:CABESO.Startup.PasswordRequirements">
+            <summary>
+            Die Anzeige der Passwortanforderungen in Tooltips
+            </summary>
+        </member>
+        <member name="M:CABESO.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Konfiguriert alle nötigen Projektdienste.
+            </summary>
+            <param name="services">
+            Angeforderte Dienste
+            </param>
+        </member>
+        <member name="M:CABESO.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Konfiguriert die Infrastruktur der Navigation innerhalb des Projekts
+            </summary>
+            <param name="app">
+            Erzeugerinstanz für das Programm
+            </param>
+            <param name="env">
+            Laufumgebung des Projekts
+            </param>
         </member>
     </members>
 </doc>

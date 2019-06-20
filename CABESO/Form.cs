@@ -1,18 +1,43 @@
-﻿using CABESO.Properties;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace CABESO
 {
+    /// <summary>
+    /// Die Datenbankabbildungsklasse mit Bezug zur Tabellenspalte "Forms"
+    /// </summary>
     [Table("Forms")]
     public class Form
     {
+        /// <summary>
+        /// Die ID der gegebenen Schulklasse
+        /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// Der Klassenzug der gegebenen Schulklasse
+        /// </summary>
         public string Stream { get; set; }
+
+        /// <summary>
+        /// Das Jahr des Beginns der fünften Klasse (ohne Wiederholungen o. Ä.) für die Schüler der gegebenen Schulklasse
+        /// </summary>
         public int Enrolment { get; set; }
+
+        /// <summary>
+        /// Gibt den Jahrgang, dem die Schulklasse zuzuordnen ist, zurück.
+        /// </summary>
+        /// <returns>
+        /// Der zuzuordnende Jahrgang
+        /// </returns>
         public Grade GetGrade() => Enrolment;
+
+        /// <summary>
+        /// Gibt eine Datenstruktur mit allen möglichen Klassenzügen ('A' bis 'Z' sowie '-' für keinen Klassenzug) zurück.
+        /// </summary>
+        /// <returns>
+        /// Alle möglichen Klassenzüge
+        /// </returns>
         public static IEnumerable<char> GetStreams()
         {
             yield return '-';
@@ -20,67 +45,40 @@ namespace CABESO
                 yield return c;
         }
 
+        /// <summary>
+        /// Die standardmäßige Objektbeschreibung entspricht hier dem Klassennamen (typischerweise Jahrgang und Klassenzug).
+        /// </summary>
+        /// <returns>
+        /// Die Beschreibung des Objekts
+        /// </returns>
         public override string ToString()
         {
             return GetGrade().ToString() + (Enrolment > Grade.EF.Enrolment ? Stream : string.Empty);
         }
 
+        /// <summary>
+        /// Zur Generierung des Hashs wird auf von <see cref="object"/> geerbte Methode zurückgegriffen.
+        /// </summary>
+        /// <returns>
+        /// Der Hash-Code des Objekts
+        /// </returns>
         public override int GetHashCode()
         {
             return base.GetHashCode();
         }
 
+        /// <summary>
+        /// Als Vergleichsoperation genügt hier der Vergleich des Unique Keys <see cref="Id"/>.
+        /// </summary>
+        /// <param name="obj">
+        /// Ein Vergleichsobjekt
+        /// </param>
+        /// <returns>
+        /// Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+        /// </returns>
         public override bool Equals(object obj)
         {
             return obj is Form && (obj as Form).Id == Id;
-        }
-
-        public class Grade
-        {
-            private Grade(string name, int enrolment, int year)
-            {
-                _name = name;
-                Enrolment = enrolment;
-                Year = year;
-            }
-
-            public int Enrolment { get; private set; }
-            public int Year { get; private set; }
-
-            private readonly string _name;
-            public override string ToString() => _name;
-
-            public static Grade FOUR => new Grade("4", GetYearStart(DateTime.Now.AddYears(1)), 4);
-            public static Grade FIVE => new Grade("5", GetYearStart(DateTime.Now), 5);
-            public static Grade SIX => new Grade("6", GetYearStart(DateTime.Now.AddYears(-1)), 6);
-            public static Grade SEVEN => new Grade("7", GetYearStart(DateTime.Now.AddYears(-2)), 7);
-            public static Grade EIGHT => new Grade("8", GetYearStart(DateTime.Now.AddYears(-3)), 8);
-            public static Grade NINE => new Grade("9", GetYearStart(DateTime.Now.AddYears(-4)), 9);
-            public static Grade TEN => AdjustG8(new Grade("10", GetYearStart(DateTime.Now.AddYears(-5)), 10), grade => null);
-            public static Grade EF => AdjustG8(new Grade("EF", GetYearStart(DateTime.Now.AddYears(-6)), 11), grade => { if (grade.Enrolment == 2017) return null; else { grade.Enrolment++; grade.Year--; return grade; } });
-            public static Grade Q1 => AdjustG8(new Grade("Q1", GetYearStart(DateTime.Now.AddYears(-7)), 12), grade => { if (grade.Enrolment == 2017) return null; else { grade.Enrolment++; grade.Year--; return grade; } });
-            public static Grade Q2 => AdjustG8(new Grade("Q2", GetYearStart(DateTime.Now.AddYears(-8)), 13), grade => { if (grade.Enrolment == 2017) return null; else { grade.Enrolment++; grade.Year--; return grade; } });
-            public static Grade GRADUATE => new Grade(Resources.Graduate, -1, -1);
-
-            public static Grade[] Grades => new[] { FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, EF, Q1, Q2, GRADUATE };
-
-            private static int GetYearStart(DateTime time) => time.Year - (time.Month > 7 ? 0 : 1);
-            private static Grade AdjustG8(Grade grade, Func<Grade, Grade> adjustment)
-            {
-                if (grade.Enrolment <= 2017)
-                    return adjustment(grade);
-                return grade;
-            }
-
-            public static implicit operator Grade(int i)
-            {
-                if (i >= FOUR.Year && i <= Q2.Year)
-                    return Grades.FirstOrDefault(grade => grade != null && grade.Year == i);
-                Grade g;
-                if ((g = Grades.FirstOrDefault(grade => grade?.Enrolment == i)) != null)
-                    return g;
-                return GRADUATE;
-            }
         }
     }
 }

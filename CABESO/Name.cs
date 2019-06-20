@@ -4,14 +4,26 @@ using System.Text.RegularExpressions;
 
 namespace CABESO
 {
+    /// <summary>
+    /// Die Abbildung des Namens eines Benutzers mit Vor- und Nachnamen
+    /// </summary>
     public class Name : IComparable
     {
+        /// <summary>
+        /// Erzeugt einen neuen <see cref="Name"/>, indem die Informationen der wwschool-Adresse entnommen werden.
+        /// </summary>
+        /// <param name="mail">
+        /// Die wwschool-Adresse des Benutzers
+        /// </param>
+        /// <param name="student">
+        /// Der Indikator, ob der Benutzer ein Schüler bzw. eine Schülerin ist (bedeutet eine Umkehrung der Reihenfolge von Vor- und Nachnamen)
+        /// </param>
         public Name(string mail, bool student)
         {
             if (string.IsNullOrEmpty(mail))
                 return;
 
-            Match[] matches = Regex.Matches(mail, @"([^0-9\.])+(?=.*@gnr.wwschool\.de)").ToArray();
+            Match[] matches = Regex.Matches(mail, @"([^0-9\.])+(?=.*@gnr\.wwschool\.de)").ToArray();
 
             if (matches.Length != 2)
             {
@@ -37,14 +49,36 @@ namespace CABESO
             LastName = string.Join(' ', lastNames);
         }
 
+        /// <summary>
+        /// Der Vorname des Benutzers
+        /// </summary>
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// Der Nachname des Benutzers
+        /// </summary>
         public string LastName { get; set; }
 
+        /// <summary>
+        /// Die standardmäßige Objektbeschreibung entspricht hier der Abfolge von Vor- und Nachnamen.
+        /// </summary>
+        /// <returns>
+        /// Die Beschreibung des Objekts
+        /// </returns>
         public override string ToString()
         {
             return (FirstName + " " + LastName).Trim();
         }
 
+        /// <summary>
+        /// Als Vergleichsoperation werden hier die jeweiligen Zeichenketten miteinander verglichen.
+        /// </summary>
+        /// <param name="obj">
+        /// Ein Vergleichsobjekt
+        /// </param>
+        /// <returns>
+        /// Gibt <c>true</c> bei Übereinstimmung wieder, sonst <c>false</c>.
+        /// </returns>
         public int CompareTo(object obj)
         {
             if (obj is Name)
@@ -55,6 +89,12 @@ namespace CABESO
                 return -1;
         }
 
+        /// <summary>
+        /// Konvertiert den gegebenen Namen in einen <see cref="string"/> mithilfe der Methode <see cref="ToString"/>.
+        /// </summary>
+        /// <param name="name">
+        /// Der zu konvertierende Name
+        /// </param>
         public static implicit operator string(Name name)
         {
             return name?.ToString();

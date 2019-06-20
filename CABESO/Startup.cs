@@ -7,19 +7,40 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using System;
+using System.IO;
 using System.Linq;
 
 namespace CABESO
 {
+    /// <summary>
+    /// Initialisierungsklasse zur Konfiguration der Projektkontexte
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Der Datenbankkontext
+        /// </summary>
         public static ApplicationDbContext Context;
+
+        /// <summary>
+        /// Erzeugt ein neues <see cref="Startup"/> mit gegebener Konfiguration.
+        /// </summary>
+        /// <param name="configuration">
+        /// Die Initialkonfiguration
+        /// </param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Erzeugt ein neues <see cref="Startup"/> in einer gegebenen Umgebung.
+        /// </summary>
+        /// <param name="env">
+        /// Die Konfigurationsumgebung
+        /// </param>
         public Startup(IHostingEnvironment env)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder()
@@ -35,22 +56,52 @@ namespace CABESO
             Configuration = builder.Build();
         }
 
+        /// <summary>
+        /// Die Konfiguration des Projekts
+        /// </summary>
         public IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// Die statische E-Mail-Adresse als Absender
+        /// </summary>
         public static string MailAddress { get; private set; }
 
+        /// <summary>
+        /// Das Passwort des Sender-E-Mail-Kontos
+        /// </summary>
         public static string MailPassword { get; private set; }
 
+        /// <summary>
+        /// Der SMTP-Server des Sender-E-Mail-Kontos
+        /// </summary>
         public static string MailSmtp { get; private set; }
 
+        /// <summary>
+        /// Der POP3-Server des Sender-E-Mail-Kontos
+        /// </summary>
         public static string MailPop3 { get; private set; }
 
+        /// <summary>
+        /// Die E-Mail-Adresse des Absenders bei Rücksendung von empfängerlosen E-Mails
+        /// </summary>
         public static string MailReturn { get; private set; }
 
+        /// <summary>
+        /// Der Verbindungsstring zum Datenbankserver
+        /// </summary>
         public static string DefaultConnection { get; private set; }
 
+        /// <summary>
+        /// Die Anzeige der Passwortanforderungen in Tooltips
+        /// </summary>
         public static string PasswordRequirements { get; private set; }
 
+        /// <summary>
+        /// Konfiguriert alle nötigen Projektdienste.
+        /// </summary>
+        /// <param name="services">
+        /// Angeforderte Dienste
+        /// </param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -101,6 +152,15 @@ namespace CABESO
             MailReturn = Configuration["Mail:Return"];
         }
 
+        /// <summary>
+        /// Konfiguriert die Infrastruktur der Navigation innerhalb des Projekts
+        /// </summary>
+        /// <param name="app">
+        /// Erzeugerinstanz für das Programm
+        /// </param>
+        /// <param name="env">
+        /// Laufumgebung des Projekts
+        /// </param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -117,6 +177,11 @@ namespace CABESO
             app.UseStatusCodePagesWithReExecute("/error/{0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Documentation", "Help")),
+                RequestPath = "/Documentation"
+            });
             app.UseCookiePolicy();
             app.UseAuthentication();
 

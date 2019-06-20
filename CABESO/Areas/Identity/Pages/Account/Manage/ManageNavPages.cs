@@ -5,7 +5,7 @@ using System.IO;
 namespace CABESO.Areas.Identity.Pages.Account.Manage
 {
     /// <summary>
-    /// Eine Hilfsklasse zur Navigation innerhalb der Subarea "Account.Manage"
+    /// Eine Hilfsklasse zur Navigation innerhalb der Subarea "Identity.Account.Manage"
     /// </summary>
     public static class ManageNavPages
     {

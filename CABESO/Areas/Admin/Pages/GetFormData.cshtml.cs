@@ -8,7 +8,7 @@ using System.Linq;
 namespace CABESO.Areas.Admin.Pages
 {
     /// <summary>
-    /// Eine Hilfsklasse zur AJAX-Kommunikation der <see cref="Areas_Admin_Pages_AddForm"/>-Weboberfläche.
+    /// Eine Hilfsklasse zur AJAX-Kommunikation der "AddForm"-Weboberfläche.
     /// </summary>
     [Authorize(Roles = "Admin")]
     public class GetFormDataModel : PageModel
@@ -42,7 +42,7 @@ namespace CABESO.Areas.Admin.Pages
                 return NotFound();
             if (int.TryParse(data, out int grade))
             {
-                Form.Grade g = grade;
+                Grade g = grade;
                 if (g == null)
                     return NotFound();
                 return new JsonResult(Array.ConvertAll(Form.GetStreams().ToArray(), stream => _context.Forms.Any(form => form.Enrolment == g.Enrolment && ((string.IsNullOrEmpty(form.Stream) && stream == '-') || (form.Stream != null && form.Stream.Length > 0 && form.Stream[0] == stream)))));

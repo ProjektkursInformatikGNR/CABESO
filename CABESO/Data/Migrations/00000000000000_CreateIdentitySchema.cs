@@ -5,8 +5,17 @@ using System;
 
 namespace CABESO.Data.Migrations
 {
+    /// <summary>
+    /// Strukturabbild der Datenbank
+    /// </summary>
     public partial class CreateIdentitySchema : Migration
     {
+        /// <summary>
+        /// Beschreibt den strukturellen Inhalt der einzubindenden Datentabellen zur Erstellung des Datenbankmodells.
+        /// </summary>
+        /// <param name="migrationBuilder">
+        /// Die Erzeugerinstanz der Datenmigration
+        /// </param>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -412,9 +421,14 @@ namespace CABESO.Data.Migrations
             migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Schwefeldioxid und Sulphite > 10mg/kg oder > 10mg/l" });
             migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Lupinen" });
             migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Weichtiere" });
-
         }
 
+        /// <summary>
+        /// Beschreibt den Vorgang des Herunternehmens der Datentaballen.
+        /// </summary>
+        /// <param name="migrationBuilder">
+        /// Die Erzeugerinstanz der Datenmigration
+        /// </param>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -443,6 +457,18 @@ namespace CABESO.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Codes");
+
+            migrationBuilder.DropTable(
+                name: "OrderHistory");
+
+            migrationBuilder.DropTable(
+                name: "Allergens");
+
+            migrationBuilder.DropTable(
+                name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }

@@ -78,7 +78,7 @@ namespace CABESO.Areas.Admin.Pages
         {
             if (ModelState.IsValid)
             {
-                CurrentForm.Enrolment = ((Form.Grade)Input.Year).Enrolment;
+                CurrentForm.Enrolment = ((Grade)Input.Year).Enrolment;
                 CurrentForm.Stream = string.IsNullOrEmpty(Input.Stream) ? "" : Input.Stream;
                 _context.Forms.Update(CurrentForm);
                 _context.SaveChanges();
