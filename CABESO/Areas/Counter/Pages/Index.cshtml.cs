@@ -182,7 +182,7 @@ namespace CABESO.Areas.Counter.Pages
 		public class InputModel
         {
             /// <summary>
-            /// Der zu suchende Ausdruck
+            /// Der zu suchende Ausdruck (optional)
             /// </summary>
             public string SearchKeyWord { get; set; }
         }
