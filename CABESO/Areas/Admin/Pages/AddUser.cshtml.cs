@@ -4,10 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
@@ -29,7 +27,7 @@ namespace CABESO.Areas.Admin.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="AddUserModel"/>.
+        /// Erzeugt ein neues <see cref="AddUserModel"/>.
         /// </summary>
         /// <param name="userManager">
         /// Die Benutzerverwaltungsinstanz per Dependency Injection
@@ -79,7 +77,7 @@ namespace CABESO.Areas.Admin.Pages
 
         /// <summary>
         /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
-        /// Er initialisiert die Datenstruktur <seealso cref="Forms"/>.</para>
+        /// Er initialisiert die Datenstruktur <see cref="Forms"/>.</para>
         /// </summary>
         public void OnGet()
         {
@@ -91,7 +89,7 @@ namespace CABESO.Areas.Admin.Pages
         /// Er erstellt auf Grundlage der eingegebenen Informationen einen neuen Benutzer.</para>
         /// </summary>
         /// <returns>
-        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
         /// </returns>
         public async Task<IActionResult> OnPostAsync()
         {
@@ -111,9 +109,10 @@ namespace CABESO.Areas.Admin.Pages
 
                     if (!Program.SendMail(
                         user.Email,
+                        new Name(user.Email, Input.Role.Equals(Resources.Student)),
                         "Erstanmeldung",
-                        $"Du wurdest zur Teilnahme an der Cafeteria-Bestellsoftware (CABESO) eingeladen. Klicke <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>hier</a> zur Erstanmeldung.",
-                        new Name(user.Email, Input.Role.Equals(Resources.Student))) ||
+                        "Du wurdest zur Teilnahme an der Cafeteria-Bestellsoftware (CABESO) eingeladen. Klicke {0} zur Erstanmeldung.",
+                        (callbackUrl, "hier")) ||
                         !Program.MailValid(Input.Email))
                     {
                         ModelState.AddModelError(string.Empty, "Die angegebene E-Mail-Adresse konnte nicht erreicht werden.");

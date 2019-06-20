@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.438
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CABESO", "CABESO\CABESO.csproj", "{9EFA86F6-1528-4E01-8F4E-DD5F9425EF53}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Documentation", "Documentation\Documentation.shfbproj", "{6C2EE9F8-635F-4CC8-BE22-700C962830C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9EFA86F6-1528-4E01-8F4E-DD5F9425EF53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EFA86F6-1528-4E01-8F4E-DD5F9425EF53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EFA86F6-1528-4E01-8F4E-DD5F9425EF53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C2EE9F8-635F-4CC8-BE22-700C962830C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C2EE9F8-635F-4CC8-BE22-700C962830C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C2EE9F8-635F-4CC8-BE22-700C962830C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C2EE9F8-635F-4CC8-BE22-700C962830C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

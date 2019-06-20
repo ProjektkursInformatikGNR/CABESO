@@ -36,7 +36,7 @@ namespace CABESO.Areas.Admin.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="EditUserModel"/>.
+        /// Erzeugt ein neues <see cref="EditUserModel"/>.
         /// </summary>
         /// <param name="userManager">
         /// Die Benutzerverwaltungsinstanz per Dependency Injection
@@ -56,11 +56,14 @@ namespace CABESO.Areas.Admin.Pages
 
         /// <summary>
         /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
-        /// Er initialisiert die Eigenschaften <seealso cref="CurrentUser"/>, <seealso cref="StuckAsAdmin"/> sowie <seealso cref="Forms"/>.</para>
+        /// Er initialisiert die Eigenschaften <see cref="CurrentUser"/>, <see cref="StuckAsAdmin"/> sowie <see cref="Forms"/>.</para>
         /// </summary>
         /// <param name="id">
         /// Die ID des zu bearbeitenden Benutzers
         /// </param>
+        /// <returns>
+        /// Syntaktisch wird ein <see cref="Task"/> zurückgegeben, wegen des <c>await</c>-Schlüsselworts beim Aufruf entspricht dieser semantisch jedoch <c>void</c>.
+        /// </returns>
         public async Task OnGet(string id)
         {
             CurrentUser = Database.GetUserById(id);
@@ -73,7 +76,7 @@ namespace CABESO.Areas.Admin.Pages
         /// Er bearbeitet auf Grundlage der eingegebenen Informationen den gegebenen Benutzer.</para>
         /// </summary>
         /// <returns>
-        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
         /// </returns>
         public async Task<IActionResult> OnPost()
         {

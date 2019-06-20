@@ -1,5 +1,4 @@
 ﻿using CABESO.Data;
-using CABESO.Properties;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -78,7 +77,7 @@ namespace CABESO.Areas.Counter.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="ProductsModel"/>.
+        /// Erzeugt ein neues <see cref="ProductsModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection

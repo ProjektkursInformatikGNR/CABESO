@@ -28,7 +28,7 @@ namespace CABESO.Areas.Counter.Pages
         public string SearchKeyWord { get; set; }
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="AllergensModel"/>.
+        /// Erzeugt ein neues <see cref="AllergensModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext

@@ -34,7 +34,7 @@ namespace CABESO.Areas.Admin.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="GenerateCodesModel"/>.
+        /// Erzeugt ein neues <see cref="GenerateCodesModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext der Dependency Injection
@@ -76,7 +76,7 @@ namespace CABESO.Areas.Admin.Pages
 
         /// <summary>
         /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
-        /// Er initialisiert die Datenstruktur <seealso cref="Codes"/>.</para>
+        /// Er initialisiert die Datenstruktur <see cref="Codes"/>.</para>
         /// </summary>
         public void OnGet()
         {

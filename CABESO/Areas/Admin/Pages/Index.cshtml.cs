@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
 using System.Linq;
 
 namespace CABESO.Areas.Admin.Pages
@@ -55,7 +54,7 @@ namespace CABESO.Areas.Admin.Pages
         public string SearchKeyWord { get; set; }
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="IndexModel"/>.
+        /// Erzeugt ein neues <see cref="IndexModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection

@@ -1,8 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-CABESO-74317146-8518-4317-BEE6-F09AB589A6CB</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Users\Joel\Documents\Visual Studio 2019\Projects\CABESO\CABESO\CABESO.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

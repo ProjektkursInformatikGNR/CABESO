@@ -7,22 +7,38 @@ using System.Threading.Tasks;
 
 namespace CABESO.Areas.Identity.Pages.Account
 {
+    /// <summary>
+    /// Die Modellklasse der Razor Page zur Abmeldung des aktuellen Benutzers
+    /// </summary>
     [AllowAnonymous]
     public class LogoutModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager; //Der Manager der Anmeldeverwaltung
-        private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
+        /// <summary>
+        /// Erzeugt ein neues <see cref="LogoutModel"/>.
+        /// </summary>
+        /// <param name="signInManager">
+        /// Die Anmeldeverwaltungsinstanz per Dependency Injection
+        /// </param>
+        public LogoutModel(SignInManager<IdentityUser> signInManager)
         {
             _signInManager = signInManager;
-            _logger = logger;
         }
 
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier automatisch durch Aufrufen der Razor Page).<para>
+        /// Er loggt den aktuellen Benutzer aus.</para>
+        /// </summary>
+        /// <param name="returnUrl">
+        /// Die URL, zu der nach Beendigung der Abmeldung zurückgekehrt werden soll
+        /// </param>
+        /// <returns>
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// </returns>
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();
-            _logger.LogInformation("User logged out.");
             if (returnUrl != null)
                 return LocalRedirect(returnUrl);
             else

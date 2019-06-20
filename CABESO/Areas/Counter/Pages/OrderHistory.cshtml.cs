@@ -70,7 +70,7 @@ namespace CABESO.Areas.Counter.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="OrderHistoryModel"/>.
+        /// Erzeugt ein neues <see cref="OrderHistoryModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection

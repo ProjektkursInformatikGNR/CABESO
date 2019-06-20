@@ -27,7 +27,7 @@ namespace CABESO.Areas.Counter.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="EditOrderModel"/>.
+        /// Erzeugt ein neues <see cref="EditOrderModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection
@@ -39,7 +39,7 @@ namespace CABESO.Areas.Counter.Pages
 
         /// <summary>
         /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
-        /// Er initialisiert die zu bearbeitende Bestellung <seealso cref="CurrentOrder"/> anhand der ID.</para>
+        /// Er initialisiert die zu bearbeitende Bestellung <see cref="CurrentOrder"/> anhand der ID.</para>
         /// </summary>
         /// <param name="id">
         /// Die ID der zu bearbeitenden Bestellung
@@ -55,7 +55,7 @@ namespace CABESO.Areas.Counter.Pages
         /// Er bearbeitet auf Grundlage der eingegebenen Informationen die gegebenene Bestellung.</para>
         /// </summary>
         /// <returns>
-        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
         /// </returns>
         public IActionResult OnPost()
         {

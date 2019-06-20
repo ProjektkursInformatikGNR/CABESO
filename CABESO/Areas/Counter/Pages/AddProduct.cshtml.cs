@@ -27,7 +27,7 @@ namespace CABESO.Areas.Counter.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="AddProductModel"/>.
+        /// Erzeugt ein neues <see cref="AddProductModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection
@@ -43,7 +43,7 @@ namespace CABESO.Areas.Counter.Pages
         /// Er erstellt auf Grundlage der eingegebenen Informationen ein neues Produkt.</para>
         /// </summary>
         /// <returns>
-        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
         /// </returns>
         public async Task<IActionResult> OnPost()
         {
@@ -164,7 +164,7 @@ namespace CABESO.Areas.Counter.Pages
         }
 
         /// <summary>
-        /// Konvertiert die Preiseingabe vom <seealso cref="string"/>-Format ins <seealso cref="decimal"/>-Format.
+        /// Konvertiert die Preiseingabe vom <see cref="string"/>-Format ins <see cref="decimal"/>-Format.
         /// </summary>
         /// <param name="number">
         /// Die Benutzereingabe

@@ -13,7 +13,7 @@ namespace CABESO.Views.Counter
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt einen neuen <seealso cref="CounterController"/>.
+        /// Erzeugt einen neuen <see cref="CounterController"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext
@@ -24,7 +24,7 @@ namespace CABESO.Views.Counter
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Counter.Pages.Areas_Counter_Pages_Index"/>
+        /// Die Weiterleitung zur Razor Page <see cref="Areas.Counter.Pages.Areas_Counter_Pages_Index"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -36,7 +36,7 @@ namespace CABESO.Views.Counter
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Counter.Pages.Areas_Counter_Pages_Products"/>
+        /// Die Weiterleitung zur Razor Page <see cref="Areas.Counter.Pages.Areas_Counter_Pages_Products"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -48,7 +48,7 @@ namespace CABESO.Views.Counter
         }
 
         /// <summary>
-        /// Entfernt das gegebene <seealso cref="Product"/> aus der Datenbank.
+        /// Entfernt das gegebene <see cref="Product"/> aus der Datenbank.
         /// </summary>
         /// <param name="id">
         /// Die ID des zu entfernenden Produkts
@@ -69,7 +69,7 @@ namespace CABESO.Views.Counter
         }
 
         /// <summary>
-        /// Entfernt die gegebene <seealso cref="Order"/> aus der Datenbank.
+        /// Entfernt die gegebene <see cref="Order"/> aus der Datenbank.
         /// </summary>
         /// <param name="id">
         /// Die ID der zu entfernenden Bestellung
@@ -112,7 +112,7 @@ namespace CABESO.Views.Counter
         }
 
         /// <summary>
-        /// Entfernt ein gegebenes <seealso cref="Allergen"/> aus der Datenbank.
+        /// Entfernt ein gegebenes <see cref="Allergen"/> aus der Datenbank.
         /// </summary>
         /// <param name="id">
         /// Die ID des zu entfernenden Allergens

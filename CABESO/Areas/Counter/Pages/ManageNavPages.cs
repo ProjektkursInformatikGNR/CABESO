@@ -10,42 +10,42 @@ namespace CABESO.Areas.Counter.Pages
     public static class ManageNavPages
     {
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Counter_Pages_Index"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="IndexModel"/>
         /// </summary>
         public static string Index => "Index";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Counter_Pages_OrderHistory"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="OrderHistoryModel"/>
         /// </summary>
         public static string OrderHistory => "OrderHistory";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Counter_Pages_EditOrder"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="EditOrderModel"/>
         /// </summary>
         public static string EditOrder => "EditOrder";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Counter_Pages_Products"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="ProductsModel"/>
         /// </summary>
         public static string Products => "Products";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Counter_Pages_AddProduct"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="AddProductModel"/>
         /// </summary>
         public static string AddProduct => "AddProduct";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Counter_Pages_Allergens"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="AllergensModel"/>
         /// </summary>
         public static string Allergens => "Allergens";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Counter_Pages_AddAllergen"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="AddAllergenModel"/>
         /// </summary>
         public static string AddAllergen => "AddAllergen";
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Counter_Pages_Index"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="IndexModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -56,7 +56,7 @@ namespace CABESO.Areas.Counter.Pages
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Counter_Pages_OrderHistory"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="OrderHistoryModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -67,7 +67,7 @@ namespace CABESO.Areas.Counter.Pages
         public static string OrderHistoryNavClass(ViewContext viewContext) => PageNavClass(viewContext, OrderHistory);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Counter_Pages_EditOrder"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="EditOrderModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -78,7 +78,7 @@ namespace CABESO.Areas.Counter.Pages
         public static string EditOrderNavClass(ViewContext viewContext) => PageNavClass(viewContext, EditOrder);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Counter_Pages_Products"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="ProductsModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -89,7 +89,7 @@ namespace CABESO.Areas.Counter.Pages
         public static string ProductsNavClass(ViewContext viewContext) => PageNavClass(viewContext, Products);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Counter_Pages_AddProduct"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="AddProductModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -100,7 +100,7 @@ namespace CABESO.Areas.Counter.Pages
         public static string AddProductNavClass(ViewContext viewContext) => PageNavClass(viewContext, AddProduct);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Counter_Pages_Allergens"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="AllergensModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -111,7 +111,7 @@ namespace CABESO.Areas.Counter.Pages
         public static string AllergensNavClass(ViewContext viewContext) => PageNavClass(viewContext, Allergens);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Counter_Pages_AddAllergen"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="AddAllergenModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext

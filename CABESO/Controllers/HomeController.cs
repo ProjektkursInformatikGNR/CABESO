@@ -3,9 +3,7 @@ using CABESO.Models;
 using CABESO.Properties;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 
 namespace CABESO.Controllers

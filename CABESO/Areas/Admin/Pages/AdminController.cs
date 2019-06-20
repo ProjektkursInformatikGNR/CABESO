@@ -17,7 +17,7 @@ namespace CABESO.Views.Admin
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt einen neuen <seealso cref="AdminController"/>.
+        /// Erzeugt einen neuen <see cref="AdminController"/>.
         /// </summary>
         /// <param name="userManager"></param>
         /// <param name="context"></param>
@@ -28,7 +28,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Admin.Pages.Areas_Admin_Pages_Index"/>
+        /// Die Weiterleitung zur Razor Page <see cref="Areas.Admin.Pages.Areas_Admin_Pages_Index"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -40,7 +40,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Admin.Pages.Areas_Admin_Pages_GenerateCodes"/>
+        /// Die Weiterleitung zur Razor Page <see cref="Areas.Admin.Pages.Areas_Admin_Pages_GenerateCodes"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -52,7 +52,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Admin.Pages.Areas_Admin_Pages_AddUser"/>
+        /// Die Weiterleitung zur Razor Page <see cref="Areas.Admin.Pages.Areas_Admin_Pages_AddUser"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -80,7 +80,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Die Weiterleitung zur Razor Page <seealso cref="Areas.Admin.Pages.Areas_Admin_Pages_EditUser"/>
+        /// Die Weiterleitung zur Razor Page <see cref="Areas.Admin.Pages.Areas_Admin_Pages_EditUser"/>
         /// </summary>
         /// <returns>
         /// Die Anweisung der Weiterleitung
@@ -92,7 +92,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Deaktiviert einen <seealso cref="RegistrationCode"/>, indem dieser aus der Datenbank entfernt wird.
+        /// Deaktiviert einen <see cref="RegistrationCode"/>, indem dieser aus der Datenbank entfernt wird.
         /// </summary>
         /// <param name="code">
         /// Die alpha-numerische Zeichenkette des zu deaktivierenden Codes
@@ -109,7 +109,7 @@ namespace CABESO.Views.Admin
         }
 
         /// <summary>
-        /// Entfernt eine <seealso cref="Form"/> aus der Datenbank.
+        /// Entfernt eine <see cref="Form"/> aus der Datenbank.
         /// </summary>
         /// <param name="id">Die ID der zu entfernenden Schulklasse</param>
         /// <returns>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="78d1e0a3-86cc-42fa-be06-a5647d5e775b" visible="True" isDefault="true" isSelected="true" title="Willkommen in der Klassenbibliothek der CABESO!">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="Welcome" />
+    </HelpKeywords>
+  </Topic>
+</Topics>

@@ -12,9 +12,17 @@ namespace CABESO.Areas.Counter.Pages
     [Authorize(Roles = "Admin,Employee")]
     public class EditAllergenModel : PageModel
     {
-        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
-        public static Allergen CurrentAllergen;
+        /// <summary>
+        /// Das zu bearbeitende Allergen
+        /// </summary>
+        public static Allergen CurrentAllergen { get; private set; }
 
+        private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
+
+        /// <summary>
+        /// Erzeugt ein neues <see cref="EditAllergenModel"/>.
+        /// </summary>
+        /// <param name="context"></param>
         public EditAllergenModel(ApplicationDbContext context)
         {
             _context = context;
@@ -31,6 +39,9 @@ namespace CABESO.Areas.Counter.Pages
 		/// </summary>
 		public class InputModel
         {
+            /// <summary>
+            /// Die Beschreibung des zu bearbeitenden Allergens
+            /// </summary>
             [Required(AllowEmptyStrings = false, ErrorMessage = "Gib bitte die Beschreibung an.")]
             [Display(Name = "Beschreibung")]
             public string Description { get; set; }
@@ -38,7 +49,7 @@ namespace CABESO.Areas.Counter.Pages
 
         /// <summary>
         /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
-        /// Er initialisiert das zu bearbeitende Allergen <seealso cref="CurrentAllergen"/> anhand der ID.</para>
+        /// Er initialisiert das zu bearbeitende Allergen <see cref="CurrentAllergen"/> anhand der ID.</para>
         /// </summary>
         /// <param name="id">
         /// Die ID des zu bearbeitenden Allergens
@@ -53,7 +64,7 @@ namespace CABESO.Areas.Counter.Pages
         /// Er bearbeitet auf Grundlage der eingegebenen Informationen das gegebenene Allergen.</para>
         /// </summary>
         /// <returns>
-        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
         /// </returns>
         public IActionResult OnPost()
         {

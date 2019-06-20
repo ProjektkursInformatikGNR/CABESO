@@ -1,0 +1,1935 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AccessDeniedModel Klasse">
+    <HelpKINode Title="AccessDeniedModel Klasse" Url="html/f57cf1b3-d27e-20f0-b4af-c1704618ae48.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/d2e40e8b-8c69-6452-577f-a87723c7d437.htm" />
+    <HelpKINode Title="Methoden" Url="html/049fc718-5e4c-ec50-52e5-c70c0768cbf4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AccessDeniedModel.AccessDeniedModel Konstruktor" Url="html/d2e40e8b-8c69-6452-577f-a87723c7d437.htm" />
+  <HelpKINode Title="AccessDeniedModel.OnGet Methode" Url="html/a50c4fbc-e7cc-2760-df44-7bc9f1bc787e.htm" />
+  <HelpKINode Title="AccountController Klasse">
+    <HelpKINode Title="AccountController Klasse" Url="html/1ad8814f-d98f-2c1d-1f8f-5232e1bbbccb.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/ab857920-8f26-b90e-abd0-2f5ff1fcc48d.htm" />
+    <HelpKINode Title="Methoden" Url="html/e32d14a2-c63b-2f69-9a1c-eaf60a0959b4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AccountController.AccountController Konstruktor" Url="html/ab857920-8f26-b90e-abd0-2f5ff1fcc48d.htm" />
+  <HelpKINode Title="AccountController.Login Methode" Url="html/5ec1bd9c-9331-47b0-896a-2532eb56ceac.htm" />
+  <HelpKINode Title="AddAllergen Eigenschaft" Url="html/ebb3926e-cb31-8bea-d978-d19bf65056bb.htm" />
+  <HelpKINode Title="AddAllergenModel Klasse">
+    <HelpKINode Title="AddAllergenModel Klasse" Url="html/4b09c4cc-4348-e2a3-a444-9eae085c95f8.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/32474d05-1083-bcd3-7c20-5ba1d01491b8.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/222d25a8-976a-2c2f-0850-e471958017d3.htm" />
+    <HelpKINode Title="Methoden" Url="html/25f435f4-7602-adf5-8ce5-2e378d46c37a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddAllergenModel.AddAllergenModel Konstruktor" Url="html/222d25a8-976a-2c2f-0850-e471958017d3.htm" />
+  <HelpKINode Title="AddAllergenModel.Input Eigenschaft" Url="html/18c5c0dd-9805-25d7-d854-45087936e215.htm" />
+  <HelpKINode Title="AddAllergenModel.InputModel Klasse">
+    <HelpKINode Title="AddAllergenModel.InputModel Klasse" Url="html/e1d33b7a-b752-fc0b-7870-521bd809ecbb.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/d4928fba-ce95-317f-7699-c6ee5a6b1f80.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddAllergenModel.InputModel.Description Eigenschaft" Url="html/57a8c85d-b775-1b0f-2060-889c0c7675a4.htm" />
+  <HelpKINode Title="AddAllergenModel.InputModel.InputModel Konstruktor" Url="html/d4928fba-ce95-317f-7699-c6ee5a6b1f80.htm" />
+  <HelpKINode Title="AddAllergenModel.OnPost Methode" Url="html/a5435246-1d6b-fef7-caaa-2589b037f860.htm" />
+  <HelpKINode Title="AddAllergenNavClass Methode" Url="html/bbf8a12f-53e7-aaa7-a121-bebfea78ec31.htm" />
+  <HelpKINode Title="AddFormModel Klasse">
+    <HelpKINode Title="AddFormModel Klasse" Url="html/4ff4baaa-c16f-65ff-b51c-7300d1e2e10d.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/3caf7734-adcb-a140-fb59-ee69a3859d83.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/dc6da20b-f967-f578-d9be-65a5e7d21cd6.htm" />
+    <HelpKINode Title="Methoden" Url="html/c4b0b795-e36e-bd02-7056-8fdc997d5e81.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddFormModel.AddFormModel Konstruktor" Url="html/dc6da20b-f967-f578-d9be-65a5e7d21cd6.htm" />
+  <HelpKINode Title="AddFormModel.Input Eigenschaft" Url="html/3a88301a-c29f-459a-e064-232484592ba8.htm" />
+  <HelpKINode Title="AddFormModel.InputModel Klasse">
+    <HelpKINode Title="AddFormModel.InputModel Klasse" Url="html/245c6644-e76b-27a7-1bc4-c4893ba66c08.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/85182201-8697-a472-594e-656d94276b46.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddFormModel.InputModel.Grade Eigenschaft" Url="html/c445ec33-bb6a-fce5-e9c2-93b235b94aae.htm" />
+  <HelpKINode Title="AddFormModel.InputModel.InputModel Konstruktor" Url="html/85182201-8697-a472-594e-656d94276b46.htm" />
+  <HelpKINode Title="AddFormModel.InputModel.Streams Eigenschaft" Url="html/239649fd-5cdd-bf9b-246c-91959b18a9f9.htm" />
+  <HelpKINode Title="AddFormModel.OnPost Methode" Url="html/e8bb0173-c1e9-999a-e2d7-e4102822dfba.htm" />
+  <HelpKINode Title="AddProduct Eigenschaft" Url="html/eb25bdfb-274d-eb3e-c0a6-812fcb53154d.htm" />
+  <HelpKINode Title="AddProductModel Klasse">
+    <HelpKINode Title="AddProductModel Klasse" Url="html/f70ce138-fdfa-4930-f7e3-32000d6eb463.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/037cd42c-b45d-e33c-3ccb-efa156b90d97.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/398ca8f5-d99a-b362-6521-642fc0fcf5f3.htm" />
+    <HelpKINode Title="Methoden" Url="html/3d932922-1052-07b8-098f-0cd91dc7d4b5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddProductModel.AddProductModel Konstruktor" Url="html/398ca8f5-d99a-b362-6521-642fc0fcf5f3.htm" />
+  <HelpKINode Title="AddProductModel.Allergens Eigenschaft" Url="html/20a9e3ef-765a-5b6c-8209-cba787e96f3a.htm" />
+  <HelpKINode Title="AddProductModel.FromInput Methode" Url="html/f6455f2c-1d3b-dd8f-4ea7-f9067508521d.htm" />
+  <HelpKINode Title="AddProductModel.Input Eigenschaft" Url="html/4eab0846-7475-59e5-b011-17e5b0e88f2a.htm" />
+  <HelpKINode Title="AddProductModel.InputModel Klasse">
+    <HelpKINode Title="AddProductModel.InputModel Klasse" Url="html/f95883d1-ef32-a1f8-109f-c9dd8a87cecc.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/c4e61d5e-f261-cd32-e14f-fac5fddc023a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddProductModel.InputModel.Deposit Eigenschaft" Url="html/26e3c1ce-8f40-6f7e-466e-b4cec9ea0b87.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.Image Eigenschaft" Url="html/083b058f-b87a-1b2d-eee0-58c9004b0582.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.Information Eigenschaft" Url="html/ec894d98-0e2a-c9d7-43f2-5e8dea528851.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.InputModel Konstruktor" Url="html/c4e61d5e-f261-cd32-e14f-fac5fddc023a.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.Name Eigenschaft" Url="html/5924d541-e576-8455-b60e-ec64bb813380.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.Price Eigenschaft" Url="html/278d9618-3069-dada-fee3-fe22f89e33c4.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.Sale Eigenschaft" Url="html/c9a5f149-9404-065f-4f00-c78ce2951893.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.SelectedAllergens Eigenschaft" Url="html/39f3906e-39f1-f938-c72e-562f8f4f0370.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.Size Eigenschaft" Url="html/1a9d1e87-21e8-d6cd-20df-3c42917a5fc6.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.Vegan Eigenschaft" Url="html/a7c5cbb5-97fb-6841-40a3-09a6877aebae.htm" />
+  <HelpKINode Title="AddProductModel.InputModel.Vegetarian Eigenschaft" Url="html/980c1b94-5f82-6046-50c1-64e985f8b87b.htm" />
+  <HelpKINode Title="AddProductModel.OnPost Methode" Url="html/19464e49-47a4-133a-ee46-a3d317fc5301.htm" />
+  <HelpKINode Title="AddProductNavClass Methode" Url="html/2c20e751-a3a0-e7e1-240f-4cb276d3821c.htm" />
+  <HelpKINode Title="AddUser Methode" Url="html/7cfd4077-0871-413d-11d5-a2698faa5646.htm" />
+  <HelpKINode Title="AddUserModel Klasse">
+    <HelpKINode Title="AddUserModel Klasse" Url="html/cdf039bf-74ac-4db2-2e32-a9652c41e969.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/75d3fac4-9a67-0852-cc4d-e42a1df2534c.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/b83e2e59-6a38-51c7-6d13-207e47f40cf6.htm" />
+    <HelpKINode Title="Methoden" Url="html/721eb91b-75eb-3680-129f-340614d488b9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddUserModel.AddUserModel Konstruktor" Url="html/b83e2e59-6a38-51c7-6d13-207e47f40cf6.htm" />
+  <HelpKINode Title="AddUserModel.Forms Eigenschaft" Url="html/d52f5f82-b0c4-85d6-cd9a-32ff4cfacd01.htm" />
+  <HelpKINode Title="AddUserModel.Input Eigenschaft" Url="html/1ad728e5-7e62-c28b-fc76-f2e385abf8cb.htm" />
+  <HelpKINode Title="AddUserModel.InputModel Klasse">
+    <HelpKINode Title="AddUserModel.InputModel Klasse" Url="html/8681f42b-6ad9-5cbd-ef5f-5ab5a8643f11.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/90a0313d-d265-2ebe-bf12-a783fe944723.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddUserModel.InputModel.Email Eigenschaft" Url="html/78ac5af7-8b38-4f67-b4ca-e5799d9fb1ea.htm" />
+  <HelpKINode Title="AddUserModel.InputModel.FormId Eigenschaft" Url="html/38069fa8-630a-1134-67b2-18f133bd7b31.htm" />
+  <HelpKINode Title="AddUserModel.InputModel.InputModel Konstruktor" Url="html/90a0313d-d265-2ebe-bf12-a783fe944723.htm" />
+  <HelpKINode Title="AddUserModel.InputModel.Role Eigenschaft" Url="html/ac7eb06c-e69c-a670-ed2c-22fd0411d196.htm" />
+  <HelpKINode Title="AddUserModel.OnGet Methode" Url="html/20a06c9c-492b-d408-3031-c64cd23d346c.htm" />
+  <HelpKINode Title="AddUserModel.OnPostAsync Methode" Url="html/724ae96d-4fb8-aaed-f847-73e827c0cfe2.htm" />
+  <HelpKINode Title="Admin Eigenschaft" Url="html/d9015f24-022c-d11e-0696-f3c487225b76.htm" />
+  <HelpKINode Title="AdminController Klasse">
+    <HelpKINode Title="AdminController Klasse" Url="html/2802e7d5-4963-eb04-f569-d08e1cb03c75.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/69d6d498-4ff9-dabc-38b6-6902583280c0.htm" />
+    <HelpKINode Title="Methoden" Url="html/30452607-caf5-0180-abee-7e00369120af.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AdminController.AddUser Methode" Url="html/7cfd4077-0871-413d-11d5-a2698faa5646.htm" />
+  <HelpKINode Title="AdminController.AdminController Konstruktor" Url="html/69d6d498-4ff9-dabc-38b6-6902583280c0.htm" />
+  <HelpKINode Title="AdminController.DeactivateCode Methode" Url="html/94cf5b52-1615-9d43-9de1-22948a2090d4.htm" />
+  <HelpKINode Title="AdminController.DeactivateOldCodes Methode" Url="html/d4717be1-02c1-5d86-a821-a6abc36b97c6.htm" />
+  <HelpKINode Title="AdminController.EditUser Methode" Url="html/48010fb4-6fac-ac02-8790-a629b7feba02.htm" />
+  <HelpKINode Title="AdminController.Generate Methode" Url="html/3b851145-1b3c-8e16-0b99-d082c27d7c91.htm" />
+  <HelpKINode Title="AdminController.GenerateCodes Methode" Url="html/89136dab-8b3a-40c6-b1bd-5112951df1cc.htm" />
+  <HelpKINode Title="AdminController.Index Methode" Url="html/eae26a52-689a-76e0-9a58-60e47118afd4.htm" />
+  <HelpKINode Title="AdminController.Remove Methode" Url="html/88398143-ae65-85dc-902c-a18eeddcc0d4.htm" />
+  <HelpKINode Title="AdminController.RemoveForm Methode" Url="html/ca846664-4f19-e309-d78d-c4207b37466a.htm" />
+  <HelpKINode Title="AdminSort Eigenschaft" Url="html/4db915ad-22c5-e5d8-7cae-d41008c6e8ed.htm" />
+  <HelpKINode Title="Alert Eigenschaft" Url="html/e0944215-af42-475b-dac2-1e6856b9fbb9.htm" />
+  <HelpKINode Title="Allergen Klasse">
+    <HelpKINode Title="Allergen Klasse" Url="html/8a553acb-ddda-70f1-5476-5b69ce2d01bc.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/65f7195d-ef6b-3983-8750-ca4be1ff693d.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/17a975a2-84ec-ed38-9b08-faf3066bffb9.htm" />
+    <HelpKINode Title="Methoden" Url="html/e1f1f419-36f9-0a41-f832-aa0849f82b6a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Allergen.Allergen Konstruktor" Url="html/17a975a2-84ec-ed38-9b08-faf3066bffb9.htm" />
+  <HelpKINode Title="Allergen.Description Eigenschaft" Url="html/6ee516ac-ff50-7060-79fc-6b94b0dcf5b3.htm" />
+  <HelpKINode Title="Allergen.Equals Methode" Url="html/cb453d81-9874-5ed8-75e1-1e3aa75be3b7.htm" />
+  <HelpKINode Title="Allergen.GetHashCode Methode" Url="html/5eff127b-a64d-9a1b-a311-1b1584efe992.htm" />
+  <HelpKINode Title="Allergen.Id Eigenschaft" Url="html/dc94cc4e-27e5-b568-92fb-df84fc6520ac.htm" />
+  <HelpKINode Title="Allergen.ToString Methode" Url="html/3e49d15b-1c70-5323-19e1-564fcf760e32.htm" />
+  <HelpKINode Title="AllergenIndices Eigenschaft" Url="html/234f8373-07b4-448e-0b71-e1cfb523d2d2.htm" />
+  <HelpKINode Title="Allergens Eigenschaft">
+    <HelpKINode Title="AddProductModel.Allergens Eigenschaft " Url="html/20a9e3ef-765a-5b6c-8209-cba787e96f3a.htm" />
+    <HelpKINode Title="AllergensModel.Allergens Eigenschaft " Url="html/10ae951b-d3e6-e438-3e08-1ed7e184a7dc.htm" />
+    <HelpKINode Title="ApplicationDbContext.Allergens Eigenschaft " Url="html/d45772f6-90cd-7a71-983c-194cde741fa6.htm" />
+    <HelpKINode Title="EditProductModel.Allergens Eigenschaft " Url="html/ffea50d2-8fa5-e803-77dd-79c1108a0f3b.htm" />
+    <HelpKINode Title="ManageNavPages.Allergens Eigenschaft " Url="html/df69e43d-8d74-16b4-f682-23b1aad2cf62.htm" />
+    <HelpKINode Title="Product.Allergens Eigenschaft " Url="html/f7eca223-e058-31e4-af7f-48d97390d529.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AllergensModel Klasse">
+    <HelpKINode Title="AllergensModel Klasse" Url="html/d4ad7fa5-ac05-84f6-ba73-9b2d20f5c573.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/c9d99153-9390-5689-98ae-97b978a5db05.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/ad81cc92-b70a-d9bc-905f-70e0278f4258.htm" />
+    <HelpKINode Title="Methoden" Url="html/3ccfabdd-05c1-a65b-9cea-44b382390691.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AllergensModel.Allergens Eigenschaft" Url="html/10ae951b-d3e6-e438-3e08-1ed7e184a7dc.htm" />
+  <HelpKINode Title="AllergensModel.AllergensModel Konstruktor" Url="html/ad81cc92-b70a-d9bc-905f-70e0278f4258.htm" />
+  <HelpKINode Title="AllergensModel.Input Eigenschaft" Url="html/032eec6d-20ab-39b6-81d2-d44b543056f0.htm" />
+  <HelpKINode Title="AllergensModel.InputModel Klasse">
+    <HelpKINode Title="AllergensModel.InputModel Klasse" Url="html/a76917d5-c98b-7b70-387a-58e8b1431c29.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/1c56f604-d872-6807-a265-18e8c114b1c1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AllergensModel.InputModel.InputModel Konstruktor" Url="html/1c56f604-d872-6807-a265-18e8c114b1c1.htm" />
+  <HelpKINode Title="AllergensModel.InputModel.SearchKeyWord Eigenschaft" Url="html/3d539965-d072-665d-85ef-561db1460d4e.htm" />
+  <HelpKINode Title="AllergensModel.OnGet Methode" Url="html/b4702c80-e939-a90c-f7a5-6a1c666d65a9.htm" />
+  <HelpKINode Title="AllergensModel.OnPost Methode" Url="html/d8df4a47-8a19-007e-0ad6-ae4a4f8f3dc7.htm" />
+  <HelpKINode Title="AllergensModel.SearchKeyWord Eigenschaft" Url="html/bc5711d0-2afc-196c-2eb1-63303aaf214e.htm" />
+  <HelpKINode Title="AllergensModel.Sort Eigenschaft" Url="html/5176f989-1b2a-4bb1-f116-3c45dc5dbe04.htm" />
+  <HelpKINode Title="AllergensNavClass Methode" Url="html/ced131c8-7358-5a71-a9df-fff345c87fa3.htm" />
+  <HelpKINode Title="AllergensSort Eigenschaft" Url="html/9a59f5d7-2a8c-b9f6-2ccc-e76f5c940b61.htm" />
+  <HelpKINode Title="Allerheiligen Eigenschaft" Url="html/27603104-01ea-2830-d6d8-26724a435231.htm" />
+  <HelpKINode Title="ApplicationDbContext Klasse">
+    <HelpKINode Title="ApplicationDbContext Klasse" Url="html/e3c21ffa-8ca4-4bcd-615c-8bcab83c77f4.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/e536c38b-ce53-83f7-901d-d424eaf74f5e.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/e64cba36-abdd-81ac-5f10-25ffcce64b58.htm" />
+    <HelpKINode Title="Methoden" Url="html/7a551a22-cbc4-e851-4c88-a4f702a84349.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ApplicationDbContext.Allergens Eigenschaft" Url="html/d45772f6-90cd-7a71-983c-194cde741fa6.htm" />
+  <HelpKINode Title="ApplicationDbContext.ApplicationDbContext Konstruktor" Url="html/e64cba36-abdd-81ac-5f10-25ffcce64b58.htm" />
+  <HelpKINode Title="ApplicationDbContext.Codes Eigenschaft" Url="html/a2708bbe-5618-b8a8-ce4f-5687d8f0154c.htm" />
+  <HelpKINode Title="ApplicationDbContext.CreateDbContext Methode" Url="html/23370809-f21e-26f1-a640-136e6f538a80.htm" />
+  <HelpKINode Title="ApplicationDbContext.Forms Eigenschaft" Url="html/c9ed14be-8170-f6c1-e999-86d9c37a7059.htm" />
+  <HelpKINode Title="ApplicationDbContext.HistoricOrders Eigenschaft" Url="html/55e89893-b3eb-5594-5e49-7187ffe2d293.htm" />
+  <HelpKINode Title="ApplicationDbContext.OnConfiguring Methode" Url="html/b3e969e5-e50e-ac53-1143-2e945f57d8a9.htm" />
+  <HelpKINode Title="ApplicationDbContext.OnModelCreating Methode" Url="html/cc19f816-cb08-f919-d9ea-76209724e8ea.htm" />
+  <HelpKINode Title="ApplicationDbContext.Orders Eigenschaft" Url="html/1017c883-add6-ee87-1eb8-1eea9232fb75.htm" />
+  <HelpKINode Title="ApplicationDbContext.Products Eigenschaft" Url="html/3311805f-43b3-e0e4-5eac-b26499204353.htm" />
+  <HelpKINode Title="ArchiveOrder Methode" Url="html/1fc48831-9fd2-1b43-0c8f-c9ee85489ba5.htm" />
+  <HelpKINode Title="BuildTargetModel Methode" Url="html/e580d06c-4aff-2bb7-f684-390f9113a08c.htm" />
+  <HelpKINode Title="CABESO Namensraum" Url="html/32654ebf-c166-d6bb-6387-24b6b6683bf7.htm" />
+  <HelpKINode Title="CABESO.Allergen Klasse" Url="html/8a553acb-ddda-70f1-5476-5b69ce2d01bc.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages Namensraum" Url="html/be7a4af3-c1f4-2be4-2ec5-ae2e26093242.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.AddFormModel Klasse" Url="html/4ff4baaa-c16f-65ff-b51c-7300d1e2e10d.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.AddFormModel.InputModel Klasse" Url="html/245c6644-e76b-27a7-1bc4-c4893ba66c08.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.AddUserModel Klasse" Url="html/cdf039bf-74ac-4db2-2e32-a9652c41e969.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.AddUserModel.InputModel Klasse" Url="html/8681f42b-6ad9-5cbd-ef5f-5ab5a8643f11.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.EditFormModel Klasse" Url="html/ea79f39f-1ac2-d995-49ed-61407a2c611e.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.EditFormModel.InputModel Klasse" Url="html/d60e201f-7ff6-a8be-ebe4-777bcb088030.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.EditUserModel Klasse" Url="html/01593e94-33a3-7aef-041c-c49419539a1e.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.EditUserModel.InputModel Klasse" Url="html/b928f29d-ebd2-e366-1ad8-91e1c1035f8d.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.FormsModel Klasse" Url="html/97679c99-3a07-3c2c-7e4b-50c5a57cf4c9.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.FormsModel.InputModel Klasse" Url="html/f6220904-8d76-a0e8-fcbd-5f8d2c9c2f20.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.GenerateCodesModel Klasse" Url="html/dd72d709-36c3-764a-e59d-e21a84f765c4.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.GenerateCodesModel.DeactivateInputModel Klasse" Url="html/5d052d4a-7507-f98a-9e2c-fcb9ac53b0ba.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.GenerateCodesModel.GenerateInputModel Klasse" Url="html/9f8dcb17-8aa0-7b29-185a-1d4655f6c679.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.GetFormDataModel Klasse" Url="html/c42dc859-6996-dfcd-44f6-057ad2c64543.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.IndexModel Klasse" Url="html/c12e91fe-60d4-37dc-58b0-0f060a39c0db.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.IndexModel.InputModel Klasse" Url="html/7288d83b-7ebb-f37d-6eae-33d7c9ac8c78.htm" />
+  <HelpKINode Title="CABESO.Areas.Admin.Pages.ManageNavPages Klasse" Url="html/18cb5040-e55b-a632-6fcd-40fa8beb60e9.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages Namensraum" Url="html/97805b85-a911-b8b3-9c68-af2d9cb41a5b.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.AddAllergenModel Klasse" Url="html/4b09c4cc-4348-e2a3-a444-9eae085c95f8.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.AddAllergenModel.InputModel Klasse" Url="html/e1d33b7a-b752-fc0b-7870-521bd809ecbb.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.AddProductModel Klasse" Url="html/f70ce138-fdfa-4930-f7e3-32000d6eb463.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.AddProductModel.InputModel Klasse" Url="html/f95883d1-ef32-a1f8-109f-c9dd8a87cecc.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.AllergensModel Klasse" Url="html/d4ad7fa5-ac05-84f6-ba73-9b2d20f5c573.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.AllergensModel.InputModel Klasse" Url="html/a76917d5-c98b-7b70-387a-58e8b1431c29.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.EditAllergenModel Klasse" Url="html/05c6c43b-2eb5-2290-a8b1-29512232e736.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.EditAllergenModel.InputModel Klasse" Url="html/446391df-2f24-12b9-31ba-d8c599805672.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.EditOrderModel Klasse" Url="html/e2eaf638-a9ba-6223-5ce3-8ef79d54b8b1.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.EditOrderModel.InputModel Klasse" Url="html/e1ae040d-38b3-df77-3e47-1510f320ee08.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.EditProductModel Klasse" Url="html/f70283be-41cd-b49c-cfbe-e60f13bdc26a.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.EditProductModel.InputModel Klasse" Url="html/4369f8b6-a38b-ab91-b8d7-b6ed7232fcd2.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.IndexModel Klasse" Url="html/cafa9be3-3618-a65e-2fd0-c82600dd5bbb.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.IndexModel.InputModel Klasse" Url="html/c5f18c4f-2781-9418-ab58-15c66bc23dbe.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.ManageNavPages Klasse" Url="html/ac6dc741-6e3c-6fe8-21af-5c37bb7cf770.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.OrderHistoryModel Klasse" Url="html/75b403fd-8d68-99af-61e9-3f78616487ba.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.OrderHistoryModel.InputModel Klasse" Url="html/1e865138-a1d7-f51e-a617-4be7ce4059ae.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.ProductsModel Klasse" Url="html/6239a360-5154-7346-3e85-05d62d024bed.htm" />
+  <HelpKINode Title="CABESO.Areas.Counter.Pages.ProductsModel.InputModel Klasse" Url="html/f0be2cf4-690f-a199-884a-73a26e683a50.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages Namensraum" Url="html/04bca9dd-8c58-fe86-142c-6f60799043a6.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account Namensraum" Url="html/0004269b-c1aa-294a-9395-ae337c94189e.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.AccessDeniedModel Klasse" Url="html/f57cf1b3-d27e-20f0-b4af-c1704618ae48.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.ConfirmEmailModel Klasse" Url="html/52206e87-5e3b-0c6d-631e-dd0dcaf5a14b.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.CreatePasswordModel Klasse" Url="html/bd368216-ae13-f652-c0df-0cfed289fc75.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.CreatePasswordModel.InputModel Klasse" Url="html/ecbc5979-1582-d1f2-07b4-114dc12c56eb.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.ForgotPasswordConfirmation Klasse" Url="html/939bee0e-c72f-9193-5839-0f618503a5bc.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.ForgotPasswordModel Klasse" Url="html/0edb1318-5456-e051-99d5-bb929a9e9cc9.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.ForgotPasswordModel.InputModel Klasse" Url="html/e31c1284-4216-ec4d-6615-a7744551395a.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.LockoutModel Klasse" Url="html/75d2ec8c-5e78-82d1-3a2b-b81f9205c3b0.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.LoginModel Klasse" Url="html/915308e6-988d-283f-12dd-a6d8b85c035d.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.LoginModel.InputModel Klasse" Url="html/5da1b2d5-05a2-f7db-319f-9b7c61bec00a.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.LogoutModel Klasse" Url="html/b26db019-1f4e-648e-044c-cae19b3dcda1.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.Manage Namensraum" Url="html/f3f12605-e227-437c-3e8b-c05176f792b0.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel Klasse" Url="html/276e0ffd-1641-5798-f24a-88f88a81a6dc.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel Klasse" Url="html/68a61f38-6596-2c99-d7cb-6b5d7438891d.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.Manage.IndexModel Klasse" Url="html/70405bf7-15bf-e644-7c4a-ed287ece437b.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.Manage.ManageNavPages Klasse" Url="html/54554f77-5728-0fcb-c47c-6ced9c98aa9d.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.RegisterModel Klasse" Url="html/b970d008-4209-f495-0777-3dd499a31130.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel Klasse" Url="html/9da27746-6000-0e45-27e0-9e1a4198408a.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.ResetPasswordConfirmationModel Klasse" Url="html/2b53ac94-df99-5fec-ce35-ed0ea62bf1fb.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.ResetPasswordModel Klasse" Url="html/b0256438-bbb2-c2a8-0577-987ad438532c.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel Klasse" Url="html/2ffe6b93-5cc7-a02b-8b3e-adaaffc75f2c.htm" />
+  <HelpKINode Title="CABESO.Areas.Identity.Pages.ErrorModel Klasse" Url="html/3568c22f-972a-fdb1-16a2-f847fc1876da.htm" />
+  <HelpKINode Title="CABESO.Areas.Kitchen.Pages Namensraum" Url="html/5203422a-dbf2-3624-9788-92b0ff64cb28.htm" />
+  <HelpKINode Title="CABESO.Areas.Kitchen.Pages.IndexModel Klasse" Url="html/61a069c1-2cdd-24aa-d01c-dec6bc1247d8.htm" />
+  <HelpKINode Title="CABESO.Areas.Kitchen.Pages.IndexModel.InputModel Klasse" Url="html/f68a1754-34cb-77f9-0b28-b6a5127c9779.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages Namensraum" Url="html/74dff9cd-c8ee-feab-b572-cd7b395895bf.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.EditOrderModel Klasse" Url="html/706ff103-b7b2-ae85-56fb-bbfb0b57a0c7.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.EditOrderModel.InputModel Klasse" Url="html/e9a227d0-aab2-be83-2806-52115e35fd89.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.GetProductDataModel Klasse" Url="html/a02571d8-4654-de20-0749-41483360ed93.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.IndexModel Klasse" Url="html/f25eb0cb-1027-7f4d-195a-843c8b73182d.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.IndexModel.InputModel Klasse" Url="html/0f4515e7-eab1-c567-58b5-7bc9e7372d4a.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.ManageNavPages Klasse" Url="html/a7ec01bf-285a-b0c6-e1a8-1dfd2119d081.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.OrderHistoryModel Klasse" Url="html/3afd2a1f-e4de-1981-5642-2c247f427429.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.OrderHistoryModel.InputModel Klasse" Url="html/8f25b5dd-e6aa-5a98-93e0-e1bba8e48a5f.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.PlaceOrderModel Klasse" Url="html/81516a39-458a-c6f7-2851-165a07d41d40.htm" />
+  <HelpKINode Title="CABESO.Areas.Orders.Pages.PlaceOrderModel.InputModel Klasse" Url="html/2218b518-1d80-0365-fe0c-29feb298dca3.htm" />
+  <HelpKINode Title="CABESO.Controllers Namensraum" Url="html/65d68b93-ddf4-f8cf-f617-cf7ac2f1d373.htm" />
+  <HelpKINode Title="CABESO.Controllers.AccountController Klasse" Url="html/1ad8814f-d98f-2c1d-1f8f-5232e1bbbccb.htm" />
+  <HelpKINode Title="CABESO.Controllers.HomeController Klasse" Url="html/7464abe7-2e27-7996-25ce-ce1b231883c5.htm" />
+  <HelpKINode Title="CABESO.CurrentOrder Klasse" Url="html/d0dc306a-5976-35fd-288a-19da321f21da.htm" />
+  <HelpKINode Title="CABESO.Data Namensraum" Url="html/c7bbb798-c747-f14b-f867-92375cc8f80e.htm" />
+  <HelpKINode Title="CABESO.Data.ApplicationDbContext Klasse" Url="html/e3c21ffa-8ca4-4bcd-615c-8bcab83c77f4.htm" />
+  <HelpKINode Title="CABESO.Data.Migrations Namensraum" Url="html/8188a538-67a2-7e56-6b3e-7640ccbe034e.htm" />
+  <HelpKINode Title="CABESO.Data.Migrations.CreateIdentitySchema Klasse" Url="html/ea682aa7-5d53-9750-9861-f460e338c70f.htm" />
+  <HelpKINode Title="CABESO.Database Klasse" Url="html/3311c336-4f93-d00b-98e3-19348343625a.htm" />
+  <HelpKINode Title="CABESO.ErrorDescriber Klasse" Url="html/12e92660-72f4-d767-f0ea-e76a21800e28.htm" />
+  <HelpKINode Title="CABESO.Form Klasse" Url="html/08dde0c5-d790-3fb0-adce-098a2a83383e.htm" />
+  <HelpKINode Title="CABESO.Form.Grade Klasse" Url="html/d16076b5-5e92-cec8-79d3-71dc00605c5c.htm" />
+  <HelpKINode Title="CABESO.HistoricOrder Klasse" Url="html/1d718341-4d1c-9391-51aa-9b79c45ae36d.htm" />
+  <HelpKINode Title="CABESO.Holiday Klasse" Url="html/b4a35385-afa3-3034-d97c-5e0e545309d1.htm" />
+  <HelpKINode Title="CABESO.Holidays Klasse" Url="html/7e46fbcf-244f-714f-50f1-7d0b2b785dda.htm" />
+  <HelpKINode Title="CABESO.Models Namensraum" Url="html/40108779-a730-bddf-e7db-2a05815edce0.htm" />
+  <HelpKINode Title="CABESO.Models.ErrorViewModel Klasse" Url="html/9f4a8e8d-9c0e-1930-44e8-3b666aa6f818.htm" />
+  <HelpKINode Title="CABESO.Name Klasse" Url="html/672f3f71-5815-d63e-0ffa-66e3f5f70a1a.htm" />
+  <HelpKINode Title="CABESO.Order Klasse" Url="html/3e81d759-5dea-f4cf-90fd-ad977d3062b1.htm" />
+  <HelpKINode Title="CABESO.Product Klasse" Url="html/314870ec-b250-836e-2b2c-953332a2eb79.htm" />
+  <HelpKINode Title="CABESO.Program Klasse" Url="html/55fbac67-c42b-5583-bd4a-f0edd264dc33.htm" />
+  <HelpKINode Title="CABESO.RegistrationCode Klasse" Url="html/eab3e2d7-2470-b92d-fbf4-fabf06ec5c6b.htm" />
+  <HelpKINode Title="CABESO.Startup Klasse" Url="html/dbf8512c-0806-f465-8d5d-a3f036e5f82b.htm" />
+  <HelpKINode Title="CABESO.TimeRange Klasse" Url="html/4ed11e4a-4ae5-aa90-f575-53b2dbc2d1b5.htm" />
+  <HelpKINode Title="CABESO.Views.Admin Namensraum" Url="html/6e8b24e2-c64d-cc09-e7b0-f35eb9ba5eb6.htm" />
+  <HelpKINode Title="CABESO.Views.Admin.AdminController Klasse" Url="html/2802e7d5-4963-eb04-f569-d08e1cb03c75.htm" />
+  <HelpKINode Title="CABESO.Views.Counter Namensraum" Url="html/a4e28e0b-8834-5fd6-ab8b-9715337f8c31.htm" />
+  <HelpKINode Title="CABESO.Views.Counter.CounterController Klasse" Url="html/99e88959-5872-5843-7dcb-a5f9199231d1.htm" />
+  <HelpKINode Title="CABESO.Views.Kitchen Namensraum" Url="html/52c7b61f-7523-b461-433f-2fa0edc3de29.htm" />
+  <HelpKINode Title="CABESO.Views.Kitchen.KitchenController Klasse" Url="html/b5e41757-38f9-682d-a979-17c7c5d9274e.htm" />
+  <HelpKINode Title="CABESO.Views.Orders Namensraum" Url="html/bf1f9def-265a-46c5-cfde-226c7a059f3a.htm" />
+  <HelpKINode Title="CABESO.Views.Orders.OrdersController Klasse" Url="html/da0dbdae-41e6-9ca2-9fdf-6eb363a4def7.htm" />
+  <HelpKINode Title="ChangePassword Eigenschaft" Url="html/c593e341-06e3-65de-ed4d-5a8d31877246.htm" />
+  <HelpKINode Title="ChangePasswordModel Klasse">
+    <HelpKINode Title="ChangePasswordModel Klasse" Url="html/276e0ffd-1641-5798-f24a-88f88a81a6dc.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/747b116c-6fbe-f291-9a87-f1402460757b.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/e86c6b6f-b2cf-9e7d-6086-f293f56452db.htm" />
+    <HelpKINode Title="Methoden" Url="html/a24f72bb-45b3-0c24-a49d-7cfe2d0b54f6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ChangePasswordModel.ChangePasswordModel Konstruktor" Url="html/e86c6b6f-b2cf-9e7d-6086-f293f56452db.htm" />
+  <HelpKINode Title="ChangePasswordModel.Input Eigenschaft" Url="html/82973320-f372-ac2b-6a4d-870eee84fe17.htm" />
+  <HelpKINode Title="ChangePasswordModel.InputModel Klasse">
+    <HelpKINode Title="ChangePasswordModel.InputModel Klasse" Url="html/68a61f38-6596-2c99-d7cb-6b5d7438891d.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/14442cc7-8c3a-22d9-33da-b92e1da3c07d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ChangePasswordModel.InputModel.ConfirmPassword Eigenschaft" Url="html/cf592bdb-29d5-24f8-003a-fb3dd9d910a9.htm" />
+  <HelpKINode Title="ChangePasswordModel.InputModel.InputModel Konstruktor" Url="html/14442cc7-8c3a-22d9-33da-b92e1da3c07d.htm" />
+  <HelpKINode Title="ChangePasswordModel.InputModel.NewPassword Eigenschaft" Url="html/d07f2249-946a-9f32-7832-f36e2190ca00.htm" />
+  <HelpKINode Title="ChangePasswordModel.InputModel.OldPassword Eigenschaft" Url="html/3b9b1c91-ca46-9ffb-66f6-eb5b21874f00.htm" />
+  <HelpKINode Title="ChangePasswordModel.OnGetAsync Methode" Url="html/0ecde0fa-ebc7-951d-5743-8c3b44666bb9.htm" />
+  <HelpKINode Title="ChangePasswordModel.OnPostAsync Methode" Url="html/edde5176-9888-f09d-4098-1db94dc5146e.htm" />
+  <HelpKINode Title="ChangePasswordModel.StatusMessage Eigenschaft" Url="html/01d13db9-98af-3923-c073-44302ab9a2ec.htm" />
+  <HelpKINode Title="ChangePasswordNavClass Methode" Url="html/26049b99-c6b3-7439-c896-b981a61908d5.htm" />
+  <HelpKINode Title="ChristiHimmelfahrt Eigenschaft" Url="html/cd14deca-95c4-329e-60a4-daf9fdaae256.htm" />
+  <HelpKINode Title="Code Eigenschaft">
+    <HelpKINode Title="CreatePasswordModel.InputModel.Code Eigenschaft " Url="html/a3806742-fb62-6762-ac7b-4c33327c7818.htm" />
+    <HelpKINode Title="RegisterModel.InputModel.Code Eigenschaft " Url="html/d79e14ee-4dc8-a651-af27-4d50c8c1af3d.htm" />
+    <HelpKINode Title="RegistrationCode.Code Eigenschaft " Url="html/6302cd43-364e-dbd4-fa17-3ffadaae7ca2.htm" />
+    <HelpKINode Title="ResetPasswordModel.InputModel.Code Eigenschaft " Url="html/543ef7e9-fa9a-4c2c-2934-ec6811e19811.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Codes Eigenschaft">
+    <HelpKINode Title="ApplicationDbContext.Codes Eigenschaft " Url="html/a2708bbe-5618-b8a8-ce4f-5687d8f0154c.htm" />
+    <HelpKINode Title="GenerateCodesModel.Codes Eigenschaft " Url="html/6f4c9832-31fc-bd17-af9f-8d95025a16fb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CollectionPlace Eigenschaft">
+    <HelpKINode Title="Order.CollectionPlace Eigenschaft " Url="html/96cc4bc0-c0c6-08ba-e286-e135723ed20e.htm" />
+    <HelpKINode Title="PlaceOrderModel.InputModel.CollectionPlace Eigenschaft " Url="html/192a4341-595c-94e6-9da3-538dae7970bb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CollectionPlaceSort Eigenschaft">
+    <HelpKINode Title="IndexModel.CollectionPlaceSort Eigenschaft " Url="html/c91831bc-43b1-ba9b-2562-6e824e6fb116.htm" />
+    <HelpKINode Title="IndexModel.CollectionPlaceSort Eigenschaft " Url="html/b72eb782-55e1-532e-f4ea-bf8318321f71.htm" />
+    <HelpKINode Title="OrderHistoryModel.CollectionPlaceSort Eigenschaft " Url="html/a8c698e5-65d7-28f3-b292-67989347e919.htm" />
+    <HelpKINode Title="OrderHistoryModel.CollectionPlaceSort Eigenschaft " Url="html/ddfa3d51-e9bd-41cb-903c-94859b68cf36.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CollectionTime Eigenschaft">
+    <HelpKINode Title="EditOrderModel.InputModel.CollectionTime Eigenschaft " Url="html/c753587c-0728-103e-dea8-f153bc7e9dfe.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel.CollectionTime Eigenschaft " Url="html/dfc4b39d-c461-2eaf-6ec8-0a0656aafaf8.htm" />
+    <HelpKINode Title="Order.CollectionTime Eigenschaft " Url="html/947e6100-4591-8a48-8791-04ba54dc9cc1.htm" />
+    <HelpKINode Title="PlaceOrderModel.InputModel.CollectionTime Eigenschaft " Url="html/4873a52b-df00-a97c-dd3c-14a4d7e0ecd0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CollectionTimeSort Eigenschaft">
+    <HelpKINode Title="IndexModel.CollectionTimeSort Eigenschaft " Url="html/efecd8ae-68d3-2295-cc3b-d8c07234cae6.htm" />
+    <HelpKINode Title="IndexModel.CollectionTimeSort Eigenschaft " Url="html/71d45781-245b-60a4-95ab-80a6f12052af.htm" />
+    <HelpKINode Title="IndexModel.CollectionTimeSort Eigenschaft " Url="html/f4640f40-b5c1-e037-e106-6f8b9fbc116f.htm" />
+    <HelpKINode Title="OrderHistoryModel.CollectionTimeSort Eigenschaft " Url="html/ce9ace00-328a-8d76-d7f7-d16e49d3e674.htm" />
+    <HelpKINode Title="OrderHistoryModel.CollectionTimeSort Eigenschaft " Url="html/dc4123e9-1c08-d1fa-2913-90761df5ef2a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CompareTo Methode" Url="html/ae80ec7b-c9e2-03ec-f1ab-bb5cab543585.htm" />
+  <HelpKINode Title="ConcurrencyFailure Methode" Url="html/1cb127f7-1f68-9fd2-eaed-21ca2412820a.htm" />
+  <HelpKINode Title="Configuration Eigenschaft" Url="html/bfe5acf1-1d8f-6bea-f1b2-6416536a1d11.htm" />
+  <HelpKINode Title="Configure Methode" Url="html/0edc7128-04dc-71f3-4c2a-f75076ffa7de.htm" />
+  <HelpKINode Title="ConfigureServices Methode" Url="html/9f95aa54-9c83-eebe-08c7-5d0db45a24c8.htm" />
+  <HelpKINode Title="Confirmed Eigenschaft" Url="html/82df9191-725b-0968-0df4-3feee6e7388d.htm" />
+  <HelpKINode Title="ConfirmEmailModel Klasse">
+    <HelpKINode Title="ConfirmEmailModel Klasse" Url="html/52206e87-5e3b-0c6d-631e-dd0dcaf5a14b.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/033d066b-1674-1b44-e42b-9baef6b900a6.htm" />
+    <HelpKINode Title="Methoden" Url="html/4928aa2b-b8f8-98fe-c846-e965eb70ec1f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ConfirmEmailModel.ConfirmEmailModel Konstruktor" Url="html/033d066b-1674-1b44-e42b-9baef6b900a6.htm" />
+  <HelpKINode Title="ConfirmEmailModel.OnGetAsync Methode" Url="html/03fcc6d0-9fc5-347a-9804-efc38d1eede3.htm" />
+  <HelpKINode Title="ConfirmPassword Eigenschaft">
+    <HelpKINode Title="ChangePasswordModel.InputModel.ConfirmPassword Eigenschaft " Url="html/cf592bdb-29d5-24f8-003a-fb3dd9d910a9.htm" />
+    <HelpKINode Title="CreatePasswordModel.InputModel.ConfirmPassword Eigenschaft " Url="html/025b7827-1d30-8e43-419f-0ddfd57b84d0.htm" />
+    <HelpKINode Title="RegisterModel.InputModel.ConfirmPassword Eigenschaft " Url="html/92bce25f-85e5-d158-07a9-809993b731ec.htm" />
+    <HelpKINode Title="ResetPasswordModel.InputModel.ConfirmPassword Eigenschaft " Url="html/6e4718f7-2d91-1826-e8cb-5dbc5317bd34.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Context Feld" Url="html/545f820e-8cf2-3df5-fb0b-29d3594ad883.htm" />
+  <HelpKINode Title="CounterController Klasse">
+    <HelpKINode Title="CounterController Klasse" Url="html/99e88959-5872-5843-7dcb-a5f9199231d1.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/c8041cd1-9b3d-9d29-f243-dda4af32c957.htm" />
+    <HelpKINode Title="Methoden" Url="html/9360a468-5e64-528f-2973-e41ae5f654e0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CounterController.ArchiveOrder Methode" Url="html/1fc48831-9fd2-1b43-0c8f-c9ee85489ba5.htm" />
+  <HelpKINode Title="CounterController.CounterController Konstruktor" Url="html/c8041cd1-9b3d-9d29-f243-dda4af32c957.htm" />
+  <HelpKINode Title="CounterController.Index Methode" Url="html/4fce34bc-6f0a-0b4f-ceab-c11eb0824256.htm" />
+  <HelpKINode Title="CounterController.Products Methode" Url="html/e0775889-2780-4ff0-63ff-bc05758bcc4d.htm" />
+  <HelpKINode Title="CounterController.RemoveAllergen Methode" Url="html/bf7e373b-194d-2df2-a492-6af74ee92ea5.htm" />
+  <HelpKINode Title="CounterController.RemoveOrder Methode" Url="html/10b88906-9183-76ae-bacb-3f5330a122c9.htm" />
+  <HelpKINode Title="CounterController.RemoveProduct Methode" Url="html/7499d44e-bcf1-5962-f73f-3b3afc3b9b98.htm" />
+  <HelpKINode Title="Create Methode" Url="html/441e7601-73dc-e225-40e2-6c5c062d95b1.htm" />
+  <HelpKINode Title="CreateDbContext Methode" Url="html/23370809-f21e-26f1-a640-136e6f538a80.htm" />
+  <HelpKINode Title="CreateIdentitySchema Klasse">
+    <HelpKINode Title="CreateIdentitySchema Klasse" Url="html/ea682aa7-5d53-9750-9861-f460e338c70f.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/46408855-5806-b658-5a06-794c4ba7304e.htm" />
+    <HelpKINode Title="Methoden" Url="html/8cdd3470-90fa-600e-212b-178e9ee8bd9c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreateIdentitySchema.BuildTargetModel Methode" Url="html/e580d06c-4aff-2bb7-f684-390f9113a08c.htm" />
+  <HelpKINode Title="CreateIdentitySchema.CreateIdentitySchema Konstruktor" Url="html/46408855-5806-b658-5a06-794c4ba7304e.htm" />
+  <HelpKINode Title="CreateIdentitySchema.Down Methode" Url="html/2932e212-94e8-5d54-2bd2-e71fdca96d09.htm" />
+  <HelpKINode Title="CreateIdentitySchema.Up Methode" Url="html/cd64e78e-6043-9c9e-daa2-24b43f47ccea.htm" />
+  <HelpKINode Title="CreatePasswordModel Klasse">
+    <HelpKINode Title="CreatePasswordModel Klasse" Url="html/bd368216-ae13-f652-c0df-0cfed289fc75.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/1c13b4f2-4ee9-e879-ebf8-9519173b3471.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/cc6fb8c2-702d-3320-636d-005102017e1f.htm" />
+    <HelpKINode Title="Methoden" Url="html/a9ec5e90-f007-df10-d792-d3e26fa02c2f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreatePasswordModel.CreatePasswordModel Konstruktor" Url="html/cc6fb8c2-702d-3320-636d-005102017e1f.htm" />
+  <HelpKINode Title="CreatePasswordModel.Input Eigenschaft" Url="html/34c2a1f1-83e5-fcf0-2399-dd61343c75af.htm" />
+  <HelpKINode Title="CreatePasswordModel.InputModel Klasse">
+    <HelpKINode Title="CreatePasswordModel.InputModel Klasse" Url="html/ecbc5979-1582-d1f2-07b4-114dc12c56eb.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/762c4f85-584e-5af7-06a6-ddcf2f572504.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreatePasswordModel.InputModel.Code Eigenschaft" Url="html/a3806742-fb62-6762-ac7b-4c33327c7818.htm" />
+  <HelpKINode Title="CreatePasswordModel.InputModel.ConfirmPassword Eigenschaft" Url="html/025b7827-1d30-8e43-419f-0ddfd57b84d0.htm" />
+  <HelpKINode Title="CreatePasswordModel.InputModel.InputModel Konstruktor" Url="html/762c4f85-584e-5af7-06a6-ddcf2f572504.htm" />
+  <HelpKINode Title="CreatePasswordModel.InputModel.Password Eigenschaft" Url="html/de90039f-1079-d8c2-d6e5-4ca602b4ac00.htm" />
+  <HelpKINode Title="CreatePasswordModel.InputModel.UserId Eigenschaft" Url="html/38d18475-65ef-d94f-a8a3-760ec012cf98.htm" />
+  <HelpKINode Title="CreatePasswordModel.OnGet Methode" Url="html/744a4ca9-d2de-977c-4eb7-1360ef423c6b.htm" />
+  <HelpKINode Title="CreatePasswordModel.OnPostAsync Methode" Url="html/5979a8a1-a065-0ca0-0e99-e403dd4e6442.htm" />
+  <HelpKINode Title="CreationTime Eigenschaft" Url="html/17e9c95e-5eb5-26cd-353d-d42254708b51.htm" />
+  <HelpKINode Title="CurrentAllergen Eigenschaft" Url="html/d6829f4a-2532-5600-b45d-c42c34f57cfa.htm" />
+  <HelpKINode Title="CurrentForm Eigenschaft" Url="html/55cdd6e6-9713-15f4-9499-92eba7ce106a.htm" />
+  <HelpKINode Title="CurrentOrder Eigenschaft">
+    <HelpKINode Title="EditOrderModel.CurrentOrder Eigenschaft " Url="html/37f8dff8-cb93-6511-ace4-5b855652c27a.htm" />
+    <HelpKINode Title="EditOrderModel.CurrentOrder Eigenschaft " Url="html/a367e9bb-999b-507e-0d38-22f66d775629.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CurrentOrder Klasse">
+    <HelpKINode Title="CurrentOrder Klasse" Url="html/d0dc306a-5976-35fd-288a-19da321f21da.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/5e6b4401-6d10-a4c4-74b5-8b8d68dc5ae4.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/3a5a1de9-efaa-1246-df4b-3d5e9d1bae77.htm" />
+    <HelpKINode Title="Methoden" Url="html/c83cca88-c048-3c31-c236-c20356c4f3e5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CurrentOrder.CurrentOrder Konstruktor" Url="html/3a5a1de9-efaa-1246-df4b-3d5e9d1bae77.htm" />
+  <HelpKINode Title="CurrentOrder.ToHistoricOrder Methode" Url="html/2087ebf0-b794-cdb3-d149-a1f16a71e7ac.htm" />
+  <HelpKINode Title="CurrentOrder.ValidCollectionTimes Methode" Url="html/1344fa8d-8a0f-fc30-ece3-23050fdb459e.htm" />
+  <HelpKINode Title="CurrentProduct Eigenschaft" Url="html/2a34c69a-d7e4-685d-1b6f-7baa8bd94d92.htm" />
+  <HelpKINode Title="CurrentUser Eigenschaft">
+    <HelpKINode Title="EditUserModel.CurrentUser Eigenschaft " Url="html/275d9938-f092-5867-0b75-582d1b6c1ce3.htm" />
+    <HelpKINode Title="IndexModel.CurrentUser Eigenschaft " Url="html/7fcca66f-2533-9897-c384-a36a593d45dd.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Database Klasse">
+    <HelpKINode Title="Database Klasse" Url="html/3311c336-4f93-d00b-98e3-19348343625a.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/a3311e63-c4be-35df-df5e-5ee04f743941.htm" />
+    <HelpKINode Title="Felder" Url="html/0b05a882-4f79-77a8-b068-db1f1eddb796.htm" />
+    <HelpKINode Title="Methoden" Url="html/888d255b-a042-495b-0c2f-f1bc88034141.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Database.GetDisplayFormat Methode" Url="html/884f757e-b1ec-8cc8-46a6-75958a65f239.htm" />
+  <HelpKINode Title="Database.GetDisplayName Methode" Url="html/fd066d00-ab52-48a7-4d62-9bb2791a16ac.htm" />
+  <HelpKINode Title="Database.GetForm Methode" Url="html/ab98b9cd-5226-8d8d-34df-4d4059ec2812.htm" />
+  <HelpKINode Title="Database.GetFormsSelect Methode" Url="html/6d1bb9a4-870c-a0af-b1ea-7027b40e1135.htm" />
+  <HelpKINode Title="Database.GetHtmlDateFormat Methode" Url="html/a43f6c46-528c-914e-244c-960d76ca99d7.htm" />
+  <HelpKINode Title="Database.GetHtmlFormat Methode" Url="html/23380944-f1e2-e290-e6b6-b9625fb114cf.htm" />
+  <HelpKINode Title="Database.GetIdentityUser Methode" Url="html/b950ff56-3a8c-1f3d-4ff3-8c1b22ac573e.htm" />
+  <HelpKINode Title="Database.GetName Methode" Url="html/d7addeb3-5424-11cb-aa42-5480be43265d.htm" />
+  <HelpKINode Title="Database.GetRole Methode" Url="html/9b7b09b4-312c-bbbb-4a74-630b8582bdbc.htm" />
+  <HelpKINode Title="Database.GetSqlFormat Methode" Url="html/d267a632-c8eb-a03e-fe5b-c95ecba24068.htm" />
+  <HelpKINode Title="Database.GetUserById Methode" Url="html/333e1a68-2d81-17d0-78fe-1908fa084498.htm" />
+  <HelpKINode Title="Database.IsAdmin Methode" Url="html/cb2cd2c7-67ab-9eb9-090e-a4084ea77713.htm" />
+  <HelpKINode Title="Database.IsEmployee Methode" Url="html/5edb1861-6842-6762-2d98-9c8ee37dc855.htm" />
+  <HelpKINode Title="Database.MigrateDatabase Methode" Url="html/5452652d-fc36-9c33-68f5-55b86343dd16.htm" />
+  <HelpKINode Title="Database.Roles Feld" Url="html/587412f3-9ecf-e54d-8920-5715ede7f1b1.htm" />
+  <HelpKINode Title="Database.Search(Of T) Methode" Url="html/6fcd7f13-3f38-5de8-26ed-31f3b4691ef1.htm" />
+  <HelpKINode Title="Database.Search&lt;T&gt; Methode" Url="html/6fcd7f13-3f38-5de8-26ed-31f3b4691ef1.htm" />
+  <HelpKINode Title="Database.SetFormId Methode" Url="html/6c01b029-8f94-5982-e702-d07ae33c068d.htm" />
+  <HelpKINode Title="Database.SqlNow Eigenschaft" Url="html/0377131c-609d-be0b-6a55-d7fc85e29e95.htm" />
+  <HelpKINode Title="Date Eigenschaft" Url="html/24848f9b-d333-45f7-aa88-875f1bf661b7.htm" />
+  <HelpKINode Title="DeactivateCode Methode" Url="html/94cf5b52-1615-9d43-9de1-22948a2090d4.htm" />
+  <HelpKINode Title="DeactivateInput Eigenschaft" Url="html/44efcab6-357e-fc5b-8765-e027676fae95.htm" />
+  <HelpKINode Title="DeactivateInputModel Klasse">
+    <HelpKINode Title="Eigenschaften" Url="html/e42a77b2-e4ff-801e-578d-e43ccd5c904b.htm" />
+    <HelpKINode Title="Methoden" Url="html/11f95935-b6bf-2387-9082-ebff6e256bb2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DeactivateOldCodes Methode" Url="html/d4717be1-02c1-5d86-a821-a6abc36b97c6.htm" />
+  <HelpKINode Title="DefaultConnection Eigenschaft" Url="html/e85b6186-6273-89db-e9cf-8fe88954592e.htm" />
+  <HelpKINode Title="DefaultError Methode" Url="html/69ff233c-f2e6-3033-082f-68bbb8c44711.htm" />
+  <HelpKINode Title="Deposit Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Deposit Eigenschaft " Url="html/26e3c1ce-8f40-6f7e-466e-b4cec9ea0b87.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Deposit Eigenschaft " Url="html/56eb9aa3-5ef7-ce4f-09d7-f4d60fe1046d.htm" />
+    <HelpKINode Title="Product.Deposit Eigenschaft " Url="html/9f933a24-b6a2-0d9b-1136-e26051130c39.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DepositSort Eigenschaft" Url="html/757c5f62-4607-f77a-43a5-06d54da6db6a.htm" />
+  <HelpKINode Title="Description Eigenschaft">
+    <HelpKINode Title="AddAllergenModel.InputModel.Description Eigenschaft " Url="html/57a8c85d-b775-1b0f-2060-889c0c7675a4.htm" />
+    <HelpKINode Title="Allergen.Description Eigenschaft " Url="html/6ee516ac-ff50-7060-79fc-6b94b0dcf5b3.htm" />
+    <HelpKINode Title="EditAllergenModel.InputModel.Description Eigenschaft " Url="html/70f931ef-9c64-053b-d32b-55d8e2c73941.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Down Methode" Url="html/2932e212-94e8-5d54-2bd2-e71fdca96d09.htm" />
+  <HelpKINode Title="DuplicateEmail Methode" Url="html/3e5a8709-3d90-b122-b6bd-361a58ddd2e3.htm" />
+  <HelpKINode Title="DuplicateRoleName Methode" Url="html/5de9ec62-66ad-639d-77ad-5260133c8b6e.htm" />
+  <HelpKINode Title="DuplicateUserName Methode" Url="html/926f45fb-4d19-31a1-d9cb-7de3237d5484.htm" />
+  <HelpKINode Title="Duration Eigenschaft" Url="html/436b82a7-a83d-4382-21f4-fbc09f844297.htm" />
+  <HelpKINode Title="EditAllergenModel Klasse">
+    <HelpKINode Title="EditAllergenModel Klasse" Url="html/05c6c43b-2eb5-2290-a8b1-29512232e736.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/3f4d2066-9f82-30f9-e7ec-bc82dc086c76.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/0a3ecaa8-ad93-31b8-31eb-ef72f9a0936b.htm" />
+    <HelpKINode Title="Methoden" Url="html/3934c424-02df-c051-3516-c8843cc91030.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditAllergenModel.CurrentAllergen Eigenschaft" Url="html/d6829f4a-2532-5600-b45d-c42c34f57cfa.htm" />
+  <HelpKINode Title="EditAllergenModel.EditAllergenModel Konstruktor" Url="html/0a3ecaa8-ad93-31b8-31eb-ef72f9a0936b.htm" />
+  <HelpKINode Title="EditAllergenModel.Input Eigenschaft" Url="html/5626ad9b-96fc-fd06-1a65-7d05564b8597.htm" />
+  <HelpKINode Title="EditAllergenModel.InputModel Klasse">
+    <HelpKINode Title="EditAllergenModel.InputModel Klasse" Url="html/446391df-2f24-12b9-31ba-d8c599805672.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/cdf83dc4-da8e-7395-9892-0d7e2d7c0bfe.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditAllergenModel.InputModel.Description Eigenschaft" Url="html/70f931ef-9c64-053b-d32b-55d8e2c73941.htm" />
+  <HelpKINode Title="EditAllergenModel.InputModel.InputModel Konstruktor" Url="html/cdf83dc4-da8e-7395-9892-0d7e2d7c0bfe.htm" />
+  <HelpKINode Title="EditAllergenModel.OnGet Methode" Url="html/8fbbe04c-691a-7b40-fab2-25c58f581d7b.htm" />
+  <HelpKINode Title="EditAllergenModel.OnPost Methode" Url="html/df293192-f803-7544-5935-f19a8e70c9ea.htm" />
+  <HelpKINode Title="EditForm Eigenschaft" Url="html/3d7d2b58-4c2e-37e1-c128-c35454660489.htm" />
+  <HelpKINode Title="EditFormModel Klasse">
+    <HelpKINode Title="EditFormModel Klasse" Url="html/ea79f39f-1ac2-d995-49ed-61407a2c611e.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/7abfaecf-7fcf-a351-9cf0-04a647ba2382.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/deccfb66-357e-d7e7-64f4-4944c17a2ec6.htm" />
+    <HelpKINode Title="Methoden" Url="html/fe9e5bb9-df3f-044f-410b-8a8fbc3c6499.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditFormModel.CurrentForm Eigenschaft" Url="html/55cdd6e6-9713-15f4-9499-92eba7ce106a.htm" />
+  <HelpKINode Title="EditFormModel.EditFormModel Konstruktor" Url="html/deccfb66-357e-d7e7-64f4-4944c17a2ec6.htm" />
+  <HelpKINode Title="EditFormModel.Input Eigenschaft" Url="html/1d92cf51-e3e4-abb5-a5cf-3bca564bf499.htm" />
+  <HelpKINode Title="EditFormModel.InputModel Klasse">
+    <HelpKINode Title="EditFormModel.InputModel Klasse" Url="html/d60e201f-7ff6-a8be-ebe4-777bcb088030.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/c23a68a0-d940-f357-de7a-75a65f1528b5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditFormModel.InputModel.InputModel Konstruktor" Url="html/c23a68a0-d940-f357-de7a-75a65f1528b5.htm" />
+  <HelpKINode Title="EditFormModel.InputModel.Stream Eigenschaft" Url="html/b1ecae48-3cca-1039-1c03-aa268c73a1bf.htm" />
+  <HelpKINode Title="EditFormModel.InputModel.Year Eigenschaft" Url="html/011284f1-3e52-19c5-446d-caa20de29eff.htm" />
+  <HelpKINode Title="EditFormModel.OnGet Methode" Url="html/9654597c-6ff1-6acc-547f-7d6287670f9f.htm" />
+  <HelpKINode Title="EditFormModel.OnPost Methode" Url="html/d68122fc-875d-cc17-682a-e5cfa122bc78.htm" />
+  <HelpKINode Title="EditFormNavClass Methode" Url="html/469560db-107d-28a0-b3ba-e498b1f28fad.htm" />
+  <HelpKINode Title="EditOrder Eigenschaft">
+    <HelpKINode Title="ManageNavPages.EditOrder Eigenschaft " Url="html/1ced1bd3-b318-ebbd-0570-4f437f9dcc5f.htm" />
+    <HelpKINode Title="ManageNavPages.EditOrder Eigenschaft " Url="html/c8739f1a-3f16-2160-c068-423f4e349aba.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel Klasse">
+    <HelpKINode Title="EditOrderModel Klasse" Url="html/706ff103-b7b2-ae85-56fb-bbfb0b57a0c7.htm" />
+    <HelpKINode Title="EditOrderModel Klasse" Url="html/e2eaf638-a9ba-6223-5ce3-8ef79d54b8b1.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/c48cc0a3-634b-7c28-1cd7-f0b97f2e2b62.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/2f54e7d9-fac4-0fe8-d2e6-2e54147f8547.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/035a82d2-39d2-9411-c368-43d7a6cc6de4.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/85a3cb6c-d633-0e55-147a-553a854ceb52.htm" />
+    <HelpKINode Title="Methoden" Url="html/c552860b-349f-521d-6c99-4b7c8d5c82f4.htm" />
+    <HelpKINode Title="Methoden" Url="html/bf372bd5-3242-f64b-2d78-5746b67829fa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.CurrentOrder Eigenschaft">
+    <HelpKINode Title="EditOrderModel.CurrentOrder Eigenschaft " Url="html/37f8dff8-cb93-6511-ace4-5b855652c27a.htm" />
+    <HelpKINode Title="EditOrderModel.CurrentOrder Eigenschaft " Url="html/a367e9bb-999b-507e-0d38-22f66d775629.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.EditOrderModel Konstruktor">
+    <HelpKINode Title="EditOrderModel Konstruktor " Url="html/035a82d2-39d2-9411-c368-43d7a6cc6de4.htm" />
+    <HelpKINode Title="EditOrderModel Konstruktor " Url="html/85a3cb6c-d633-0e55-147a-553a854ceb52.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.Input Eigenschaft">
+    <HelpKINode Title="EditOrderModel.Input Eigenschaft " Url="html/0e4baf15-047f-f706-db04-b27459ef5ea8.htm" />
+    <HelpKINode Title="EditOrderModel.Input Eigenschaft " Url="html/e8a67444-ec2d-8f64-901e-4e06968c1ad9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.InputModel Klasse">
+    <HelpKINode Title="EditOrderModel.InputModel Klasse" Url="html/e9a227d0-aab2-be83-2806-52115e35fd89.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel Klasse" Url="html/e1ae040d-38b3-df77-3e47-1510f320ee08.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/a03dfdbc-0884-09aa-4688-b7439fd61f69.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/c3570693-9c76-9eb5-d955-5bd40a37a454.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.InputModel.CollectionTime Eigenschaft">
+    <HelpKINode Title="EditOrderModel.InputModel.CollectionTime Eigenschaft " Url="html/c753587c-0728-103e-dea8-f153bc7e9dfe.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel.CollectionTime Eigenschaft " Url="html/dfc4b39d-c461-2eaf-6ec8-0a0656aafaf8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.InputModel.InputModel Konstruktor">
+    <HelpKINode Title="EditOrderModel.InputModel Konstruktor " Url="html/c3570693-9c76-9eb5-d955-5bd40a37a454.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel Konstruktor " Url="html/a03dfdbc-0884-09aa-4688-b7439fd61f69.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.InputModel.Notes Eigenschaft">
+    <HelpKINode Title="EditOrderModel.InputModel.Notes Eigenschaft " Url="html/16b17c7f-3776-b7f0-65ef-0ca507241695.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel.Notes Eigenschaft " Url="html/d37514df-24d0-c722-ffce-cc284bf7fbb5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.InputModel.Number Eigenschaft">
+    <HelpKINode Title="EditOrderModel.InputModel.Number Eigenschaft " Url="html/bb988656-46f0-bc93-4117-b714c329ba38.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel.Number Eigenschaft " Url="html/6bd5cbb6-22ad-a2e7-6ba4-1db2df1c9146.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.InputModel.ProductId Eigenschaft">
+    <HelpKINode Title="EditOrderModel.InputModel.ProductId Eigenschaft " Url="html/dbfb16fd-01e4-594f-82c6-50b1b527cecb.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel.ProductId Eigenschaft " Url="html/f8af5be5-d363-a371-a292-25320fd153f6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.OnGet Methode">
+    <HelpKINode Title="EditOrderModel.OnGet Methode " Url="html/17d3a03c-1442-b201-70eb-d3afe5a6be76.htm" />
+    <HelpKINode Title="EditOrderModel.OnGet Methode " Url="html/ac49e0be-035d-7830-190c-e469a0948136.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.OnPost Methode">
+    <HelpKINode Title="EditOrderModel.OnPost Methode " Url="html/b6a81c04-e4cf-9e48-28c6-d4f476c71212.htm" />
+    <HelpKINode Title="EditOrderModel.OnPost Methode " Url="html/f9267bb1-7587-46fc-2526-1a5c191d39e8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderModel.Products Eigenschaft">
+    <HelpKINode Title="EditOrderModel.Products Eigenschaft " Url="html/e30d1b68-a3a9-f7d7-63b4-68a2bf8e3766.htm" />
+    <HelpKINode Title="EditOrderModel.Products Eigenschaft " Url="html/fc9abb69-15d1-1aca-a926-df2249256ed7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditOrderNavClass Methode">
+    <HelpKINode Title="ManageNavPages.EditOrderNavClass Methode " Url="html/ecd930b9-65d3-2f34-b8cd-363f87aad9bb.htm" />
+    <HelpKINode Title="ManageNavPages.EditOrderNavClass Methode " Url="html/6895f627-7a1c-6b0b-8ed0-143df6c811ec.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditProductModel Klasse">
+    <HelpKINode Title="EditProductModel Klasse" Url="html/f70283be-41cd-b49c-cfbe-e60f13bdc26a.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/a77a8acd-ede8-5d81-166d-8525bd3fce16.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/8643efca-ffcc-b86d-b75c-90357d6c6484.htm" />
+    <HelpKINode Title="Methoden" Url="html/c696753e-159f-2844-e8fe-a9f1447df1aa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditProductModel.Allergens Eigenschaft" Url="html/ffea50d2-8fa5-e803-77dd-79c1108a0f3b.htm" />
+  <HelpKINode Title="EditProductModel.CurrentProduct Eigenschaft" Url="html/2a34c69a-d7e4-685d-1b6f-7baa8bd94d92.htm" />
+  <HelpKINode Title="EditProductModel.EditProductModel Konstruktor" Url="html/8643efca-ffcc-b86d-b75c-90357d6c6484.htm" />
+  <HelpKINode Title="EditProductModel.FromInput Methode" Url="html/a6311bce-b632-4d34-a089-341c3d7559d0.htm" />
+  <HelpKINode Title="EditProductModel.Input Eigenschaft" Url="html/f64708e6-440d-16b4-dad8-1207dd0531a0.htm" />
+  <HelpKINode Title="EditProductModel.InputModel Klasse">
+    <HelpKINode Title="EditProductModel.InputModel Klasse" Url="html/4369f8b6-a38b-ab91-b8d7-b6ed7232fcd2.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/a92f03df-d7d9-fb47-4915-6be14fd000de.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditProductModel.InputModel.Deposit Eigenschaft" Url="html/56eb9aa3-5ef7-ce4f-09d7-f4d60fe1046d.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.Image Eigenschaft" Url="html/e30eb783-850c-98df-bc75-bd8ec2cda2e6.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.Information Eigenschaft" Url="html/fede6d6a-3460-32d7-cda3-a257f449039d.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.InputModel Konstruktor" Url="html/a92f03df-d7d9-fb47-4915-6be14fd000de.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.Name Eigenschaft" Url="html/321f3f28-0604-a4a6-b2a3-005fc1e62be5.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.Price Eigenschaft" Url="html/4bbdfb1f-f3e3-8961-6895-d8f3d5a5e286.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.RemoveImage Eigenschaft" Url="html/b877a8db-eafe-3950-4620-20f08e91f6be.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.Sale Eigenschaft" Url="html/dfe95553-8f97-e193-54c6-3c73e47e55a0.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.SelectedAllergens Eigenschaft" Url="html/2229a614-4aeb-d92c-0eea-db6c0b5ecc6b.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.Size Eigenschaft" Url="html/98563937-514f-4659-a8ae-e0e65f0fca87.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.Vegan Eigenschaft" Url="html/48b5ee6e-6985-6147-f2a7-d3d9fd3ed201.htm" />
+  <HelpKINode Title="EditProductModel.InputModel.Vegetarian Eigenschaft" Url="html/a4276268-674e-384b-3158-3acc76c6013f.htm" />
+  <HelpKINode Title="EditProductModel.OnGet Methode" Url="html/e1d759b0-fa43-0d1b-4dd3-72a24352010a.htm" />
+  <HelpKINode Title="EditProductModel.OnPost Methode" Url="html/1ab51451-ca96-a0f4-cc48-0aa6bbae808c.htm" />
+  <HelpKINode Title="EditProductModel.ToInput Methode" Url="html/96351972-fb14-92c4-fca4-b1fb2d74ad83.htm" />
+  <HelpKINode Title="EditUser Eigenschaft" Url="html/bc192781-aa95-2142-0802-78542ffc0b2c.htm" />
+  <HelpKINode Title="EditUser Methode" Url="html/48010fb4-6fac-ac02-8790-a629b7feba02.htm" />
+  <HelpKINode Title="EditUserModel Klasse">
+    <HelpKINode Title="EditUserModel Klasse" Url="html/01593e94-33a3-7aef-041c-c49419539a1e.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/de245d8a-fc52-1357-716b-06222c257406.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/4306abd1-978c-e3b1-a43a-7059bf12db4f.htm" />
+    <HelpKINode Title="Methoden" Url="html/acc3e78c-6dce-662c-54d9-5fdcef8bcbb3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditUserModel.CurrentUser Eigenschaft" Url="html/275d9938-f092-5867-0b75-582d1b6c1ce3.htm" />
+  <HelpKINode Title="EditUserModel.EditUserModel Konstruktor" Url="html/4306abd1-978c-e3b1-a43a-7059bf12db4f.htm" />
+  <HelpKINode Title="EditUserModel.Forms Eigenschaft" Url="html/2ddfc21d-7df1-7ce1-cbeb-269953044433.htm" />
+  <HelpKINode Title="EditUserModel.Input Eigenschaft" Url="html/9d77cf3f-e26a-d1c1-0bec-1d174532ab66.htm" />
+  <HelpKINode Title="EditUserModel.InputModel Klasse">
+    <HelpKINode Title="EditUserModel.InputModel Klasse" Url="html/b928f29d-ebd2-e366-1ad8-91e1c1035f8d.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/df7064cf-63a6-7b08-0a6a-f18bffcc8745.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EditUserModel.InputModel.Admin Eigenschaft" Url="html/d9015f24-022c-d11e-0696-f3c487225b76.htm" />
+  <HelpKINode Title="EditUserModel.InputModel.Email Eigenschaft" Url="html/4a088783-2565-cb77-2cc6-17dd7b649a86.htm" />
+  <HelpKINode Title="EditUserModel.InputModel.FormId Eigenschaft" Url="html/63b590dc-f2d2-28c3-b276-8d18b9830994.htm" />
+  <HelpKINode Title="EditUserModel.InputModel.InputModel Konstruktor" Url="html/df7064cf-63a6-7b08-0a6a-f18bffcc8745.htm" />
+  <HelpKINode Title="EditUserModel.InputModel.Role Eigenschaft" Url="html/c0f4140c-47fe-8f85-b82d-5863ded83780.htm" />
+  <HelpKINode Title="EditUserModel.OnGet Methode" Url="html/03c9a179-914d-1347-f8e1-2b856b525bc9.htm" />
+  <HelpKINode Title="EditUserModel.OnPost Methode" Url="html/30e55e68-a104-124a-c804-c3aa196dcea1.htm" />
+  <HelpKINode Title="EditUserModel.StuckAsAdmin Eigenschaft" Url="html/0628730d-6036-43c6-8937-b59e6892abf1.htm" />
+  <HelpKINode Title="EditUserNavClass Methode" Url="html/f3043765-4465-14bf-9144-071af560a72a.htm" />
+  <HelpKINode Title="EF Eigenschaft" Url="html/1b24daa1-515a-16b6-1cde-f15f25e4df8a.htm" />
+  <HelpKINode Title="EIGHT Eigenschaft" Url="html/3ddeb852-87d9-2b53-f5e4-0f002963b1ad.htm" />
+  <HelpKINode Title="Email Eigenschaft">
+    <HelpKINode Title="AddUserModel.InputModel.Email Eigenschaft " Url="html/78ac5af7-8b38-4f67-b4ca-e5799d9fb1ea.htm" />
+    <HelpKINode Title="EditUserModel.InputModel.Email Eigenschaft " Url="html/4a088783-2565-cb77-2cc6-17dd7b649a86.htm" />
+    <HelpKINode Title="ForgotPasswordModel.InputModel.Email Eigenschaft " Url="html/b890fef9-242f-0bc4-7fbe-49fa13484951.htm" />
+    <HelpKINode Title="LoginModel.InputModel.Email Eigenschaft " Url="html/4bb8df93-ab31-a3ec-5a08-22856a78584a.htm" />
+    <HelpKINode Title="RegisterModel.InputModel.Email Eigenschaft " Url="html/a0497e66-2fe1-763b-10dd-1105bca5998f.htm" />
+    <HelpKINode Title="ResetPasswordModel.InputModel.Email Eigenschaft " Url="html/1c7bce8e-4c41-ee38-d469-8969a886229a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EmployeeSort Eigenschaft" Url="html/e18114cc-b229-1af3-842c-1455495ddaf7.htm" />
+  <HelpKINode Title="End Eigenschaft" Url="html/102c5eb2-00ea-20ba-2f7a-2723985e9289.htm" />
+  <HelpKINode Title="Enrolment Eigenschaft">
+    <HelpKINode Title="Form.Enrolment Eigenschaft " Url="html/c96c7b0a-e769-5a75-b157-7acaac31f512.htm" />
+    <HelpKINode Title="Form.Grade.Enrolment Eigenschaft " Url="html/701db27b-abb4-a13d-9654-d6751a7bbbaa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Equals Methode">
+    <HelpKINode Title="Allergen.Equals Methode " Url="html/cb453d81-9874-5ed8-75e1-1e3aa75be3b7.htm" />
+    <HelpKINode Title="Form.Equals Methode " Url="html/401c7a1f-a3c1-132b-c7ca-dbb9dcfec586.htm" />
+    <HelpKINode Title="Order.Equals Methode " Url="html/d960182e-752c-9831-51e9-ae081b230221.htm" />
+    <HelpKINode Title="Product.Equals Methode " Url="html/b0c4154a-9c59-78c9-539a-903c8dfa1d23.htm" />
+    <HelpKINode Title="RegistrationCode.Equals Methode " Url="html/997f3435-a5d8-de4e-7783-0618c6470837.htm" />
+    <HelpKINode Title="TimeRange.Equals Methode " Url="html/20e570a2-170c-32ff-d8f0-2560aa6eec2c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Error Methode" Url="html/e2229ba3-de04-84bd-460a-1fe6798718fd.htm" />
+  <HelpKINode Title="ErrorDescriber Klasse">
+    <HelpKINode Title="ErrorDescriber Klasse" Url="html/12e92660-72f4-d767-f0ea-e76a21800e28.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/90d936ea-ad89-be41-0e14-cf8667c07252.htm" />
+    <HelpKINode Title="Methoden" Url="html/02c81ceb-e655-5167-cdd5-415cb10e6510.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ErrorDescriber.ConcurrencyFailure Methode" Url="html/1cb127f7-1f68-9fd2-eaed-21ca2412820a.htm" />
+  <HelpKINode Title="ErrorDescriber.DefaultError Methode" Url="html/69ff233c-f2e6-3033-082f-68bbb8c44711.htm" />
+  <HelpKINode Title="ErrorDescriber.DuplicateEmail Methode" Url="html/3e5a8709-3d90-b122-b6bd-361a58ddd2e3.htm" />
+  <HelpKINode Title="ErrorDescriber.DuplicateRoleName Methode" Url="html/5de9ec62-66ad-639d-77ad-5260133c8b6e.htm" />
+  <HelpKINode Title="ErrorDescriber.DuplicateUserName Methode" Url="html/926f45fb-4d19-31a1-d9cb-7de3237d5484.htm" />
+  <HelpKINode Title="ErrorDescriber.ErrorDescriber Konstruktor" Url="html/90d936ea-ad89-be41-0e14-cf8667c07252.htm" />
+  <HelpKINode Title="ErrorDescriber.InvalidEmail Methode" Url="html/5f6f7f68-5c67-3933-9f22-598d3ce2f855.htm" />
+  <HelpKINode Title="ErrorDescriber.InvalidRoleName Methode" Url="html/4450ed3d-f31f-db22-8de3-7a7d3e68180d.htm" />
+  <HelpKINode Title="ErrorDescriber.InvalidToken Methode" Url="html/b8e04ad4-ea85-7ce2-58ca-45fa186feba7.htm" />
+  <HelpKINode Title="ErrorDescriber.InvalidUserName Methode" Url="html/452b77f6-bb40-33bf-9465-861846bdc5da.htm" />
+  <HelpKINode Title="ErrorDescriber.LoginAlreadyAssociated Methode" Url="html/e1c3dd9c-4298-e3c1-45be-c41a93987cdf.htm" />
+  <HelpKINode Title="ErrorDescriber.PasswordMismatch Methode" Url="html/5b2dea0c-ec22-0c29-e33c-29f5e148c422.htm" />
+  <HelpKINode Title="ErrorDescriber.PasswordRequiresDigit Methode" Url="html/db1c6f6e-2ffe-86bd-938d-d0b66a09fd4f.htm" />
+  <HelpKINode Title="ErrorDescriber.PasswordRequiresLower Methode" Url="html/871f4923-ecf0-289b-981f-27dcd28624d4.htm" />
+  <HelpKINode Title="ErrorDescriber.PasswordRequiresNonAlphanumeric Methode" Url="html/e0d16e46-58f1-a2d5-5a9b-cc4b9dec24cf.htm" />
+  <HelpKINode Title="ErrorDescriber.PasswordRequiresUniqueChars Methode" Url="html/c9a42ba3-d545-cbcb-d3d6-ce82d568c0e8.htm" />
+  <HelpKINode Title="ErrorDescriber.PasswordRequiresUpper Methode" Url="html/f1bb4f7b-6372-46de-cee8-8b3a3b111f22.htm" />
+  <HelpKINode Title="ErrorDescriber.PasswordTooShort Methode" Url="html/6635325a-d9e9-be49-ada4-ed0a9b074f7c.htm" />
+  <HelpKINode Title="ErrorDescriber.RecoveryCodeRedemptionFailed Methode" Url="html/c57cb038-c878-ccb5-47d2-decf18b68577.htm" />
+  <HelpKINode Title="ErrorDescriber.UserAlreadyHasPassword Methode" Url="html/0f533810-0e7f-2697-73b9-4b2487269321.htm" />
+  <HelpKINode Title="ErrorDescriber.UserAlreadyInRole Methode" Url="html/6a19c180-af5e-c1ea-4df8-4930ddf6b04e.htm" />
+  <HelpKINode Title="ErrorDescriber.UserLockoutNotEnabled Methode" Url="html/73611583-5589-09d2-8c3a-3d07e6814ec3.htm" />
+  <HelpKINode Title="ErrorDescriber.UserNotInRole Methode" Url="html/5e98949d-0aec-46dd-270c-194c1c7c2ca5.htm" />
+  <HelpKINode Title="ErrorMessage Eigenschaft" Url="html/5b025d8c-78ba-75d7-d97b-210bae0ebb75.htm" />
+  <HelpKINode Title="ErrorMessage Feld" Url="html/af18fe02-f878-5c2e-de08-10da349b11f9.htm" />
+  <HelpKINode Title="ErrorModel Klasse">
+    <HelpKINode Title="ErrorModel Klasse" Url="html/3568c22f-972a-fdb1-16a2-f847fc1876da.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/7864f7b0-4fc2-9015-a0b2-ba2fa74c9473.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/31b44977-bfda-d27c-b2c2-3f96006d18e3.htm" />
+    <HelpKINode Title="Methoden" Url="html/067b9ec4-3999-5cfd-39e3-1fed40970074.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ErrorModel.ErrorModel Konstruktor" Url="html/31b44977-bfda-d27c-b2c2-3f96006d18e3.htm" />
+  <HelpKINode Title="ErrorModel.OnGet Methode" Url="html/c1ba75ad-8bd3-6296-b6cb-624367c25559.htm" />
+  <HelpKINode Title="ErrorModel.RequestId Eigenschaft" Url="html/d2a67023-0d84-e222-c4f0-35a5791d8cc6.htm" />
+  <HelpKINode Title="ErrorModel.ShowRequestId Eigenschaft" Url="html/44de48f7-7910-e81c-e023-15a5765d0446.htm" />
+  <HelpKINode Title="ErrorViewModel Klasse">
+    <HelpKINode Title="ErrorViewModel Klasse" Url="html/9f4a8e8d-9c0e-1930-44e8-3b666aa6f818.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/d0e8b805-e390-b3b2-9b54-6a4fe38a6986.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/ab70c21a-383a-ddd0-970c-454007cf7e0b.htm" />
+    <HelpKINode Title="Methoden" Url="html/cac157d9-8c5c-00a9-00fd-a57b583bf7be.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ErrorViewModel.ErrorViewModel Konstruktor" Url="html/ab70c21a-383a-ddd0-970c-454007cf7e0b.htm" />
+  <HelpKINode Title="ErrorViewModel.RequestId Eigenschaft" Url="html/b9682404-e586-84e0-7b32-60a6ca677c9e.htm" />
+  <HelpKINode Title="ErrorViewModel.ShowRequestId Eigenschaft" Url="html/a24b4293-73c3-9ac6-3828-87f24357b36e.htm" />
+  <HelpKINode Title="Exclude Methode" Url="html/dbaa115c-7493-adc5-c1a7-c9d288a3e220.htm" />
+  <HelpKINode Title="FirstName Eigenschaft" Url="html/cc0df50e-c2e5-414a-139c-fb893de94245.htm" />
+  <HelpKINode Title="FirstNameSort Eigenschaft" Url="html/364d8c23-451c-d600-bff9-f7b9e5c6f26a.htm" />
+  <HelpKINode Title="FIVE Eigenschaft" Url="html/91e4abaf-3260-b029-d521-06d03c1c8598.htm" />
+  <HelpKINode Title="ForgotPasswordConfirmation Klasse">
+    <HelpKINode Title="ForgotPasswordConfirmation Klasse" Url="html/939bee0e-c72f-9193-5839-0f618503a5bc.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/5c477abe-2be6-9b6a-9a82-67086c8cc445.htm" />
+    <HelpKINode Title="Methoden" Url="html/0d26c04b-2bc1-15c3-e5b7-3396aa94512f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ForgotPasswordConfirmation.ForgotPasswordConfirmation Konstruktor" Url="html/5c477abe-2be6-9b6a-9a82-67086c8cc445.htm" />
+  <HelpKINode Title="ForgotPasswordConfirmation.OnGet Methode" Url="html/139dff4c-d2bd-22f6-e4c0-02354ffd88a1.htm" />
+  <HelpKINode Title="ForgotPasswordModel Klasse">
+    <HelpKINode Title="ForgotPasswordModel Klasse" Url="html/0edb1318-5456-e051-99d5-bb929a9e9cc9.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/30148abc-86b5-17d6-f086-3cebe94273df.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/a893d735-7952-32f2-5941-0351941fe1c3.htm" />
+    <HelpKINode Title="Methoden" Url="html/0d5e65a1-9187-ff42-dfc0-90c1f4c2563b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ForgotPasswordModel.ForgotPasswordModel Konstruktor" Url="html/a893d735-7952-32f2-5941-0351941fe1c3.htm" />
+  <HelpKINode Title="ForgotPasswordModel.Input Eigenschaft" Url="html/549ec8ff-c737-7fc2-ff7f-c4054b1d32eb.htm" />
+  <HelpKINode Title="ForgotPasswordModel.InputModel Klasse">
+    <HelpKINode Title="ForgotPasswordModel.InputModel Klasse" Url="html/e31c1284-4216-ec4d-6615-a7744551395a.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/d34f90c0-a717-ad41-81db-bb6c9aa19877.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ForgotPasswordModel.InputModel.Email Eigenschaft" Url="html/b890fef9-242f-0bc4-7fbe-49fa13484951.htm" />
+  <HelpKINode Title="ForgotPasswordModel.InputModel.InputModel Konstruktor" Url="html/d34f90c0-a717-ad41-81db-bb6c9aa19877.htm" />
+  <HelpKINode Title="ForgotPasswordModel.OnPostAsync Methode" Url="html/77e0432c-2548-b35b-5fd0-4e3dd1e177e2.htm" />
+  <HelpKINode Title="Form Klasse">
+    <HelpKINode Title="Form Klasse" Url="html/08dde0c5-d790-3fb0-adce-098a2a83383e.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/31cd5194-3516-f257-f901-24a814872567.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/8ff875c3-77c7-d065-42c4-5620d27080d4.htm" />
+    <HelpKINode Title="Methoden" Url="html/cf63426a-94d2-76e9-560f-d9c0b1296d68.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Form.Enrolment Eigenschaft" Url="html/c96c7b0a-e769-5a75-b157-7acaac31f512.htm" />
+  <HelpKINode Title="Form.Equals Methode" Url="html/401c7a1f-a3c1-132b-c7ca-dbb9dcfec586.htm" />
+  <HelpKINode Title="Form.Form Konstruktor" Url="html/8ff875c3-77c7-d065-42c4-5620d27080d4.htm" />
+  <HelpKINode Title="Form.GetGrade Methode" Url="html/475001fd-8323-9463-546e-fa82aa2a9a43.htm" />
+  <HelpKINode Title="Form.GetHashCode Methode" Url="html/d28da2dc-45c0-4084-ddd1-8a05c4a759c8.htm" />
+  <HelpKINode Title="Form.GetStreams Methode" Url="html/612859b6-6aa6-2b21-8427-b419b35734ef.htm" />
+  <HelpKINode Title="Form.Grade Klasse" Url="html/d16076b5-5e92-cec8-79d3-71dc00605c5c.htm" />
+  <HelpKINode Title="Form.Grade.EF Eigenschaft" Url="html/1b24daa1-515a-16b6-1cde-f15f25e4df8a.htm" />
+  <HelpKINode Title="Form.Grade.EIGHT Eigenschaft" Url="html/3ddeb852-87d9-2b53-f5e4-0f002963b1ad.htm" />
+  <HelpKINode Title="Form.Grade.Enrolment Eigenschaft" Url="html/701db27b-abb4-a13d-9654-d6751a7bbbaa.htm" />
+  <HelpKINode Title="Form.Grade.FIVE Eigenschaft" Url="html/91e4abaf-3260-b029-d521-06d03c1c8598.htm" />
+  <HelpKINode Title="Form.Grade.FOUR Eigenschaft" Url="html/7b2eee8c-c560-fd0a-75cc-93a79db99d99.htm" />
+  <HelpKINode Title="Form.Grade.Grades Eigenschaft" Url="html/70f2b009-1c6d-0755-91b3-01c66d3157ca.htm" />
+  <HelpKINode Title="Form.Grade.GRADUATE Eigenschaft" Url="html/8d60a0ce-acee-de38-0ac7-0fa02f827816.htm" />
+  <HelpKINode Title="Form.Grade.NINE Eigenschaft" Url="html/fde03b45-3391-5dae-5416-1248cb18098a.htm" />
+  <HelpKINode Title="Form.Grade.Q1 Eigenschaft" Url="html/2debce5b-883e-3110-b412-e7e107a7d654.htm" />
+  <HelpKINode Title="Form.Grade.Q2 Eigenschaft" Url="html/706d1798-0adf-ce64-bf0f-8ef1bcbda96f.htm" />
+  <HelpKINode Title="Form.Grade.SEVEN Eigenschaft" Url="html/8212ccdd-3d1b-86df-3d86-256c1ba58d4b.htm" />
+  <HelpKINode Title="Form.Grade.SIX Eigenschaft" Url="html/e3f7ddfe-9a53-21d2-8982-35749cf202ce.htm" />
+  <HelpKINode Title="Form.Grade.TEN Eigenschaft" Url="html/4c2a0636-7325-28bb-d009-b853091c9393.htm" />
+  <HelpKINode Title="Form.Grade.ToString Methode" Url="html/2538b4ef-5f1c-105a-31d3-eadbfcf4aded.htm" />
+  <HelpKINode Title="Form.Grade.Year Eigenschaft" Url="html/fb71a25d-cde5-4a13-5e52-67a35f48d677.htm" />
+  <HelpKINode Title="Form.Id Eigenschaft" Url="html/7b4a7ce1-ae27-656f-b746-88219d3fa8e1.htm" />
+  <HelpKINode Title="Form.Stream Eigenschaft" Url="html/64bfc8cf-9778-2755-b17f-0499fef1e17f.htm" />
+  <HelpKINode Title="Form.ToString Methode" Url="html/76bba281-49b6-912e-703f-c66ae58d08b0.htm" />
+  <HelpKINode Title="FormId Eigenschaft">
+    <HelpKINode Title="AddUserModel.InputModel.FormId Eigenschaft " Url="html/38069fa8-630a-1134-67b2-18f133bd7b31.htm" />
+    <HelpKINode Title="EditUserModel.InputModel.FormId Eigenschaft " Url="html/63b590dc-f2d2-28c3-b276-8d18b9830994.htm" />
+    <HelpKINode Title="RegisterModel.InputModel.FormId Eigenschaft " Url="html/7f7915a7-511f-647c-53da-853f34f91782.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Forms Eigenschaft">
+    <HelpKINode Title="AddUserModel.Forms Eigenschaft " Url="html/d52f5f82-b0c4-85d6-cd9a-32ff4cfacd01.htm" />
+    <HelpKINode Title="ApplicationDbContext.Forms Eigenschaft " Url="html/c9ed14be-8170-f6c1-e999-86d9c37a7059.htm" />
+    <HelpKINode Title="EditUserModel.Forms Eigenschaft " Url="html/2ddfc21d-7df1-7ce1-cbeb-269953044433.htm" />
+    <HelpKINode Title="FormsModel.Forms Eigenschaft " Url="html/b49f44f9-68a0-45f2-370b-4008ec3aa99a.htm" />
+    <HelpKINode Title="ManageNavPages.Forms Eigenschaft " Url="html/07edf0c5-6d9c-91ff-da42-53c107e2afb9.htm" />
+    <HelpKINode Title="RegisterModel.Forms Eigenschaft " Url="html/80555f7b-4413-06f7-fc62-2ed3c8d38aa8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FormsModel Klasse">
+    <HelpKINode Title="FormsModel Klasse" Url="html/97679c99-3a07-3c2c-7e4b-50c5a57cf4c9.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/51d61073-c722-ce5b-5bfa-bf2bc8e55660.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/3f38bd92-1246-1406-c47a-b4ca797f04a0.htm" />
+    <HelpKINode Title="Methoden" Url="html/3520ad3c-8dff-d608-5153-6193e27d902a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FormsModel.Forms Eigenschaft" Url="html/b49f44f9-68a0-45f2-370b-4008ec3aa99a.htm" />
+  <HelpKINode Title="FormsModel.FormsModel Konstruktor" Url="html/3f38bd92-1246-1406-c47a-b4ca797f04a0.htm" />
+  <HelpKINode Title="FormsModel.Input Eigenschaft" Url="html/9bf7b7a3-a984-b173-0357-a30fafe46da9.htm" />
+  <HelpKINode Title="FormsModel.InputModel Klasse">
+    <HelpKINode Title="FormsModel.InputModel Klasse" Url="html/f6220904-8d76-a0e8-fcbd-5f8d2c9c2f20.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/aafa468d-1c76-0c63-8fb7-b735e68283c4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FormsModel.InputModel.InputModel Konstruktor" Url="html/aafa468d-1c76-0c63-8fb7-b735e68283c4.htm" />
+  <HelpKINode Title="FormsModel.InputModel.SearchKeyWord Eigenschaft" Url="html/2863147d-3479-4989-09d0-1489095a01ec.htm" />
+  <HelpKINode Title="FormsModel.OnGet Methode" Url="html/f1ad0b50-b9f7-bd54-a179-ce8f4bd55cb5.htm" />
+  <HelpKINode Title="FormsModel.OnPost Methode" Url="html/522819e7-d28d-89b9-10e3-b8f3f8f9641f.htm" />
+  <HelpKINode Title="FormsModel.SearchKeyWord Eigenschaft" Url="html/b0d988f1-033a-d0c1-17ff-956063f074b1.htm" />
+  <HelpKINode Title="FormsModel.Sort Eigenschaft" Url="html/f49de8a0-dbd3-6750-7635-a9c984d7cb05.htm" />
+  <HelpKINode Title="FormsNavClass Methode" Url="html/e902e309-80fc-9cc9-6098-8575b57b1dca.htm" />
+  <HelpKINode Title="FormSort Eigenschaft" Url="html/67e8bcff-25f7-6ef7-19da-0e388e4290c2.htm" />
+  <HelpKINode Title="FOUR Eigenschaft" Url="html/7b2eee8c-c560-fd0a-75cc-93a79db99d99.htm" />
+  <HelpKINode Title="FromInput Methode">
+    <HelpKINode Title="AddProductModel.FromInput Methode " Url="html/f6455f2c-1d3b-dd8f-4ea7-f9067508521d.htm" />
+    <HelpKINode Title="EditProductModel.FromInput Methode " Url="html/a6311bce-b632-4d34-a089-341c3d7559d0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Fronleichnam Eigenschaft" Url="html/c6e1eed4-3fba-06cc-dfe7-c891ca28e2f0.htm" />
+  <HelpKINode Title="Generate Methode" Url="html/3b851145-1b3c-8e16-0b99-d082c27d7c91.htm" />
+  <HelpKINode Title="GenerateCodes Eigenschaft" Url="html/bb5c86a5-78e6-fe73-b5f6-25730197cad1.htm" />
+  <HelpKINode Title="GenerateCodes Methode" Url="html/89136dab-8b3a-40c6-b1bd-5112951df1cc.htm" />
+  <HelpKINode Title="GenerateCodesModel Klasse">
+    <HelpKINode Title="GenerateCodesModel Klasse" Url="html/dd72d709-36c3-764a-e59d-e21a84f765c4.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/eed45c32-3b59-e9ba-9aef-b4da3e4ef379.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/11c29013-ced8-ab64-28f8-c0f6a1bbf8fc.htm" />
+    <HelpKINode Title="Methoden" Url="html/66b53174-1cde-6f5f-71ee-61536eb4f2f7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GenerateCodesModel.Codes Eigenschaft" Url="html/6f4c9832-31fc-bd17-af9f-8d95025a16fb.htm" />
+  <HelpKINode Title="GenerateCodesModel.DeactivateInput Eigenschaft" Url="html/44efcab6-357e-fc5b-8765-e027676fae95.htm" />
+  <HelpKINode Title="GenerateCodesModel.DeactivateInputModel Klasse">
+    <HelpKINode Title="GenerateCodesModel.DeactivateInputModel Klasse" Url="html/5d052d4a-7507-f98a-9e2c-fcb9ac53b0ba.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/bf9b7fd7-6407-dd96-8903-425c18dcd212.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GenerateCodesModel.DeactivateInputModel.DeactivateInputModel Konstruktor" Url="html/bf9b7fd7-6407-dd96-8903-425c18dcd212.htm" />
+  <HelpKINode Title="GenerateCodesModel.DeactivateInputModel.Limit Eigenschaft" Url="html/5c2c90ee-9781-8e3e-9a65-884baad51af4.htm" />
+  <HelpKINode Title="GenerateCodesModel.GenerateCodesModel Konstruktor" Url="html/11c29013-ced8-ab64-28f8-c0f6a1bbf8fc.htm" />
+  <HelpKINode Title="GenerateCodesModel.GenerateInput Eigenschaft" Url="html/04309760-3901-8f2e-b044-64c1e51db16a.htm" />
+  <HelpKINode Title="GenerateCodesModel.GenerateInputModel Klasse">
+    <HelpKINode Title="GenerateCodesModel.GenerateInputModel Klasse" Url="html/9f8dcb17-8aa0-7b29-185a-1d4655f6c679.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/4e595290-1938-e0c8-bee3-18b5d3894897.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GenerateCodesModel.GenerateInputModel.GenerateInputModel Konstruktor" Url="html/4e595290-1938-e0c8-bee3-18b5d3894897.htm" />
+  <HelpKINode Title="GenerateCodesModel.GenerateInputModel.Number Eigenschaft" Url="html/09f0a992-6112-976b-f83d-64cf1f3694f8.htm" />
+  <HelpKINode Title="GenerateCodesModel.GenerateInputModel.Role Eigenschaft" Url="html/6ab97514-6b28-c708-c85e-5782d6f94fcc.htm" />
+  <HelpKINode Title="GenerateCodesModel.OnGet Methode" Url="html/f68602ee-137f-0263-93a6-eda2176e2565.htm" />
+  <HelpKINode Title="GenerateCodesNavClass Methode" Url="html/eb6b9767-3f44-441c-b780-796d6e36b16f.htm" />
+  <HelpKINode Title="GenerateInput Eigenschaft" Url="html/04309760-3901-8f2e-b044-64c1e51db16a.htm" />
+  <HelpKINode Title="GenerateInputModel Klasse">
+    <HelpKINode Title="Eigenschaften" Url="html/3670b22a-1419-a532-c052-11014886c4e5.htm" />
+    <HelpKINode Title="Methoden" Url="html/9b374853-a6d5-b144-851e-33f6852004c2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetDisplayFormat Methode" Url="html/884f757e-b1ec-8cc8-46a6-75958a65f239.htm" />
+  <HelpKINode Title="GetDisplayName Methode" Url="html/fd066d00-ab52-48a7-4d62-9bb2791a16ac.htm" />
+  <HelpKINode Title="GetForm Methode" Url="html/ab98b9cd-5226-8d8d-34df-4d4059ec2812.htm" />
+  <HelpKINode Title="GetFormDataModel Klasse">
+    <HelpKINode Title="GetFormDataModel Klasse" Url="html/c42dc859-6996-dfcd-44f6-057ad2c64543.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/b7c0f853-ca2d-959d-4097-d5f19aca08bb.htm" />
+    <HelpKINode Title="Methoden" Url="html/ac6d7ded-1d4b-d09f-4a53-526b52476974.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetFormDataModel.GetFormDataModel Konstruktor" Url="html/b7c0f853-ca2d-959d-4097-d5f19aca08bb.htm" />
+  <HelpKINode Title="GetFormDataModel.OnGet Methode" Url="html/f312dd8e-e151-3664-1e12-23c55d1c95fe.htm" />
+  <HelpKINode Title="GetFormsSelect Methode" Url="html/6d1bb9a4-870c-a0af-b1ea-7027b40e1135.htm" />
+  <HelpKINode Title="GetGrade Methode" Url="html/475001fd-8323-9463-546e-fa82aa2a9a43.htm" />
+  <HelpKINode Title="GetHashCode Methode">
+    <HelpKINode Title="Allergen.GetHashCode Methode " Url="html/5eff127b-a64d-9a1b-a311-1b1584efe992.htm" />
+    <HelpKINode Title="Form.GetHashCode Methode " Url="html/d28da2dc-45c0-4084-ddd1-8a05c4a759c8.htm" />
+    <HelpKINode Title="Order.GetHashCode Methode " Url="html/011ef4a2-f4e7-708e-b509-be65c8df216d.htm" />
+    <HelpKINode Title="Product.GetHashCode Methode " Url="html/0decb6d4-950e-fa66-fe47-d3ed8d46ed95.htm" />
+    <HelpKINode Title="RegistrationCode.GetHashCode Methode " Url="html/a1728edf-6889-a4ea-c38f-9659a3ddd9d7.htm" />
+    <HelpKINode Title="TimeRange.GetHashCode Methode " Url="html/91605548-1860-2e7c-8bb2-55f42891da5e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetHolidays Methode" Url="html/fe92148c-572e-b516-9a0f-e7d91c0fbe1d.htm" />
+  <HelpKINode Title="GetHtmlDateFormat Methode" Url="html/a43f6c46-528c-914e-244c-960d76ca99d7.htm" />
+  <HelpKINode Title="GetHtmlFormat Methode" Url="html/23380944-f1e2-e290-e6b6-b9625fb114cf.htm" />
+  <HelpKINode Title="GetIdentityUser Methode" Url="html/b950ff56-3a8c-1f3d-4ff3-8c1b22ac573e.htm" />
+  <HelpKINode Title="GetName Methode" Url="html/d7addeb3-5424-11cb-aa42-5480be43265d.htm" />
+  <HelpKINode Title="GetProductDataModel Klasse">
+    <HelpKINode Title="GetProductDataModel Klasse" Url="html/a02571d8-4654-de20-0749-41483360ed93.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/58f324f0-334c-3461-00c4-5ccdf95337f7.htm" />
+    <HelpKINode Title="Methoden" Url="html/a8f12b2a-4ef4-65fb-8825-19d9b0d57961.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetProductDataModel.GetProductDataModel Konstruktor" Url="html/58f324f0-334c-3461-00c4-5ccdf95337f7.htm" />
+  <HelpKINode Title="GetProductDataModel.OnGet Methode" Url="html/60b4a982-653e-135c-49c4-fdb7ccc91996.htm" />
+  <HelpKINode Title="GetRole Methode" Url="html/9b7b09b4-312c-bbbb-4a74-630b8582bdbc.htm" />
+  <HelpKINode Title="GetSqlFormat Methode" Url="html/d267a632-c8eb-a03e-fe5b-c95ecba24068.htm" />
+  <HelpKINode Title="GetStreams Methode" Url="html/612859b6-6aa6-2b21-8427-b419b35734ef.htm" />
+  <HelpKINode Title="GetUserById Methode" Url="html/333e1a68-2d81-17d0-78fe-1908fa084498.htm" />
+  <HelpKINode Title="Grade Eigenschaft" Url="html/c445ec33-bb6a-fce5-e9c2-93b235b94aae.htm" />
+  <HelpKINode Title="Grade Klasse">
+    <HelpKINode Title="Eigenschaften" Url="html/93b4ee2c-1722-5f0e-f2c2-23da530dd152.htm" />
+    <HelpKINode Title="Methoden" Url="html/7c819f2f-50dd-e072-f64a-2397ab407645.htm" />
+    <HelpKINode Title="Typkonvertierungen" Url="html/dca3434a-b26d-f2cb-ce8e-6e1608670a0d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Grades Eigenschaft" Url="html/70f2b009-1c6d-0755-91b3-01c66d3157ca.htm" />
+  <HelpKINode Title="GRADUATE Eigenschaft" Url="html/8d60a0ce-acee-de38-0ac7-0fa02f827816.htm" />
+  <HelpKINode Title="Greeting Methode" Url="html/8c95f9a6-7eaf-792f-0477-bb88e99544db.htm" />
+  <HelpKINode Title="HasInternetConnection Methode" Url="html/ca663bc1-e575-60a6-c197-32e7d732df27.htm" />
+  <HelpKINode Title="HistoricOrder Klasse">
+    <HelpKINode Title="HistoricOrder Klasse" Url="html/1d718341-4d1c-9391-51aa-9b79c45ae36d.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/b41014af-5eed-c7d5-5b28-9b55b1d2d865.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/140dc86b-300b-8439-1675-8baa514a8eb3.htm" />
+    <HelpKINode Title="Methoden" Url="html/d3f19650-5ab3-a218-3fd2-a156f626b753.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HistoricOrder.HistoricOrder Konstruktor" Url="html/140dc86b-300b-8439-1675-8baa514a8eb3.htm" />
+  <HelpKINode Title="HistoricOrder.ToCurrentOrder Methode" Url="html/237a85d8-0edb-ea6d-0ec7-d4ed4ed6b6b7.htm" />
+  <HelpKINode Title="HistoricOrders Eigenschaft">
+    <HelpKINode Title="ApplicationDbContext.HistoricOrders Eigenschaft " Url="html/55e89893-b3eb-5594-5e49-7187ffe2d293.htm" />
+    <HelpKINode Title="OrderHistoryModel.HistoricOrders Eigenschaft " Url="html/94c6fd1e-46da-bd57-27fb-d33070efe945.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Holiday Klasse">
+    <HelpKINode Title="Holiday Klasse" Url="html/b4a35385-afa3-3034-d97c-5e0e545309d1.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/6e51483f-61f5-81de-ce8c-2a3bd505e432.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/3877b591-dd45-99fe-3891-b0517affaeba.htm" />
+    <HelpKINode Title="Methoden" Url="html/def585b7-b7dc-c990-77a3-09b85aa263d3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Holiday.Date Eigenschaft" Url="html/24848f9b-d333-45f7-aa88-875f1bf661b7.htm" />
+  <HelpKINode Title="Holiday.Holiday Konstruktor" Url="html/3877b591-dd45-99fe-3891-b0517affaeba.htm" />
+  <HelpKINode Title="Holiday.Notes Eigenschaft" Url="html/a613a30a-a51e-2327-d37e-c907112e6417.htm" />
+  <HelpKINode Title="Holidays Klasse">
+    <HelpKINode Title="Holidays Klasse" Url="html/7e46fbcf-244f-714f-50f1-7d0b2b785dda.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/48d799e4-842b-866c-52cc-1158542ee566.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/1dd3c78e-464b-97b3-c8d8-68ffe448f5d9.htm" />
+    <HelpKINode Title="Methoden" Url="html/19886eb2-ad2f-ebb9-f94a-5dc6a8351016.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Holidays.Allerheiligen Eigenschaft" Url="html/27603104-01ea-2830-d6d8-26724a435231.htm" />
+  <HelpKINode Title="Holidays.ChristiHimmelfahrt Eigenschaft" Url="html/cd14deca-95c4-329e-60a4-daf9fdaae256.htm" />
+  <HelpKINode Title="Holidays.Create Methode" Url="html/441e7601-73dc-e225-40e2-6c5c062d95b1.htm" />
+  <HelpKINode Title="Holidays.Fronleichnam Eigenschaft" Url="html/c6e1eed4-3fba-06cc-dfe7-c891ca28e2f0.htm" />
+  <HelpKINode Title="Holidays.GetHolidays Methode" Url="html/fe92148c-572e-b516-9a0f-e7d91c0fbe1d.htm" />
+  <HelpKINode Title="Holidays.Holidays Konstruktor" Url="html/1dd3c78e-464b-97b3-c8d8-68ffe448f5d9.htm" />
+  <HelpKINode Title="Holidays.Karfreitag Eigenschaft" Url="html/dff74e89-7503-c6b9-6fe4-34f21aa3167b.htm" />
+  <HelpKINode Title="Holidays.Neujahrstag Eigenschaft" Url="html/a2473cc9-a155-a67e-eff4-168ee43d9e84.htm" />
+  <HelpKINode Title="Holidays.Ostermontag Eigenschaft" Url="html/cf8a0b0b-a8d6-97a1-f6d2-7a6449de9a7b.htm" />
+  <HelpKINode Title="Holidays.Pfingstmontag Eigenschaft" Url="html/848caa52-599b-30fd-9e1f-614281b64900.htm" />
+  <HelpKINode Title="Holidays.TagDerArbeit Eigenschaft" Url="html/5d003ab8-fbe4-dd3b-1e70-4c5fbd17ebf8.htm" />
+  <HelpKINode Title="Holidays.TagDerDeutschenEinheit Eigenschaft" Url="html/db09d820-a2fa-289b-c8ae-55a82b42bb45.htm" />
+  <HelpKINode Title="Holidays.Weihnachtstag1 Eigenschaft" Url="html/1109edf9-d6a6-9c68-8b89-a15694ea9f21.htm" />
+  <HelpKINode Title="Holidays.Weihnachtstag2 Eigenschaft" Url="html/c966a826-771d-c093-b1c1-6b23477f76c2.htm" />
+  <HelpKINode Title="HomeController Klasse">
+    <HelpKINode Title="HomeController Klasse" Url="html/7464abe7-2e27-7996-25ce-ce1b231883c5.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/e849d517-414f-2d48-4e93-8dff8b873ceb.htm" />
+    <HelpKINode Title="Methoden" Url="html/0c75b904-8707-03a0-0159-1db1641aad6a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HomeController.Error Methode" Url="html/e2229ba3-de04-84bd-460a-1fe6798718fd.htm" />
+  <HelpKINode Title="HomeController.HomeController Konstruktor" Url="html/e849d517-414f-2d48-4e93-8dff8b873ceb.htm" />
+  <HelpKINode Title="HomeController.Index Methode" Url="html/7c565e0a-8686-c60f-f6d2-0da4edf18e1e.htm" />
+  <HelpKINode Title="HomeController.PageNotFound Methode" Url="html/bc88048b-bfa9-b9dc-f79c-f838868cf40f.htm" />
+  <HelpKINode Title="Id Eigenschaft">
+    <HelpKINode Title="Allergen.Id Eigenschaft " Url="html/dc94cc4e-27e5-b568-92fb-df84fc6520ac.htm" />
+    <HelpKINode Title="Form.Id Eigenschaft " Url="html/7b4a7ce1-ae27-656f-b746-88219d3fa8e1.htm" />
+    <HelpKINode Title="Order.Id Eigenschaft " Url="html/7727a3e1-105b-6bca-2332-f024ea1385a1.htm" />
+    <HelpKINode Title="Product.Id Eigenschaft " Url="html/a6dc4a2e-0ecf-bf4f-ddfa-79c4b927e97d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Image Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Image Eigenschaft " Url="html/083b058f-b87a-1b2d-eee0-58c9004b0582.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Image Eigenschaft " Url="html/e30eb783-850c-98df-bc75-bd8ec2cda2e6.htm" />
+    <HelpKINode Title="Product.Image Eigenschaft " Url="html/57db42b1-76c8-c1a3-9012-b1a19fd42575.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Includes Methode" Url="html/bd8e859a-45a5-c92f-6936-dcdf1eecbea1.htm" />
+  <HelpKINode Title="Index Eigenschaft">
+    <HelpKINode Title="ManageNavPages.Index Eigenschaft " Url="html/2a20fec5-3a77-d6b0-8494-0282fe263249.htm" />
+    <HelpKINode Title="ManageNavPages.Index Eigenschaft " Url="html/4048ead6-bad6-f1cc-e571-c26cb31b0be9.htm" />
+    <HelpKINode Title="ManageNavPages.Index Eigenschaft " Url="html/700f708b-707d-6bb1-f57f-c733933d711c.htm" />
+    <HelpKINode Title="ManageNavPages.Index Eigenschaft " Url="html/e85f1dd2-1e9f-27f4-a096-c71269dc22cc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Index Methode">
+    <HelpKINode Title="AdminController.Index Methode " Url="html/eae26a52-689a-76e0-9a58-60e47118afd4.htm" />
+    <HelpKINode Title="CounterController.Index Methode " Url="html/4fce34bc-6f0a-0b4f-ceab-c11eb0824256.htm" />
+    <HelpKINode Title="HomeController.Index Methode " Url="html/7c565e0a-8686-c60f-f6d2-0da4edf18e1e.htm" />
+    <HelpKINode Title="KitchenController.Index Methode " Url="html/67cfb43a-5a0b-c350-7d91-df259515e582.htm" />
+    <HelpKINode Title="OrdersController.Index Methode " Url="html/8bcf77d8-c1d3-8b81-9f5b-87a0599b2342.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel Klasse">
+    <HelpKINode Title="IndexModel Klasse" Url="html/f25eb0cb-1027-7f4d-195a-843c8b73182d.htm" />
+    <HelpKINode Title="IndexModel Klasse" Url="html/cafa9be3-3618-a65e-2fd0-c82600dd5bbb.htm" />
+    <HelpKINode Title="IndexModel Klasse" Url="html/c12e91fe-60d4-37dc-58b0-0f060a39c0db.htm" />
+    <HelpKINode Title="IndexModel Klasse" Url="html/61a069c1-2cdd-24aa-d01c-dec6bc1247d8.htm" />
+    <HelpKINode Title="IndexModel Klasse" Url="html/70405bf7-15bf-e644-7c4a-ed287ece437b.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/88cb5d18-f012-afdd-72a5-3b1d8cf8f9b4.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/10f10f61-6a51-1135-6091-733806844fb3.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/710ca896-6127-df4b-c069-870372c53f78.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/9791a7a3-92d4-90d7-5767-c5745fb81354.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/2b9d407c-dca7-befc-e79d-45695d6a454e.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/c6f2db8f-bfdc-355d-449e-751ef79558ae.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/1a5c085a-c4aa-0d01-b579-0d8395d4eb31.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/1aa92012-17e3-ed7d-75be-01f954b555bc.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/2bf34922-0835-a72a-1429-017d0bab02d1.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/f1f328a3-4ebe-3502-a7fe-11d6d9a77435.htm" />
+    <HelpKINode Title="Methoden" Url="html/189497b4-2ba7-c995-da8d-737c9180733f.htm" />
+    <HelpKINode Title="Methoden" Url="html/1b0f4c47-827d-edab-0afe-c6a99ed8004e.htm" />
+    <HelpKINode Title="Methoden" Url="html/15ef8766-3b70-9a5f-85c2-41814cb64324.htm" />
+    <HelpKINode Title="Methoden" Url="html/682afe85-ed7f-a15d-d7ca-7b287104fc15.htm" />
+    <HelpKINode Title="Methoden" Url="html/38af5fd7-011f-853d-5832-1bafbcaac58e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.AdminSort Eigenschaft" Url="html/4db915ad-22c5-e5d8-7cae-d41008c6e8ed.htm" />
+  <HelpKINode Title="IndexModel.CollectionPlaceSort Eigenschaft">
+    <HelpKINode Title="IndexModel.CollectionPlaceSort Eigenschaft " Url="html/b72eb782-55e1-532e-f4ea-bf8318321f71.htm" />
+    <HelpKINode Title="IndexModel.CollectionPlaceSort Eigenschaft " Url="html/c91831bc-43b1-ba9b-2562-6e824e6fb116.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.CollectionTimeSort Eigenschaft">
+    <HelpKINode Title="IndexModel.CollectionTimeSort Eigenschaft " Url="html/71d45781-245b-60a4-95ab-80a6f12052af.htm" />
+    <HelpKINode Title="IndexModel.CollectionTimeSort Eigenschaft " Url="html/efecd8ae-68d3-2295-cc3b-d8c07234cae6.htm" />
+    <HelpKINode Title="IndexModel.CollectionTimeSort Eigenschaft " Url="html/f4640f40-b5c1-e037-e106-6f8b9fbc116f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.CurrentUser Eigenschaft" Url="html/7fcca66f-2533-9897-c384-a36a593d45dd.htm" />
+  <HelpKINode Title="IndexModel.EmployeeSort Eigenschaft" Url="html/e18114cc-b229-1af3-842c-1455495ddaf7.htm" />
+  <HelpKINode Title="IndexModel.FirstNameSort Eigenschaft" Url="html/364d8c23-451c-d600-bff9-f7b9e5c6f26a.htm" />
+  <HelpKINode Title="IndexModel.FormSort Eigenschaft" Url="html/67e8bcff-25f7-6ef7-19da-0e388e4290c2.htm" />
+  <HelpKINode Title="IndexModel.IndexModel Konstruktor">
+    <HelpKINode Title="IndexModel Konstruktor " Url="html/1aa92012-17e3-ed7d-75be-01f954b555bc.htm" />
+    <HelpKINode Title="IndexModel Konstruktor " Url="html/c6f2db8f-bfdc-355d-449e-751ef79558ae.htm" />
+    <HelpKINode Title="IndexModel Konstruktor " Url="html/2bf34922-0835-a72a-1429-017d0bab02d1.htm" />
+    <HelpKINode Title="IndexModel Konstruktor " Url="html/1a5c085a-c4aa-0d01-b579-0d8395d4eb31.htm" />
+    <HelpKINode Title="IndexModel Konstruktor " Url="html/f1f328a3-4ebe-3502-a7fe-11d6d9a77435.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.Input Eigenschaft">
+    <HelpKINode Title="IndexModel.Input Eigenschaft " Url="html/b077473b-b0f5-9ad0-607d-1fedcc7f45e2.htm" />
+    <HelpKINode Title="IndexModel.Input Eigenschaft " Url="html/9707c98a-6a1c-7004-1fed-48ac26f4a460.htm" />
+    <HelpKINode Title="IndexModel.Input Eigenschaft " Url="html/a4cf8757-5bae-6f86-4e3a-9c164d41d650.htm" />
+    <HelpKINode Title="IndexModel.Input Eigenschaft " Url="html/54ff55ae-7bfb-33b4-0c0b-14acecc937c4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.InputModel Klasse">
+    <HelpKINode Title="IndexModel.InputModel Klasse" Url="html/c5f18c4f-2781-9418-ab58-15c66bc23dbe.htm" />
+    <HelpKINode Title="IndexModel.InputModel Klasse" Url="html/f68a1754-34cb-77f9-0b28-b6a5127c9779.htm" />
+    <HelpKINode Title="IndexModel.InputModel Klasse" Url="html/7288d83b-7ebb-f37d-6eae-33d7c9ac8c78.htm" />
+    <HelpKINode Title="IndexModel.InputModel Klasse" Url="html/0f4515e7-eab1-c567-58b5-7bc9e7372d4a.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/921869ba-7652-f181-2d8e-32b87798d1a6.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/d859c73f-abd0-f98d-342d-e8ba087beb95.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/38b7b721-71bb-1b13-2493-6c112d5d0d00.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/0c6e4762-978b-0e4e-8ba9-2441eeb14933.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.InputModel.InputModel Konstruktor">
+    <HelpKINode Title="IndexModel.InputModel Konstruktor " Url="html/0c6e4762-978b-0e4e-8ba9-2441eeb14933.htm" />
+    <HelpKINode Title="IndexModel.InputModel Konstruktor " Url="html/921869ba-7652-f181-2d8e-32b87798d1a6.htm" />
+    <HelpKINode Title="IndexModel.InputModel Konstruktor " Url="html/d859c73f-abd0-f98d-342d-e8ba087beb95.htm" />
+    <HelpKINode Title="IndexModel.InputModel Konstruktor " Url="html/38b7b721-71bb-1b13-2493-6c112d5d0d00.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft">
+    <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft " Url="html/f5d9ec2f-3790-9022-6133-fffeb978e708.htm" />
+    <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft " Url="html/b6abacc9-10d9-4e58-22e2-a9f36d2f28fc.htm" />
+    <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft " Url="html/6b16aaf4-f47c-4aea-eeb4-7c7b33b14291.htm" />
+    <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft " Url="html/7f034603-e0f7-38e7-92b0-0d7f7ae52b10.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.LastNameSort Eigenschaft" Url="html/52aa97f7-6f6b-52ea-b9c7-4c6268d33286.htm" />
+  <HelpKINode Title="IndexModel.NoteSort Eigenschaft" Url="html/2dceebe4-18aa-8c67-b75f-81e9c18c2a48.htm" />
+  <HelpKINode Title="IndexModel.NumberSort Eigenschaft">
+    <HelpKINode Title="IndexModel.NumberSort Eigenschaft " Url="html/8c3d77d2-a944-9607-5fef-8f4afd1b0b2b.htm" />
+    <HelpKINode Title="IndexModel.NumberSort Eigenschaft " Url="html/224df253-4689-8134-a081-f230db97e941.htm" />
+    <HelpKINode Title="IndexModel.NumberSort Eigenschaft " Url="html/341ec647-1ce1-0d84-5bd2-8ec6f7818bf8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.OnGet Methode">
+    <HelpKINode Title="IndexModel.OnGet Methode " Url="html/f500b289-7c7c-f3cb-deae-2f2a526acfcd.htm" />
+    <HelpKINode Title="IndexModel.OnGet Methode " Url="html/0043a3d4-2adf-4955-1987-488e741242b0.htm" />
+    <HelpKINode Title="IndexModel.OnGet Methode " Url="html/1cacc930-30ff-d056-fbbf-e873a6ceeea4.htm" />
+    <HelpKINode Title="IndexModel.OnGet Methode " Url="html/97d707af-2463-e8ee-fc42-eb5a8e1b91cf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.OnGetAsync Methode" Url="html/c50bac86-a7c4-7311-147c-97694ad5ab31.htm" />
+  <HelpKINode Title="IndexModel.OnPost Methode">
+    <HelpKINode Title="IndexModel.OnPost Methode " Url="html/8fc6c407-84f0-79b7-acba-e2178e93390e.htm" />
+    <HelpKINode Title="IndexModel.OnPost Methode " Url="html/df942054-11f9-b344-f2d9-5e49cf14e7c1.htm" />
+    <HelpKINode Title="IndexModel.OnPost Methode " Url="html/372f067b-e75c-1616-b4ed-0ca277a00af9.htm" />
+    <HelpKINode Title="IndexModel.OnPost Methode " Url="html/d7a1c8bd-6a1f-8cee-26be-7b5fdf176ffa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.Orders Eigenschaft">
+    <HelpKINode Title="IndexModel.Orders Eigenschaft " Url="html/d99b220e-7bf2-cb5b-f1b3-3911fcf2a6a6.htm" />
+    <HelpKINode Title="IndexModel.Orders Eigenschaft " Url="html/515e6cfb-5a80-14e0-a3d3-fa813108a83f.htm" />
+    <HelpKINode Title="IndexModel.Orders Eigenschaft " Url="html/0038d601-6162-a621-f95f-d7723e8c3d68.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.OrderTimeSort Eigenschaft">
+    <HelpKINode Title="IndexModel.OrderTimeSort Eigenschaft " Url="html/2ea723de-8282-9a5d-1cf0-6047c79a838d.htm" />
+    <HelpKINode Title="IndexModel.OrderTimeSort Eigenschaft " Url="html/22cf577f-96ff-0dd0-6b82-b698a7526533.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.PreparationTimeSort Eigenschaft" Url="html/0789d676-c083-3df8-b590-c9352aa35aa8.htm" />
+  <HelpKINode Title="IndexModel.ProductNameSort Eigenschaft">
+    <HelpKINode Title="IndexModel.ProductNameSort Eigenschaft " Url="html/84438a3f-9771-8e54-fef2-0b3aacdde49f.htm" />
+    <HelpKINode Title="IndexModel.ProductNameSort Eigenschaft " Url="html/78deae33-a05f-e12d-5e2f-3d2aa5941639.htm" />
+    <HelpKINode Title="IndexModel.ProductNameSort Eigenschaft " Url="html/fca69c17-fe2e-6a7b-2be5-2d185a12e65b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.RoleSort Eigenschaft" Url="html/698d0096-93d1-76bf-bd5b-9717242a87c6.htm" />
+  <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft">
+    <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft " Url="html/a7ceb9ec-a8a7-177b-7118-400b669b3e8d.htm" />
+    <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft " Url="html/3bed626a-6cd1-c3ab-7800-0f38eba1798a.htm" />
+    <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft " Url="html/5f2cc01f-e591-acbc-7de8-de5a604122fa.htm" />
+    <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft " Url="html/04f19b9e-21ec-67f3-ba7a-7d55ddc728fd.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.TotalPriceSort Eigenschaft">
+    <HelpKINode Title="IndexModel.TotalPriceSort Eigenschaft " Url="html/4007c929-5c94-7dd6-3cb2-93ba4abde8f3.htm" />
+    <HelpKINode Title="IndexModel.TotalPriceSort Eigenschaft " Url="html/c4e0ed25-24c8-c6a6-90cf-bd481b15b23b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.UserNameSort Eigenschaft">
+    <HelpKINode Title="IndexModel.UserNameSort Eigenschaft " Url="html/71fb4d5a-38c4-7b21-4fa8-c07929962470.htm" />
+    <HelpKINode Title="IndexModel.UserNameSort Eigenschaft " Url="html/51be8865-c864-5817-1d4c-bd2ec8d709fe.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexModel.Users Eigenschaft" Url="html/2412b9f0-8467-faa7-e509-afad400fa52a.htm" />
+  <HelpKINode Title="IndexNavClass Methode">
+    <HelpKINode Title="ManageNavPages.IndexNavClass Methode " Url="html/1bd4f94a-8304-f782-3d99-9d607fd54131.htm" />
+    <HelpKINode Title="ManageNavPages.IndexNavClass Methode " Url="html/f1762c76-bcb5-68cf-e89e-54e6c25fc698.htm" />
+    <HelpKINode Title="ManageNavPages.IndexNavClass Methode " Url="html/2c7a3e87-e7b6-218f-18c6-0202c60e7d8c.htm" />
+    <HelpKINode Title="ManageNavPages.IndexNavClass Methode " Url="html/f54b8520-cda1-ffcb-595f-4af24eeedcfe.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Information Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Information Eigenschaft " Url="html/ec894d98-0e2a-c9d7-43f2-5e8dea528851.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Information Eigenschaft " Url="html/fede6d6a-3460-32d7-cda3-a257f449039d.htm" />
+    <HelpKINode Title="Product.Information Eigenschaft " Url="html/a05ca4aa-a4ef-63bb-b903-37071bc1f655.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InformationSort Eigenschaft" Url="html/3247c8da-5a4d-9fdc-ce00-3d2ea0924687.htm" />
+  <HelpKINode Title="Input Eigenschaft">
+    <HelpKINode Title="AddAllergenModel.Input Eigenschaft " Url="html/18c5c0dd-9805-25d7-d854-45087936e215.htm" />
+    <HelpKINode Title="AddFormModel.Input Eigenschaft " Url="html/3a88301a-c29f-459a-e064-232484592ba8.htm" />
+    <HelpKINode Title="AddProductModel.Input Eigenschaft " Url="html/4eab0846-7475-59e5-b011-17e5b0e88f2a.htm" />
+    <HelpKINode Title="AddUserModel.Input Eigenschaft " Url="html/1ad728e5-7e62-c28b-fc76-f2e385abf8cb.htm" />
+    <HelpKINode Title="AllergensModel.Input Eigenschaft " Url="html/032eec6d-20ab-39b6-81d2-d44b543056f0.htm" />
+    <HelpKINode Title="ChangePasswordModel.Input Eigenschaft " Url="html/82973320-f372-ac2b-6a4d-870eee84fe17.htm" />
+    <HelpKINode Title="CreatePasswordModel.Input Eigenschaft " Url="html/34c2a1f1-83e5-fcf0-2399-dd61343c75af.htm" />
+    <HelpKINode Title="EditAllergenModel.Input Eigenschaft " Url="html/5626ad9b-96fc-fd06-1a65-7d05564b8597.htm" />
+    <HelpKINode Title="EditFormModel.Input Eigenschaft " Url="html/1d92cf51-e3e4-abb5-a5cf-3bca564bf499.htm" />
+    <HelpKINode Title="EditOrderModel.Input Eigenschaft " Url="html/e8a67444-ec2d-8f64-901e-4e06968c1ad9.htm" />
+    <HelpKINode Title="EditOrderModel.Input Eigenschaft " Url="html/0e4baf15-047f-f706-db04-b27459ef5ea8.htm" />
+    <HelpKINode Title="EditProductModel.Input Eigenschaft " Url="html/f64708e6-440d-16b4-dad8-1207dd0531a0.htm" />
+    <HelpKINode Title="EditUserModel.Input Eigenschaft " Url="html/9d77cf3f-e26a-d1c1-0bec-1d174532ab66.htm" />
+    <HelpKINode Title="ForgotPasswordModel.Input Eigenschaft " Url="html/549ec8ff-c737-7fc2-ff7f-c4054b1d32eb.htm" />
+    <HelpKINode Title="FormsModel.Input Eigenschaft " Url="html/9bf7b7a3-a984-b173-0357-a30fafe46da9.htm" />
+    <HelpKINode Title="IndexModel.Input Eigenschaft " Url="html/a4cf8757-5bae-6f86-4e3a-9c164d41d650.htm" />
+    <HelpKINode Title="IndexModel.Input Eigenschaft " Url="html/b077473b-b0f5-9ad0-607d-1fedcc7f45e2.htm" />
+    <HelpKINode Title="IndexModel.Input Eigenschaft " Url="html/9707c98a-6a1c-7004-1fed-48ac26f4a460.htm" />
+    <HelpKINode Title="IndexModel.Input Eigenschaft " Url="html/54ff55ae-7bfb-33b4-0c0b-14acecc937c4.htm" />
+    <HelpKINode Title="LoginModel.Input Eigenschaft " Url="html/95a0d132-96e5-7594-66b7-7941dbfb5807.htm" />
+    <HelpKINode Title="OrderHistoryModel.Input Eigenschaft " Url="html/6c2d3290-8562-2fee-b841-cc046d73dfa8.htm" />
+    <HelpKINode Title="OrderHistoryModel.Input Eigenschaft " Url="html/c61ffac7-09f0-dffc-ca0d-c4a8ea6deb64.htm" />
+    <HelpKINode Title="PlaceOrderModel.Input Eigenschaft " Url="html/55b778d9-bc4d-6005-5c61-122fd82d3dda.htm" />
+    <HelpKINode Title="ProductsModel.Input Eigenschaft " Url="html/099289c2-9377-3a7e-724e-e81587c99a0a.htm" />
+    <HelpKINode Title="RegisterModel.Input Eigenschaft " Url="html/158aae8b-de8c-822a-af3e-01e32edd6d47.htm" />
+    <HelpKINode Title="ResetPasswordModel.Input Eigenschaft " Url="html/020e4f48-0526-5361-5b39-f4ebffaf4e96.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InputModel Klasse">
+    <HelpKINode Title="Eigenschaften" Url="html/654f9458-82fe-9675-2e7c-a0680db63cc6.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/89d1ede3-a71c-0e96-0068-d2f5cbebc90d.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/48438850-b5e4-37c2-03e0-c370cdb671dc.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/6fe219dc-c0be-e109-10cb-f22dabd8370f.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/f42dba87-23fa-1ff5-ef88-39fcc7785d26.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/061858dd-8d4e-5be5-d7bd-6efeff3439cb.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/0abb2867-f280-5c9f-f71b-580cfcaa6fae.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/066b91d2-3eee-f10f-7b88-d3f9f11699cc.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/4de5e8ff-dcec-bb99-bcf2-c403ef2c5af7.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/44303476-f910-f75a-672a-37112b7326e8.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/ba36e4d5-33fc-055b-ecf3-cbf0c221f599.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/7055c7f5-c92a-fa2a-e082-4f31e4de2aee.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/73591b04-c551-1a08-dbe6-6c51e742ce07.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/46dd560d-cbe4-688c-109d-fba83e101dbd.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/1f12254a-330c-d082-7dba-76cf82cb8425.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/57f3267c-c9ab-550a-f7a8-186606b39e54.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/97fb2606-adef-7142-52a7-c92ba2afb011.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/a3be7651-ad17-0902-6057-5f07a41beba6.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/d693ad95-aee0-fc1c-475b-cc7f4aa08802.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/45b770c6-3bf2-bb94-f308-50f470b7b984.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/0dc8a64b-8697-d195-7c8d-982cc790feee.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/80cfd899-fe39-966b-3ab5-81f514551118.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/331eb1d8-95f6-9f39-1070-a0bb7d3037c9.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/89976c99-3058-48fb-d2b0-6b3c35b67d2d.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/aa77ded6-f674-42a4-56e8-bc3a58e88906.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/748b134b-7e71-c12c-5ffd-1eabe58f60a7.htm" />
+    <HelpKINode Title="Methoden" Url="html/b7e9191f-92a9-7db9-8868-5e3ee32d1fee.htm" />
+    <HelpKINode Title="Methoden" Url="html/da416a78-086b-60a3-14aa-ea727d077b2e.htm" />
+    <HelpKINode Title="Methoden" Url="html/8c9c1fca-d515-2b72-15a9-25dcedf26b86.htm" />
+    <HelpKINode Title="Methoden" Url="html/db85ba88-04f8-fbc0-8ab4-d1aaf6f63391.htm" />
+    <HelpKINode Title="Methoden" Url="html/61dbacef-cf23-137d-476e-1b3b3eab00e3.htm" />
+    <HelpKINode Title="Methoden" Url="html/74c536af-a968-2569-8d7b-4612c8da4dce.htm" />
+    <HelpKINode Title="Methoden" Url="html/7b01e4b2-f2c4-130b-1007-c3ca09d4fd23.htm" />
+    <HelpKINode Title="Methoden" Url="html/10ce73ed-f2d4-64c0-515f-e3f559bfa76c.htm" />
+    <HelpKINode Title="Methoden" Url="html/ebac1774-efea-8591-cc8b-f239eacaf892.htm" />
+    <HelpKINode Title="Methoden" Url="html/badf5719-ad01-f229-ad00-727fff0dc4c3.htm" />
+    <HelpKINode Title="Methoden" Url="html/05308c7a-7b0f-42d8-bc51-3b78e5621c1f.htm" />
+    <HelpKINode Title="Methoden" Url="html/7965b96c-ec73-c1f7-136d-b537e51cc094.htm" />
+    <HelpKINode Title="Methoden" Url="html/06b42e7b-1f24-468b-c35d-20743aea8f3c.htm" />
+    <HelpKINode Title="Methoden" Url="html/c56c6f65-4d82-95d2-63a8-5159d08eaa3a.htm" />
+    <HelpKINode Title="Methoden" Url="html/9bbb6918-b2ab-8140-9f70-0f78c08d870c.htm" />
+    <HelpKINode Title="Methoden" Url="html/95dfee70-8107-da90-5523-f622013af05e.htm" />
+    <HelpKINode Title="Methoden" Url="html/415b1555-c37b-e7a3-ce48-e5026eafa44b.htm" />
+    <HelpKINode Title="Methoden" Url="html/443bc218-9f38-23a7-2326-c2f31267441c.htm" />
+    <HelpKINode Title="Methoden" Url="html/a83254ab-c795-a838-d2df-aed5b623d771.htm" />
+    <HelpKINode Title="Methoden" Url="html/09168be2-ab44-7ed7-8d58-745bcca9969f.htm" />
+    <HelpKINode Title="Methoden" Url="html/0afceb1c-c0ba-c98e-3557-e8e3f8f03f44.htm" />
+    <HelpKINode Title="Methoden" Url="html/81ae1340-730c-1ddc-d380-aed2946f08d7.htm" />
+    <HelpKINode Title="Methoden" Url="html/5f66a5c7-515d-89dd-61a7-7105f3b5b286.htm" />
+    <HelpKINode Title="Methoden" Url="html/31686f7e-79c7-c02f-d816-5e95e9c640e9.htm" />
+    <HelpKINode Title="Methoden" Url="html/e9208869-79f7-8c44-2d27-22e7ac643d4e.htm" />
+    <HelpKINode Title="Methoden" Url="html/f10212ed-dd60-1d34-15f3-23e46953a7b7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Int32 to Form.Grade.Grade Konvertierungen" Url="html/759ba9c9-c7af-d2b7-d6f7-312c7b358b44.htm" />
+  <HelpKINode Title="InvalidEmail Methode" Url="html/5f6f7f68-5c67-3933-9f22-598d3ce2f855.htm" />
+  <HelpKINode Title="InvalidRoleName Methode" Url="html/4450ed3d-f31f-db22-8de3-7a7d3e68180d.htm" />
+  <HelpKINode Title="InvalidToken Methode" Url="html/b8e04ad4-ea85-7ce2-58ca-45fa186feba7.htm" />
+  <HelpKINode Title="InvalidUserName Methode" Url="html/452b77f6-bb40-33bf-9465-861846bdc5da.htm" />
+  <HelpKINode Title="IsAdmin Methode" Url="html/cb2cd2c7-67ab-9eb9-090e-a4084ea77713.htm" />
+  <HelpKINode Title="IsEmployee Methode" Url="html/5edb1861-6842-6762-2d98-9c8ee37dc855.htm" />
+  <HelpKINode Title="IsG9 Methode" Url="html/6761bd68-5c5d-2a19-9cb7-8902822985c6.htm" />
+  <HelpKINode Title="Karfreitag Eigenschaft" Url="html/dff74e89-7503-c6b9-6fe4-34f21aa3167b.htm" />
+  <HelpKINode Title="KitchenController Klasse">
+    <HelpKINode Title="KitchenController Klasse" Url="html/b5e41757-38f9-682d-a979-17c7c5d9274e.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/ed9b8f3b-f929-5d33-f695-d61e7030b4fe.htm" />
+    <HelpKINode Title="Methoden" Url="html/68ff12e0-d4d7-a180-2301-d36b87b352e4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="KitchenController.Index Methode" Url="html/67cfb43a-5a0b-c350-7d91-df259515e582.htm" />
+  <HelpKINode Title="KitchenController.KitchenController Konstruktor" Url="html/ed9b8f3b-f929-5d33-f695-d61e7030b4fe.htm" />
+  <HelpKINode Title="KitchenController.OrderPrepared Methode" Url="html/5a9cb502-cfc0-a667-0bc7-8e964dcaf5c0.htm" />
+  <HelpKINode Title="KitchenController.RemoveOrder Methode" Url="html/ed807ea1-0692-94d8-470c-662f85dedb19.htm" />
+  <HelpKINode Title="LastName Eigenschaft" Url="html/17047da8-7bff-55d2-9b28-e25d2f486457.htm" />
+  <HelpKINode Title="LastNameSort Eigenschaft" Url="html/52aa97f7-6f6b-52ea-b9c7-4c6268d33286.htm" />
+  <HelpKINode Title="Limit Eigenschaft" Url="html/5c2c90ee-9781-8e3e-9a65-884baad51af4.htm" />
+  <HelpKINode Title="LockoutModel Klasse">
+    <HelpKINode Title="LockoutModel Klasse" Url="html/75d2ec8c-5e78-82d1-3a2b-b81f9205c3b0.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/56a1e73c-5d74-785d-0bab-14be5d680747.htm" />
+    <HelpKINode Title="Methoden" Url="html/9d15b224-caaf-c341-6799-cf6e01f82c3b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LockoutModel.LockoutModel Konstruktor" Url="html/56a1e73c-5d74-785d-0bab-14be5d680747.htm" />
+  <HelpKINode Title="LockoutModel.OnGet Methode" Url="html/3abf53a9-9dca-eac9-ea42-115439e289cc.htm" />
+  <HelpKINode Title="Login Methode" Url="html/5ec1bd9c-9331-47b0-896a-2532eb56ceac.htm" />
+  <HelpKINode Title="LoginAlreadyAssociated Methode" Url="html/e1c3dd9c-4298-e3c1-45be-c41a93987cdf.htm" />
+  <HelpKINode Title="LoginModel Klasse">
+    <HelpKINode Title="LoginModel Klasse" Url="html/915308e6-988d-283f-12dd-a6d8b85c035d.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/a7d89b34-f122-4ffd-2620-31bf30222c92.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/666c8846-5691-8271-739a-93ae1faf0c5b.htm" />
+    <HelpKINode Title="Methoden" Url="html/9cb08e9a-fe5b-018a-eb43-5a607ff0cc3a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LoginModel.ErrorMessage Eigenschaft" Url="html/5b025d8c-78ba-75d7-d97b-210bae0ebb75.htm" />
+  <HelpKINode Title="LoginModel.Input Eigenschaft" Url="html/95a0d132-96e5-7594-66b7-7941dbfb5807.htm" />
+  <HelpKINode Title="LoginModel.InputModel Klasse">
+    <HelpKINode Title="LoginModel.InputModel Klasse" Url="html/5da1b2d5-05a2-f7db-319f-9b7c61bec00a.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/83e63cd2-1d7e-4332-3ef8-48a973094171.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LoginModel.InputModel.Email Eigenschaft" Url="html/4bb8df93-ab31-a3ec-5a08-22856a78584a.htm" />
+  <HelpKINode Title="LoginModel.InputModel.InputModel Konstruktor" Url="html/83e63cd2-1d7e-4332-3ef8-48a973094171.htm" />
+  <HelpKINode Title="LoginModel.InputModel.Password Eigenschaft" Url="html/a73af319-ddaa-a6f2-6516-3c2d7329c159.htm" />
+  <HelpKINode Title="LoginModel.InputModel.RememberMe Eigenschaft" Url="html/8018f8ca-4268-6a12-cd59-179a730935b0.htm" />
+  <HelpKINode Title="LoginModel.LoginModel Konstruktor" Url="html/666c8846-5691-8271-739a-93ae1faf0c5b.htm" />
+  <HelpKINode Title="LoginModel.OnGetAsync Methode" Url="html/fa8f877f-2863-d40d-b539-392ae476ae6a.htm" />
+  <HelpKINode Title="LoginModel.OnPostAsync Methode" Url="html/e781c65e-7f5e-fb1a-40bf-304e493b214a.htm" />
+  <HelpKINode Title="LoginModel.ReturnUrl Eigenschaft" Url="html/b3ef2c47-8fda-efa9-8c97-338db171c8b4.htm" />
+  <HelpKINode Title="LogoutModel Klasse">
+    <HelpKINode Title="LogoutModel Klasse" Url="html/b26db019-1f4e-648e-044c-cae19b3dcda1.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/ce3ad022-2da8-5275-d204-d64d69d17178.htm" />
+    <HelpKINode Title="Methoden" Url="html/9cd4affc-b1bd-e57d-2313-5313a408facf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LogoutModel.LogoutModel Konstruktor" Url="html/ce3ad022-2da8-5275-d204-d64d69d17178.htm" />
+  <HelpKINode Title="LogoutModel.OnPost Methode" Url="html/f59c6cd6-dfbb-75cd-cbba-aa6092421fbd.htm" />
+  <HelpKINode Title="MailAddress Eigenschaft" Url="html/755e7b08-1941-01fd-6890-1d57c7700670.htm" />
+  <HelpKINode Title="MailPassword Eigenschaft" Url="html/018e2753-7621-fb0e-22f5-a4d4c7aa1e25.htm" />
+  <HelpKINode Title="MailPop3 Eigenschaft" Url="html/c57f2f4e-74f7-d222-ebdf-0cd245ebba71.htm" />
+  <HelpKINode Title="MailReturn Eigenschaft" Url="html/30d7dd1f-3512-8073-5ee6-21cbe8e1d069.htm" />
+  <HelpKINode Title="MailSmtp Eigenschaft" Url="html/68bd4adb-36cc-277e-abe3-39f04e93c0ec.htm" />
+  <HelpKINode Title="MailValid Methode" Url="html/afc63f3c-cf49-012d-09dd-da2f9a7c14c4.htm" />
+  <HelpKINode Title="Main Methode" Url="html/13e1b5a7-e0f9-da3c-f225-63ff89d34302.htm" />
+  <HelpKINode Title="ManageNavPages Klasse">
+    <HelpKINode Title="ManageNavPages Klasse" Url="html/ac6dc741-6e3c-6fe8-21af-5c37bb7cf770.htm" />
+    <HelpKINode Title="ManageNavPages Klasse" Url="html/54554f77-5728-0fcb-c47c-6ced9c98aa9d.htm" />
+    <HelpKINode Title="ManageNavPages Klasse" Url="html/18cb5040-e55b-a632-6fcd-40fa8beb60e9.htm" />
+    <HelpKINode Title="ManageNavPages Klasse" Url="html/a7ec01bf-285a-b0c6-e1a8-1dfd2119d081.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/a9cd59f9-db74-ae41-1e1b-63239d13c1c0.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/7fb42ff8-7859-e508-8fe6-f89cc46845c3.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/39518ff7-11ec-eca7-9896-499318afac03.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/0f793a2c-00ec-1317-db60-ea42020ec984.htm" />
+    <HelpKINode Title="Methoden" Url="html/e055f905-930a-c8f3-52f5-1a4a475069f8.htm" />
+    <HelpKINode Title="Methoden" Url="html/d259041b-b80b-1b52-6dd7-54cea1c4ce89.htm" />
+    <HelpKINode Title="Methoden" Url="html/2c091f47-825c-4a52-5bb2-e62897f84f53.htm" />
+    <HelpKINode Title="Methoden" Url="html/4d412d28-d4be-153d-f331-4fe9cd03cb9a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ManageNavPages.AddAllergen Eigenschaft" Url="html/ebb3926e-cb31-8bea-d978-d19bf65056bb.htm" />
+  <HelpKINode Title="ManageNavPages.AddAllergenNavClass Methode" Url="html/bbf8a12f-53e7-aaa7-a121-bebfea78ec31.htm" />
+  <HelpKINode Title="ManageNavPages.AddProduct Eigenschaft" Url="html/eb25bdfb-274d-eb3e-c0a6-812fcb53154d.htm" />
+  <HelpKINode Title="ManageNavPages.AddProductNavClass Methode" Url="html/2c20e751-a3a0-e7e1-240f-4cb276d3821c.htm" />
+  <HelpKINode Title="ManageNavPages.Allergens Eigenschaft" Url="html/df69e43d-8d74-16b4-f682-23b1aad2cf62.htm" />
+  <HelpKINode Title="ManageNavPages.AllergensNavClass Methode" Url="html/ced131c8-7358-5a71-a9df-fff345c87fa3.htm" />
+  <HelpKINode Title="ManageNavPages.ChangePassword Eigenschaft" Url="html/c593e341-06e3-65de-ed4d-5a8d31877246.htm" />
+  <HelpKINode Title="ManageNavPages.ChangePasswordNavClass Methode" Url="html/26049b99-c6b3-7439-c896-b981a61908d5.htm" />
+  <HelpKINode Title="ManageNavPages.EditForm Eigenschaft" Url="html/3d7d2b58-4c2e-37e1-c128-c35454660489.htm" />
+  <HelpKINode Title="ManageNavPages.EditFormNavClass Methode" Url="html/469560db-107d-28a0-b3ba-e498b1f28fad.htm" />
+  <HelpKINode Title="ManageNavPages.EditOrder Eigenschaft">
+    <HelpKINode Title="ManageNavPages.EditOrder Eigenschaft " Url="html/c8739f1a-3f16-2160-c068-423f4e349aba.htm" />
+    <HelpKINode Title="ManageNavPages.EditOrder Eigenschaft " Url="html/1ced1bd3-b318-ebbd-0570-4f437f9dcc5f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ManageNavPages.EditOrderNavClass Methode">
+    <HelpKINode Title="ManageNavPages.EditOrderNavClass Methode " Url="html/ecd930b9-65d3-2f34-b8cd-363f87aad9bb.htm" />
+    <HelpKINode Title="ManageNavPages.EditOrderNavClass Methode " Url="html/6895f627-7a1c-6b0b-8ed0-143df6c811ec.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ManageNavPages.EditUser Eigenschaft" Url="html/bc192781-aa95-2142-0802-78542ffc0b2c.htm" />
+  <HelpKINode Title="ManageNavPages.EditUserNavClass Methode" Url="html/f3043765-4465-14bf-9144-071af560a72a.htm" />
+  <HelpKINode Title="ManageNavPages.Forms Eigenschaft" Url="html/07edf0c5-6d9c-91ff-da42-53c107e2afb9.htm" />
+  <HelpKINode Title="ManageNavPages.FormsNavClass Methode" Url="html/e902e309-80fc-9cc9-6098-8575b57b1dca.htm" />
+  <HelpKINode Title="ManageNavPages.GenerateCodes Eigenschaft" Url="html/bb5c86a5-78e6-fe73-b5f6-25730197cad1.htm" />
+  <HelpKINode Title="ManageNavPages.GenerateCodesNavClass Methode" Url="html/eb6b9767-3f44-441c-b780-796d6e36b16f.htm" />
+  <HelpKINode Title="ManageNavPages.Index Eigenschaft">
+    <HelpKINode Title="ManageNavPages.Index Eigenschaft " Url="html/700f708b-707d-6bb1-f57f-c733933d711c.htm" />
+    <HelpKINode Title="ManageNavPages.Index Eigenschaft " Url="html/e85f1dd2-1e9f-27f4-a096-c71269dc22cc.htm" />
+    <HelpKINode Title="ManageNavPages.Index Eigenschaft " Url="html/2a20fec5-3a77-d6b0-8494-0282fe263249.htm" />
+    <HelpKINode Title="ManageNavPages.Index Eigenschaft " Url="html/4048ead6-bad6-f1cc-e571-c26cb31b0be9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ManageNavPages.IndexNavClass Methode">
+    <HelpKINode Title="ManageNavPages.IndexNavClass Methode " Url="html/f54b8520-cda1-ffcb-595f-4af24eeedcfe.htm" />
+    <HelpKINode Title="ManageNavPages.IndexNavClass Methode " Url="html/2c7a3e87-e7b6-218f-18c6-0202c60e7d8c.htm" />
+    <HelpKINode Title="ManageNavPages.IndexNavClass Methode " Url="html/f1762c76-bcb5-68cf-e89e-54e6c25fc698.htm" />
+    <HelpKINode Title="ManageNavPages.IndexNavClass Methode " Url="html/1bd4f94a-8304-f782-3d99-9d607fd54131.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ManageNavPages.OrderHistory Eigenschaft">
+    <HelpKINode Title="ManageNavPages.OrderHistory Eigenschaft " Url="html/eda99156-c6d1-e3ed-6b87-1e891b4232d3.htm" />
+    <HelpKINode Title="ManageNavPages.OrderHistory Eigenschaft " Url="html/1010cb1b-8d51-d92d-40f9-01ac5d2dbb1d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ManageNavPages.OrderHistoryNavClass Methode" Url="html/37159f00-0adc-a6a2-95ac-55f06b45f69d.htm" />
+  <HelpKINode Title="ManageNavPages.OrdersHistoryNavClass Methode" Url="html/33d18ed4-3e43-d3e0-6237-2adfd2dd9337.htm" />
+  <HelpKINode Title="ManageNavPages.PlaceOrder Eigenschaft" Url="html/7e849284-564a-861e-34ac-e9057f055740.htm" />
+  <HelpKINode Title="ManageNavPages.PlaceOrderNavClass Methode" Url="html/39d8226a-41c8-55ad-e685-38581c00a83a.htm" />
+  <HelpKINode Title="ManageNavPages.Products Eigenschaft" Url="html/d9296c2f-e308-c765-1ac0-b777ebd2afd0.htm" />
+  <HelpKINode Title="ManageNavPages.ProductsNavClass Methode" Url="html/8b208fdc-1c00-cd87-8b28-5841189536b3.htm" />
+  <HelpKINode Title="MigrateDatabase Methode" Url="html/5452652d-fc36-9c33-68f5-55b86343dd16.htm" />
+  <HelpKINode Title="Name Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Name Eigenschaft " Url="html/5924d541-e576-8455-b60e-ec64bb813380.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Name Eigenschaft " Url="html/321f3f28-0604-a4a6-b2a3-005fc1e62be5.htm" />
+    <HelpKINode Title="Product.Name Eigenschaft " Url="html/64b4c5c0-aca5-900f-04e4-ef51b4e06562.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Name Klasse">
+    <HelpKINode Title="Name Klasse" Url="html/672f3f71-5815-d63e-0ffa-66e3f5f70a1a.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/0d912d87-9581-07e6-e7af-80d03eaa609a.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/f568af0b-173d-8f06-e2e2-21f5a146d2ec.htm" />
+    <HelpKINode Title="Methoden" Url="html/14928ae3-0ea4-029b-f467-f6870c4a7817.htm" />
+    <HelpKINode Title="Typkonvertierungen" Url="html/9f82f5b2-2eec-224c-0366-349ff87d5afc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Name to String Konvertierungen" Url="html/4b49b7bd-c785-0b8e-f8aa-d9fcf9c3785d.htm" />
+  <HelpKINode Title="Name.CompareTo Methode" Url="html/ae80ec7b-c9e2-03ec-f1ab-bb5cab543585.htm" />
+  <HelpKINode Title="Name.FirstName Eigenschaft" Url="html/cc0df50e-c2e5-414a-139c-fb893de94245.htm" />
+  <HelpKINode Title="Name.LastName Eigenschaft" Url="html/17047da8-7bff-55d2-9b28-e25d2f486457.htm" />
+  <HelpKINode Title="Name.Name Konstruktor" Url="html/f568af0b-173d-8f06-e2e2-21f5a146d2ec.htm" />
+  <HelpKINode Title="Name.ToString Methode" Url="html/99cccfd4-cb63-429b-9c93-dd8dd52c51bc.htm" />
+  <HelpKINode Title="NameSort Eigenschaft" Url="html/71e69816-edf6-bbe1-baab-a0c86f7eea7c.htm" />
+  <HelpKINode Title="Neujahrstag Eigenschaft" Url="html/a2473cc9-a155-a67e-eff4-168ee43d9e84.htm" />
+  <HelpKINode Title="NewPassword Eigenschaft" Url="html/d07f2249-946a-9f32-7832-f36e2190ca00.htm" />
+  <HelpKINode Title="NINE Eigenschaft" Url="html/fde03b45-3391-5dae-5416-1248cb18098a.htm" />
+  <HelpKINode Title="Notes Eigenschaft">
+    <HelpKINode Title="EditOrderModel.InputModel.Notes Eigenschaft " Url="html/d37514df-24d0-c722-ffce-cc284bf7fbb5.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel.Notes Eigenschaft " Url="html/16b17c7f-3776-b7f0-65ef-0ca507241695.htm" />
+    <HelpKINode Title="Holiday.Notes Eigenschaft " Url="html/a613a30a-a51e-2327-d37e-c907112e6417.htm" />
+    <HelpKINode Title="Order.Notes Eigenschaft " Url="html/e0ea83f1-00fb-56be-4421-9b146cc8cac1.htm" />
+    <HelpKINode Title="PlaceOrderModel.InputModel.Notes Eigenschaft " Url="html/614743f1-0b7e-0a97-dd06-f43397d086c6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NoteSort Eigenschaft">
+    <HelpKINode Title="IndexModel.NoteSort Eigenschaft " Url="html/2dceebe4-18aa-8c67-b75f-81e9c18c2a48.htm" />
+    <HelpKINode Title="OrderHistoryModel.NoteSort Eigenschaft " Url="html/42e52104-027f-4c1c-49b1-78588e8cf287.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Number Eigenschaft">
+    <HelpKINode Title="EditOrderModel.InputModel.Number Eigenschaft " Url="html/6bd5cbb6-22ad-a2e7-6ba4-1db2df1c9146.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel.Number Eigenschaft " Url="html/bb988656-46f0-bc93-4117-b714c329ba38.htm" />
+    <HelpKINode Title="GenerateCodesModel.GenerateInputModel.Number Eigenschaft " Url="html/09f0a992-6112-976b-f83d-64cf1f3694f8.htm" />
+    <HelpKINode Title="Order.Number Eigenschaft " Url="html/d324fbd2-251d-7958-6a93-4309516b718a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Numbers Eigenschaft" Url="html/89de3d2a-c241-da56-3a38-84142662db7e.htm" />
+  <HelpKINode Title="NumberSort Eigenschaft">
+    <HelpKINode Title="IndexModel.NumberSort Eigenschaft " Url="html/8c3d77d2-a944-9607-5fef-8f4afd1b0b2b.htm" />
+    <HelpKINode Title="IndexModel.NumberSort Eigenschaft " Url="html/341ec647-1ce1-0d84-5bd2-8ec6f7818bf8.htm" />
+    <HelpKINode Title="IndexModel.NumberSort Eigenschaft " Url="html/224df253-4689-8134-a081-f230db97e941.htm" />
+    <HelpKINode Title="OrderHistoryModel.NumberSort Eigenschaft " Url="html/c15cd78b-b6ef-c854-4b8a-570b1b08707b.htm" />
+    <HelpKINode Title="OrderHistoryModel.NumberSort Eigenschaft " Url="html/8b2f2c24-7ae4-db42-997a-376b966c466e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OldPassword Eigenschaft" Url="html/3b9b1c91-ca46-9ffb-66f6-eb5b21874f00.htm" />
+  <HelpKINode Title="OnConfiguring Methode" Url="html/b3e969e5-e50e-ac53-1143-2e945f57d8a9.htm" />
+  <HelpKINode Title="OnGet Methode">
+    <HelpKINode Title="AccessDeniedModel.OnGet Methode " Url="html/a50c4fbc-e7cc-2760-df44-7bc9f1bc787e.htm" />
+    <HelpKINode Title="AddUserModel.OnGet Methode " Url="html/20a06c9c-492b-d408-3031-c64cd23d346c.htm" />
+    <HelpKINode Title="AllergensModel.OnGet Methode " Url="html/b4702c80-e939-a90c-f7a5-6a1c666d65a9.htm" />
+    <HelpKINode Title="CreatePasswordModel.OnGet Methode " Url="html/744a4ca9-d2de-977c-4eb7-1360ef423c6b.htm" />
+    <HelpKINode Title="EditAllergenModel.OnGet Methode " Url="html/8fbbe04c-691a-7b40-fab2-25c58f581d7b.htm" />
+    <HelpKINode Title="EditFormModel.OnGet Methode " Url="html/9654597c-6ff1-6acc-547f-7d6287670f9f.htm" />
+    <HelpKINode Title="EditOrderModel.OnGet Methode " Url="html/17d3a03c-1442-b201-70eb-d3afe5a6be76.htm" />
+    <HelpKINode Title="EditOrderModel.OnGet Methode " Url="html/ac49e0be-035d-7830-190c-e469a0948136.htm" />
+    <HelpKINode Title="EditProductModel.OnGet Methode " Url="html/e1d759b0-fa43-0d1b-4dd3-72a24352010a.htm" />
+    <HelpKINode Title="EditUserModel.OnGet Methode " Url="html/03c9a179-914d-1347-f8e1-2b856b525bc9.htm" />
+    <HelpKINode Title="ErrorModel.OnGet Methode " Url="html/c1ba75ad-8bd3-6296-b6cb-624367c25559.htm" />
+    <HelpKINode Title="ForgotPasswordConfirmation.OnGet Methode " Url="html/139dff4c-d2bd-22f6-e4c0-02354ffd88a1.htm" />
+    <HelpKINode Title="FormsModel.OnGet Methode " Url="html/f1ad0b50-b9f7-bd54-a179-ce8f4bd55cb5.htm" />
+    <HelpKINode Title="GenerateCodesModel.OnGet Methode " Url="html/f68602ee-137f-0263-93a6-eda2176e2565.htm" />
+    <HelpKINode Title="GetFormDataModel.OnGet Methode " Url="html/f312dd8e-e151-3664-1e12-23c55d1c95fe.htm" />
+    <HelpKINode Title="GetProductDataModel.OnGet Methode " Url="html/60b4a982-653e-135c-49c4-fdb7ccc91996.htm" />
+    <HelpKINode Title="IndexModel.OnGet Methode " Url="html/1cacc930-30ff-d056-fbbf-e873a6ceeea4.htm" />
+    <HelpKINode Title="IndexModel.OnGet Methode " Url="html/0043a3d4-2adf-4955-1987-488e741242b0.htm" />
+    <HelpKINode Title="IndexModel.OnGet Methode " Url="html/97d707af-2463-e8ee-fc42-eb5a8e1b91cf.htm" />
+    <HelpKINode Title="IndexModel.OnGet Methode " Url="html/f500b289-7c7c-f3cb-deae-2f2a526acfcd.htm" />
+    <HelpKINode Title="LockoutModel.OnGet Methode " Url="html/3abf53a9-9dca-eac9-ea42-115439e289cc.htm" />
+    <HelpKINode Title="OrderHistoryModel.OnGet Methode " Url="html/f9d9c0af-c3ae-bca8-8cb2-f4018e0e962c.htm" />
+    <HelpKINode Title="OrderHistoryModel.OnGet Methode " Url="html/5fbc6ee5-e673-beb5-819c-ece38bf33704.htm" />
+    <HelpKINode Title="PlaceOrderModel.OnGet Methode " Url="html/18495be6-3919-9a6d-ca45-f4a74e2458b0.htm" />
+    <HelpKINode Title="ProductsModel.OnGet Methode " Url="html/3947832c-3b36-6d03-d9fa-e5f4839e8f07.htm" />
+    <HelpKINode Title="RegisterModel.OnGet Methode " Url="html/1b40563f-04d6-fb69-a3af-d3c4402a93d4.htm" />
+    <HelpKINode Title="ResetPasswordConfirmationModel.OnGet Methode " Url="html/5d323619-5954-8198-d532-f45cca8d1b9f.htm" />
+    <HelpKINode Title="ResetPasswordModel.OnGet Methode " Url="html/cf568864-3b47-e2d0-3521-a7b182c2ca3e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OnGetAsync Methode">
+    <HelpKINode Title="ChangePasswordModel.OnGetAsync Methode " Url="html/0ecde0fa-ebc7-951d-5743-8c3b44666bb9.htm" />
+    <HelpKINode Title="ConfirmEmailModel.OnGetAsync Methode " Url="html/03fcc6d0-9fc5-347a-9804-efc38d1eede3.htm" />
+    <HelpKINode Title="IndexModel.OnGetAsync Methode " Url="html/c50bac86-a7c4-7311-147c-97694ad5ab31.htm" />
+    <HelpKINode Title="LoginModel.OnGetAsync Methode " Url="html/fa8f877f-2863-d40d-b539-392ae476ae6a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OnModelCreating Methode" Url="html/cc19f816-cb08-f919-d9ea-76209724e8ea.htm" />
+  <HelpKINode Title="OnPost Methode">
+    <HelpKINode Title="AddAllergenModel.OnPost Methode " Url="html/a5435246-1d6b-fef7-caaa-2589b037f860.htm" />
+    <HelpKINode Title="AddFormModel.OnPost Methode " Url="html/e8bb0173-c1e9-999a-e2d7-e4102822dfba.htm" />
+    <HelpKINode Title="AddProductModel.OnPost Methode " Url="html/19464e49-47a4-133a-ee46-a3d317fc5301.htm" />
+    <HelpKINode Title="AllergensModel.OnPost Methode " Url="html/d8df4a47-8a19-007e-0ad6-ae4a4f8f3dc7.htm" />
+    <HelpKINode Title="EditAllergenModel.OnPost Methode " Url="html/df293192-f803-7544-5935-f19a8e70c9ea.htm" />
+    <HelpKINode Title="EditFormModel.OnPost Methode " Url="html/d68122fc-875d-cc17-682a-e5cfa122bc78.htm" />
+    <HelpKINode Title="EditOrderModel.OnPost Methode " Url="html/f9267bb1-7587-46fc-2526-1a5c191d39e8.htm" />
+    <HelpKINode Title="EditOrderModel.OnPost Methode " Url="html/b6a81c04-e4cf-9e48-28c6-d4f476c71212.htm" />
+    <HelpKINode Title="EditProductModel.OnPost Methode " Url="html/1ab51451-ca96-a0f4-cc48-0aa6bbae808c.htm" />
+    <HelpKINode Title="EditUserModel.OnPost Methode " Url="html/30e55e68-a104-124a-c804-c3aa196dcea1.htm" />
+    <HelpKINode Title="FormsModel.OnPost Methode " Url="html/522819e7-d28d-89b9-10e3-b8f3f8f9641f.htm" />
+    <HelpKINode Title="IndexModel.OnPost Methode " Url="html/372f067b-e75c-1616-b4ed-0ca277a00af9.htm" />
+    <HelpKINode Title="IndexModel.OnPost Methode " Url="html/8fc6c407-84f0-79b7-acba-e2178e93390e.htm" />
+    <HelpKINode Title="IndexModel.OnPost Methode " Url="html/df942054-11f9-b344-f2d9-5e49cf14e7c1.htm" />
+    <HelpKINode Title="IndexModel.OnPost Methode " Url="html/d7a1c8bd-6a1f-8cee-26be-7b5fdf176ffa.htm" />
+    <HelpKINode Title="LogoutModel.OnPost Methode " Url="html/f59c6cd6-dfbb-75cd-cbba-aa6092421fbd.htm" />
+    <HelpKINode Title="OrderHistoryModel.OnPost Methode " Url="html/25e67886-e3e0-b67b-8518-bf8d8e6e5be2.htm" />
+    <HelpKINode Title="OrderHistoryModel.OnPost Methode " Url="html/3ba61344-12a0-f4cc-64ba-f37d87e5c737.htm" />
+    <HelpKINode Title="PlaceOrderModel.OnPost Methode " Url="html/4409360d-ef1e-c9bd-515f-7154d7ad0350.htm" />
+    <HelpKINode Title="ProductsModel.OnPost Methode " Url="html/6815c096-d711-2b68-bb71-21e341c35341.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OnPostAsync Methode">
+    <HelpKINode Title="AddUserModel.OnPostAsync Methode " Url="html/724ae96d-4fb8-aaed-f847-73e827c0cfe2.htm" />
+    <HelpKINode Title="ChangePasswordModel.OnPostAsync Methode " Url="html/edde5176-9888-f09d-4098-1db94dc5146e.htm" />
+    <HelpKINode Title="CreatePasswordModel.OnPostAsync Methode " Url="html/5979a8a1-a065-0ca0-0e99-e403dd4e6442.htm" />
+    <HelpKINode Title="ForgotPasswordModel.OnPostAsync Methode " Url="html/77e0432c-2548-b35b-5fd0-4e3dd1e177e2.htm" />
+    <HelpKINode Title="LoginModel.OnPostAsync Methode " Url="html/e781c65e-7f5e-fb1a-40bf-304e493b214a.htm" />
+    <HelpKINode Title="RegisterModel.OnPostAsync Methode " Url="html/b5449d9c-30c4-7f97-6b8a-ed9fe1331b39.htm" />
+    <HelpKINode Title="ResetPasswordModel.OnPostAsync Methode " Url="html/21c198be-e96a-4fb0-b2a8-20ef159f3535.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Order Klasse">
+    <HelpKINode Title="Order Klasse" Url="html/3e81d759-5dea-f4cf-90fd-ad977d3062b1.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/a673c4b2-6285-719e-1789-0f5b4ade1ce4.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/d30bdd7c-8ff0-ff1d-f986-c7d343dc2922.htm" />
+    <HelpKINode Title="Methoden" Url="html/e0920cc0-3fe5-b886-8283-fc8c79b288cf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Order.CollectionPlace Eigenschaft" Url="html/96cc4bc0-c0c6-08ba-e286-e135723ed20e.htm" />
+  <HelpKINode Title="Order.CollectionTime Eigenschaft" Url="html/947e6100-4591-8a48-8791-04ba54dc9cc1.htm" />
+  <HelpKINode Title="Order.Equals Methode" Url="html/d960182e-752c-9831-51e9-ae081b230221.htm" />
+  <HelpKINode Title="Order.GetHashCode Methode" Url="html/011ef4a2-f4e7-708e-b509-be65c8df216d.htm" />
+  <HelpKINode Title="Order.Id Eigenschaft" Url="html/7727a3e1-105b-6bca-2332-f024ea1385a1.htm" />
+  <HelpKINode Title="Order.Notes Eigenschaft" Url="html/e0ea83f1-00fb-56be-4421-9b146cc8cac1.htm" />
+  <HelpKINode Title="Order.Number Eigenschaft" Url="html/d324fbd2-251d-7958-6a93-4309516b718a.htm" />
+  <HelpKINode Title="Order.Order Konstruktor" Url="html/d30bdd7c-8ff0-ff1d-f986-c7d343dc2922.htm" />
+  <HelpKINode Title="Order.OrderTime Eigenschaft" Url="html/22f591db-a3c1-b194-d08a-e9bae300e24e.htm" />
+  <HelpKINode Title="Order.PreparationTime Eigenschaft" Url="html/e7ced26c-1d37-bc76-1294-bc0d7cbe61ce.htm" />
+  <HelpKINode Title="Order.Product Eigenschaft" Url="html/085433a7-611a-dd71-336d-2b519ce287a5.htm" />
+  <HelpKINode Title="Order.User Eigenschaft" Url="html/c8c7fa48-5169-e6fc-bac0-b790bea65282.htm" />
+  <HelpKINode Title="OrderHistory Eigenschaft">
+    <HelpKINode Title="ManageNavPages.OrderHistory Eigenschaft " Url="html/1010cb1b-8d51-d92d-40f9-01ac5d2dbb1d.htm" />
+    <HelpKINode Title="ManageNavPages.OrderHistory Eigenschaft " Url="html/eda99156-c6d1-e3ed-6b87-1e891b4232d3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistory Methode" Url="html/fa390fff-ac32-9fc6-1209-ab2c71599f3f.htm" />
+  <HelpKINode Title="OrderHistoryModel Klasse">
+    <HelpKINode Title="OrderHistoryModel Klasse" Url="html/3afd2a1f-e4de-1981-5642-2c247f427429.htm" />
+    <HelpKINode Title="OrderHistoryModel Klasse" Url="html/75b403fd-8d68-99af-61e9-3f78616487ba.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/a5fc01be-a62d-efc3-dfff-23af0dc265a3.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/426b049f-e7f3-1bfe-e40a-458186b6b611.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/0dae080f-c6b5-1151-e7d4-476f9e65b420.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/0509ec7b-1302-a0a4-427a-8eae9c87db2f.htm" />
+    <HelpKINode Title="Methoden" Url="html/9c457bfe-0af0-e228-c75d-112cb1a97c2a.htm" />
+    <HelpKINode Title="Methoden" Url="html/6bb8ae00-12fc-3a8f-76e4-7bba01d36cae.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.CollectionPlaceSort Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.CollectionPlaceSort Eigenschaft " Url="html/ddfa3d51-e9bd-41cb-903c-94859b68cf36.htm" />
+    <HelpKINode Title="OrderHistoryModel.CollectionPlaceSort Eigenschaft " Url="html/a8c698e5-65d7-28f3-b292-67989347e919.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.CollectionTimeSort Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.CollectionTimeSort Eigenschaft " Url="html/dc4123e9-1c08-d1fa-2913-90761df5ef2a.htm" />
+    <HelpKINode Title="OrderHistoryModel.CollectionTimeSort Eigenschaft " Url="html/ce9ace00-328a-8d76-d7f7-d16e49d3e674.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.HistoricOrders Eigenschaft" Url="html/94c6fd1e-46da-bd57-27fb-d33070efe945.htm" />
+  <HelpKINode Title="OrderHistoryModel.Input Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.Input Eigenschaft " Url="html/6c2d3290-8562-2fee-b841-cc046d73dfa8.htm" />
+    <HelpKINode Title="OrderHistoryModel.Input Eigenschaft " Url="html/c61ffac7-09f0-dffc-ca0d-c4a8ea6deb64.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.InputModel Klasse">
+    <HelpKINode Title="OrderHistoryModel.InputModel Klasse" Url="html/1e865138-a1d7-f51e-a617-4be7ce4059ae.htm" />
+    <HelpKINode Title="OrderHistoryModel.InputModel Klasse" Url="html/8f25b5dd-e6aa-5a98-93e0-e1bba8e48a5f.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/19c1aa9a-63a5-02c2-f42b-056c4036e3c9.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/ffca85a1-6f1a-5ebc-2552-2d04905d142e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.InputModel.InputModel Konstruktor">
+    <HelpKINode Title="OrderHistoryModel.InputModel Konstruktor " Url="html/ffca85a1-6f1a-5ebc-2552-2d04905d142e.htm" />
+    <HelpKINode Title="OrderHistoryModel.InputModel Konstruktor " Url="html/19c1aa9a-63a5-02c2-f42b-056c4036e3c9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.InputModel.SearchKeyWord Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.InputModel.SearchKeyWord Eigenschaft " Url="html/003ab222-bc1c-0927-fbb8-a3e5ded5f772.htm" />
+    <HelpKINode Title="OrderHistoryModel.InputModel.SearchKeyWord Eigenschaft " Url="html/a7cea8e7-c619-9b2b-9ad1-51d31d18547f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.NoteSort Eigenschaft" Url="html/42e52104-027f-4c1c-49b1-78588e8cf287.htm" />
+  <HelpKINode Title="OrderHistoryModel.NumberSort Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.NumberSort Eigenschaft " Url="html/c15cd78b-b6ef-c854-4b8a-570b1b08707b.htm" />
+    <HelpKINode Title="OrderHistoryModel.NumberSort Eigenschaft " Url="html/8b2f2c24-7ae4-db42-997a-376b966c466e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.OnGet Methode">
+    <HelpKINode Title="OrderHistoryModel.OnGet Methode " Url="html/f9d9c0af-c3ae-bca8-8cb2-f4018e0e962c.htm" />
+    <HelpKINode Title="OrderHistoryModel.OnGet Methode " Url="html/5fbc6ee5-e673-beb5-819c-ece38bf33704.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.OnPost Methode">
+    <HelpKINode Title="OrderHistoryModel.OnPost Methode " Url="html/25e67886-e3e0-b67b-8518-bf8d8e6e5be2.htm" />
+    <HelpKINode Title="OrderHistoryModel.OnPost Methode " Url="html/3ba61344-12a0-f4cc-64ba-f37d87e5c737.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.OrderHistoryModel Konstruktor">
+    <HelpKINode Title="OrderHistoryModel Konstruktor " Url="html/0dae080f-c6b5-1151-e7d4-476f9e65b420.htm" />
+    <HelpKINode Title="OrderHistoryModel Konstruktor " Url="html/0509ec7b-1302-a0a4-427a-8eae9c87db2f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.Orders Eigenschaft" Url="html/d9cef6ec-02a3-0a18-62ba-d0b8e1898feb.htm" />
+  <HelpKINode Title="OrderHistoryModel.OrderTimeSort Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.OrderTimeSort Eigenschaft " Url="html/72349250-ca9c-347d-e048-41c4e9dbc469.htm" />
+    <HelpKINode Title="OrderHistoryModel.OrderTimeSort Eigenschaft " Url="html/510fa32d-8ff8-07ae-3b2d-845472c5d47b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.PreparationTimeSort Eigenschaft" Url="html/08f71518-4f31-caae-b967-4cbde82baf11.htm" />
+  <HelpKINode Title="OrderHistoryModel.ProductNameSort Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.ProductNameSort Eigenschaft " Url="html/1428f762-957d-a65f-7ed4-f72be69a5d59.htm" />
+    <HelpKINode Title="OrderHistoryModel.ProductNameSort Eigenschaft " Url="html/36342164-4bd4-017b-38e6-86a51cdb904f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.SearchKeyWord Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.SearchKeyWord Eigenschaft " Url="html/b7f5ceae-ea6c-6db5-a4b1-d18ebfa543ee.htm" />
+    <HelpKINode Title="OrderHistoryModel.SearchKeyWord Eigenschaft " Url="html/0d152417-182b-da69-9e23-787e1d4145ac.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.TotalPriceSort Eigenschaft">
+    <HelpKINode Title="OrderHistoryModel.TotalPriceSort Eigenschaft " Url="html/768f7538-d5cc-c24b-223e-8347ad939796.htm" />
+    <HelpKINode Title="OrderHistoryModel.TotalPriceSort Eigenschaft " Url="html/4d3bf26d-6851-ee6a-bf62-eff77003c5d2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderHistoryModel.UserNameSort Eigenschaft" Url="html/b2c94284-5c64-a58d-7c22-582153ae9d2a.htm" />
+  <HelpKINode Title="OrderHistoryNavClass Methode" Url="html/37159f00-0adc-a6a2-95ac-55f06b45f69d.htm" />
+  <HelpKINode Title="OrderPrepared Methode" Url="html/5a9cb502-cfc0-a667-0bc7-8e964dcaf5c0.htm" />
+  <HelpKINode Title="Orders Eigenschaft">
+    <HelpKINode Title="ApplicationDbContext.Orders Eigenschaft " Url="html/1017c883-add6-ee87-1eb8-1eea9232fb75.htm" />
+    <HelpKINode Title="IndexModel.Orders Eigenschaft " Url="html/0038d601-6162-a621-f95f-d7723e8c3d68.htm" />
+    <HelpKINode Title="IndexModel.Orders Eigenschaft " Url="html/515e6cfb-5a80-14e0-a3d3-fa813108a83f.htm" />
+    <HelpKINode Title="IndexModel.Orders Eigenschaft " Url="html/d99b220e-7bf2-cb5b-f1b3-3911fcf2a6a6.htm" />
+    <HelpKINode Title="OrderHistoryModel.Orders Eigenschaft " Url="html/d9cef6ec-02a3-0a18-62ba-d0b8e1898feb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrdersController Klasse">
+    <HelpKINode Title="OrdersController Klasse" Url="html/da0dbdae-41e6-9ca2-9fdf-6eb363a4def7.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/15bb9886-e668-9538-e60b-3ee277f24d1a.htm" />
+    <HelpKINode Title="Methoden" Url="html/f02bd1e9-41fd-41ef-f3bb-c06238a9d728.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrdersController.Index Methode" Url="html/8bcf77d8-c1d3-8b81-9f5b-87a0599b2342.htm" />
+  <HelpKINode Title="OrdersController.OrderHistory Methode" Url="html/fa390fff-ac32-9fc6-1209-ab2c71599f3f.htm" />
+  <HelpKINode Title="OrdersController.OrdersController Konstruktor" Url="html/15bb9886-e668-9538-e60b-3ee277f24d1a.htm" />
+  <HelpKINode Title="OrdersController.PlaceOrder Methode" Url="html/059d5350-8cc7-ba15-4b31-3dafdbe7888c.htm" />
+  <HelpKINode Title="OrdersController.RemoveOrder Methode" Url="html/fc6b9880-c078-651f-ed70-0757c0681831.htm" />
+  <HelpKINode Title="OrdersHistoryNavClass Methode" Url="html/33d18ed4-3e43-d3e0-6237-2adfd2dd9337.htm" />
+  <HelpKINode Title="OrderTime Eigenschaft" Url="html/22f591db-a3c1-b194-d08a-e9bae300e24e.htm" />
+  <HelpKINode Title="OrderTimeSort Eigenschaft">
+    <HelpKINode Title="IndexModel.OrderTimeSort Eigenschaft " Url="html/22cf577f-96ff-0dd0-6b82-b698a7526533.htm" />
+    <HelpKINode Title="IndexModel.OrderTimeSort Eigenschaft " Url="html/2ea723de-8282-9a5d-1cf0-6047c79a838d.htm" />
+    <HelpKINode Title="OrderHistoryModel.OrderTimeSort Eigenschaft " Url="html/510fa32d-8ff8-07ae-3b2d-845472c5d47b.htm" />
+    <HelpKINode Title="OrderHistoryModel.OrderTimeSort Eigenschaft " Url="html/72349250-ca9c-347d-e048-41c4e9dbc469.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Ostermontag Eigenschaft" Url="html/cf8a0b0b-a8d6-97a1-f6d2-7a6449de9a7b.htm" />
+  <HelpKINode Title="PageNotFound Methode" Url="html/bc88048b-bfa9-b9dc-f79c-f838868cf40f.htm" />
+  <HelpKINode Title="Password Eigenschaft">
+    <HelpKINode Title="CreatePasswordModel.InputModel.Password Eigenschaft " Url="html/de90039f-1079-d8c2-d6e5-4ca602b4ac00.htm" />
+    <HelpKINode Title="LoginModel.InputModel.Password Eigenschaft " Url="html/a73af319-ddaa-a6f2-6516-3c2d7329c159.htm" />
+    <HelpKINode Title="RegisterModel.InputModel.Password Eigenschaft " Url="html/aedf6486-7c0f-382e-7da8-533ae7873524.htm" />
+    <HelpKINode Title="ResetPasswordModel.InputModel.Password Eigenschaft " Url="html/f3d36388-69cd-be85-65bc-ba24944a506b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PasswordMismatch Methode" Url="html/5b2dea0c-ec22-0c29-e33c-29f5e148c422.htm" />
+  <HelpKINode Title="PasswordRequirements Eigenschaft" Url="html/ce17226f-f2cd-720e-bf60-ec34a1939b99.htm" />
+  <HelpKINode Title="PasswordRequiresDigit Methode" Url="html/db1c6f6e-2ffe-86bd-938d-d0b66a09fd4f.htm" />
+  <HelpKINode Title="PasswordRequiresLower Methode" Url="html/871f4923-ecf0-289b-981f-27dcd28624d4.htm" />
+  <HelpKINode Title="PasswordRequiresNonAlphanumeric Methode" Url="html/e0d16e46-58f1-a2d5-5a9b-cc4b9dec24cf.htm" />
+  <HelpKINode Title="PasswordRequiresUniqueChars Methode" Url="html/c9a42ba3-d545-cbcb-d3d6-ce82d568c0e8.htm" />
+  <HelpKINode Title="PasswordRequiresUpper Methode" Url="html/f1bb4f7b-6372-46de-cee8-8b3a3b111f22.htm" />
+  <HelpKINode Title="PasswordTooShort Methode" Url="html/6635325a-d9e9-be49-ada4-ed0a9b074f7c.htm" />
+  <HelpKINode Title="Pfingstmontag Eigenschaft" Url="html/848caa52-599b-30fd-9e1f-614281b64900.htm" />
+  <HelpKINode Title="PlaceOrder Eigenschaft" Url="html/7e849284-564a-861e-34ac-e9057f055740.htm" />
+  <HelpKINode Title="PlaceOrder Methode" Url="html/059d5350-8cc7-ba15-4b31-3dafdbe7888c.htm" />
+  <HelpKINode Title="PlaceOrderModel Klasse">
+    <HelpKINode Title="PlaceOrderModel Klasse" Url="html/81516a39-458a-c6f7-2851-165a07d41d40.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/2b778ea1-4932-eccf-cfcc-4b336e5ba60c.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/ae09e687-a312-7829-72c9-0e784809f2fb.htm" />
+    <HelpKINode Title="Methoden" Url="html/440d643d-14d8-8cce-418d-4ef8ee94e8ae.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PlaceOrderModel.Input Eigenschaft" Url="html/55b778d9-bc4d-6005-5c61-122fd82d3dda.htm" />
+  <HelpKINode Title="PlaceOrderModel.InputModel Klasse">
+    <HelpKINode Title="PlaceOrderModel.InputModel Klasse" Url="html/2218b518-1d80-0365-fe0c-29feb298dca3.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/a3095eaa-0e08-8b45-1174-6a4140c56c34.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PlaceOrderModel.InputModel.CollectionPlace Eigenschaft" Url="html/192a4341-595c-94e6-9da3-538dae7970bb.htm" />
+  <HelpKINode Title="PlaceOrderModel.InputModel.CollectionTime Eigenschaft" Url="html/4873a52b-df00-a97c-dd3c-14a4d7e0ecd0.htm" />
+  <HelpKINode Title="PlaceOrderModel.InputModel.InputModel Konstruktor" Url="html/a3095eaa-0e08-8b45-1174-6a4140c56c34.htm" />
+  <HelpKINode Title="PlaceOrderModel.InputModel.Notes Eigenschaft" Url="html/614743f1-0b7e-0a97-dd06-f43397d086c6.htm" />
+  <HelpKINode Title="PlaceOrderModel.InputModel.Numbers Eigenschaft" Url="html/89de3d2a-c241-da56-3a38-84142662db7e.htm" />
+  <HelpKINode Title="PlaceOrderModel.InputModel.ProductIds Eigenschaft" Url="html/dafd780d-61a6-50c0-8d99-47908c50bc57.htm" />
+  <HelpKINode Title="PlaceOrderModel.OnGet Methode" Url="html/18495be6-3919-9a6d-ca45-f4a74e2458b0.htm" />
+  <HelpKINode Title="PlaceOrderModel.OnPost Methode" Url="html/4409360d-ef1e-c9bd-515f-7154d7ad0350.htm" />
+  <HelpKINode Title="PlaceOrderModel.PlaceOrderModel Konstruktor" Url="html/ae09e687-a312-7829-72c9-0e784809f2fb.htm" />
+  <HelpKINode Title="PlaceOrderModel.Products Eigenschaft" Url="html/559b6207-9ac6-d20e-fbea-ddeead1856a5.htm" />
+  <HelpKINode Title="PlaceOrderModel.ValidCollectionPlaces Eigenschaft" Url="html/22d4f1ec-5ca8-4dbd-94cb-263ec7722fe7.htm" />
+  <HelpKINode Title="PlaceOrderModel.ValidCollectionTimes Eigenschaft" Url="html/6923fb2e-bfeb-5a02-58ad-feaeb7e8e9ba.htm" />
+  <HelpKINode Title="PlaceOrderNavClass Methode" Url="html/39d8226a-41c8-55ad-e685-38581c00a83a.htm" />
+  <HelpKINode Title="PreparationTime Eigenschaft" Url="html/e7ced26c-1d37-bc76-1294-bc0d7cbe61ce.htm" />
+  <HelpKINode Title="PreparationTimeSort Eigenschaft">
+    <HelpKINode Title="IndexModel.PreparationTimeSort Eigenschaft " Url="html/0789d676-c083-3df8-b590-c9352aa35aa8.htm" />
+    <HelpKINode Title="OrderHistoryModel.PreparationTimeSort Eigenschaft " Url="html/08f71518-4f31-caae-b967-4cbde82baf11.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Price Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Price Eigenschaft " Url="html/278d9618-3069-dada-fee3-fe22f89e33c4.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Price Eigenschaft " Url="html/4bbdfb1f-f3e3-8961-6895-d8f3d5a5e286.htm" />
+    <HelpKINode Title="Product.Price Eigenschaft " Url="html/1bcb1a46-d0f6-1a12-8005-07d013fb4b8c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PriceSort Eigenschaft" Url="html/8dffb7a4-1e0b-b5e1-dcfb-b52daa71ec5a.htm" />
+  <HelpKINode Title="Product Eigenschaft" Url="html/085433a7-611a-dd71-336d-2b519ce287a5.htm" />
+  <HelpKINode Title="Product Klasse">
+    <HelpKINode Title="Product Klasse" Url="html/314870ec-b250-836e-2b2c-953332a2eb79.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/87f8efa2-2957-27d8-837e-fdef38192692.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/ed7167b5-74b8-69d7-8636-0a09a771e601.htm" />
+    <HelpKINode Title="Methoden" Url="html/00287775-ba07-f8e4-adac-1592179dc506.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Product.Allergens Eigenschaft" Url="html/f7eca223-e058-31e4-af7f-48d97390d529.htm" />
+  <HelpKINode Title="Product.Deposit Eigenschaft" Url="html/9f933a24-b6a2-0d9b-1136-e26051130c39.htm" />
+  <HelpKINode Title="Product.Equals Methode" Url="html/b0c4154a-9c59-78c9-539a-903c8dfa1d23.htm" />
+  <HelpKINode Title="Product.GetHashCode Methode" Url="html/0decb6d4-950e-fa66-fe47-d3ed8d46ed95.htm" />
+  <HelpKINode Title="Product.Id Eigenschaft" Url="html/a6dc4a2e-0ecf-bf4f-ddfa-79c4b927e97d.htm" />
+  <HelpKINode Title="Product.Image Eigenschaft" Url="html/57db42b1-76c8-c1a3-9012-b1a19fd42575.htm" />
+  <HelpKINode Title="Product.Information Eigenschaft" Url="html/a05ca4aa-a4ef-63bb-b903-37071bc1f655.htm" />
+  <HelpKINode Title="Product.Name Eigenschaft" Url="html/64b4c5c0-aca5-900f-04e4-ef51b4e06562.htm" />
+  <HelpKINode Title="Product.Price Eigenschaft" Url="html/1bcb1a46-d0f6-1a12-8005-07d013fb4b8c.htm" />
+  <HelpKINode Title="Product.Product Konstruktor" Url="html/ed7167b5-74b8-69d7-8636-0a09a771e601.htm" />
+  <HelpKINode Title="Product.Sale Eigenschaft" Url="html/906533bb-c7a6-fca2-66b7-72bf0ace6ef8.htm" />
+  <HelpKINode Title="Product.Size Eigenschaft" Url="html/c5871a03-ab66-58c4-f4e4-88130ae1f008.htm" />
+  <HelpKINode Title="Product.ToString Methode" Url="html/c08dece6-7f2a-2029-f57a-91ca1144795d.htm" />
+  <HelpKINode Title="Product.Vegan Eigenschaft" Url="html/30d70d9b-61e9-a1f5-c831-f3dc51991b8c.htm" />
+  <HelpKINode Title="Product.Vegetarian Eigenschaft" Url="html/a2d07499-0e09-d185-edf7-08153b95fb9e.htm" />
+  <HelpKINode Title="ProductId Eigenschaft">
+    <HelpKINode Title="EditOrderModel.InputModel.ProductId Eigenschaft " Url="html/dbfb16fd-01e4-594f-82c6-50b1b527cecb.htm" />
+    <HelpKINode Title="EditOrderModel.InputModel.ProductId Eigenschaft " Url="html/f8af5be5-d363-a371-a292-25320fd153f6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProductIds Eigenschaft" Url="html/dafd780d-61a6-50c0-8d99-47908c50bc57.htm" />
+  <HelpKINode Title="ProductNameSort Eigenschaft">
+    <HelpKINode Title="IndexModel.ProductNameSort Eigenschaft " Url="html/fca69c17-fe2e-6a7b-2be5-2d185a12e65b.htm" />
+    <HelpKINode Title="IndexModel.ProductNameSort Eigenschaft " Url="html/84438a3f-9771-8e54-fef2-0b3aacdde49f.htm" />
+    <HelpKINode Title="IndexModel.ProductNameSort Eigenschaft " Url="html/78deae33-a05f-e12d-5e2f-3d2aa5941639.htm" />
+    <HelpKINode Title="OrderHistoryModel.ProductNameSort Eigenschaft " Url="html/36342164-4bd4-017b-38e6-86a51cdb904f.htm" />
+    <HelpKINode Title="OrderHistoryModel.ProductNameSort Eigenschaft " Url="html/1428f762-957d-a65f-7ed4-f72be69a5d59.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Products Eigenschaft">
+    <HelpKINode Title="ApplicationDbContext.Products Eigenschaft " Url="html/3311805f-43b3-e0e4-5eac-b26499204353.htm" />
+    <HelpKINode Title="EditOrderModel.Products Eigenschaft " Url="html/e30d1b68-a3a9-f7d7-63b4-68a2bf8e3766.htm" />
+    <HelpKINode Title="EditOrderModel.Products Eigenschaft " Url="html/fc9abb69-15d1-1aca-a926-df2249256ed7.htm" />
+    <HelpKINode Title="ManageNavPages.Products Eigenschaft " Url="html/d9296c2f-e308-c765-1ac0-b777ebd2afd0.htm" />
+    <HelpKINode Title="PlaceOrderModel.Products Eigenschaft " Url="html/559b6207-9ac6-d20e-fbea-ddeead1856a5.htm" />
+    <HelpKINode Title="ProductsModel.Products Eigenschaft " Url="html/4390e700-7147-42a8-1245-afed7532b2f3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Products Methode" Url="html/e0775889-2780-4ff0-63ff-bc05758bcc4d.htm" />
+  <HelpKINode Title="ProductsModel Klasse">
+    <HelpKINode Title="ProductsModel Klasse" Url="html/6239a360-5154-7346-3e85-05d62d024bed.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/02b53f10-f651-6b50-e677-605c15d04a30.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/08419719-7e74-f4f7-9700-ce691bcff5de.htm" />
+    <HelpKINode Title="Methoden" Url="html/3f3efe38-4068-2c52-9deb-3e8c676a8481.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProductsModel.AllergenIndices Eigenschaft" Url="html/234f8373-07b4-448e-0b71-e1cfb523d2d2.htm" />
+  <HelpKINode Title="ProductsModel.AllergensSort Eigenschaft" Url="html/9a59f5d7-2a8c-b9f6-2ccc-e76f5c940b61.htm" />
+  <HelpKINode Title="ProductsModel.DepositSort Eigenschaft" Url="html/757c5f62-4607-f77a-43a5-06d54da6db6a.htm" />
+  <HelpKINode Title="ProductsModel.InformationSort Eigenschaft" Url="html/3247c8da-5a4d-9fdc-ce00-3d2ea0924687.htm" />
+  <HelpKINode Title="ProductsModel.Input Eigenschaft" Url="html/099289c2-9377-3a7e-724e-e81587c99a0a.htm" />
+  <HelpKINode Title="ProductsModel.InputModel Klasse">
+    <HelpKINode Title="ProductsModel.InputModel Klasse" Url="html/f0be2cf4-690f-a199-884a-73a26e683a50.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/47c9d391-e036-e950-3882-0dcd30795729.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProductsModel.InputModel.InputModel Konstruktor" Url="html/47c9d391-e036-e950-3882-0dcd30795729.htm" />
+  <HelpKINode Title="ProductsModel.InputModel.SearchKeyWord Eigenschaft" Url="html/f8c367d4-e249-2c7f-b851-6b8f3552f2aa.htm" />
+  <HelpKINode Title="ProductsModel.NameSort Eigenschaft" Url="html/71e69816-edf6-bbe1-baab-a0c86f7eea7c.htm" />
+  <HelpKINode Title="ProductsModel.OnGet Methode" Url="html/3947832c-3b36-6d03-d9fa-e5f4839e8f07.htm" />
+  <HelpKINode Title="ProductsModel.OnPost Methode" Url="html/6815c096-d711-2b68-bb71-21e341c35341.htm" />
+  <HelpKINode Title="ProductsModel.PriceSort Eigenschaft" Url="html/8dffb7a4-1e0b-b5e1-dcfb-b52daa71ec5a.htm" />
+  <HelpKINode Title="ProductsModel.Products Eigenschaft" Url="html/4390e700-7147-42a8-1245-afed7532b2f3.htm" />
+  <HelpKINode Title="ProductsModel.ProductsModel Konstruktor" Url="html/08419719-7e74-f4f7-9700-ce691bcff5de.htm" />
+  <HelpKINode Title="ProductsModel.SaleSort Eigenschaft" Url="html/b1860aa4-91d9-ea71-dc8b-d4b564a01d8a.htm" />
+  <HelpKINode Title="ProductsModel.SearchKeyWord Eigenschaft" Url="html/60fe4298-3e3b-bc19-b575-2718b4bacf6c.htm" />
+  <HelpKINode Title="ProductsModel.SizeSort Eigenschaft" Url="html/573b6bb4-2a53-6345-a835-2beaeaaaa76d.htm" />
+  <HelpKINode Title="ProductsModel.VeganSort Eigenschaft" Url="html/addd7401-c8e5-037f-0651-c5e8e6fb24d8.htm" />
+  <HelpKINode Title="ProductsModel.VegetarianSort Eigenschaft" Url="html/7e507907-f699-c446-9018-4171336c3e5f.htm" />
+  <HelpKINode Title="ProductsNavClass Methode" Url="html/8b208fdc-1c00-cd87-8b28-5841189536b3.htm" />
+  <HelpKINode Title="Program Klasse">
+    <HelpKINode Title="Program Klasse" Url="html/55fbac67-c42b-5583-bd4a-f0edd264dc33.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/352703ed-92e5-a8f1-5adb-6f7ffd112318.htm" />
+    <HelpKINode Title="Felder" Url="html/cc6d799b-c1bd-6a99-6c4e-b49bc6e0a468.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/df91c15f-73b3-738f-643a-c10ff57aa023.htm" />
+    <HelpKINode Title="Methoden" Url="html/f0d736c9-e322-c1d0-556d-298624438255.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Program.Alert Eigenschaft" Url="html/e0944215-af42-475b-dac2-1e6856b9fbb9.htm" />
+  <HelpKINode Title="Program.ErrorMessage Feld" Url="html/af18fe02-f878-5c2e-de08-10da349b11f9.htm" />
+  <HelpKINode Title="Program.Greeting Methode" Url="html/8c95f9a6-7eaf-792f-0477-bb88e99544db.htm" />
+  <HelpKINode Title="Program.HasInternetConnection Methode" Url="html/ca663bc1-e575-60a6-c197-32e7d732df27.htm" />
+  <HelpKINode Title="Program.IsG9 Methode" Url="html/6761bd68-5c5d-2a19-9cb7-8902822985c6.htm" />
+  <HelpKINode Title="Program.MailValid Methode" Url="html/afc63f3c-cf49-012d-09dd-da2f9a7c14c4.htm" />
+  <HelpKINode Title="Program.Main Methode" Url="html/13e1b5a7-e0f9-da3c-f225-63ff89d34302.htm" />
+  <HelpKINode Title="Program.Program Konstruktor" Url="html/df91c15f-73b3-738f-643a-c10ff57aa023.htm" />
+  <HelpKINode Title="Program.SendMail Methode" Url="html/6e8f2c64-88c2-1bd9-d15e-ef0872556703.htm" />
+  <HelpKINode Title="Program.ShowAlert Methode" Url="html/afc813d9-ba77-68b6-9aad-e472ce52fe60.htm" />
+  <HelpKINode Title="Q1 Eigenschaft" Url="html/2debce5b-883e-3110-b412-e7e107a7d654.htm" />
+  <HelpKINode Title="Q2 Eigenschaft" Url="html/706d1798-0adf-ce64-bf0f-8ef1bcbda96f.htm" />
+  <HelpKINode Title="RecoveryCodeRedemptionFailed Methode" Url="html/c57cb038-c878-ccb5-47d2-decf18b68577.htm" />
+  <HelpKINode Title="RegisterModel Klasse">
+    <HelpKINode Title="RegisterModel Klasse" Url="html/b970d008-4209-f495-0777-3dd499a31130.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/04261781-9711-3578-ac8b-43cef2690f04.htm" />
+    <HelpKINode Title="Felder" Url="html/88fc1d2e-1196-a9d9-e302-f178e79c543b.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/9d616681-4faf-2884-b441-f68107cc455a.htm" />
+    <HelpKINode Title="Methoden" Url="html/de9a5199-abcd-23ee-f040-b3a193317835.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RegisterModel.Confirmed Eigenschaft" Url="html/82df9191-725b-0968-0df4-3feee6e7388d.htm" />
+  <HelpKINode Title="RegisterModel.Forms Eigenschaft" Url="html/80555f7b-4413-06f7-fc62-2ed3c8d38aa8.htm" />
+  <HelpKINode Title="RegisterModel.Input Eigenschaft" Url="html/158aae8b-de8c-822a-af3e-01e32edd6d47.htm" />
+  <HelpKINode Title="RegisterModel.InputModel Klasse">
+    <HelpKINode Title="RegisterModel.InputModel Klasse" Url="html/9da27746-6000-0e45-27e0-9e1a4198408a.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/3e32b9ed-6795-f115-b06e-b173d590cbdc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RegisterModel.InputModel.Code Eigenschaft" Url="html/d79e14ee-4dc8-a651-af27-4d50c8c1af3d.htm" />
+  <HelpKINode Title="RegisterModel.InputModel.ConfirmPassword Eigenschaft" Url="html/92bce25f-85e5-d158-07a9-809993b731ec.htm" />
+  <HelpKINode Title="RegisterModel.InputModel.Email Eigenschaft" Url="html/a0497e66-2fe1-763b-10dd-1105bca5998f.htm" />
+  <HelpKINode Title="RegisterModel.InputModel.FormId Eigenschaft" Url="html/7f7915a7-511f-647c-53da-853f34f91782.htm" />
+  <HelpKINode Title="RegisterModel.InputModel.InputModel Konstruktor" Url="html/3e32b9ed-6795-f115-b06e-b173d590cbdc.htm" />
+  <HelpKINode Title="RegisterModel.InputModel.Password Eigenschaft" Url="html/aedf6486-7c0f-382e-7da8-533ae7873524.htm" />
+  <HelpKINode Title="RegisterModel.OnGet Methode" Url="html/1b40563f-04d6-fb69-a3af-d3c4402a93d4.htm" />
+  <HelpKINode Title="RegisterModel.OnPostAsync Methode" Url="html/b5449d9c-30c4-7f97-6b8a-ed9fe1331b39.htm" />
+  <HelpKINode Title="RegisterModel.RegisterModel Konstruktor" Url="html/9d616681-4faf-2884-b441-f68107cc455a.htm" />
+  <HelpKINode Title="RegisterModel.ReturnUrl Eigenschaft" Url="html/9520c637-e47c-f47c-6a0d-d4fb7c8f9d66.htm" />
+  <HelpKINode Title="RegisterModel.Role Feld" Url="html/0e713c02-9626-d32d-bba9-6f3c1ff5e85c.htm" />
+  <HelpKINode Title="RegistrationCode Klasse">
+    <HelpKINode Title="RegistrationCode Klasse" Url="html/eab3e2d7-2470-b92d-fbf4-fabf06ec5c6b.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/1f7cf015-4179-d45e-b63f-dd42b5926318.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/9b5a7df6-78ca-349e-79ef-5d98880e8924.htm" />
+    <HelpKINode Title="Methoden" Url="html/b5cfba0a-b99f-2461-1b11-43a3a57c68cf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RegistrationCode.Code Eigenschaft" Url="html/6302cd43-364e-dbd4-fa17-3ffadaae7ca2.htm" />
+  <HelpKINode Title="RegistrationCode.CreationTime Eigenschaft" Url="html/17e9c95e-5eb5-26cd-353d-d42254708b51.htm" />
+  <HelpKINode Title="RegistrationCode.Equals Methode" Url="html/997f3435-a5d8-de4e-7783-0618c6470837.htm" />
+  <HelpKINode Title="RegistrationCode.GetHashCode Methode" Url="html/a1728edf-6889-a4ea-c38f-9659a3ddd9d7.htm" />
+  <HelpKINode Title="RegistrationCode.RegistrationCode Konstruktor" Url="html/9b5a7df6-78ca-349e-79ef-5d98880e8924.htm" />
+  <HelpKINode Title="RegistrationCode.Role Eigenschaft" Url="html/d31d3b82-1e04-a671-cf5c-b8e6e84cfa7d.htm" />
+  <HelpKINode Title="RememberMe Eigenschaft" Url="html/8018f8ca-4268-6a12-cd59-179a730935b0.htm" />
+  <HelpKINode Title="Remove Methode" Url="html/88398143-ae65-85dc-902c-a18eeddcc0d4.htm" />
+  <HelpKINode Title="RemoveAllergen Methode" Url="html/bf7e373b-194d-2df2-a492-6af74ee92ea5.htm" />
+  <HelpKINode Title="RemoveForm Methode" Url="html/ca846664-4f19-e309-d78d-c4207b37466a.htm" />
+  <HelpKINode Title="RemoveImage Eigenschaft" Url="html/b877a8db-eafe-3950-4620-20f08e91f6be.htm" />
+  <HelpKINode Title="RemoveOrder Methode">
+    <HelpKINode Title="CounterController.RemoveOrder Methode " Url="html/10b88906-9183-76ae-bacb-3f5330a122c9.htm" />
+    <HelpKINode Title="KitchenController.RemoveOrder Methode " Url="html/ed807ea1-0692-94d8-470c-662f85dedb19.htm" />
+    <HelpKINode Title="OrdersController.RemoveOrder Methode " Url="html/fc6b9880-c078-651f-ed70-0757c0681831.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RemoveProduct Methode" Url="html/7499d44e-bcf1-5962-f73f-3b3afc3b9b98.htm" />
+  <HelpKINode Title="RequestId Eigenschaft">
+    <HelpKINode Title="ErrorModel.RequestId Eigenschaft " Url="html/d2a67023-0d84-e222-c4f0-35a5791d8cc6.htm" />
+    <HelpKINode Title="ErrorViewModel.RequestId Eigenschaft " Url="html/b9682404-e586-84e0-7b32-60a6ca677c9e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ResetPasswordConfirmationModel Klasse">
+    <HelpKINode Title="ResetPasswordConfirmationModel Klasse" Url="html/2b53ac94-df99-5fec-ce35-ed0ea62bf1fb.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/61d01a39-0cf9-7f1f-873d-963b302cdd4b.htm" />
+    <HelpKINode Title="Methoden" Url="html/07dda245-3008-d69e-dde8-2194d630039f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ResetPasswordConfirmationModel.OnGet Methode" Url="html/5d323619-5954-8198-d532-f45cca8d1b9f.htm" />
+  <HelpKINode Title="ResetPasswordConfirmationModel.ResetPasswordConfirmationModel Konstruktor" Url="html/61d01a39-0cf9-7f1f-873d-963b302cdd4b.htm" />
+  <HelpKINode Title="ResetPasswordModel Klasse">
+    <HelpKINode Title="ResetPasswordModel Klasse" Url="html/b0256438-bbb2-c2a8-0577-987ad438532c.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/c8ecd228-c435-320b-0cf2-6d83d6a35447.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/f770b922-8abc-a3a7-4346-a37a74b2b7aa.htm" />
+    <HelpKINode Title="Methoden" Url="html/24724a02-8a18-a795-f380-6740f3a88628.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ResetPasswordModel.Input Eigenschaft" Url="html/020e4f48-0526-5361-5b39-f4ebffaf4e96.htm" />
+  <HelpKINode Title="ResetPasswordModel.InputModel Klasse">
+    <HelpKINode Title="ResetPasswordModel.InputModel Klasse" Url="html/2ffe6b93-5cc7-a02b-8b3e-adaaffc75f2c.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/28927254-bbcb-4281-1f3e-2202df7341a5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ResetPasswordModel.InputModel.Code Eigenschaft" Url="html/543ef7e9-fa9a-4c2c-2934-ec6811e19811.htm" />
+  <HelpKINode Title="ResetPasswordModel.InputModel.ConfirmPassword Eigenschaft" Url="html/6e4718f7-2d91-1826-e8cb-5dbc5317bd34.htm" />
+  <HelpKINode Title="ResetPasswordModel.InputModel.Email Eigenschaft" Url="html/1c7bce8e-4c41-ee38-d469-8969a886229a.htm" />
+  <HelpKINode Title="ResetPasswordModel.InputModel.InputModel Konstruktor" Url="html/28927254-bbcb-4281-1f3e-2202df7341a5.htm" />
+  <HelpKINode Title="ResetPasswordModel.InputModel.Password Eigenschaft" Url="html/f3d36388-69cd-be85-65bc-ba24944a506b.htm" />
+  <HelpKINode Title="ResetPasswordModel.OnGet Methode" Url="html/cf568864-3b47-e2d0-3521-a7b182c2ca3e.htm" />
+  <HelpKINode Title="ResetPasswordModel.OnPostAsync Methode" Url="html/21c198be-e96a-4fb0-b2a8-20ef159f3535.htm" />
+  <HelpKINode Title="ResetPasswordModel.ResetPasswordModel Konstruktor" Url="html/f770b922-8abc-a3a7-4346-a37a74b2b7aa.htm" />
+  <HelpKINode Title="ReturnUrl Eigenschaft">
+    <HelpKINode Title="LoginModel.ReturnUrl Eigenschaft " Url="html/b3ef2c47-8fda-efa9-8c97-338db171c8b4.htm" />
+    <HelpKINode Title="RegisterModel.ReturnUrl Eigenschaft " Url="html/9520c637-e47c-f47c-6a0d-d4fb7c8f9d66.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Role Eigenschaft">
+    <HelpKINode Title="AddUserModel.InputModel.Role Eigenschaft " Url="html/ac7eb06c-e69c-a670-ed2c-22fd0411d196.htm" />
+    <HelpKINode Title="EditUserModel.InputModel.Role Eigenschaft " Url="html/c0f4140c-47fe-8f85-b82d-5863ded83780.htm" />
+    <HelpKINode Title="GenerateCodesModel.GenerateInputModel.Role Eigenschaft " Url="html/6ab97514-6b28-c708-c85e-5782d6f94fcc.htm" />
+    <HelpKINode Title="RegistrationCode.Role Eigenschaft " Url="html/d31d3b82-1e04-a671-cf5c-b8e6e84cfa7d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Role Feld" Url="html/0e713c02-9626-d32d-bba9-6f3c1ff5e85c.htm" />
+  <HelpKINode Title="Roles Feld" Url="html/587412f3-9ecf-e54d-8920-5715ede7f1b1.htm" />
+  <HelpKINode Title="RoleSort Eigenschaft" Url="html/698d0096-93d1-76bf-bd5b-9717242a87c6.htm" />
+  <HelpKINode Title="Sale Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Sale Eigenschaft " Url="html/c9a5f149-9404-065f-4f00-c78ce2951893.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Sale Eigenschaft " Url="html/dfe95553-8f97-e193-54c6-3c73e47e55a0.htm" />
+    <HelpKINode Title="Product.Sale Eigenschaft " Url="html/906533bb-c7a6-fca2-66b7-72bf0ace6ef8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SaleSort Eigenschaft" Url="html/b1860aa4-91d9-ea71-dc8b-d4b564a01d8a.htm" />
+  <HelpKINode Title="Search(Of T) Methode" Url="html/6fcd7f13-3f38-5de8-26ed-31f3b4691ef1.htm" />
+  <HelpKINode Title="Search&lt;T&gt; Methode" Url="html/6fcd7f13-3f38-5de8-26ed-31f3b4691ef1.htm" />
+  <HelpKINode Title="SearchKeyWord Eigenschaft">
+    <HelpKINode Title="AllergensModel.InputModel.SearchKeyWord Eigenschaft " Url="html/3d539965-d072-665d-85ef-561db1460d4e.htm" />
+    <HelpKINode Title="AllergensModel.SearchKeyWord Eigenschaft " Url="html/bc5711d0-2afc-196c-2eb1-63303aaf214e.htm" />
+    <HelpKINode Title="FormsModel.InputModel.SearchKeyWord Eigenschaft " Url="html/2863147d-3479-4989-09d0-1489095a01ec.htm" />
+    <HelpKINode Title="FormsModel.SearchKeyWord Eigenschaft " Url="html/b0d988f1-033a-d0c1-17ff-956063f074b1.htm" />
+    <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft " Url="html/6b16aaf4-f47c-4aea-eeb4-7c7b33b14291.htm" />
+    <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft " Url="html/b6abacc9-10d9-4e58-22e2-a9f36d2f28fc.htm" />
+    <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft " Url="html/f5d9ec2f-3790-9022-6133-fffeb978e708.htm" />
+    <HelpKINode Title="IndexModel.InputModel.SearchKeyWord Eigenschaft " Url="html/7f034603-e0f7-38e7-92b0-0d7f7ae52b10.htm" />
+    <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft " Url="html/a7ceb9ec-a8a7-177b-7118-400b669b3e8d.htm" />
+    <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft " Url="html/04f19b9e-21ec-67f3-ba7a-7d55ddc728fd.htm" />
+    <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft " Url="html/5f2cc01f-e591-acbc-7de8-de5a604122fa.htm" />
+    <HelpKINode Title="IndexModel.SearchKeyWord Eigenschaft " Url="html/3bed626a-6cd1-c3ab-7800-0f38eba1798a.htm" />
+    <HelpKINode Title="OrderHistoryModel.InputModel.SearchKeyWord Eigenschaft " Url="html/003ab222-bc1c-0927-fbb8-a3e5ded5f772.htm" />
+    <HelpKINode Title="OrderHistoryModel.InputModel.SearchKeyWord Eigenschaft " Url="html/a7cea8e7-c619-9b2b-9ad1-51d31d18547f.htm" />
+    <HelpKINode Title="OrderHistoryModel.SearchKeyWord Eigenschaft " Url="html/0d152417-182b-da69-9e23-787e1d4145ac.htm" />
+    <HelpKINode Title="OrderHistoryModel.SearchKeyWord Eigenschaft " Url="html/b7f5ceae-ea6c-6db5-a4b1-d18ebfa543ee.htm" />
+    <HelpKINode Title="ProductsModel.InputModel.SearchKeyWord Eigenschaft " Url="html/f8c367d4-e249-2c7f-b851-6b8f3552f2aa.htm" />
+    <HelpKINode Title="ProductsModel.SearchKeyWord Eigenschaft " Url="html/60fe4298-3e3b-bc19-b575-2718b4bacf6c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SelectedAllergens Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.SelectedAllergens Eigenschaft " Url="html/39f3906e-39f1-f938-c72e-562f8f4f0370.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.SelectedAllergens Eigenschaft " Url="html/2229a614-4aeb-d92c-0eea-db6c0b5ecc6b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SendMail Methode" Url="html/6e8f2c64-88c2-1bd9-d15e-ef0872556703.htm" />
+  <HelpKINode Title="SetFormId Methode" Url="html/6c01b029-8f94-5982-e702-d07ae33c068d.htm" />
+  <HelpKINode Title="SEVEN Eigenschaft" Url="html/8212ccdd-3d1b-86df-3d86-256c1ba58d4b.htm" />
+  <HelpKINode Title="ShowAlert Methode" Url="html/afc813d9-ba77-68b6-9aad-e472ce52fe60.htm" />
+  <HelpKINode Title="ShowRequestId Eigenschaft">
+    <HelpKINode Title="ErrorModel.ShowRequestId Eigenschaft " Url="html/44de48f7-7910-e81c-e023-15a5765d0446.htm" />
+    <HelpKINode Title="ErrorViewModel.ShowRequestId Eigenschaft " Url="html/a24b4293-73c3-9ac6-3828-87f24357b36e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SIX Eigenschaft" Url="html/e3f7ddfe-9a53-21d2-8982-35749cf202ce.htm" />
+  <HelpKINode Title="Size Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Size Eigenschaft " Url="html/1a9d1e87-21e8-d6cd-20df-3c42917a5fc6.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Size Eigenschaft " Url="html/98563937-514f-4659-a8ae-e0e65f0fca87.htm" />
+    <HelpKINode Title="Product.Size Eigenschaft " Url="html/c5871a03-ab66-58c4-f4e4-88130ae1f008.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SizeSort Eigenschaft" Url="html/573b6bb4-2a53-6345-a835-2beaeaaaa76d.htm" />
+  <HelpKINode Title="Sort Eigenschaft">
+    <HelpKINode Title="AllergensModel.Sort Eigenschaft " Url="html/5176f989-1b2a-4bb1-f116-3c45dc5dbe04.htm" />
+    <HelpKINode Title="FormsModel.Sort Eigenschaft " Url="html/f49de8a0-dbd3-6750-7635-a9c984d7cb05.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Split Methode" Url="html/0be67835-f3c7-76eb-b96c-5dfbed260a46.htm" />
+  <HelpKINode Title="SplitDays Methode" Url="html/a3b79764-7d4c-83dd-0c22-1079c05252f5.htm" />
+  <HelpKINode Title="SqlNow Eigenschaft" Url="html/0377131c-609d-be0b-6a55-d7fc85e29e95.htm" />
+  <HelpKINode Title="Start Eigenschaft" Url="html/d2018990-0c38-4c14-04b8-070ae2b19ec6.htm" />
+  <HelpKINode Title="Startup Klasse">
+    <HelpKINode Title="Startup Klasse" Url="html/dbf8512c-0806-f465-8d5d-a3f036e5f82b.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/fe2d6f26-9ab7-765f-309e-590b526b283c.htm" />
+    <HelpKINode Title="Felder" Url="html/0489601e-128e-54df-8c3a-9e346dc982f0.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/6e894da7-3e09-25c7-11d7-753d03e953b9.htm" />
+    <HelpKINode Title="Methoden" Url="html/5e925277-ef82-04cb-3ca5-5617195eb2c7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Startup.Configuration Eigenschaft" Url="html/bfe5acf1-1d8f-6bea-f1b2-6416536a1d11.htm" />
+  <HelpKINode Title="Startup.Configure Methode" Url="html/0edc7128-04dc-71f3-4c2a-f75076ffa7de.htm" />
+  <HelpKINode Title="Startup.ConfigureServices Methode" Url="html/9f95aa54-9c83-eebe-08c7-5d0db45a24c8.htm" />
+  <HelpKINode Title="Startup.Context Feld" Url="html/545f820e-8cf2-3df5-fb0b-29d3594ad883.htm" />
+  <HelpKINode Title="Startup.DefaultConnection Eigenschaft" Url="html/e85b6186-6273-89db-e9cf-8fe88954592e.htm" />
+  <HelpKINode Title="Startup.MailAddress Eigenschaft" Url="html/755e7b08-1941-01fd-6890-1d57c7700670.htm" />
+  <HelpKINode Title="Startup.MailPassword Eigenschaft" Url="html/018e2753-7621-fb0e-22f5-a4d4c7aa1e25.htm" />
+  <HelpKINode Title="Startup.MailPop3 Eigenschaft" Url="html/c57f2f4e-74f7-d222-ebdf-0cd245ebba71.htm" />
+  <HelpKINode Title="Startup.MailReturn Eigenschaft" Url="html/30d7dd1f-3512-8073-5ee6-21cbe8e1d069.htm" />
+  <HelpKINode Title="Startup.MailSmtp Eigenschaft" Url="html/68bd4adb-36cc-277e-abe3-39f04e93c0ec.htm" />
+  <HelpKINode Title="Startup.PasswordRequirements Eigenschaft" Url="html/ce17226f-f2cd-720e-bf60-ec34a1939b99.htm" />
+  <HelpKINode Title="Startup.Startup Konstruktor" Url="html/6e894da7-3e09-25c7-11d7-753d03e953b9.htm" />
+  <HelpKINode Title="StatusMessage Eigenschaft" Url="html/01d13db9-98af-3923-c073-44302ab9a2ec.htm" />
+  <HelpKINode Title="Stream Eigenschaft">
+    <HelpKINode Title="EditFormModel.InputModel.Stream Eigenschaft " Url="html/b1ecae48-3cca-1039-1c03-aa268c73a1bf.htm" />
+    <HelpKINode Title="Form.Stream Eigenschaft " Url="html/64bfc8cf-9778-2755-b17f-0499fef1e17f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Streams Eigenschaft" Url="html/239649fd-5cdd-bf9b-246c-91959b18a9f9.htm" />
+  <HelpKINode Title="StuckAsAdmin Eigenschaft" Url="html/0628730d-6036-43c6-8937-b59e6892abf1.htm" />
+  <HelpKINode Title="TagDerArbeit Eigenschaft" Url="html/5d003ab8-fbe4-dd3b-1e70-4c5fbd17ebf8.htm" />
+  <HelpKINode Title="TagDerDeutschenEinheit Eigenschaft" Url="html/db09d820-a2fa-289b-c8ae-55a82b42bb45.htm" />
+  <HelpKINode Title="TEN Eigenschaft" Url="html/4c2a0636-7325-28bb-d009-b853091c9393.htm" />
+  <HelpKINode Title="TimeRange Klasse">
+    <HelpKINode Title="TimeRange Klasse" Url="html/4ed11e4a-4ae5-aa90-f575-53b2dbc2d1b5.htm" />
+    <HelpKINode Title="Eigenschaften" Url="html/2533b4bd-182d-fb1b-3c86-f7d9cc6040e8.htm" />
+    <HelpKINode Title="Konstruktor" Url="html/990d6403-6f54-07d7-5e36-76369769c94e.htm" />
+    <HelpKINode Title="Methoden" Url="html/0d8f8b83-fb3c-68ad-6b3a-a72802303cc3.htm" />
+    <HelpKINode Title="Typkonvertierungen" Url="html/781cdcd1-8870-c724-aaa2-3ab4c5c3d4d3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TimeRange.Duration Eigenschaft" Url="html/436b82a7-a83d-4382-21f4-fbc09f844297.htm" />
+  <HelpKINode Title="TimeRange.End Eigenschaft" Url="html/102c5eb2-00ea-20ba-2f7a-2723985e9289.htm" />
+  <HelpKINode Title="TimeRange.Equals Methode" Url="html/20e570a2-170c-32ff-d8f0-2560aa6eec2c.htm" />
+  <HelpKINode Title="TimeRange.Exclude Methode" Url="html/dbaa115c-7493-adc5-c1a7-c9d288a3e220.htm" />
+  <HelpKINode Title="TimeRange.GetHashCode Methode" Url="html/91605548-1860-2e7c-8bb2-55f42891da5e.htm" />
+  <HelpKINode Title="TimeRange.Includes Methode" Url="html/bd8e859a-45a5-c92f-6936-dcdf1eecbea1.htm" />
+  <HelpKINode Title="TimeRange.Split Methode" Url="html/0be67835-f3c7-76eb-b96c-5dfbed260a46.htm" />
+  <HelpKINode Title="TimeRange.SplitDays Methode" Url="html/a3b79764-7d4c-83dd-0c22-1079c05252f5.htm" />
+  <HelpKINode Title="TimeRange.Start Eigenschaft" Url="html/d2018990-0c38-4c14-04b8-070ae2b19ec6.htm" />
+  <HelpKINode Title="TimeRange.TimeRange Konstruktor" Url="html/990d6403-6f54-07d7-5e36-76369769c94e.htm" />
+  <HelpKINode Title="TimeRange.ToString Methode" Url="html/fbb3cc0f-04de-18a2-b2c3-87f43d7c1330.htm" />
+  <HelpKINode Title="ToCurrentOrder Methode" Url="html/237a85d8-0edb-ea6d-0ec7-d4ed4ed6b6b7.htm" />
+  <HelpKINode Title="ToHistoricOrder Methode" Url="html/2087ebf0-b794-cdb3-d149-a1f16a71e7ac.htm" />
+  <HelpKINode Title="ToInput Methode" Url="html/96351972-fb14-92c4-fca4-b1fb2d74ad83.htm" />
+  <HelpKINode Title="ToString Methode">
+    <HelpKINode Title="Allergen.ToString Methode " Url="html/3e49d15b-1c70-5323-19e1-564fcf760e32.htm" />
+    <HelpKINode Title="Form.Grade.ToString Methode " Url="html/2538b4ef-5f1c-105a-31d3-eadbfcf4aded.htm" />
+    <HelpKINode Title="Form.ToString Methode " Url="html/76bba281-49b6-912e-703f-c66ae58d08b0.htm" />
+    <HelpKINode Title="Name.ToString Methode " Url="html/99cccfd4-cb63-429b-9c93-dd8dd52c51bc.htm" />
+    <HelpKINode Title="Product.ToString Methode " Url="html/c08dece6-7f2a-2029-f57a-91ca1144795d.htm" />
+    <HelpKINode Title="TimeRange.ToString Methode " Url="html/fbb3cc0f-04de-18a2-b2c3-87f43d7c1330.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TotalPriceSort Eigenschaft">
+    <HelpKINode Title="IndexModel.TotalPriceSort Eigenschaft " Url="html/4007c929-5c94-7dd6-3cb2-93ba4abde8f3.htm" />
+    <HelpKINode Title="IndexModel.TotalPriceSort Eigenschaft " Url="html/c4e0ed25-24c8-c6a6-90cf-bd481b15b23b.htm" />
+    <HelpKINode Title="OrderHistoryModel.TotalPriceSort Eigenschaft " Url="html/768f7538-d5cc-c24b-223e-8347ad939796.htm" />
+    <HelpKINode Title="OrderHistoryModel.TotalPriceSort Eigenschaft " Url="html/4d3bf26d-6851-ee6a-bf62-eff77003c5d2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Up Methode" Url="html/cd64e78e-6043-9c9e-daa2-24b43f47ccea.htm" />
+  <HelpKINode Title="User Eigenschaft" Url="html/c8c7fa48-5169-e6fc-bac0-b790bea65282.htm" />
+  <HelpKINode Title="UserAlreadyHasPassword Methode" Url="html/0f533810-0e7f-2697-73b9-4b2487269321.htm" />
+  <HelpKINode Title="UserAlreadyInRole Methode" Url="html/6a19c180-af5e-c1ea-4df8-4930ddf6b04e.htm" />
+  <HelpKINode Title="UserId Eigenschaft" Url="html/38d18475-65ef-d94f-a8a3-760ec012cf98.htm" />
+  <HelpKINode Title="UserLockoutNotEnabled Methode" Url="html/73611583-5589-09d2-8c3a-3d07e6814ec3.htm" />
+  <HelpKINode Title="UserNameSort Eigenschaft">
+    <HelpKINode Title="IndexModel.UserNameSort Eigenschaft " Url="html/51be8865-c864-5817-1d4c-bd2ec8d709fe.htm" />
+    <HelpKINode Title="IndexModel.UserNameSort Eigenschaft " Url="html/71fb4d5a-38c4-7b21-4fa8-c07929962470.htm" />
+    <HelpKINode Title="OrderHistoryModel.UserNameSort Eigenschaft " Url="html/b2c94284-5c64-a58d-7c22-582153ae9d2a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UserNotInRole Methode" Url="html/5e98949d-0aec-46dd-270c-194c1c7c2ca5.htm" />
+  <HelpKINode Title="Users Eigenschaft" Url="html/2412b9f0-8467-faa7-e509-afad400fa52a.htm" />
+  <HelpKINode Title="ValidCollectionPlaces Eigenschaft" Url="html/22d4f1ec-5ca8-4dbd-94cb-263ec7722fe7.htm" />
+  <HelpKINode Title="ValidCollectionTimes Eigenschaft" Url="html/6923fb2e-bfeb-5a02-58ad-feaeb7e8e9ba.htm" />
+  <HelpKINode Title="ValidCollectionTimes Methode" Url="html/1344fa8d-8a0f-fc30-ece3-23050fdb459e.htm" />
+  <HelpKINode Title="ValueTuple(Of DateTime, DateTime) to TimeRange Konvertierungen" Url="html/852cfdf4-cd64-bb4b-d106-8c52d61bf4ea.htm" />
+  <HelpKINode Title="ValueTuple&lt;DateTime, DateTime&gt; to TimeRange Konvertierungen" Url="html/852cfdf4-cd64-bb4b-d106-8c52d61bf4ea.htm" />
+  <HelpKINode Title="Vegan Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Vegan Eigenschaft " Url="html/a7c5cbb5-97fb-6841-40a3-09a6877aebae.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Vegan Eigenschaft " Url="html/48b5ee6e-6985-6147-f2a7-d3d9fd3ed201.htm" />
+    <HelpKINode Title="Product.Vegan Eigenschaft " Url="html/30d70d9b-61e9-a1f5-c831-f3dc51991b8c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VeganSort Eigenschaft" Url="html/addd7401-c8e5-037f-0651-c5e8e6fb24d8.htm" />
+  <HelpKINode Title="Vegetarian Eigenschaft">
+    <HelpKINode Title="AddProductModel.InputModel.Vegetarian Eigenschaft " Url="html/980c1b94-5f82-6046-50c1-64e985f8b87b.htm" />
+    <HelpKINode Title="EditProductModel.InputModel.Vegetarian Eigenschaft " Url="html/a4276268-674e-384b-3158-3acc76c6013f.htm" />
+    <HelpKINode Title="Product.Vegetarian Eigenschaft " Url="html/a2d07499-0e09-d185-edf7-08153b95fb9e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VegetarianSort Eigenschaft" Url="html/7e507907-f699-c446-9018-4171336c3e5f.htm" />
+  <HelpKINode Title="Weihnachtstag1 Eigenschaft" Url="html/1109edf9-d6a6-9c68-8b89-a15694ea9f21.htm" />
+  <HelpKINode Title="Weihnachtstag2 Eigenschaft" Url="html/c966a826-771d-c093-b1c1-6b23477f76c2.htm" />
+  <HelpKINode Title="Welcome" Url="html/78d1e0a3-86cc-42fa-be06-a5647d5e775b.htm" />
+  <HelpKINode Title="Year Eigenschaft">
+    <HelpKINode Title="EditFormModel.InputModel.Year Eigenschaft " Url="html/011284f1-3e52-19c5-446d-caa20de29eff.htm" />
+    <HelpKINode Title="Form.Grade.Year Eigenschaft " Url="html/fb71a25d-cde5-4a13-5e52-67a35f48d677.htm" />
+  </HelpKINode>
+</HelpKI>

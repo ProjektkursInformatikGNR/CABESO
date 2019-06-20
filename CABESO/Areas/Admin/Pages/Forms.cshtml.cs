@@ -28,7 +28,7 @@ namespace CABESO.Areas.Admin.Pages
         public string SearchKeyWord { get; set; }
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="FormsModel"/>.
+        /// Erzeugt ein neues <see cref="FormsModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection

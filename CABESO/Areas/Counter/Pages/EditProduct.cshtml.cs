@@ -1,7 +1,6 @@
 ﻿using CABESO.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
@@ -10,7 +9,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace CABESO.Areas.Counter.Pages
@@ -34,7 +32,7 @@ namespace CABESO.Areas.Counter.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="EditProductModel"/>.
+        /// Erzeugt ein neues <see cref="EditProductModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection
@@ -47,7 +45,7 @@ namespace CABESO.Areas.Counter.Pages
 
         /// <summary>
         /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
-        /// Er initialisiert das zu bearbeitende Produkt <seealso cref="CurrentProduct"/> anhand der ID.</para>
+        /// Er initialisiert das zu bearbeitende Produkt <see cref="CurrentProduct"/> anhand der ID.</para>
         /// </summary>
         /// <param name="id">
         /// Die ID des zu bearbeitenden Produkts
@@ -62,7 +60,7 @@ namespace CABESO.Areas.Counter.Pages
         /// Er bearbeitet auf Grundlage der eingegebenen Informationen das gegebenene Produkt.</para>
         /// </summary>
         /// <returns>
-        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
         /// </returns>
         public async Task<IActionResult> OnPost()
         {
@@ -189,7 +187,7 @@ namespace CABESO.Areas.Counter.Pages
         }
 
         /// <summary>
-        /// Konvertiert den Preisbetrag vom <seealso cref="decimal"/>-Format ins HTML-Format als <seealso cref="string"/>.
+        /// Konvertiert den Preisbetrag vom <see cref="decimal"/>-Format ins HTML-Format als <see cref="string"/>.
         /// </summary>
         /// <param name="number">
         /// Der Preis als Dezimalwert
@@ -200,7 +198,7 @@ namespace CABESO.Areas.Counter.Pages
         public string ToInput(decimal? number) => string.Format(CultureInfo.InvariantCulture, "{0}", number ?? string.Empty as object);
 
         /// <summary>
-        /// Konvertiert die Preiseingabe vom <seealso cref="string"/>-Format ins <seealso cref="decimal"/>-Format.
+        /// Konvertiert die Preiseingabe vom <see cref="string"/>-Format ins <see cref="decimal"/>-Format.
         /// </summary>
         /// <param name="number">
         /// Die Benutzereingabe

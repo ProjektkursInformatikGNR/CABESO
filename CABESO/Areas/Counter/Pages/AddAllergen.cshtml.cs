@@ -15,7 +15,7 @@ namespace CABESO.Areas.Counter.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="AddAllergenModel"/>.
+        /// Erzeugt ein neues <see cref="AddAllergenModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection
@@ -49,7 +49,7 @@ namespace CABESO.Areas.Counter.Pages
         /// Er erstellt auf Grundlage der eingegebenen Informationen ein neues Allergen.</para>
         /// </summary>
         /// <returns>
-        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
         /// </returns>
         public IActionResult OnPost()
         {

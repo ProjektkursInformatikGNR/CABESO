@@ -1,20 +1,20 @@
-﻿using System;
-using System.Linq;
-using CABESO.Data;
+﻿using CABESO.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.Linq;
 
 namespace CABESO.Areas.Admin.Pages
 {
     /// <summary>
-    /// Eine Hilfsklasse zur AJAX-Kommunikation der <seealso cref="Areas_Admin_Pages_AddForm"/>-Weboberfläche.
+    /// Eine Hilfsklasse zur AJAX-Kommunikation der <see cref="AddForm"/>-Weboberfläche.
     /// </summary>
     public class GetFormDataModel : PageModel
     {
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="GetFormDataModel"/>.
+        /// Erzeugt ein neues <see cref="GetFormDataModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection

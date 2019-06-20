@@ -20,7 +20,7 @@ namespace CABESO.Areas.Admin.Pages
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
         /// <summary>
-        /// Erzeugt ein neues <seealso cref="EditFormModel"/>.
+        /// Erzeugt ein neues <see cref="EditFormModel"/>.
         /// </summary>
         /// <param name="context">
         /// Der Datenbankkontext per Dependency Injection
@@ -57,7 +57,7 @@ namespace CABESO.Areas.Admin.Pages
 
         /// <summary>
         /// Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>
-        /// Er initialisiert die zu bearbeitende Schulklasse <seealso cref="CurrentForm"/> anhand der ID.</para>
+        /// Er initialisiert die zu bearbeitende Schulklasse <see cref="CurrentForm"/> anhand der ID.</para>
         /// </summary>
         /// <param name="id">
         /// Die ID der zu bearbeitenden Schulklasse
@@ -72,7 +72,7 @@ namespace CABESO.Areas.Admin.Pages
         /// Er bearbeitet auf Grundlage der eingegebenen Informationen die gegebene Schulklasse.</para>
         /// </summary>
         /// <returns>
-        /// Ein <seealso cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
         /// </returns>
         public IActionResult OnPost()
         {

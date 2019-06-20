@@ -3,14 +3,13 @@ using Microsoft.AspNetCore.Hosting;
 using OpenPop.Mime;
 using OpenPop.Pop3;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading;
 
 namespace CABESO
@@ -91,7 +90,7 @@ namespace CABESO
             }
         }
 
-        public static bool SendMail(string mailAddress, string subject, string body, string name = null)
+        public static bool SendMail(string mailAddress, string name, string subject, string body, params (string Url, string Text)[] links)
         {
             if (!HasInternetConnection())
                 return true;
@@ -102,6 +101,9 @@ namespace CABESO
                 Credentials = new NetworkCredential(Startup.MailAddress, Startup.MailPassword),
                 EnableSsl = true
             };
+
+            string[] substitutions = Array.ConvertAll(links, link => $"<a href='{HtmlEncoder.Default.Encode(link.Url)}'>{link.Text}</a> ({HtmlEncoder.Default.Encode(link.Url)})");
+            body = string.Format(body, substitutions);
             MailMessage mailMessage = new MailMessage
             {
                 From = new MailAddress(Startup.MailAddress),

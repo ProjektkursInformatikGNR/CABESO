@@ -10,32 +10,32 @@ namespace CABESO.Areas.Admin.Pages
     public static class ManageNavPages
     {
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Admin_Pages_Index"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="IndexModel"/>
         /// </summary>
         public static string Index => "Index";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Admin_Pages_GenerateCodes"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="GenerateCodesModel"/>
         /// </summary>
         public static string GenerateCodes => "GenerateCodes";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Admin_Pages_EditUser"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="EditUserModel"/>
         /// </summary>
         public static string EditUser => "EditUser";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Admin_Pages_Forms"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="FormsModel"/>
         /// </summary>
         public static string Forms => "Forms";
 
         /// <summary>
-        /// Der Name der Seite <seealso cref="Areas_Admin_Pages_EditForm"/>
+        /// Der Name der Seite mit der Modellklasse <see cref="EditFormModel"/>
         /// </summary>
         public static string EditForm => "EditForm";
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Admin_Pages_Index"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="IndexModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -46,7 +46,7 @@ namespace CABESO.Areas.Admin.Pages
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Admin_Pages_GenerateCodes"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="GenerateCodesModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -57,7 +57,7 @@ namespace CABESO.Areas.Admin.Pages
         public static string GenerateCodesNavClass(ViewContext viewContext) => PageNavClass(viewContext, GenerateCodes);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Admin_Pages_EditUser"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="EditUserModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -68,7 +68,7 @@ namespace CABESO.Areas.Admin.Pages
         public static string EditUserNavClass(ViewContext viewContext) => PageNavClass(viewContext, EditUser);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Admin_Pages_Forms"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="FormsModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
@@ -79,7 +79,7 @@ namespace CABESO.Areas.Admin.Pages
         public static string FormsNavClass(ViewContext viewContext) => PageNavClass(viewContext, Forms);
 
         /// <summary>
-        /// Die Navigationsinformation für die Seite <seealso cref="Areas_Admin_Pages_EditForm"/>
+        /// Die Navigationsinformation für die Seite mit der Modellklasse <see cref="EditFormModel"/>
         /// </summary>
         /// <param name="viewContext">
         /// Der Ansichtkontext
