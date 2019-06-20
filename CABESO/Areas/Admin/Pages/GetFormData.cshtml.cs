@@ -1,4 +1,5 @@
 ﻿using CABESO.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
@@ -7,8 +8,9 @@ using System.Linq;
 namespace CABESO.Areas.Admin.Pages
 {
     /// <summary>
-    /// Eine Hilfsklasse zur AJAX-Kommunikation der <see cref="AddForm"/>-Weboberfläche.
+    /// Eine Hilfsklasse zur AJAX-Kommunikation der <see cref="Areas_Admin_Pages_AddForm"/>-Weboberfläche.
     /// </summary>
+    [Authorize(Roles = "Admin")]
     public class GetFormDataModel : PageModel
     {
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung

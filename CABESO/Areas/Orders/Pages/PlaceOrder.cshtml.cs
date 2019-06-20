@@ -8,15 +8,35 @@ using System.Linq;
 
 namespace CABESO.Areas.Orders.Pages
 {
+    /// <summary>
+    /// Die Modellklasse der Razor Page zum Aufgeben einer Bestellung
+    /// </summary>
     [Authorize]
     public class PlaceOrderModel : PageModel
     {
+        /// <summary>
+        /// Die zur Verfügung stehenden Produkte
+        /// </summary>
         public Product[] Products { get; private set;}
+
+        /// <summary>
+        /// Die zur Verfügung stehenden Zeiträume zur Abholung
+        /// </summary>
         public TimeRange[] ValidCollectionTimes { get; private set; }
+
+        /// <summary>
+        /// Die möglichen Abholorte (E-Gebäude und G-Gebäude)
+        /// </summary>
         public string[] ValidCollectionPlaces { get => new[] { "E-Gebäude", "G-Gebäude" }; }
 
         private readonly ApplicationDbContext _context; //Das Vermittlungsobjekt der Datenbankanbindung
 
+        /// <summary>
+        /// Erzeugt ein neues <see cref="PlaceOrderModel"/>.
+        /// </summary>
+        /// <param name="context">
+        /// Der Datenbankkontext per Dependency Injection
+        /// </param>
         public PlaceOrderModel(ApplicationDbContext context)
         {
             _context = context;
@@ -24,10 +44,13 @@ namespace CABESO.Areas.Orders.Pages
             Products = new[] { new Product() { Id = -1 } }.Concat(_context.Products.OrderBy(product => product.Name)).ToArray();
         }
 
-        public void OnGet()
-        {
-        }
-
+        /// <summary>
+        /// Dieser Event Handler wird aufgerufen, sobald das "POST"-Event auslöst wird (hier durch Betätigung des "Bestellen"-Buttons).<para>
+        /// Er gibt die Bestellungen auf Grundlage der eingegebenen Produktauswahlen auf.</para>
+        /// </summary>
+        /// <returns>
+        /// Ein <see cref="IActionResult"/>, das bestimmt, wie nach Behandlung des Event vorgegangen werden soll.
+        /// </returns>
         public IActionResult OnPost()
         {
             if (!ValidCollectionTimes.Any(tr => tr.Includes(Input.CollectionTime)))
@@ -54,18 +77,37 @@ namespace CABESO.Areas.Orders.Pages
 		/// </summary>
 		public class InputModel
         {
+            /// <summary>
+            /// Die IDs der zu bestellenden Produkte (erforderlich)
+            /// </summary>
+            [Required]
             [Display(Name = "Wähle ein Gericht aus:")]
             public int[] ProductIds { get; set; }
 
+            /// <summary>
+            /// Die jeweilige Menge der Bestellungen (erforderlich)
+            /// </summary>
+            [Required]
             [Display(Name = "Anzahl:")]
             public int[] Numbers { get; set; }
 
+            /// <summary>
+            /// Weitere Anmerkungen zur Bestellung (optional)
+            /// </summary>
             [Display(Name = "Weitere Anmerkungen:")]
             public string Notes { get; set; }
 
+            /// <summary>
+            /// Die gewünschte Zeit der Abholung der Bestellung (erforderlich)
+            /// </summary>
+            [Required]
             [Display(Name = "Gewünschte Abholzeit:")]
             public DateTime CollectionTime { get; set; }
 
+            /// <summary>
+            /// Der gewünschte Ort der Abholung der Bestellung (erforderlich)
+            /// </summary>
+            [Required]
             [Display(Name = "Gewünschter Abholort:")]
             public string CollectionPlace { get; set; }
         }
