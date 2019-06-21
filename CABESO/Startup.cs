@@ -177,11 +177,6 @@ namespace CABESO
             app.UseStatusCodePagesWithReExecute("/error/{0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Documentation", "Help")),
-                RequestPath = "/Documentation"
-            });
             app.UseCookiePolicy();
             app.UseAuthentication();
 
