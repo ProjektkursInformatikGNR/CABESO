@@ -2,7 +2,8 @@
 <topic id="78d1e0a3-86cc-42fa-be06-a5647d5e775b" revisionNumber="1">
 	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<introduction>
-			<para>Hallo!</para>
+			<para>Dies ist die Klassenbibliothek der Cafeteria-Bestellsoftware (CABESO). Hierin ist der Code der Software strukturiert zusammengefasst, um die Weiterarbeit am Projekt zu vereinfachen. Um zum Quellcode zu gelangen, bitte <link href="https://github.com/ProjektkursInformatikGNR/CABESO">hier</link> klicken.
+    </para>
 		</introduction>
     <section>
       <title></title>

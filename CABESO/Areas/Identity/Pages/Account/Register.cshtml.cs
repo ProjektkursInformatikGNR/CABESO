@@ -107,6 +107,18 @@ namespace CABESO.Areas.Identity.Pages.Account
             /// Die ID der Schulklasse, der der zu registrierende Benutzer zugeordnet werden soll
             /// </summary>
             public int? FormId { get; set; }
+
+            /// <summary>
+            /// Der Indikator, ob die Allgemeinen Geschäftsbedingungen akzeptiert wurden
+            /// </summary>
+            [Required]
+            public bool AgbAccepted { get; set; }
+
+            /// <summary>
+            /// Der Indikator, ob die Datenschutzerklärung akzeptiert wurde
+            /// </summary>
+            [Required]
+            public bool PrivacyAccepted { get; set; }
         }
 
         /// <summary>
@@ -142,7 +154,7 @@ namespace CABESO.Areas.Identity.Pages.Account
                 return RedirectToPage(new { code = Input.Code });
 
             ModelState.Remove("Input.Code");
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && Input.AgbAccepted && Input.PrivacyAccepted)
             {
                 IdentityUser user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 IdentityResult result = await _userManager.CreateAsync(user, Input.Password);

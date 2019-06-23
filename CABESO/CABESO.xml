@@ -1987,6 +1987,16 @@
             Die ID der Schulklasse, der der zu registrierende Benutzer zugeordnet werden soll
             </summary>
         </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel.AgbAccepted">
+            <summary>
+            Der Indikator, ob die Allgemeinen Geschäftsbedingungen akzeptiert wurden
+            </summary>
+        </member>
+        <member name="P:CABESO.Areas.Identity.Pages.Account.RegisterModel.InputModel.PrivacyAccepted">
+            <summary>
+            Der Indikator, ob die Datenschutzerklärung akzeptiert wurde
+            </summary>
+        </member>
         <member name="M:CABESO.Areas.Identity.Pages.Account.RegisterModel.OnGet(System.String,System.String)">
             <summary>
             Dieser Event Handler wird aufgerufen, wenn die Weboberfläche angefordert wird.<para>

@@ -70,7 +70,7 @@ namespace CABESO.Areas.Identity.Pages.Account.Manage
             /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Neues Passwort bestätigen")]
-            [Compare("NewPassword", ErrorMessage = "Das neue und alte Passwort stimmen nicht überein.")]
+            [Compare("NewPassword", ErrorMessage = "Das neue Passwort stimmt nicht mit der Bestätigung überein.")]
             public string ConfirmPassword { get; set; }
         }
 
