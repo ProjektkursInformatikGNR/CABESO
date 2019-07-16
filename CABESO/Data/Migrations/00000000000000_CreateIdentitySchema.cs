@@ -312,6 +312,33 @@ namespace CABESO.Data.Migrations
 
             migrationBuilder.InsertData("Codes", new[] { "Code", "CreationTime", "Role" }, new object[] { "1234567890", Database.SqlNow, Resources.Student });
 
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Weizen" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Dinkel" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Kamut" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Roggen" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Gerste" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Hafer" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Krebstiere" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Eier" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Fische" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Erdnüsse" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Sojabohnen" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Milch/Laktose" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Mandeln" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Haselnüsse" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Walnüsse" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Kaschunüsse" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Pecannüsse" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Paranüsse" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Pistazien" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Macadamianüsse" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Sellerie" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Senf" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Sesamsamen" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Schwefeldioxid und Sulphite > 10mg/kg oder > 10mg/l" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Lupinen" });
+            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Weichtiere" });
+
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "belegtes Brötchen mit Käse", 1.1, false, false, "1|4|8|12|22" });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "belegtes Brötchen mit Salami", 1.1, false, false, "1|4|8|21|22" });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "belegtes Brötchen mit Fleischwurst", 1.1, false, false, "1|4|8|22" });
@@ -373,9 +400,9 @@ namespace CABESO.Data.Migrations
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "Pizza mit Salami", 1.4, false, false, "1|12|21|22" });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "Pizza mit Thunfisch", 1.5, false, false, "1|12" });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "Lasagne", 2.4, false, false, "1|8|12" });
-            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "vegetarischer Salat", 2.5, true, true });
-            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "Salat mit Schinken", 2.5, false, false });
-            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "Salat mit Hähnchen", 3.5, false, false });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "vegetarischer Salat", 2.5, true, true, "" });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "Salat mit Schinken", 2.5, false, false, "" });
+            migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Allergens" }, new object[] { "Salat mit Hähnchen", 3.5, false, false, "" });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Kinderriegel", 0.4, true, false });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Duplo", 0.4, true, false });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan" }, new object[] { "Hanuta", 0.4, true, false });
@@ -394,33 +421,6 @@ namespace CABESO.Data.Migrations
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size", "Deposit" }, new object[] { "Mineralwasser", 0.5, true, true, "0,33 l", 0.15 });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size" }, new object[] { "Kakao", 0.4, true, false, "0,25 l" });
             migrationBuilder.InsertData("Products", new[] { "Name", "Price", "Vegetarian", "Vegan", "Size" }, new object[] { "Kakao", 0.7, true, false, "0,5 l" });
-
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Weizen" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Dinkel" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Kamut" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Roggen" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Gerste" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Hafer" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Krebstiere" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Eier" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Fische" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Erdnüsse" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Sojabohnen" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Milch/Laktose" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Mandeln" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Haselnüsse" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Walnüsse" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Kaschunüsse" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Pecannüsse" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Paranüsse" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Pistazien" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Macadamianüsse" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Sellerie" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Senf" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Sesamsamen" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Schwefeldioxid und Sulphite > 10mg/kg oder > 10mg/l" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Lupinen" });
-            migrationBuilder.InsertData("Allergens", new[] { "Description" }, new object[] { "Weichtiere" });
         }
 
         /// <summary>

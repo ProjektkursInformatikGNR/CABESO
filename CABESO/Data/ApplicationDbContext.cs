@@ -106,7 +106,7 @@ namespace CABESO.Data
             builder.Entity<Form>().Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Entity<Allergen>().Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Entity<Product>().Property(p => p.Id).ValueGeneratedOnAdd();
-            builder.Entity<Product>().Property(p => p.Allergens).HasConversion(v => v == null ? "" : string.Join('|', Array.ConvertAll(v, allergen => allergen.Id)), v => string.IsNullOrEmpty(v) ? new Allergen[0] : Array.ConvertAll(v.Split('|', StringSplitOptions.RemoveEmptyEntries), id => new ApplicationDbContext().Allergens.Find(int.Parse(id))));
+            builder.Entity<Product>().Property(p => p.Allergens).HasConversion(v => v == null ? "" : string.Join('|', Array.ConvertAll(v, allergen => allergen.Id)), v => new Allergen[0]);//string.IsNullOrEmpty(v) ? new Allergen[0] : Array.ConvertAll(v.Split('|', StringSplitOptions.RemoveEmptyEntries), id => new ApplicationDbContext().Allergens.Find(int.Parse(id))));
             builder.Entity<HistoricOrder>().Property(p => p.User).HasColumnName("UserId").HasConversion(v => v.Id, v => Users.Find(v));
             builder.Entity<HistoricOrder>().Property(p => p.Product).HasColumnName("ProductId").HasConversion(v => v.Id, v => Products.Find(v));
             builder.Entity<CurrentOrder>().Property(p => p.Id).ValueGeneratedOnAdd();
